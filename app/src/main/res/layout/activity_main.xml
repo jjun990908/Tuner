@@ -12,13 +12,14 @@
         android:layout_height="wrap_content"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/test_1"
-        tools:layout_editor_absoluteX="0dp"
-        tools:ignore="MissingConstraints" />
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="0dp" />
 
     <Button
         android:id="@+id/btn_c_l"
         android:layout_width="23dp"
         android:layout_height="240dp"
+        android:layout_marginEnd="3dp"
         android:background="#00FFFFFF"
         android:text="C"
         app:layout_constraintEnd_toEndOf="parent"
@@ -64,6 +65,7 @@
         android:text="D"
         app:layout_constraintStart_toEndOf="@+id/btn_b_l"
         app:layout_constraintTop_toTopOf="parent" />
+
     <Button
         android:id="@+id/btn_f_h"
         android:layout_width="23dp"
@@ -73,6 +75,7 @@
         android:text="F"
         app:layout_constraintStart_toEndOf="@+id/btn_d_h"
         app:layout_constraintTop_toTopOf="parent" />
+
     <Button
         android:id="@+id/btn_a_h"
         android:layout_width="23dp"
@@ -132,6 +135,7 @@
         android:text="A"
         app:layout_constraintEnd_toStartOf="@+id/btn_f_l"
         app:layout_constraintTop_toTopOf="parent" />
+
     <Button
         android:id="@+id/btn_c_h"
         android:layout_width="23dp"
@@ -141,6 +145,7 @@
         android:text="C"
         app:layout_constraintEnd_toStartOf="@+id/btn_a_l"
         app:layout_constraintTop_toTopOf="parent" />
+
     <Button
         android:id="@+id/btn_e_h"
         android:layout_width="23dp"
@@ -150,6 +155,7 @@
         android:text="E"
         app:layout_constraintEnd_toStartOf="@+id/btn_c_h"
         app:layout_constraintTop_toTopOf="parent" />
+
     <Button
         android:id="@+id/btn_g_h"
         android:layout_width="23dp"
@@ -159,6 +165,7 @@
         android:text="G"
         app:layout_constraintEnd_toStartOf="@+id/btn_e_h"
         app:layout_constraintTop_toTopOf="parent" />
+
     <Button
         android:id="@+id/btn_b_h"
         android:layout_width="23dp"
@@ -168,6 +175,7 @@
         android:text="B"
         app:layout_constraintEnd_toStartOf="@+id/btn_g_h"
         app:layout_constraintTop_toTopOf="parent" />
+
     <Button
         android:id="@+id/btn_d_hh"
         android:layout_width="23dp"
@@ -184,10 +192,28 @@
         android:layout_height="70dp"
         android:layout_marginBottom="50dp"
         android:background="@drawable/button_state"
+        android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="@+id/imageView"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        android:visibility="gone"/>
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <androidx.constraintlayout.widget.Barrier
+        android:id="@+id/barrier"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:barrierDirection="left" />
+
+    <androidx.constraintlayout.widget.Barrier
+        android:id="@+id/barrier2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:barrierDirection="left" />
+
+    <androidx.constraintlayout.widget.Barrier
+        android:id="@+id/barrier3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:barrierDirection="left" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
