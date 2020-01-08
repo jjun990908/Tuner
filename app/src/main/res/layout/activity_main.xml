@@ -19,7 +19,7 @@
         android:id="@+id/btn_c_l"
         android:layout_width="23dp"
         android:layout_height="240dp"
-        android:layout_marginEnd="3dp"
+        android:layout_marginEnd="5dp"
         android:background="#00FFFFFF"
         android:text="C"
         app:layout_constraintEnd_toEndOf="parent"
