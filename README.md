@@ -13,4 +13,4 @@
 
 # License
  
-- [WIKIWIKI](www.wiki2.co.kr)
+- [WIKIWIKI](http://wiki2.co.kr)
