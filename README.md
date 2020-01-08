@@ -7,8 +7,10 @@
   - 17음계 칼림바 전용
   - 한국어 지원
 
-# New Features!
+![main_img](./main_image.jpg)
 
+# New Features!
+  
   - 개발중...
 
 # License
