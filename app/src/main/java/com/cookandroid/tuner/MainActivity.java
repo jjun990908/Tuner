@@ -21,6 +21,7 @@ public class MainActivity extends AppCompatActivity {
                 WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_main);
 
+        //버튼 연결
         btn_c_l = (Button)findViewById(R.id.btn_c_l);
         btn_d_l = (Button)findViewById(R.id.btn_d_l);
         btn_e_l = (Button)findViewById(R.id.btn_e_l);
@@ -40,8 +41,9 @@ public class MainActivity extends AppCompatActivity {
         correct = (Button)findViewById(R.id.correct);
 
         if(ActivityCompat.checkSelfPermission(getApplicationContext(), Manifest.permission.RECORD_AUDIO) != PackageManager.PERMISSION_GRANTED){
-
+        //마이크 권한 확인
             ActivityCompat.requestPermissions(MainActivity.this, new String[]{Manifest.permission.RECORD_AUDIO},0);
+            //없다면 마이크 권한 요청
         }
 
         btn_c_l.setOnClickListener(new View.OnClickListener() {
