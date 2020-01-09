@@ -1,10 +1,12 @@
 package com.cookandroid.tuner;
 
+import androidx.annotation.ColorInt;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 
 import android.Manifest;
 import android.content.pm.PackageManager;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -12,12 +14,36 @@ import android.view.View;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.PopupMenu;
+import android.widget.TextView;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
-    Button btn_c_l,btn_d_l,btn_e_l,btn_f_l,btn_g_l,btn_a_l,btn_b_l,btn_c_h,btn_d_h,btn_e_h,btn_f_h,btn_a_h,btn_b_h,btn_c_hh,btn_d_hh,btn_e_hh,correct,btn_help,btn_tune;
+    Button btn_c_l,btn_d_l,btn_e_l,btn_f_l,btn_g_l,btn_a_l,btn_b_l,btn_c_h,btn_d_h,btn_e_h,btn_f_h,btn_g_h,btn_a_h,btn_b_h,btn_c_hh,btn_d_hh,btn_e_hh,btn_help,btn_tune;
+    View centerView,centerRView,centerLView,centerRRView,centerLLView;
+    TextView keyText;
 
+    //버튼색 초기화함수
+    public void setBtnWhite(){
+        btn_c_l.setBackgroundResource(R.drawable.btn_key_shape);
+        btn_d_l.setBackgroundResource(R.drawable.btn_key_shape);
+        btn_e_l.setBackgroundResource(R.drawable.btn_key_shape);
+        btn_f_l.setBackgroundResource(R.drawable.btn_key_shape);
+        btn_g_l.setBackgroundResource(R.drawable.btn_key_shape);
+        btn_a_l.setBackgroundResource(R.drawable.btn_key_shape);
+        btn_b_l.setBackgroundResource(R.drawable.btn_key_shape);
+        btn_c_h.setBackgroundResource(R.drawable.btn_key_shape);
+        btn_d_h.setBackgroundResource(R.drawable.btn_key_shape);
+        btn_e_h.setBackgroundResource(R.drawable.btn_key_shape);
+        btn_f_h.setBackgroundResource(R.drawable.btn_key_shape);
+        btn_g_h.setBackgroundResource(R.drawable.btn_key_shape);
+        btn_a_h.setBackgroundResource(R.drawable.btn_key_shape);
+        btn_b_h.setBackgroundResource(R.drawable.btn_key_shape);
+        btn_c_hh.setBackgroundResource(R.drawable.btn_key_shape);
+        btn_d_hh.setBackgroundResource(R.drawable.btn_key_shape);
+        btn_e_hh.setBackgroundResource(R.drawable.btn_key_shape);
+
+    }
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -37,14 +63,20 @@ public class MainActivity extends AppCompatActivity {
         btn_d_h = (Button)findViewById(R.id.btn_d_h);
         btn_e_h = (Button)findViewById(R.id.btn_e_h);
         btn_f_h = (Button)findViewById(R.id.btn_f_h);
+        btn_g_h = (Button)findViewById(R.id.btn_g_h);
         btn_a_h = (Button)findViewById(R.id.btn_a_h);
         btn_b_h = (Button)findViewById(R.id.btn_b_h);
         btn_c_hh = (Button)findViewById(R.id.btn_c_hh);
         btn_d_hh = (Button)findViewById(R.id.btn_d_hh);
         btn_e_hh = (Button)findViewById(R.id.btn_e_hh);
-        correct = (Button)findViewById(R.id.correct);
         btn_help = (Button)findViewById(R.id.btn_help);
         btn_tune = (Button)findViewById(R.id.btn_tune);
+        centerView = (View)findViewById(R.id.view_CenterView);
+        centerRView = (View)findViewById(R.id.view_CenterRView);
+        centerRRView = (View)findViewById(R.id.view_CenterRRView);
+        centerLView = (View)findViewById(R.id.view_CenterLView);
+        centerLLView = (View)findViewById(R.id.view_CenterLLView);
+        keyText = (TextView)findViewById(R.id.key);
 
         if(ActivityCompat.checkSelfPermission(getApplicationContext(), Manifest.permission.RECORD_AUDIO) != PackageManager.PERMISSION_GRANTED){
         //마이크 권한 확인
@@ -57,7 +89,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 setBtnWhite();
                 keyText.setText("C");
-                btn_c_l.setBackgroundColor(Color.parseColor("#2800C4FF"));
+                btn_c_l.setBackgroundResource(R.drawable.btn_key_select_shape);
             }
         });
         btn_d_l.setOnClickListener(new View.OnClickListener() {
@@ -65,7 +97,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 setBtnWhite();
                 keyText.setText("D");
-                btn_d_l.setBackgroundColor(Color.parseColor("#2800C4FF"));
+                btn_d_l.setBackgroundResource(R.drawable.btn_key_select_shape);
             }
         });
         btn_e_l.setOnClickListener(new View.OnClickListener() {
@@ -73,7 +105,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 setBtnWhite();
                 keyText.setText("E");
-                btn_e_l.setBackgroundColor(Color.parseColor("#2800C4FF"));
+                btn_e_l.setBackgroundResource(R.drawable.btn_key_select_shape);
             }
         });
         btn_f_l.setOnClickListener(new View.OnClickListener() {
@@ -81,7 +113,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 setBtnWhite();
                 keyText.setText("F");
-                btn_f_l.setBackgroundColor(Color.parseColor("#2800C4FF"));
+                btn_f_l.setBackgroundResource(R.drawable.btn_key_select_shape);
             }
         });
         btn_g_l.setOnClickListener(new View.OnClickListener() {
@@ -89,7 +121,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 setBtnWhite();
                 keyText.setText("G");
-                btn_g_l.setBackgroundColor(Color.parseColor("#2800C4FF"));
+                btn_g_l.setBackgroundResource(R.drawable.btn_key_select_shape);
             }
         });
         btn_a_l.setOnClickListener(new View.OnClickListener() {
@@ -97,7 +129,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 setBtnWhite();
                 keyText.setText("A");
-                btn_a_l.setBackgroundColor(Color.parseColor("#2800C4FF"));
+                btn_a_l.setBackgroundResource(R.drawable.btn_key_select_shape);
             }
         });
         btn_b_l.setOnClickListener(new View.OnClickListener() {
@@ -105,7 +137,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 setBtnWhite();
                 keyText.setText("B");
-                btn_b_l.setBackgroundColor(Color.parseColor("#2800C4FF"));
+                btn_b_l.setBackgroundResource(R.drawable.btn_key_select_shape);
             }
         });
         btn_c_h.setOnClickListener(new View.OnClickListener() {
@@ -113,7 +145,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 setBtnWhite();
                 keyText.setText("C");
-                btn_c_h.setBackgroundColor(Color.parseColor("#2800C4FF"));
+                btn_c_h.setBackgroundResource(R.drawable.btn_key_select_shape);
             }
         });
         btn_d_h.setOnClickListener(new View.OnClickListener() {
@@ -121,7 +153,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 setBtnWhite();
                 keyText.setText("D");
-                btn_d_h.setBackgroundColor(Color.parseColor("#2800C4FF"));
+                btn_d_h.setBackgroundResource(R.drawable.btn_key_select_shape);
             }
         });
         btn_e_h.setOnClickListener(new View.OnClickListener() {
@@ -129,7 +161,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 setBtnWhite();
                 keyText.setText("E");
-                btn_e_h.setBackgroundColor(Color.parseColor("#2800C4FF"));
+                btn_e_h.setBackgroundResource(R.drawable.btn_key_select_shape);
             }
         });
         btn_f_h.setOnClickListener(new View.OnClickListener() {
@@ -137,7 +169,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 setBtnWhite();
                 keyText.setText("F");
-                btn_f_h.setBackgroundColor(Color.parseColor("#2800C4FF"));
+                btn_f_h.setBackgroundResource(R.drawable.btn_key_select_shape);
             }
         });
         btn_g_h.setOnClickListener(new View.OnClickListener() {
@@ -145,7 +177,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 setBtnWhite();
                 keyText.setText("G");
-                btn_g_h.setBackgroundColor(Color.parseColor("#2800C4FF"));
+                btn_g_h.setBackgroundResource(R.drawable.btn_key_select_shape);
             }
         });
         btn_a_h.setOnClickListener(new View.OnClickListener() {
@@ -153,7 +185,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 setBtnWhite();
                 keyText.setText("A");
-                btn_a_h.setBackgroundColor(Color.parseColor("#2800C4FF"));
+                btn_a_h.setBackgroundResource(R.drawable.btn_key_select_shape);
             }
         });
         btn_b_h.setOnClickListener(new View.OnClickListener() {
@@ -161,7 +193,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 setBtnWhite();
                 keyText.setText("B");
-                btn_b_h.setBackgroundColor(Color.parseColor("#2800C4FF"));
+                btn_b_h.setBackgroundResource(R.drawable.btn_key_select_shape);
             }
         });
         btn_c_hh.setOnClickListener(new View.OnClickListener() {
@@ -169,7 +201,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 setBtnWhite();
                 keyText.setText("C");
-                btn_c_hh.setBackgroundColor(Color.parseColor("#2800C4FF"));
+                btn_c_hh.setBackgroundResource(R.drawable.btn_key_select_shape);
             }
         });
         btn_d_hh.setOnClickListener(new View.OnClickListener() {
@@ -177,7 +209,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 setBtnWhite();
                 keyText.setText("D");
-                btn_d_hh.setBackgroundColor(Color.parseColor("#2800C4FF"));
+                btn_d_hh.setBackgroundResource(R.drawable.btn_key_select_shape);
             }
         });
         btn_e_hh.setOnClickListener(new View.OnClickListener() {
@@ -185,7 +217,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 setBtnWhite();
                 keyText.setText("E");
-                btn_e_hh.setBackgroundColor(Color.parseColor("#2800C4FF"));
+                btn_e_hh.setBackgroundResource(R.drawable.btn_key_select_shape);
             }
         });
 
@@ -194,9 +226,6 @@ public class MainActivity extends AppCompatActivity {
         btn_tune.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(final View view) {
-
-
-
                 //팝업객체 생성
                 PopupMenu popup = new PopupMenu(getApplicationContext(),view);
                 popup.getMenuInflater().inflate(R.menu.popup,popup.getMenu());
@@ -226,5 +255,7 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
+
+
     }
 }
