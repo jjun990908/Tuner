@@ -65,7 +65,7 @@ public class MainActivity extends AppCompatActivity {
 
         btn_tune.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
+            public void onClick(final View view) {
                 //팝업객체 생성
                 PopupMenu popup = new PopupMenu(getApplicationContext(),view);
                 popup.getMenuInflater().inflate(R.menu.popup,popup.getMenu());
@@ -75,14 +75,18 @@ public class MainActivity extends AppCompatActivity {
                     public boolean onMenuItemClick(MenuItem menuItem) {
                         switch (menuItem.getItemId()){
                             case R.id.sharp:
-                                Toast.makeText(getApplicationContext(),"샵",Toast.LENGTH_SHORT);
+                                //#을 클릭했을때 이벤트 실행코드
+                                Toast.makeText(getApplicationContext(),"샵",Toast.LENGTH_SHORT).show();
                                 break;
                             case R.id.origin:
-                                Toast.makeText(getApplicationContext(),"원음",Toast.LENGTH_SHORT);
+                                //0dmf 클릭했을때 이벤트 실행코드
+                                Toast.makeText(getApplicationContext(),"원음",Toast.LENGTH_SHORT).show();
                                 break;
                             case R.id.flat:
-                                Toast.makeText(getApplicationContext(),"플랫",Toast.LENGTH_SHORT);
+                                //b을 클릭했을때 이벤트 실행코드
+                                Toast.makeText(getApplicationContext(),"플랫",Toast.LENGTH_SHORT).show();
                                 break;
+
                         }
                         return true;
                     }
