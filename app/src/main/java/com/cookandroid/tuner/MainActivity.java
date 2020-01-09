@@ -5,8 +5,6 @@ import androidx.core.app.ActivityCompat;
 
 import android.Manifest;
 import android.content.pm.PackageManager;
-import android.media.AudioManager;
-import android.media.SoundPool;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -48,9 +46,6 @@ public class MainActivity extends AppCompatActivity {
         btn_help = (Button)findViewById(R.id.btn_help);
         btn_tune = (Button)findViewById(R.id.btn_tune);
 
-        final SoundPool sp = new SoundPool(5, AudioManager.STREAM_MUSIC,0);
-        final int soundID = sp.load(this,R.raw.gun,1);
-
         if(ActivityCompat.checkSelfPermission(getApplicationContext(), Manifest.permission.RECORD_AUDIO) != PackageManager.PERMISSION_GRANTED){
         //마이크 권한 확인
             ActivityCompat.requestPermissions(MainActivity.this, new String[]{Manifest.permission.RECORD_AUDIO},0);
@@ -60,20 +55,141 @@ public class MainActivity extends AppCompatActivity {
         btn_c_l.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(correct.getVisibility()==view.GONE){
-                    correct.setVisibility(view.VISIBLE);
-                }else{
-                    correct.setVisibility(view.GONE);
-                }
+                setBtnWhite();
+                keyText.setText("C");
+                btn_c_l.setBackgroundColor(Color.parseColor("#2800C4FF"));
+            }
+        });
+        btn_d_l.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                setBtnWhite();
+                keyText.setText("D");
+                btn_d_l.setBackgroundColor(Color.parseColor("#2800C4FF"));
+            }
+        });
+        btn_e_l.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                setBtnWhite();
+                keyText.setText("E");
+                btn_e_l.setBackgroundColor(Color.parseColor("#2800C4FF"));
+            }
+        });
+        btn_f_l.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                setBtnWhite();
+                keyText.setText("F");
+                btn_f_l.setBackgroundColor(Color.parseColor("#2800C4FF"));
+            }
+        });
+        btn_g_l.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                setBtnWhite();
+                keyText.setText("G");
+                btn_g_l.setBackgroundColor(Color.parseColor("#2800C4FF"));
+            }
+        });
+        btn_a_l.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                setBtnWhite();
+                keyText.setText("A");
+                btn_a_l.setBackgroundColor(Color.parseColor("#2800C4FF"));
+            }
+        });
+        btn_b_l.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                setBtnWhite();
+                keyText.setText("B");
+                btn_b_l.setBackgroundColor(Color.parseColor("#2800C4FF"));
+            }
+        });
+        btn_c_h.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                setBtnWhite();
+                keyText.setText("C");
+                btn_c_h.setBackgroundColor(Color.parseColor("#2800C4FF"));
+            }
+        });
+        btn_d_h.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                setBtnWhite();
+                keyText.setText("D");
+                btn_d_h.setBackgroundColor(Color.parseColor("#2800C4FF"));
+            }
+        });
+        btn_e_h.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                setBtnWhite();
+                keyText.setText("E");
+                btn_e_h.setBackgroundColor(Color.parseColor("#2800C4FF"));
+            }
+        });
+        btn_f_h.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                setBtnWhite();
+                keyText.setText("F");
+                btn_f_h.setBackgroundColor(Color.parseColor("#2800C4FF"));
+            }
+        });
+        btn_g_h.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                setBtnWhite();
+                keyText.setText("G");
+                btn_g_h.setBackgroundColor(Color.parseColor("#2800C4FF"));
+            }
+        });
+        btn_a_h.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                setBtnWhite();
+                keyText.setText("A");
+                btn_a_h.setBackgroundColor(Color.parseColor("#2800C4FF"));
+            }
+        });
+        btn_b_h.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                setBtnWhite();
+                keyText.setText("B");
+                btn_b_h.setBackgroundColor(Color.parseColor("#2800C4FF"));
+            }
+        });
+        btn_c_hh.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                setBtnWhite();
+                keyText.setText("C");
+                btn_c_hh.setBackgroundColor(Color.parseColor("#2800C4FF"));
+            }
+        });
+        btn_d_hh.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                setBtnWhite();
+                keyText.setText("D");
+                btn_d_hh.setBackgroundColor(Color.parseColor("#2800C4FF"));
+            }
+        });
+        btn_e_hh.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                setBtnWhite();
+                keyText.setText("E");
+                btn_e_hh.setBackgroundColor(Color.parseColor("#2800C4FF"));
             }
         });
 
-        btn_c_l.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public  void onClick(View v){
-                sp.play(soundID,1,1,0,0,1f);
-            }
-        });
+
 
         btn_tune.setOnClickListener(new View.OnClickListener() {
             @Override
