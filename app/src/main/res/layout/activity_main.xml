@@ -6,26 +6,15 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <!-- 배경, 추후에 지울 예정 -->
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/test_2"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="0dp" />
-
     <Button
         android:id="@+id/btn_c_l"
         android:layout_width="23dp"
         android:layout_height="240dp"
-        android:layout_marginEnd="5dp"
         android:background="#00FFFFFF"
         android:text="C"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/imageView"
-        app:layout_constraintTop_toTopOf="@+id/imageView" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/btn_e_l"
@@ -192,30 +181,11 @@
         android:id="@+id/correct"
         android:layout_width="70dp"
         android:layout_height="70dp"
-        android:layout_marginBottom="50dp"
         android:background="@drawable/correct_shape"
         android:visibility="gone"
-        app:layout_constraintBottom_toBottomOf="@+id/imageView"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <androidx.constraintlayout.widget.Barrier
-        android:id="@+id/barrier"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:barrierDirection="left" />
-
-    <androidx.constraintlayout.widget.Barrier
-        android:id="@+id/barrier2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:barrierDirection="left" />
-
-    <androidx.constraintlayout.widget.Barrier
-        android:id="@+id/barrier3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:barrierDirection="left" />
+        app:layout_constraintStart_toStartOf="parent"
+        tools:layout_editor_absoluteY="411dp" />
 
     <!-- 도움말 버튼 -->
     <Button
@@ -225,7 +195,7 @@
         android:layout_marginStart="15dp"
         android:layout_marginBottom="16dp"
         android:background="@drawable/smallbtn_shape"
-        android:text="?"
+        android:text="*"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
