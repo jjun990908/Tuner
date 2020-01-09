@@ -14,31 +14,34 @@ import android.view.View;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.PopupMenu;
+import android.widget.TextView;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
-    Button btn_c_l,btn_d_l,btn_e_l,btn_f_l,btn_g_l,btn_a_l,btn_b_l,btn_c_h,btn_d_h,btn_e_h,btn_f_h,btn_g_h,btn_a_h,btn_b_h,btn_c_hh,btn_d_hh,btn_e_hh,check,btn_help,btn_tune;
+    Button btn_c_l,btn_d_l,btn_e_l,btn_f_l,btn_g_l,btn_a_l,btn_b_l,btn_c_h,btn_d_h,btn_e_h,btn_f_h,btn_g_h,btn_a_h,btn_b_h,btn_c_hh,btn_d_hh,btn_e_hh,btn_help,btn_tune;
+    View centerView,centerRView,centerLView,centerRRView,centerLLView;
+    TextView keyText;
 
     //버튼색 초기화함수
     public void setBtnWhite(){
-        btn_c_l.setBackgroundColor(Color.parseColor("#00FFFFFF"));
-        btn_d_l.setBackgroundColor(Color.parseColor("#00FFFFFF"));
-        btn_e_l.setBackgroundColor(Color.parseColor("#00FFFFFF"));
-        btn_f_l.setBackgroundColor(Color.parseColor("#00FFFFFF"));
-        btn_g_l.setBackgroundColor(Color.parseColor("#00FFFFFF"));
-        btn_a_l.setBackgroundColor(Color.parseColor("#00FFFFFF"));
-        btn_b_l.setBackgroundColor(Color.parseColor("#00FFFFFF"));
-        btn_c_h.setBackgroundColor(Color.parseColor("#00FFFFFF"));
-        btn_d_h.setBackgroundColor(Color.parseColor("#00FFFFFF"));
-        btn_e_h.setBackgroundColor(Color.parseColor("#00FFFFFF"));
-        btn_f_h.setBackgroundColor(Color.parseColor("#00FFFFFF"));
-        btn_g_h.setBackgroundColor(Color.parseColor("#00FFFFFF"));
-        btn_a_h.setBackgroundColor(Color.parseColor("#00FFFFFF"));
-        btn_b_h.setBackgroundColor(Color.parseColor("#00FFFFFF"));
-        btn_c_hh.setBackgroundColor(Color.parseColor("#00FFFFFF"));
-        btn_d_hh.setBackgroundColor(Color.parseColor("#00FFFFFF"));
-        btn_e_hh.setBackgroundColor(Color.parseColor("#00FFFFFF"));
+        btn_c_l.setBackgroundResource(Integer.parseInt("@drawable/btn_key_shape"));
+        btn_d_l.setBackgroundResource(Integer.parseInt("@drawable/btn_key_shape"));
+        btn_e_l.setBackgroundResource(Integer.parseInt("@drawable/btn_key_shape"));
+        btn_f_l.setBackgroundResource(Integer.parseInt("@drawable/btn_key_shape"));
+        btn_g_l.setBackgroundResource(Integer.parseInt("@drawable/btn_key_shape"));
+        btn_a_l.setBackgroundResource(Integer.parseInt("@drawable/btn_key_shape"));
+        btn_b_l.setBackgroundResource(Integer.parseInt("@drawable/btn_key_shape"));
+        btn_c_h.setBackgroundResource(Integer.parseInt("@drawable/btn_key_shape"));
+        btn_d_h.setBackgroundResource(Integer.parseInt("@drawable/btn_key_shape"));
+        btn_e_h.setBackgroundResource(Integer.parseInt("@drawable/btn_key_shape"));
+        btn_f_h.setBackgroundResource(Integer.parseInt("@drawable/btn_key_shape"));
+        btn_g_h.setBackgroundResource(Integer.parseInt("@drawable/btn_key_shape"));
+        btn_a_h.setBackgroundResource(Integer.parseInt("@drawable/btn_key_shape"));
+        btn_b_h.setBackgroundResource(Integer.parseInt("@drawable/btn_key_shape"));
+        btn_c_hh.setBackgroundResource(Integer.parseInt("@drawable/btn_key_shape"));
+        btn_d_hh.setBackgroundResource(Integer.parseInt("@drawable/btn_key_shape"));
+        btn_e_hh.setBackgroundResource(Integer.parseInt("@drawable/btn_key_shape"));
 
     }
     @Override
@@ -66,9 +69,14 @@ public class MainActivity extends AppCompatActivity {
         btn_c_hh = (Button)findViewById(R.id.btn_c_hh);
         btn_d_hh = (Button)findViewById(R.id.btn_d_hh);
         btn_e_hh = (Button)findViewById(R.id.btn_e_hh);
-        check = (Button)findViewById(R.id.correct);
         btn_help = (Button)findViewById(R.id.btn_help);
         btn_tune = (Button)findViewById(R.id.btn_tune);
+        centerView = (View)findViewById(R.id.view_CenterView);
+        centerRView = (View)findViewById(R.id.view_CenterRView);
+        centerRRView = (View)findViewById(R.id.view_CenterRRView);
+        centerLView = (View)findViewById(R.id.view_CenterLView);
+        centerLLView = (View)findViewById(R.id.view_CenterLLView);
+        keyText = (TextView)findViewById(R.id.key);
 
         if(ActivityCompat.checkSelfPermission(getApplicationContext(), Manifest.permission.RECORD_AUDIO) != PackageManager.PERMISSION_GRANTED){
         //마이크 권한 확인
@@ -80,7 +88,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 setBtnWhite();
-                check.setText("C");
+                keyText.setText("C");
                 btn_c_l.setBackgroundColor(Color.parseColor("#2800C4FF"));
             }
         });
@@ -88,7 +96,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 setBtnWhite();
-                check.setText("D");
+                keyText.setText("D");
                 btn_d_l.setBackgroundColor(Color.parseColor("#2800C4FF"));
             }
         });
@@ -96,7 +104,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 setBtnWhite();
-                check.setText("E");
+                keyText.setText("E");
                 btn_e_l.setBackgroundColor(Color.parseColor("#2800C4FF"));
             }
         });
@@ -104,7 +112,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 setBtnWhite();
-                check.setText("F");
+                keyText.setText("F");
                 btn_f_l.setBackgroundColor(Color.parseColor("#2800C4FF"));
             }
         });
@@ -112,7 +120,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 setBtnWhite();
-                check.setText("G");
+                keyText.setText("G");
                 btn_g_l.setBackgroundColor(Color.parseColor("#2800C4FF"));
             }
         });
@@ -120,7 +128,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 setBtnWhite();
-                check.setText("A");
+                keyText.setText("A");
                 btn_a_l.setBackgroundColor(Color.parseColor("#2800C4FF"));
             }
         });
@@ -128,7 +136,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 setBtnWhite();
-                check.setText("B");
+                keyText.setText("B");
                 btn_b_l.setBackgroundColor(Color.parseColor("#2800C4FF"));
             }
         });
@@ -136,7 +144,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 setBtnWhite();
-                check.setText("C");
+                keyText.setText("C");
                 btn_c_h.setBackgroundColor(Color.parseColor("#2800C4FF"));
             }
         });
@@ -144,7 +152,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 setBtnWhite();
-                check.setText("D");
+                keyText.setText("D");
                 btn_d_h.setBackgroundColor(Color.parseColor("#2800C4FF"));
             }
         });
@@ -152,7 +160,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 setBtnWhite();
-                check.setText("E");
+                keyText.setText("E");
                 btn_e_h.setBackgroundColor(Color.parseColor("#2800C4FF"));
             }
         });
@@ -160,7 +168,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 setBtnWhite();
-                check.setText("F");
+                keyText.setText("F");
                 btn_f_h.setBackgroundColor(Color.parseColor("#2800C4FF"));
             }
         });
@@ -168,7 +176,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 setBtnWhite();
-                check.setText("G");
+                keyText.setText("G");
                 btn_g_h.setBackgroundColor(Color.parseColor("#2800C4FF"));
             }
         });
@@ -176,7 +184,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 setBtnWhite();
-                check.setText("A");
+                keyText.setText("A");
                 btn_a_h.setBackgroundColor(Color.parseColor("#2800C4FF"));
             }
         });
@@ -184,7 +192,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 setBtnWhite();
-                check.setText("B");
+                keyText.setText("B");
                 btn_b_h.setBackgroundColor(Color.parseColor("#2800C4FF"));
             }
         });
@@ -192,7 +200,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 setBtnWhite();
-                check.setText("C");
+                keyText.setText("C");
                 btn_c_hh.setBackgroundColor(Color.parseColor("#2800C4FF"));
             }
         });
@@ -200,7 +208,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 setBtnWhite();
-                check.setText("D");
+                keyText.setText("D");
                 btn_d_hh.setBackgroundColor(Color.parseColor("#2800C4FF"));
             }
         });
@@ -208,7 +216,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 setBtnWhite();
-                check.setText("E");
+                keyText.setText("E");
                 btn_e_hh.setBackgroundColor(Color.parseColor("#2800C4FF"));
             }
         });
