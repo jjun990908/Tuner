@@ -10,7 +10,8 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name="com.cookandroid.tuner.SplashActivity"
-            android:theme="@style/SplashTheme">
+            android:theme="@style/SplashTheme"
+            android:screenOrientation="portrait" > // 스플래시 액티비티 로딩 시, 화면 세로 고정
 
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
