@@ -79,7 +79,7 @@ public class MainActivity extends AppCompatActivity {
                                 Toast.makeText(getApplicationContext(),"샵",Toast.LENGTH_SHORT).show();
                                 break;
                             case R.id.origin:
-                                //0dmf 클릭했을때 이벤트 실행코드
+                                //0을 클릭했을때 이벤트 실행코드
                                 Toast.makeText(getApplicationContext(),"원음",Toast.LENGTH_SHORT).show();
                                 break;
                             case R.id.flat:
