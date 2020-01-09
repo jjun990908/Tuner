@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 <item android:id="@+id/sharp"
-    android:title="#"/>
+    android:title="#(샾)"/>
 
 <item android:id="@+id/origin"
-    android:title="0"/>
+    android:title="♮(원음)"/>
 
 <item android:id="@+id/flat"
-    android:title="b"/>
+    android:title="♭(플랫)"/>
 </menu>
