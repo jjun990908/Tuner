@@ -6,6 +6,7 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
+    <!-- 배경, 추후에 지울 예정 -->
     <ImageView
         android:id="@+id/imageView"
         android:layout_width="wrap_content"
@@ -180,18 +181,19 @@
         android:id="@+id/btn_d_hh"
         android:layout_width="23dp"
         android:layout_height="80dp"
-        android:layout_marginEnd="40dp"
+        android:layout_marginEnd="16dp"
         android:background="#00FFFFFF"
         android:text="D"
         app:layout_constraintEnd_toStartOf="@+id/btn_b_h"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <!-- 맞는 음일때 초록색 -->
     <Button
         android:id="@+id/correct"
         android:layout_width="70dp"
         android:layout_height="70dp"
         android:layout_marginBottom="50dp"
-        android:background="@drawable/button_state"
+        android:background="@drawable/correct_shape"
         android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="@+id/imageView"
         app:layout_constraintEnd_toEndOf="parent"
@@ -214,6 +216,30 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:barrierDirection="left" />
+
+    <!-- 도움말 버튼 -->
+    <Button
+        android:id="@+id/btn_help"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="15dp"
+        android:layout_marginBottom="16dp"
+        android:background="@drawable/smallbtn_shape"
+        android:text="?"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <!-- #, 원음, 플랫버튼 -->
+    <Button
+        android:id="@+id/btn_tune"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="55dp"
+        android:layout_marginBottom="16dp"
+        android:background="@drawable/smallbtn_shape"
+        android:text="#"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
