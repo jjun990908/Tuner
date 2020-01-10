@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 
 import android.Manifest;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Color;
 import android.os.Bundle;
@@ -21,7 +22,7 @@ public class MainActivity extends AppCompatActivity {
 
     Button btn_c_l,btn_d_l,btn_e_l,btn_f_l,btn_g_l,btn_a_l,btn_b_l,btn_c_h,btn_d_h,btn_e_h,btn_f_h,btn_g_h,btn_a_h,btn_b_h,btn_c_hh,btn_d_hh,btn_e_hh,btn_help,btn_tune;
     View centerView,centerRView,centerLView,centerRRView,centerLLView;
-    TextView keyText;
+    TextView keyText,sharpText,flatText;
 
     //버튼색 초기화함수
     public void setBtnWhite(){
@@ -77,6 +78,8 @@ public class MainActivity extends AppCompatActivity {
         centerLView = (View)findViewById(R.id.view_CenterLView);
         centerLLView = (View)findViewById(R.id.view_CenterLLView);
         keyText = (TextView)findViewById(R.id.key);
+        sharpText = (TextView)findViewById(R.id.sharp);
+        flatText = (TextView)findViewById(R.id.flat);
 
         if(ActivityCompat.checkSelfPermission(getApplicationContext(), Manifest.permission.RECORD_AUDIO) != PackageManager.PERMISSION_GRANTED){
         //마이크 권한 확인
@@ -84,6 +87,7 @@ public class MainActivity extends AppCompatActivity {
             //없다면 마이크 권한 요청
         }
 
+        //각각의 건반 클릭 이벤트 함수
         btn_c_l.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -222,6 +226,12 @@ public class MainActivity extends AppCompatActivity {
         });
 
 
+        btn_help.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(getApplicationContext(),help_popup.class));
+            }
+        });
 
         btn_tune.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -237,14 +247,20 @@ public class MainActivity extends AppCompatActivity {
                             case R.id.sharp:
                                 //#을 클릭했을때 이벤트 실행코드
                                 Toast.makeText(getApplicationContext(),"샵",Toast.LENGTH_SHORT).show();
+                                sharpText.setVisibility(view.VISIBLE);
+                                flatText.setVisibility(view.GONE);
                                 break;
                             case R.id.origin:
-                                //0을 클릭했을때 이벤트 실행코드
+                                //원음을 클릭했을때 이벤트 실행코드
                                 Toast.makeText(getApplicationContext(),"원음",Toast.LENGTH_SHORT).show();
+                                sharpText.setVisibility(view.GONE);
+                                flatText.setVisibility(view.GONE);
                                 break;
                             case R.id.flat:
                                 //b을 클릭했을때 이벤트 실행코드
                                 Toast.makeText(getApplicationContext(),"플랫",Toast.LENGTH_SHORT).show();
+                                sharpText.setVisibility(view.GONE);
+                                flatText.setVisibility(view.VISIBLE);
                                 break;
 
                         }
