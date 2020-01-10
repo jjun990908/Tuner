@@ -273,5 +273,26 @@ public class MainActivity extends AppCompatActivity {
         });
 
 
+
+
+    }
+
+    // 잘못 뒤로가기 눌렀을 때
+    long first_time;
+    long second_time;
+
+    @Override
+    public void onBackPressed() {
+
+        Toast ExitToast = Toast.makeText(MainActivity.this, "종료하시려면 뒤로가기 버튼을 한 번 더 눌러주세요.", Toast.LENGTH_SHORT);
+        second_time = System.currentTimeMillis();
+        if(second_time - first_time < 3000){
+            super.onBackPressed();
+            finishAffinity();
+            ExitToast.cancel();
+        }
+        else{ExitToast.show();
+        }
+        first_time = System.currentTimeMillis();
     }
 }
