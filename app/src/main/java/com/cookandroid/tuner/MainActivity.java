@@ -3,13 +3,11 @@ package com.cookandroid.tuner;
 import androidx.annotation.ColorInt;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
-
 import android.Manifest;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Color;
 import android.media.AudioManager;
-import android.media.MediaPlayer;
 import android.media.SoundPool;
 import android.os.Bundle;
 import android.view.Menu;
@@ -149,22 +147,15 @@ public class MainActivity extends AppCompatActivity {
             ActivityCompat.requestPermissions(MainActivity.this, new String[]{Manifest.permission.RECORD_AUDIO},0);
             //없다면 마이크 권한 요청
         }
-        //soundpull을 이용
-        final SoundPool sp = new SoundPool(5,         // 최대 음악파일의 개수
-                AudioManager.STREAM_MUSIC, // 스트림 타입
-                0);        // 음질 - 기본값:0
 
-        final int soundID = sp.load(this, R.raw.gun, 1);
-
-        final MediaPlayer mediaPlayer;
-        mediaPlayer = MediaPlayer.create(this, R.raw.gun);
-        //각각의 건반 클릭 이벤트 함수
+        final ScaleSrc Scale = new ScaleSrc(MainActivity.this);
+        final SoundPool sp = Scale.sp;
 
         btn_c_l.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                mediaPlayer.start();
-        //각각의 건반 클릭 이벤트 함수
+                sp.play(Scale.do0_0,1,1,1,0,0.5f);
+
                 setBtnWhite();
                 keyText.setText("C");
                 btn_c_l.setBackgroundResource(R.drawable.btn_key_select_shape);
@@ -173,6 +164,8 @@ public class MainActivity extends AppCompatActivity {
         btn_d_l.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                sp.play(Scale.re0_0,1,1,1,0,0.5f);
+
                 setBtnWhite();
                 keyText.setText("D");
                 btn_d_l.setBackgroundResource(R.drawable.btn_key_select_shape);
@@ -181,6 +174,8 @@ public class MainActivity extends AppCompatActivity {
         btn_e_l.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                sp.play(Scale.mi0_0,1,1,1,0,0.5f);
+
                 setBtnWhite();
                 keyText.setText("E");
                 btn_e_l.setBackgroundResource(R.drawable.btn_key_select_shape);
@@ -189,6 +184,8 @@ public class MainActivity extends AppCompatActivity {
         btn_f_l.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                sp.play(Scale.fa0_0,1,1,1,0,0.5f);
+
                 setBtnWhite();
                 keyText.setText("F");
                 btn_f_l.setBackgroundResource(R.drawable.btn_key_select_shape);
@@ -197,6 +194,8 @@ public class MainActivity extends AppCompatActivity {
         btn_g_l.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                sp.play(Scale.sol0_0,1,1,1,0,0.5f);
+
                 setBtnWhite();
                 keyText.setText("G");
                 btn_g_l.setBackgroundResource(R.drawable.btn_key_select_shape);
@@ -205,6 +204,8 @@ public class MainActivity extends AppCompatActivity {
         btn_a_l.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                sp.play(Scale.la0_0,1,1,1,0,0.5f);
+
                 setBtnWhite();
                 keyText.setText("A");
                 btn_a_l.setBackgroundResource(R.drawable.btn_key_select_shape);
@@ -213,6 +214,8 @@ public class MainActivity extends AppCompatActivity {
         btn_b_l.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                sp.play(Scale.si0_0,1,1,1,0,0.5f);
+
                 setBtnWhite();
                 keyText.setText("B");
                 btn_b_l.setBackgroundResource(R.drawable.btn_key_select_shape);
@@ -221,6 +224,8 @@ public class MainActivity extends AppCompatActivity {
         btn_c_h.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                sp.play(Scale.do1_0,1,1,1,0,0.5f);
+
                 setBtnWhite();
                 keyText.setText("C");
                 btn_c_h.setBackgroundResource(R.drawable.btn_key_select_shape);
@@ -229,6 +234,8 @@ public class MainActivity extends AppCompatActivity {
         btn_d_h.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                sp.play(Scale.do1_0,1,1,1,0,0.5f);
+
                 setBtnWhite();
                 keyText.setText("D");
                 btn_d_h.setBackgroundResource(R.drawable.btn_key_select_shape);
@@ -237,6 +244,8 @@ public class MainActivity extends AppCompatActivity {
         btn_e_h.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                sp.play(Scale.do1_0,1,1,1,0,0.5f);
+
                 setBtnWhite();
                 keyText.setText("E");
                 btn_e_h.setBackgroundResource(R.drawable.btn_key_select_shape);
@@ -245,6 +254,8 @@ public class MainActivity extends AppCompatActivity {
         btn_f_h.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                sp.play(Scale.do1_0,1,1,1,0,0.5f);
+
                 setBtnWhite();
                 keyText.setText("F");
                 btn_f_h.setBackgroundResource(R.drawable.btn_key_select_shape);
@@ -253,6 +264,8 @@ public class MainActivity extends AppCompatActivity {
         btn_g_h.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                sp.play(Scale.do1_0,1,1,1,0,0.5f);
+
                 setBtnWhite();
                 keyText.setText("G");
                 btn_g_h.setBackgroundResource(R.drawable.btn_key_select_shape);
@@ -261,6 +274,8 @@ public class MainActivity extends AppCompatActivity {
         btn_a_h.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                sp.play(Scale.do1_0,1,1,1,0,0.5f);
+
                 setBtnWhite();
                 keyText.setText("A");
                 btn_a_h.setBackgroundResource(R.drawable.btn_key_select_shape);
@@ -269,6 +284,8 @@ public class MainActivity extends AppCompatActivity {
         btn_b_h.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                sp.play(Scale.do1_0,1,1,1,0,0.5f);
+
                 setBtnWhite();
                 keyText.setText("B");
                 btn_b_h.setBackgroundResource(R.drawable.btn_key_select_shape);
@@ -277,6 +294,8 @@ public class MainActivity extends AppCompatActivity {
         btn_c_hh.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                sp.play(Scale.do1_0,1,1,1,0,0.5f);
+
                 setBtnWhite();
                 keyText.setText("C");
                 btn_c_hh.setBackgroundResource(R.drawable.btn_key_select_shape);
@@ -285,6 +304,8 @@ public class MainActivity extends AppCompatActivity {
         btn_d_hh.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                sp.play(Scale.do1_0,1,1,1,0,0.5f);
+
                 setBtnWhite();
                 keyText.setText("D");
                 btn_d_hh.setBackgroundResource(R.drawable.btn_key_select_shape);
@@ -293,6 +314,8 @@ public class MainActivity extends AppCompatActivity {
         btn_e_hh.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                sp.play(Scale.do1_0,1,1,1,0,0.5f);
+
                 setBtnWhite();
                 keyText.setText("E");
                 btn_e_hh.setBackgroundResource(R.drawable.btn_key_select_shape);
