@@ -285,10 +285,11 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-
+        //도움말 버튼 클릭 함수
         btn_help.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                //팝업창 액티비티로 연결
                 startActivity(new Intent(getApplicationContext(),help_popup.class));
             }
         });
@@ -296,7 +297,7 @@ public class MainActivity extends AppCompatActivity {
         btn_tune.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(final View view) {
-                //팝업객체 생성
+                //팝업메뉴 객체 생성
                 PopupMenu popup = new PopupMenu(getApplicationContext(),view);
                 popup.getMenuInflater().inflate(R.menu.popup,popup.getMenu());
                 //팝업메뉴 클릭시 이벤트
@@ -325,19 +326,13 @@ public class MainActivity extends AppCompatActivity {
                                 flatText.setVisibility(view.VISIBLE);
                                 setFlatText();
                                 break;
-
                         }
                         return true;
                     }
                 });
                 popup.show();
-
             }
         });
-
-
-
-
     }
 
     // 잘못 뒤로가기 눌렀을 때

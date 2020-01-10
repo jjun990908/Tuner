@@ -22,6 +22,7 @@ public class help_popup extends AppCompatActivity {
         txt_help = (TextView)findViewById(R.id.text_help);
         btn_close = (Button)findViewById(R.id.btn_close);
 
+        //닫기버튼 클릭함수
         btn_close.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
