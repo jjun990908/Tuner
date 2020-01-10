@@ -24,7 +24,7 @@ public class MainActivity extends AppCompatActivity {
     View centerView,centerRView,centerLView,centerRRView,centerLLView;
     TextView keyText,sharpText,flatText;
 
-    //버튼색 초기화함수
+    //건반색 초기화함수
     public void setBtnWhite(){
         btn_c_l.setBackgroundResource(R.drawable.btn_key_shape);
         btn_d_l.setBackgroundResource(R.drawable.btn_key_shape);
@@ -44,6 +44,66 @@ public class MainActivity extends AppCompatActivity {
         btn_d_hh.setBackgroundResource(R.drawable.btn_key_shape);
         btn_e_hh.setBackgroundResource(R.drawable.btn_key_shape);
 
+    }
+    //건반라벨 #추가함수
+    public void setSharpText(){
+        btn_c_l.setText("C#");
+        btn_d_l.setText("D#");
+        btn_e_l.setText("E#");
+        btn_f_l.setText("F#");
+        btn_g_l.setText("G#");
+        btn_a_l.setText("A#");
+        btn_b_l.setText("B#");
+        btn_c_h.setText("C#");
+        btn_d_h.setText("D#");
+        btn_e_h.setText("E#");
+        btn_f_h.setText("F#");
+        btn_g_h.setText("G#");
+        btn_a_h.setText("A#");
+        btn_b_h.setText("B#");
+        btn_c_hh.setText("C#");
+        btn_d_hh.setText("d#");
+        btn_e_hh.setText("e #");
+    }
+    //건반라벨 b추가함수
+    public void setFlatText(){
+        btn_c_l.setText("C♭");
+        btn_d_l.setText("D♭");
+        btn_e_l.setText("E♭");
+        btn_f_l.setText("F♭");
+        btn_g_l.setText("G♭");
+        btn_a_l.setText("A♭");
+        btn_b_l.setText("B♭");
+        btn_c_h.setText("C♭");
+        btn_d_h.setText("D♭");
+        btn_e_h.setText("E♭");
+        btn_f_h.setText("F♭");
+        btn_g_h.setText("G♭");
+        btn_a_h.setText("A♭");
+        btn_b_h.setText("B♭");
+        btn_c_hh.setText("C♭");
+        btn_d_hh.setText("D♭");
+        btn_e_hh.setText("E♭");
+    }
+    //건반라벨 원음변환함수
+    public void setOriginText(){
+        btn_c_l.setText("C");
+        btn_d_l.setText("D");
+        btn_e_l.setText("E");
+        btn_f_l.setText("F");
+        btn_g_l.setText("G");
+        btn_a_l.setText("A");
+        btn_b_l.setText("B");
+        btn_c_h.setText("C");
+        btn_d_h.setText("D");
+        btn_e_h.setText("E");
+        btn_f_h.setText("F");
+        btn_g_h.setText("G");
+        btn_a_h.setText("A");
+        btn_b_h.setText("B");
+        btn_c_hh.setText("C");
+        btn_d_hh.setText("D");
+        btn_e_hh.setText("E");
     }
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -249,18 +309,21 @@ public class MainActivity extends AppCompatActivity {
                                 Toast.makeText(getApplicationContext(),"샵",Toast.LENGTH_SHORT).show();
                                 sharpText.setVisibility(view.VISIBLE);
                                 flatText.setVisibility(view.GONE);
+                                setSharpText();
                                 break;
                             case R.id.origin:
                                 //원음을 클릭했을때 이벤트 실행코드
                                 Toast.makeText(getApplicationContext(),"원음",Toast.LENGTH_SHORT).show();
                                 sharpText.setVisibility(view.GONE);
                                 flatText.setVisibility(view.GONE);
+                                setOriginText();
                                 break;
                             case R.id.flat:
                                 //b을 클릭했을때 이벤트 실행코드
                                 Toast.makeText(getApplicationContext(),"플랫",Toast.LENGTH_SHORT).show();
                                 sharpText.setVisibility(view.GONE);
                                 flatText.setVisibility(view.VISIBLE);
+                                setFlatText();
                                 break;
 
                         }
