@@ -8,6 +8,9 @@ import android.Manifest;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Color;
+import android.media.AudioManager;
+import android.media.MediaPlayer;
+import android.media.SoundPool;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -146,11 +149,22 @@ public class MainActivity extends AppCompatActivity {
             ActivityCompat.requestPermissions(MainActivity.this, new String[]{Manifest.permission.RECORD_AUDIO},0);
             //없다면 마이크 권한 요청
         }
+        //soundpull을 이용
+        final SoundPool sp = new SoundPool(5,         // 최대 음악파일의 개수
+                AudioManager.STREAM_MUSIC, // 스트림 타입
+                0);        // 음질 - 기본값:0
 
+        final int soundID = sp.load(this, R.raw.gun, 1);
+
+        final MediaPlayer mediaPlayer;
+        mediaPlayer = MediaPlayer.create(this, R.raw.gun);
         //각각의 건반 클릭 이벤트 함수
+
         btn_c_l.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                mediaPlayer.start();
+        //각각의 건반 클릭 이벤트 함수
                 setBtnWhite();
                 keyText.setText("C");
                 btn_c_l.setBackgroundResource(R.drawable.btn_key_select_shape);
