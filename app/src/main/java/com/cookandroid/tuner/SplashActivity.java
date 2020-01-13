@@ -11,7 +11,7 @@ public class SplashActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         try {
-            Thread.sleep(4000);
+            Thread.sleep(2000);
             Intent intent = new Intent(this, MainActivity.class);
             intent.putExtra("state", "launch");
             startActivity(intent);
