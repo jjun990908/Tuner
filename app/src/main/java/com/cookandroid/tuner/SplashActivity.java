@@ -8,24 +8,16 @@ public class SplashActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
 
         try {
-            Thread.sleep(4000);
-            Intent intent = new Intent(this, MainActivity.class);
-            intent.putExtra("state", "launch");
-            startActivity(intent);
-            finish();
+            Thread.sleep(2300);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
 
-
-    }
-
-    @Override
-    public void onBackPressed() {
-        //초반 플래시 화면에서 넘어갈때 뒤로가기 버튼 못누르게 함
+        Intent intent = new Intent(this, MainActivity.class);
+        startActivity(intent);
+        finish();
     }
 
 }
