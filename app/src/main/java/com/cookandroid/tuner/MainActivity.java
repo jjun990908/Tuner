@@ -24,6 +24,7 @@ public class MainActivity extends AppCompatActivity {
     Button btn_c_l,btn_d_l,btn_e_l,btn_f_l,btn_g_l,btn_a_l,btn_b_l,btn_c_h,btn_d_h,btn_e_h,btn_f_h,btn_g_h,btn_a_h,btn_b_h,btn_c_hh,btn_d_hh,btn_e_hh,btn_help,btn_tune;
     View centerView,centerRView,centerLView,centerRRView,centerLLView;
     TextView keyText,sharpText,flatText;
+    Boolean sharpmode=false,flatmode=false;
 
     //건반색 초기화함수
     public void setBtnWhite(){
@@ -347,6 +348,8 @@ public class MainActivity extends AppCompatActivity {
                                 Toast.makeText(getApplicationContext(),"샵",Toast.LENGTH_SHORT).show();
                                 sharpText.setVisibility(view.VISIBLE);
                                 flatText.setVisibility(view.GONE);
+                                sharpmode = true;
+                                flatmode = false;
                                 setSharpText();
                                 break;
                             case R.id.origin:
@@ -354,6 +357,8 @@ public class MainActivity extends AppCompatActivity {
                                 Toast.makeText(getApplicationContext(),"원음",Toast.LENGTH_SHORT).show();
                                 sharpText.setVisibility(view.GONE);
                                 flatText.setVisibility(view.GONE);
+                                sharpmode = false;
+                                flatmode = false;
                                 setOriginText();
                                 break;
                             case R.id.flat:
@@ -361,6 +366,8 @@ public class MainActivity extends AppCompatActivity {
                                 Toast.makeText(getApplicationContext(),"플랫",Toast.LENGTH_SHORT).show();
                                 sharpText.setVisibility(view.GONE);
                                 flatText.setVisibility(view.VISIBLE);
+                                sharpmode = false;
+                                flatmode = true;
                                 setFlatText();
                                 break;
                         }
