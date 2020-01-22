@@ -155,7 +155,7 @@ public class MainActivity extends AppCompatActivity {
         btn_c_l.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                sp.play(Scale.do0_0,1,1,1,0,0.5f);
+                sp.play(Scale.do0_0,1,1,1,0,1.0f);
 
                 setBtnWhite();
                 keyText.setText("C");
@@ -165,7 +165,7 @@ public class MainActivity extends AppCompatActivity {
         btn_d_l.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                sp.play(Scale.re0_0,1,1,1,0,0.5f);
+                sp.play(Scale.re0_0,1,1,1,0,1.0f);
 
                 setBtnWhite();
                 keyText.setText("D");
@@ -175,7 +175,7 @@ public class MainActivity extends AppCompatActivity {
         btn_e_l.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                sp.play(Scale.mi0_0,1,1,1,0,0.5f);
+                sp.play(Scale.mi0_0,1,1,1,0,1.0f);
 
                 setBtnWhite();
                 keyText.setText("E");
@@ -185,7 +185,7 @@ public class MainActivity extends AppCompatActivity {
         btn_f_l.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                sp.play(Scale.fa0_0,1,1,1,0,0.5f);
+                sp.play(Scale.fa0_0,1,1,1,0,1.0f);
 
                 setBtnWhite();
                 keyText.setText("F");
@@ -195,7 +195,7 @@ public class MainActivity extends AppCompatActivity {
         btn_g_l.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                sp.play(Scale.sol0_0,1,1,1,0,0.5f);
+                sp.play(Scale.sol0_0,1,1,1,0,1.0f);
 
                 setBtnWhite();
                 keyText.setText("G");
@@ -205,7 +205,7 @@ public class MainActivity extends AppCompatActivity {
         btn_a_l.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                sp.play(Scale.la0_0,1,1,1,0,0.5f);
+                sp.play(Scale.la0_0,1,1,1,0,1.0f);
 
                 setBtnWhite();
                 keyText.setText("A");
@@ -215,7 +215,7 @@ public class MainActivity extends AppCompatActivity {
         btn_b_l.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                sp.play(Scale.si0_0,1,1,1,0,0.5f);
+                sp.play(Scale.si0_0,1,1,1,0,1.0f);
 
                 setBtnWhite();
                 keyText.setText("B");
@@ -225,7 +225,7 @@ public class MainActivity extends AppCompatActivity {
         btn_c_h.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                sp.play(Scale.do1_0,1,1,1,0,0.5f);
+                sp.play(Scale.do1_0,1,1,1,0,1.0f);
 
                 setBtnWhite();
                 keyText.setText("C");
@@ -235,7 +235,7 @@ public class MainActivity extends AppCompatActivity {
         btn_d_h.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                sp.play(Scale.do1_0,1,1,1,0,0.5f);
+                sp.play(Scale.re1_0,1,1,1,0,1.0f);
 
                 setBtnWhite();
                 keyText.setText("D");
@@ -245,7 +245,7 @@ public class MainActivity extends AppCompatActivity {
         btn_e_h.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                sp.play(Scale.do1_0,1,1,1,0,0.5f);
+                sp.play(Scale.mi1_0,1,1,1,0,1.0f);
 
                 setBtnWhite();
                 keyText.setText("E");
@@ -255,7 +255,7 @@ public class MainActivity extends AppCompatActivity {
         btn_f_h.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                sp.play(Scale.do1_0,1,1,1,0,0.5f);
+                sp.play(Scale.fa1_0,1,1,1,0,1.0f);
 
                 setBtnWhite();
                 keyText.setText("F");
@@ -265,7 +265,7 @@ public class MainActivity extends AppCompatActivity {
         btn_g_h.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                sp.play(Scale.do1_0,1,1,1,0,0.5f);
+                sp.play(Scale.sol1_0,1,1,1,0,1.0f);
 
                 setBtnWhite();
                 keyText.setText("G");
@@ -275,7 +275,7 @@ public class MainActivity extends AppCompatActivity {
         btn_a_h.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                sp.play(Scale.do1_0,1,1,1,0,0.5f);
+                sp.play(Scale.la1_0,1,1,1,0,1.0f);
 
                 setBtnWhite();
                 keyText.setText("A");
@@ -285,7 +285,7 @@ public class MainActivity extends AppCompatActivity {
         btn_b_h.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                sp.play(Scale.do1_0,1,1,1,0,0.5f);
+                sp.play(Scale.si1_0,1,1,1,0,1.0f);
 
                 setBtnWhite();
                 keyText.setText("B");
@@ -295,7 +295,7 @@ public class MainActivity extends AppCompatActivity {
         btn_c_hh.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                sp.play(Scale.do1_0,1,1,1,0,0.5f);
+                sp.play(Scale.do2_0,1,1,1,0,1.0f);
 
                 setBtnWhite();
                 keyText.setText("C");
@@ -305,7 +305,7 @@ public class MainActivity extends AppCompatActivity {
         btn_d_hh.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                sp.play(Scale.do1_0,1,1,1,0,0.5f);
+                sp.play(Scale.re2_0,1,1,1,0,1.0f);
 
                 setBtnWhite();
                 keyText.setText("D");
@@ -315,7 +315,7 @@ public class MainActivity extends AppCompatActivity {
         btn_e_hh.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                sp.play(Scale.do1_0,1,1,1,0,0.5f);
+                sp.play(Scale.mi2_0,1,1,1,0,1.0f);
 
                 setBtnWhite();
                 keyText.setText("E");
