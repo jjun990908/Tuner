@@ -42,6 +42,9 @@ public class ScaleSrc {
         this.sol0_0 = sp.load(context,
                 R.raw.kal_sol0_0,
                 1);
+        this.sol0_5 = sp.load(context,
+                R.raw.kal_sol0_5,
+                1);
         this.fa0_0 = sp.load(context,
                 R.raw.kal_fa0_0,
                 1);
