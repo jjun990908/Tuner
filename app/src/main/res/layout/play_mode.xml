@@ -87,9 +87,8 @@
         android:background="@drawable/btn_key_shape"
         android:text="E"
         android:layout_marginRight="10dp"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintLeft_toRightOf="@+id/btn_c_hh"
-        app:layout_constraintRight_toEndOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent" />
 
     <Button
         android:id="@+id/btn_d_l"
@@ -161,7 +160,6 @@
         android:background="@drawable/btn_key_shape"
         android:layout_marginLeft="10dp"
         android:text="D"
-        app:layout_constraintLeftt_toStartOf="parent"
         app:layout_constraintRight_toLeftOf="@+id/btn_b_h"
         app:layout_constraintStart_toStartOf="parent" />
 
