@@ -22,6 +22,10 @@ public class play_mode extends AppCompatActivity {
     Boolean sharpmode=false,flatmode=false;
 
     @Override
+    public void finish(){
+        overridePendingTransition(R.anim.anim_slide_not_move,R.anim.anim_slide_up);
+        super.finish();
+    }
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
@@ -475,8 +479,8 @@ public class play_mode extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Toast.makeText(play_mode.this, "튜닝모드", Toast.LENGTH_SHORT).show();
-                finish();
-                overridePendingTransition(R.anim.anim_slide_up,R.anim.anim_slide_up);
+                startActivity(new Intent(getApplicationContext(),MainActivity.class));
+                overridePendingTransition(R.anim.anim_slide_down,R.anim.anim_slide_up);
             }
         });
 
