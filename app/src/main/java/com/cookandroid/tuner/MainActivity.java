@@ -45,6 +45,8 @@ public class MainActivity extends AppCompatActivity{
     int frequency = 4400;
     int channelConfiguration = AudioFormat.CHANNEL_IN_MONO;
     int audioEncoding = AudioFormat.ENCODING_PCM_16BIT;
+    double CuHz= 260;
+    int buttonId;
 
     RealDoubleFFT transformer;
 
@@ -54,7 +56,7 @@ public class MainActivity extends AppCompatActivity{
     int blockSize = 1024;/////////////////////////////////////////
     /////////////////////////////////////////////////////////////
     Button startStopButton;
-    boolean started = false;
+    boolean started = true;
 
 
     RecordAudio recordTask;
@@ -152,7 +154,14 @@ public class MainActivity extends AppCompatActivity{
     }
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
+        transformer = new RealDoubleFFT(blockSize);
+
+        recordTask = new RecordAudio();
+        recordTask.execute();
+
+
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
                 WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_main);
@@ -192,13 +201,14 @@ public class MainActivity extends AppCompatActivity{
             ActivityCompat.requestPermissions(MainActivity.this, new String[]{Manifest.permission.RECORD_AUDIO},0);
             //없다면 마이크 권한 요청
         }
-
+        buttonId = btn_c_l.getId();
         final ScaleSrc Scale = new ScaleSrc(MainActivity.this);
         final SoundPool sp = Scale.sp;
 
         btn_c_l.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                buttonId = view.getId();
                 if (sharpmode){
                     sp.play(Scale.do0_5,1,1,1,0,1.0f);
                 }
@@ -217,6 +227,7 @@ public class MainActivity extends AppCompatActivity{
         btn_d_l.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                buttonId = view.getId();
                 if (sharpmode){
                     sp.play(Scale.re0_5,1,1,1,0,1.0f);
                 }
@@ -235,6 +246,7 @@ public class MainActivity extends AppCompatActivity{
         btn_e_l.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                buttonId = view.getId();
                 if (sharpmode){
                     sp.play(Scale.fa0_0,1,1,1,0,1.0f);
                 }
@@ -253,6 +265,7 @@ public class MainActivity extends AppCompatActivity{
         btn_f_l.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                buttonId = view.getId();
                 if (sharpmode){
                     sp.play(Scale.fa0_5,1,1,1,0,1.0f);
                 }
@@ -271,6 +284,7 @@ public class MainActivity extends AppCompatActivity{
         btn_g_l.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                buttonId = view.getId();
                 if (sharpmode){
                     sp.play(Scale.sol0_5,1,1,1,0,1.0f);
                 }
@@ -289,6 +303,7 @@ public class MainActivity extends AppCompatActivity{
         btn_a_l.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                buttonId = view.getId();
                 if (sharpmode){
                     sp.play(Scale.la0_5,1,1,1,0,1.0f);
                 }
@@ -307,6 +322,7 @@ public class MainActivity extends AppCompatActivity{
         btn_b_l.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                buttonId = view.getId();
                 if (sharpmode){
                     sp.play(Scale.do1_0,1,1,1,0,1.0f);
                 }
@@ -325,6 +341,7 @@ public class MainActivity extends AppCompatActivity{
         btn_c_h.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                buttonId = view.getId();
                 if (sharpmode){
                     sp.play(Scale.do1_5,1,1,1,0,1.0f);
                 }
@@ -343,6 +360,8 @@ public class MainActivity extends AppCompatActivity{
         btn_d_h.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                buttonId = view.getId();
+
                 if (sharpmode){
                     sp.play(Scale.re1_5,1,1,1,0,1.0f);
                 }
@@ -361,6 +380,8 @@ public class MainActivity extends AppCompatActivity{
         btn_e_h.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                buttonId = view.getId();
+
                 if (sharpmode){
                     sp.play(Scale.fa1_0,1,1,1,0,1.0f);
                 }
@@ -379,6 +400,8 @@ public class MainActivity extends AppCompatActivity{
         btn_f_h.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                buttonId = view.getId();
+
                 if (sharpmode){
                     sp.play(Scale.fa1_5,1,1,1,0,1.0f);
                 }
@@ -397,6 +420,8 @@ public class MainActivity extends AppCompatActivity{
         btn_g_h.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                buttonId = view.getId();
+
                 if (sharpmode){
                     sp.play(Scale.sol1_5,1,1,1,0,1.0f);
                 }
@@ -415,6 +440,8 @@ public class MainActivity extends AppCompatActivity{
         btn_a_h.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                buttonId = view.getId();
+
                 if (sharpmode){
                     sp.play(Scale.la1_5,1,1,1,0,1.0f);
                 }
@@ -433,6 +460,8 @@ public class MainActivity extends AppCompatActivity{
         btn_b_h.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                buttonId = view.getId();
+
                 if (sharpmode){
                     sp.play(Scale.do2_0,1,1,1,0,1.0f);
                 }
@@ -451,6 +480,8 @@ public class MainActivity extends AppCompatActivity{
         btn_c_hh.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                buttonId = view.getId();
+
                 if (sharpmode){
                     sp.play(Scale.do2_5,1,1,1,0,1.0f);
                 }
@@ -469,6 +500,8 @@ public class MainActivity extends AppCompatActivity{
         btn_d_hh.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                buttonId = view.getId();
+
                 if (sharpmode){
                     sp.play(Scale.re2_5,1,1,1,0,1.0f);
                 }
@@ -487,6 +520,8 @@ public class MainActivity extends AppCompatActivity{
         btn_e_hh.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                buttonId = view.getId();
+
                 if (sharpmode){
                     sp.play(Scale.mi2_5,1,1,1,0,1.0f);
                 }
@@ -588,7 +623,8 @@ public class MainActivity extends AppCompatActivity{
         first_time = System.currentTimeMillis();
     }
 
-    private class RecordAudio extends AsyncTask<Void, double[], Void> {
+    public class RecordAudio extends AsyncTask<Void, double[], Void> {
+
         @Override
         protected Void doInBackground(Void... params) {
             System.out.println("플래그 2: 다른 쓰레드에서 백그라운드 실행");
@@ -604,7 +640,7 @@ public class MainActivity extends AppCompatActivity{
                 double[] toTransform = new double[blockSize];
 
                 audioRecord.startRecording();
-
+                Log.e("here you are", "this");
                 while (started) {
                     int bufferReadResult = audioRecord.read(buffer, 0, blockSize); //blockSize = 256
                     //Log.i("bufferReadResult", Integer.toString(bufferReadResult));
@@ -645,25 +681,48 @@ public class MainActivity extends AppCompatActivity{
             max=sum=0;
             min = 9999;
             int idxM, idxm;
-            idxM= idxm=0;
+            idxM=2;
+            idxm=1;
             for(int i = 0; i< 5; i++){
-                if (arrays[i] > max){ max = arrays[i]; idxM = i; }
-                if (arrays[i] < min){ min = arrays[i]; idxm = i;}
+                if (arrays[i] > max+1){ max = arrays[i]; idxM = i; }
+                if (arrays[i] < min-1){ min = arrays[i]; idxm = i;}
 
             }
-            for(int i = 0; i< 5; i++){
-                if(i != idxM && i!= idxm){ sum += arrays[i];}
+            if (idxM == idxm){
+                for(int i = 0; i< 5; i++){
+                    if(i != idxM && i!= idxm){ sum += arrays[i];}
 
+                }
+                return sum/4;
             }
-            return sum/3;
+
+            else{
+                for(int i = 0; i< 5; i++){
+                    if(i != idxM && i!= idxm){ sum += arrays[i];}
+
+                }
+                return sum/3;
+            }
         }
+        private void setHz(){
+            Button btns[] = {btn_c_l,btn_d_l,btn_e_l,btn_f_l,btn_g_l,btn_a_l,btn_b_l,btn_c_h,btn_d_h,btn_e_h,btn_f_h,btn_g_h,btn_a_h, btn_b_h,btn_c_hh,btn_d_hh,btn_e_hh};
+            String arrays[] = {"C", "D", "E", "F", "G", "A", "B"};
 
+            double btnHz[] = { 261.62, 293.66,329.62,349.22, 392,440,493.88,523.25,587.32,659.25,698.25,784,880,987.76,1046.5,1174.6 };
+            for(int i=0; i<btns.length;i++){
+                if(btns[i].getId()==buttonId && CuHz != btnHz[i]){
+                    CuHz = btnHz[i];
+                    Log.i("현재음",arrays[i%7]+ "     "+Boolean.toString(sharpmode)+ Boolean.toString(flatmode));
+                }
+            }
+        }
         @Override
         protected void onProgressUpdate(double[]... toTransform) {
+            setHz();
             float fixedtemp= -1;
             float avrg = 0;
             fixedtemp = maxium(toTransform[0]);
-            if(210<=fixedtemp && fixedtemp<=310){
+            if(CuHz*(0.8)<=fixedtemp && fixedtemp<=CuHz*1.2){
                 for(int i = 0; i< 4 ; i ++){
                     float tmparray = buffer[i+1];
                     buffer[i] = tmparray;
@@ -671,11 +730,13 @@ public class MainActivity extends AppCompatActivity{
                 buffer[4] = fixedtemp;
                 avrg = sumavrg(buffer);
 
-                textView.setText(Float.toString(avrg));
-                Log.i("Hz",Float.toString(fixedtemp));
+
+
+                Log.i("current Hz",Float.toString(fixedtemp));
+                Log.i("avrg Hz", Float.toString(avrg));
+
                 fixed = avrg;
 
-                textView.invalidate();
             }
         }
     }
