@@ -479,7 +479,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Toast.makeText(MainActivity.this, "연주모드", Toast.LENGTH_SHORT).show();
                 startActivity(new Intent(getApplicationContext(),play_mode.class));
-                overridePendingTransition(R.anim.anim_slide_down,R.anim.anim_slide_down);
+                overridePendingTransition(R.anim.anim_slide_down,R.anim.anim_slide_up);
             }
         });
 

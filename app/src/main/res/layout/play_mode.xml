@@ -197,8 +197,8 @@
         android:layout_width="30dp"
         android:layout_height="30dp"
         android:background="@drawable/smallbtn_shape"
-        android:text="♫"
-        android:textSize="20dp"
+        android:text="T"
+        android:textSize="15dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
