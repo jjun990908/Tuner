@@ -16,7 +16,9 @@
         android:text="C"
         app:layout_constraintLeft_toRightOf="@id/btn_d_l"
         app:layout_constraintRight_toLeftOf="@id/btn_e_l"
-        app:layout_constraintTop_toTopOf="parent"/>
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginBottom="20dp"
+        app:layout_constraintBottom_toBottomOf="parent"/>
 
     <Button
         android:id="@+id/btn_e_l"
@@ -26,7 +28,9 @@
         android:text="E"
         app:layout_constraintRight_toLeftOf="@+id/btn_g_l"
         app:layout_constraintLeft_toRightOf="@+id/btn_c_l"
-        app:layout_constraintTop_toTopOf="parent"/>
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginBottom="40dp"
+        app:layout_constraintBottom_toBottomOf="parent"/>
 
     <Button
         android:id="@+id/btn_g_l"
@@ -36,7 +40,9 @@
         android:text="G"
         app:layout_constraintRight_toLeftOf="@+id/btn_b_l"
         app:layout_constraintLeft_toRightOf="@+id/btn_e_l"
-        app:layout_constraintTop_toTopOf="parent"/>
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginBottom="60dp"
+        app:layout_constraintBottom_toBottomOf="parent"/>
 
     <Button
         android:id="@+id/btn_b_l"
@@ -46,7 +52,9 @@
         android:text="B"
         app:layout_constraintRight_toLeftOf="@+id/btn_d_h"
         app:layout_constraintLeft_toRightOf="@+id/btn_g_l"
-        app:layout_constraintTop_toTopOf="parent"/>
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginBottom="80dp"
+        app:layout_constraintBottom_toBottomOf="parent"/>
 
     <Button
         android:id="@+id/btn_d_h"
@@ -56,7 +64,9 @@
         android:text="D"
         app:layout_constraintRight_toLeftOf="@+id/btn_f_h"
         app:layout_constraintLeft_toRightOf="@+id/btn_b_l"
-        app:layout_constraintTop_toTopOf="parent"/>
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginBottom="100dp"
+        app:layout_constraintBottom_toBottomOf="parent"/>
 
     <Button
         android:id="@+id/btn_f_h"
@@ -66,7 +76,9 @@
         android:text="F"
         app:layout_constraintRight_toLeftOf="@+id/btn_a_h"
         app:layout_constraintLeft_toRightOf="@+id/btn_d_h"
-        app:layout_constraintTop_toTopOf="parent"/>
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginBottom="120dp"
+        app:layout_constraintBottom_toBottomOf="parent"/>
 
     <Button
         android:id="@+id/btn_a_h"
@@ -76,7 +88,9 @@
         android:text="A"
         app:layout_constraintRight_toLeftOf="@+id/btn_c_hh"
         app:layout_constraintLeft_toRightOf="@+id/btn_f_h"
-        app:layout_constraintTop_toTopOf="parent"/>
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginBottom="140dp"
+        app:layout_constraintBottom_toBottomOf="parent"/>
 
     <Button
         android:id="@+id/btn_c_hh"
@@ -86,7 +100,9 @@
         android:text="C"
         app:layout_constraintRight_toLeftOf="@+id/btn_e_hh"
         app:layout_constraintLeft_toRightOf="@+id/btn_a_h"
-        app:layout_constraintTop_toTopOf="parent"/>
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginBottom="160dp"
+        app:layout_constraintBottom_toBottomOf="parent"/>
 
     <Button
         android:id="@+id/btn_e_hh"
@@ -97,7 +113,9 @@
         android:layout_marginRight="20dp"
         app:layout_constraintLeft_toRightOf="@+id/btn_c_hh"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"/>
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginBottom="180dp"
+        app:layout_constraintBottom_toBottomOf="parent"/>
 
     <Button
         android:id="@+id/btn_d_l"
@@ -107,7 +125,9 @@
         android:text="D"
         app:layout_constraintRight_toLeftOf="@+id/btn_c_l"
         app:layout_constraintLeft_toRightOf="@+id/btn_f_l"
-        app:layout_constraintTop_toTopOf="parent"/>
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginBottom="40dp"
+        app:layout_constraintBottom_toBottomOf="parent"/>
 
     <Button
         android:id="@+id/btn_f_l"
@@ -117,7 +137,9 @@
         android:text="F"
         app:layout_constraintRight_toLeftOf="@+id/btn_d_l"
         app:layout_constraintLeft_toRightOf="@+id/btn_a_l"
-        app:layout_constraintTop_toTopOf="parent"/>
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginBottom="60dp"
+        app:layout_constraintBottom_toBottomOf="parent"/>
 
     <Button
         android:id="@+id/btn_a_l"
@@ -127,7 +149,9 @@
         android:text="A"
         app:layout_constraintRight_toLeftOf="@+id/btn_f_l"
         app:layout_constraintLeft_toRightOf="@+id/btn_c_h"
-        app:layout_constraintTop_toTopOf="parent"/>
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginBottom="80dp"
+        app:layout_constraintBottom_toBottomOf="parent"/>
 
     <Button
         android:id="@+id/btn_c_h"
@@ -137,7 +161,9 @@
         android:text="C"
         app:layout_constraintRight_toLeftOf="@+id/btn_a_l"
         app:layout_constraintLeft_toRightOf="@+id/btn_e_h"
-        app:layout_constraintTop_toTopOf="parent"/>
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginBottom="100dp"
+        app:layout_constraintBottom_toBottomOf="parent"/>
 
     <Button
         android:id="@+id/btn_e_h"
@@ -147,7 +173,9 @@
         android:text="E"
         app:layout_constraintRight_toLeftOf="@+id/btn_c_h"
         app:layout_constraintLeft_toRightOf="@+id/btn_g_h"
-        app:layout_constraintTop_toTopOf="parent"/>
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginBottom="120dp"
+        app:layout_constraintBottom_toBottomOf="parent"/>
 
     <Button
         android:id="@+id/btn_g_h"
@@ -157,7 +185,9 @@
         android:text="G"
         app:layout_constraintRight_toLeftOf="@+id/btn_e_h"
         app:layout_constraintLeft_toRightOf="@+id/btn_b_h"
-        app:layout_constraintTop_toTopOf="parent"/>
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginBottom="140dp"
+        app:layout_constraintBottom_toBottomOf="parent"/>
 
     <Button
         android:id="@+id/btn_b_h"
@@ -167,7 +197,9 @@
         android:text="B"
         app:layout_constraintRight_toLeftOf="@+id/btn_g_h"
         app:layout_constraintLeft_toRightOf="@+id/btn_d_hh"
-        app:layout_constraintTop_toTopOf="parent"/>
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginBottom="160dp"
+        app:layout_constraintBottom_toBottomOf="parent"/>
 
     <Button
         android:id="@+id/btn_d_hh"
@@ -178,7 +210,9 @@
         android:text="D"
         app:layout_constraintRight_toLeftOf="@+id/btn_b_h"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"/>
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginBottom="180dp"
+        app:layout_constraintBottom_toBottomOf="parent"/>
 
     <!-- 도움말 버튼 -->
     <Button
