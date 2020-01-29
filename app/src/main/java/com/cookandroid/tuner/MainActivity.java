@@ -1,5 +1,5 @@
 package com.cookandroid.tuner;
-
+import com.cookandroid.tuner.fftpack.*;
 import androidx.annotation.ColorInt;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
@@ -23,8 +23,46 @@ import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
 
-public class MainActivity extends AppCompatActivity {
+import android.Manifest;
+import android.app.*;
+import android.content.pm.PackageManager;
+import android.graphics.*;
+import android.media.*;
+import android.os.*;
+import android.util.*;
+import android.view.*;
+import android.view.View.OnClickListener;
+import android.widget.*;
+import java.util.Arrays;
+import java.util.Collections;
 
+
+public class MainActivity extends AppCompatActivity{
+    float fixed = -1;
+    static float buffer[] = new float[5];
+    static {for(int i = 0; i < 5; i ++){buffer[i] = 0;}}
+
+    int frequency = 4400;
+    int channelConfiguration = AudioFormat.CHANNEL_IN_MONO;
+    int audioEncoding = AudioFormat.ENCODING_PCM_16BIT;
+
+    RealDoubleFFT transformer;
+
+    /////////////////////////////////////////////////////////////
+    ////블록사이즈는 성능에 영향을 존나 크게 미치니까 가급적 1024 이하로 설정////
+    /////////////////////////////////////////////////////////////
+    int blockSize = 1024;/////////////////////////////////////////
+    /////////////////////////////////////////////////////////////
+    Button startStopButton;
+    boolean started = false;
+
+
+    RecordAudio recordTask;
+    ImageView imageView;
+    Bitmap bitmap;
+    Canvas canvas;
+    Paint paint;
+    TextView textView;
     Button btn_c_l,btn_d_l,btn_e_l,btn_f_l,btn_g_l,btn_a_l,btn_b_l,btn_c_h,btn_d_h,btn_e_h,btn_f_h,btn_g_h,btn_a_h,btn_b_h,btn_c_hh,btn_d_hh,btn_e_hh,btn_help,btn_tune;
     View centerView,centerRView,centerLView,centerRRView,centerLLView;
     TextView keyText,sharpText,flatText;
@@ -548,5 +586,97 @@ public class MainActivity extends AppCompatActivity {
         else{ExitToast.show();
         }
         first_time = System.currentTimeMillis();
+    }
+
+    private class RecordAudio extends AsyncTask<Void, double[], Void> {
+        @Override
+        protected Void doInBackground(Void... params) {
+            System.out.println("플래그 2: 다른 쓰레드에서 백그라운드 실행");
+
+            try { // 예외처리를 무식하게 try에 모두 다 때려박음 : 나중에 몇 개의 부분만 선택해서 try에 넣도록 수정 필요
+
+                int bufferSize = AudioRecord.getMinBufferSize(frequency, channelConfiguration, audioEncoding);
+                System.out.println("플래그 3: 오디오 사이즈에 할당된 버퍼? 같은게 생김");
+                AudioRecord audioRecord = new AudioRecord( MediaRecorder.AudioSource.MIC, frequency,
+                        channelConfiguration, audioEncoding, bufferSize);
+                System.out.println("플래그 -1: 오디오 레코딩에 잘못된 권한, 치명적 오류");
+                short[] buffer = new short[blockSize];
+                double[] toTransform = new double[blockSize];
+
+                audioRecord.startRecording();
+
+                while (started) {
+                    int bufferReadResult = audioRecord.read(buffer, 0, blockSize); //blockSize = 256
+                    //Log.i("bufferReadResult", Integer.toString(bufferReadResult));
+
+                    for (int i = 0; i < blockSize && i < bufferReadResult; i++) {
+                        toTransform[i] = (double) buffer[i] / Short.MAX_VALUE;
+                    }
+                    transformer.ft(toTransform);
+                    publishProgress(toTransform);
+                }
+                audioRecord.stop();
+            } catch (Throwable t) {
+                Log.e("오디오레코딩 실패함", "망한듯;;;");
+                System.out.println("플래그 -2: 치명적 오류 발생, 로깅파일 분석하셈");
+            }
+            return null;
+        }
+
+        private float maxium(double[] arrays){
+            int sound;
+            double maxius;
+            maxius = arrays[0];
+            float idx = 0;
+            for(int i = 0; i < arrays.length; i++)
+                if (maxius < arrays[i]){
+                    maxius = arrays[i];
+                    idx = i;
+                }
+            if (maxius >3) {
+                return idx * 4400/2/1024;
+            }
+            else{
+                return -1; }
+        }
+
+        private float sumavrg(float [] arrays){
+            float max, min, sum;
+            max=sum=0;
+            min = 9999;
+            int idxM, idxm;
+            idxM= idxm=0;
+            for(int i = 0; i< 5; i++){
+                if (arrays[i] > max){ max = arrays[i]; idxM = i; }
+                if (arrays[i] < min){ min = arrays[i]; idxm = i;}
+
+            }
+            for(int i = 0; i< 5; i++){
+                if(i != idxM && i!= idxm){ sum += arrays[i];}
+
+            }
+            return sum/3;
+        }
+
+        @Override
+        protected void onProgressUpdate(double[]... toTransform) {
+            float fixedtemp= -1;
+            float avrg = 0;
+            fixedtemp = maxium(toTransform[0]);
+            if(210<=fixedtemp && fixedtemp<=310){
+                for(int i = 0; i< 4 ; i ++){
+                    float tmparray = buffer[i+1];
+                    buffer[i] = tmparray;
+                }
+                buffer[4] = fixedtemp;
+                avrg = sumavrg(buffer);
+
+                textView.setText(Float.toString(avrg));
+                Log.i("Hz",Float.toString(fixedtemp));
+                fixed = avrg;
+
+                textView.invalidate();
+            }
+        }
     }
 }
