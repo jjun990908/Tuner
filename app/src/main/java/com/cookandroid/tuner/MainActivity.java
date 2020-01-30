@@ -36,8 +36,13 @@ import android.widget.*;
 import java.util.Arrays;
 import java.util.Collections;
 
+import static java.lang.Math.abs;
+
 
 public class MainActivity extends AppCompatActivity{
+    static float avrg=0;
+    static View CurrentLight;
+    static View CurrentLight_temp;
     float fixed = -1;
     static float buffer[] = new float[5];
     static {for(int i = 0; i < 5; i ++){buffer[i] = 0;}}
@@ -82,7 +87,7 @@ public class MainActivity extends AppCompatActivity{
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-
+        CurrentLight = centerView;
 
         super.onCreate(savedInstanceState);
         transformer = new RealDoubleFFT(blockSize);
@@ -681,7 +686,8 @@ public class MainActivity extends AppCompatActivity{
             setHz();
             boolean appstart = false;
             float fixedtemp = -1;
-            float avrg = 0;
+
+
             fixedtemp = maxium(toTransform[0]);
             if (CuHz * (0.8) <= fixedtemp && fixedtemp <= CuHz * 1.2) {
                 for (int i = 0; i < 4; i++) {
@@ -698,49 +704,24 @@ public class MainActivity extends AppCompatActivity{
                 fixed = avrg;
                 appstart = true;
             }
-            if (appstart == true) {
-                if ((CuHz - avrg < 5 && CuHz - avrg >= 0) || (avrg - CuHz < 5 && avrg - CuHz >= 0)) {
-                    centerView.setBackgroundResource(R.drawable.btn_bottom_green);//중앙 버튼 초록색
-                    THandler.postDelayed(new Runnable() {
-                        @Override
-                        public void run() {
-                            centerView.setBackgroundResource(R.drawable.smallbtn_shape);
-                        }
-                    }, 1000);
-                } else if (CuHz - avrg >= 5 && CuHz - avrg < 10) {
-                    centerLView.setBackgroundResource(R.drawable.btn_bottom_red);//왼쪽 버튼 붉은색
-                    THandler.postDelayed(new Runnable() {
-                        @Override
-                        public void run() {
-                            centerLView.setBackgroundResource(R.drawable.smallbtn_shape);
-                        }
-                    }, 1000);
-                } else if (CuHz - avrg >= 10) {
-                    centerLLView.setBackgroundResource(R.drawable.btn_bottom_red);//왼왼쪽 버튼 붉은색
-                    THandler.postDelayed(new Runnable() {
-                        @Override
-                        public void run() {
-                            centerLLView.setBackgroundResource(R.drawable.smallbtn_shape);
-                        }
-                    }, 1000);
-                } else if (avrg - CuHz >= 5 && avrg - CuHz < 10) {
-                    centerRView.setBackgroundResource(R.drawable.btn_bottom_red);//오른쪽 버튼 붉은색
-                    THandler.postDelayed(new Runnable() {
-                        @Override
-                        public void run() {
-                            centerRView.setBackgroundResource(R.drawable.smallbtn_shape);
-                        }
-                    }, 1000);
-                } else if (avrg - CuHz >= 10) {
-                    centerRRView.setBackgroundResource(R.drawable.btn_bottom_red);//오른오른쪽 버튼 붉은색
-                    THandler.postDelayed(new Runnable() {
-                        @Override
-                        public void run() {
-                            centerRRView.setBackgroundResource(R.drawable.smallbtn_shape);
-                        }
-                    }, 1000);
+            if(CurrentLight == null){CurrentLight = centerView;}
+                if (abs(CuHz - avrg) <5){                        CurrentLight_temp = centerView; }
+                else if (CuHz - avrg >= 5 && CuHz - avrg < 10) { CurrentLight_temp = centerLView; }
+                else if (CuHz - avrg >= 10) {                    CurrentLight_temp = centerLLView;
+                Log.i("AVRG는? : ", Float.toString(avrg));
                 }
-            }
+                else if (avrg - CuHz >= 5 && avrg - CuHz < 10) { CurrentLight_temp = centerRView; }
+                else if (avrg - CuHz >= 10) {                    CurrentLight_temp = centerRRView; }
+                else{                                            CurrentLight_temp = null;}
+
+                if(CurrentLight_temp != null && CurrentLight != CurrentLight_temp){
+                    CurrentLight.setBackgroundResource(R.drawable.smallbtn_shape);
+                    CurrentLight_temp.setBackgroundColor(CurrentLight_temp==centerView?Color.GREEN:Color.RED);
+
+                }
+            if(CurrentLight_temp != null){CurrentLight = CurrentLight_temp;}
+
+
         }
     }
 }
