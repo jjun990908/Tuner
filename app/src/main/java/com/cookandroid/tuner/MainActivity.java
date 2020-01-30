@@ -41,7 +41,7 @@ public class MainActivity extends AppCompatActivity{
     float fixed = -1;
     static float buffer[] = new float[5];
     static {for(int i = 0; i < 5; i ++){buffer[i] = 0;}}
-
+    static Button buttonArray[] = new Button[7];
     int frequency = 4400;
     int channelConfiguration = AudioFormat.CHANNEL_IN_MONO;
     int audioEncoding = AudioFormat.ENCODING_PCM_16BIT;
@@ -73,26 +73,9 @@ public class MainActivity extends AppCompatActivity{
 
     //건반색 초기화함수
     public void setBtnWhite(){
-        btn_c_l.setBackgroundResource(R.drawable.btn_key_shape);
-        btn_d_l.setBackgroundResource(R.drawable.btn_key_shape);
-        btn_e_l.setBackgroundResource(R.drawable.btn_key_shape);
-        btn_f_l.setBackgroundResource(R.drawable.btn_key_shape);
-        btn_g_l.setBackgroundResource(R.drawable.btn_key_shape);
-        btn_a_l.setBackgroundResource(R.drawable.btn_key_shape);
-        btn_b_l.setBackgroundResource(R.drawable.btn_key_shape);
-        btn_c_h.setBackgroundResource(R.drawable.btn_key_shape);
-        btn_d_h.setBackgroundResource(R.drawable.btn_key_shape);
-        btn_e_h.setBackgroundResource(R.drawable.btn_key_shape);
-        btn_f_h.setBackgroundResource(R.drawable.btn_key_shape);
-        btn_g_h.setBackgroundResource(R.drawable.btn_key_shape);
-        btn_a_h.setBackgroundResource(R.drawable.btn_key_shape);
-        btn_b_h.setBackgroundResource(R.drawable.btn_key_shape);
-        btn_c_hh.setBackgroundResource(R.drawable.btn_key_shape);
-        btn_d_hh.setBackgroundResource(R.drawable.btn_key_shape);
-        btn_e_hh.setBackgroundResource(R.drawable.btn_key_shape);
+        for(int i=0;i<17;i++){ buttonArray[i].setBackgroundResource(R.drawable.btn_key_shape); } }
 
-    }
-    //건반라벨 #추가함수
+        //건반라벨 #추가함수
     public void setSharpText(){
         btn_c_l.setText("C#");
         btn_d_l.setText("D#");
@@ -155,6 +138,7 @@ public class MainActivity extends AppCompatActivity{
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
+
         super.onCreate(savedInstanceState);
         transformer = new RealDoubleFFT(blockSize);
 
@@ -184,6 +168,7 @@ public class MainActivity extends AppCompatActivity{
         btn_c_hh = (Button)findViewById(R.id.btn_c_hh);
         btn_d_hh = (Button)findViewById(R.id.btn_d_hh);
         btn_e_hh = (Button)findViewById(R.id.btn_e_hh);
+        buttonArray = new Button[]{btn_c_l,btn_d_l,btn_e_l,btn_f_l,btn_g_l,btn_a_l,btn_b_l,btn_c_h,btn_d_h,btn_e_h,btn_f_h,btn_g_h,btn_a_h,btn_b_h,btn_c_hh,btn_d_hh,btn_e_hh};
         btn_help = (Button)findViewById(R.id.btn_help);
         btn_tune = (Button)findViewById(R.id.btn_tune);
         centerView = (View)findViewById(R.id.view_CenterView);
