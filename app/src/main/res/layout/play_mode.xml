@@ -214,6 +214,18 @@
         android:layout_marginBottom="180dp"
         app:layout_constraintBottom_toBottomOf="parent"/>
 
+    <!-- #, 원음, 플랫버튼 -->
+    <Button
+        android:id="@+id/btn_tune"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="55dp"
+        android:layout_marginBottom="16dp"
+        android:background="@drawable/smallbtn_shape"
+        android:text="#"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
     <!-- 도움말 버튼 -->
     <Button
         android:id="@+id/btn_help"
@@ -226,7 +238,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
-
+    <!-- 연주 모드 버튼 -->
     <Button
         android:id="@+id/switch_mode"
         android:layout_marginEnd="24dp"

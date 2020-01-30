@@ -4,12 +4,14 @@ import android.content.Intent;
 import android.media.SoundPool;
 import android.os.Bundle;
 import android.os.Handler;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.WindowManager;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.CompoundButton;
+import android.widget.PopupMenu;
 import android.widget.Switch;
 import android.widget.Toast;
 
@@ -19,12 +21,60 @@ public class play_mode extends AppCompatActivity {
 
     Button btn_c_l,btn_d_l,btn_e_l,btn_f_l,btn_g_l,btn_a_l,btn_b_l,btn_c_h,btn_d_h,btn_e_h,btn_f_h,btn_g_h,btn_a_h,btn_b_h,btn_c_hh,btn_d_hh,btn_e_hh,btn_help,btn_tune;
     Button btn_switch;
-    Boolean sharpmode=false,flatmode=false;
+    int jangjo=0;
 
     @Override
     public void finish(){
         overridePendingTransition(R.anim.anim_slide_not_move,R.anim.anim_slide_up);
         super.finish();
+    }
+    public void setSharpText(int n){
+        switch (n) {
+            case 7:
+                btn_b_l.setText("B#");
+                btn_b_h.setText("B#");
+            case 6:
+                btn_e_h.setText("E#");
+                btn_e_hh.setText("E#");
+                btn_e_l.setText("E#");
+            case 5:
+                btn_a_h.setText("A#");
+                btn_a_l.setText("A#");
+            case 4:
+                btn_d_h.setText("D#");
+                btn_d_hh.setText("D#");
+                btn_d_l.setText("D#");
+            case 3:
+                btn_g_h.setText("G#");
+                btn_g_l.setText("G#");
+            case 2:
+                btn_c_h.setText("C#");
+                btn_c_hh.setText("C#");
+                btn_c_l.setText("C#");
+            case 1:
+                btn_f_h.setText("F#");
+                btn_f_l.setText("F#");
+        }
+    }
+    //건반라벨 원음변환함수
+    public void setOriginText(){
+        btn_c_l.setText("C");
+        btn_d_l.setText("D");
+        btn_e_l.setText("E");
+        btn_f_l.setText("F");
+        btn_g_l.setText("G");
+        btn_a_l.setText("A");
+        btn_b_l.setText("B");
+        btn_c_h.setText("C");
+        btn_d_h.setText("D");
+        btn_e_h.setText("E");
+        btn_f_h.setText("F");
+        btn_g_h.setText("G");
+        btn_a_h.setText("A");
+        btn_b_h.setText("B");
+        btn_c_hh.setText("C");
+        btn_d_hh.setText("D");
+        btn_e_hh.setText("E");
     }
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -60,15 +110,13 @@ public class play_mode extends AppCompatActivity {
         btn_c_l.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (sharpmode){
-                    sp.play(Scale.do0_5,1,1,1,0,1.0f);
-                }
-                else if (flatmode){
+                if (jangjo>=2){
                     sp.play(Scale.do0_5,1,1,1,0,1.0f);
                 }
                 else{
                     sp.play(Scale.do0_0,1,1,1,0,1.0f);
                 }
+
                 btn_c_l.setBackgroundResource(R.drawable.btn_key_select_shape);
                 new Handler().postDelayed(new Runnable()
                 {
@@ -84,11 +132,8 @@ public class play_mode extends AppCompatActivity {
         btn_d_l.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (sharpmode){
+                if (jangjo>=4){
                     sp.play(Scale.re0_5,1,1,1,0,1.0f);
-                }
-                else if (flatmode){
-                    sp.play(Scale.do0_5,1,1,1,0,1.0f);
                 }
                 else{
                     sp.play(Scale.re0_0,1,1,1,0,1.0f);
@@ -108,11 +153,8 @@ public class play_mode extends AppCompatActivity {
         btn_e_l.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (sharpmode){
+                if (jangjo>=6){
                     sp.play(Scale.fa0_0,1,1,1,0,1.0f);
-                }
-                else if (flatmode){
-                    sp.play(Scale.re0_5,1,1,1,0,1.0f);
                 }
                 else{
                     sp.play(Scale.mi0_0,1,1,1,0,1.0f);
@@ -132,15 +174,13 @@ public class play_mode extends AppCompatActivity {
         btn_f_l.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (sharpmode){
+                if (jangjo>=1){
                     sp.play(Scale.fa0_5,1,1,1,0,1.0f);
-                }
-                else if (flatmode){
-                    sp.play(Scale.mi0_0,1,1,1,0,1.0f);
                 }
                 else{
                     sp.play(Scale.fa0_0,1,1,1,0,1.0f);
                 }
+
                 btn_f_l.setBackgroundResource(R.drawable.btn_key_select_shape);
                 new Handler().postDelayed(new Runnable()
                 {
@@ -156,11 +196,8 @@ public class play_mode extends AppCompatActivity {
         btn_g_l.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (sharpmode){
+                if (jangjo>=3){
                     sp.play(Scale.sol0_5,1,1,1,0,1.0f);
-                }
-                else if (flatmode){
-                    sp.play(Scale.fa0_5,1,1,1,0,1.0f);
                 }
                 else{
                     sp.play(Scale.sol0_0,1,1,1,0,1.0f);
@@ -180,11 +217,8 @@ public class play_mode extends AppCompatActivity {
         btn_a_l.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (sharpmode){
+                if (jangjo>=5){
                     sp.play(Scale.la0_5,1,1,1,0,1.0f);
-                }
-                else if (flatmode){
-                    sp.play(Scale.sol0_5,1,1,1,0,1.0f);
                 }
                 else{
                     sp.play(Scale.la0_0,1,1,1,0,1.0f);
@@ -204,11 +238,8 @@ public class play_mode extends AppCompatActivity {
         btn_b_l.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (sharpmode){
+                if (jangjo>=7){
                     sp.play(Scale.do1_0,1,1,1,0,1.0f);
-                }
-                else if (flatmode){
-                    sp.play(Scale.la0_5,1,1,1,0,1.0f);
                 }
                 else{
                     sp.play(Scale.si0_0,1,1,1,0,1.0f);
@@ -228,11 +259,8 @@ public class play_mode extends AppCompatActivity {
         btn_c_h.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (sharpmode){
+                if (jangjo>=2){
                     sp.play(Scale.do1_5,1,1,1,0,1.0f);
-                }
-                else if (flatmode){
-                    sp.play(Scale.si0_0,1,1,1,0,1.0f);
                 }
                 else{
                     sp.play(Scale.do1_0,1,1,1,0,1.0f);
@@ -252,11 +280,8 @@ public class play_mode extends AppCompatActivity {
         btn_d_h.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (sharpmode){
+                if (jangjo>=4){
                     sp.play(Scale.re1_5,1,1,1,0,1.0f);
-                }
-                else if (flatmode){
-                    sp.play(Scale.do1_5,1,1,1,0,1.0f);
                 }
                 else{
                     sp.play(Scale.re1_0,1,1,1,0,1.0f);
@@ -276,11 +301,8 @@ public class play_mode extends AppCompatActivity {
         btn_e_h.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (sharpmode){
+                if (jangjo>=6){
                     sp.play(Scale.fa1_0,1,1,1,0,1.0f);
-                }
-                else if (flatmode){
-                    sp.play(Scale.re1_5,1,1,1,0,1.0f);
                 }
                 else{
                     sp.play(Scale.mi1_0,1,1,1,0,1.0f);
@@ -300,11 +322,8 @@ public class play_mode extends AppCompatActivity {
         btn_f_h.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (sharpmode){
+                if (jangjo>=1){
                     sp.play(Scale.fa1_5,1,1,1,0,1.0f);
-                }
-                else if (flatmode){
-                    sp.play(Scale.mi1_0,1,1,1,0,1.0f);
                 }
                 else{
                     sp.play(Scale.fa1_0,1,1,1,0,1.0f);
@@ -324,11 +343,8 @@ public class play_mode extends AppCompatActivity {
         btn_g_h.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (sharpmode){
+                if (jangjo>=3){
                     sp.play(Scale.sol1_5,1,1,1,0,1.0f);
-                }
-                else if (flatmode){
-                    sp.play(Scale.fa1_5,1,1,1,0,1.0f);
                 }
                 else{
                     sp.play(Scale.sol1_0,1,1,1,0,1.0f);
@@ -348,11 +364,8 @@ public class play_mode extends AppCompatActivity {
         btn_a_h.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (sharpmode){
+                if (jangjo>=5){
                     sp.play(Scale.la1_5,1,1,1,0,1.0f);
-                }
-                else if (flatmode){
-                    sp.play(Scale.sol1_5,1,1,1,0,1.0f);
                 }
                 else{
                     sp.play(Scale.la1_0,1,1,1,0,1.0f);
@@ -372,11 +385,8 @@ public class play_mode extends AppCompatActivity {
         btn_b_h.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (sharpmode){
+                if (jangjo>=7){
                     sp.play(Scale.do2_0,1,1,1,0,1.0f);
-                }
-                else if (flatmode){
-                    sp.play(Scale.la1_5,1,1,1,0,1.0f);
                 }
                 else{
                     sp.play(Scale.si1_0,1,1,1,0,1.0f);
@@ -396,11 +406,8 @@ public class play_mode extends AppCompatActivity {
         btn_c_hh.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (sharpmode){
+                if (jangjo>=2){
                     sp.play(Scale.do2_5,1,1,1,0,1.0f);
-                }
-                else if (flatmode){
-                    sp.play(Scale.si1_0,1,1,1,0,1.0f);
                 }
                 else{
                     sp.play(Scale.do2_0,1,1,1,0,1.0f);
@@ -420,11 +427,8 @@ public class play_mode extends AppCompatActivity {
         btn_d_hh.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (sharpmode){
+                if (jangjo>=4){
                     sp.play(Scale.re2_5,1,1,1,0,1.0f);
-                }
-                else if (flatmode){
-                    sp.play(Scale.do2_5,1,1,1,0,1.0f);
                 }
                 else{
                     sp.play(Scale.re2_0,1,1,1,0,1.0f);
@@ -444,11 +448,8 @@ public class play_mode extends AppCompatActivity {
         btn_e_hh.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (sharpmode){
+                if (jangjo>=6){
                     sp.play(Scale.mi2_5,1,1,1,0,1.0f);
-                }
-                else if (flatmode){
-                    sp.play(Scale.re2_5,1,1,1,0,1.0f);
                 }
                 else{
                     sp.play(Scale.mi2_0,1,1,1,0,1.0f);
@@ -475,6 +476,72 @@ public class play_mode extends AppCompatActivity {
             }
         });
 
+        btn_tune.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(final View view) {
+                //팝업메뉴 객체 생성
+                PopupMenu popup = new PopupMenu(getApplicationContext(),view);
+                popup.getMenuInflater().inflate(R.menu.popup_playmode,popup.getMenu());
+                //팝업메뉴 클릭시 이벤트
+                popup.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
+                    @Override
+                    public boolean onMenuItemClick(MenuItem menuItem) {
+                        switch (menuItem.getItemId()){
+                            case R.id.sharp_1:
+                                Toast.makeText(getApplicationContext(),"파샵",Toast.LENGTH_SHORT).show();
+                                setOriginText();
+                                setSharpText(1);
+                                jangjo= 1;
+                                break;
+                            case R.id.sharp_2:
+                                Toast.makeText(getApplicationContext(),"도샵",Toast.LENGTH_SHORT).show();
+                                setOriginText();
+                                setSharpText(2);
+                                jangjo= 2;
+                                break;
+                            case R.id.sharp_3:
+                                Toast.makeText(getApplicationContext(),"솔샵",Toast.LENGTH_SHORT).show();
+                                setOriginText();
+                                setSharpText(3);
+                                jangjo= 3;
+                                break;
+                            case R.id.sharp_4:
+                                Toast.makeText(getApplicationContext(),"레샵",Toast.LENGTH_SHORT).show();
+                                setOriginText();
+                                setSharpText(4);
+                                jangjo= 4;
+                                break;
+                            case R.id.sharp_5:
+                                Toast.makeText(getApplicationContext(),"라샵",Toast.LENGTH_SHORT).show();
+                                setOriginText();
+                                setSharpText(5);
+                                jangjo= 5;
+                                break;
+                            case R.id.sharp_6:
+                                Toast.makeText(getApplicationContext(),"미샵",Toast.LENGTH_SHORT).show();
+                                setOriginText();
+                                setSharpText(6);
+                                jangjo= 6;
+                                break;
+                            case R.id.sharp_7:
+                                Toast.makeText(getApplicationContext(),"시샵",Toast.LENGTH_SHORT).show();
+                                setOriginText();
+                                setSharpText(7);
+                                jangjo= 7;
+                                break;
+                            case R.id.sharp_0:
+                                Toast.makeText(getApplicationContext(),"원음",Toast.LENGTH_SHORT).show();
+                                setOriginText();
+                                jangjo= 0;
+
+                        }
+                        return true;
+                    }
+                });
+                popup.show();
+            }
+        });
+        //튜닝모드 전환
         btn_switch.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

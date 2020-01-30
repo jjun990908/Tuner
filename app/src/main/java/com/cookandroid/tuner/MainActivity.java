@@ -547,6 +547,7 @@ public class MainActivity extends AppCompatActivity{
             }
         });
 
+        //연주모드 버튼 함수
         btn_switch.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
