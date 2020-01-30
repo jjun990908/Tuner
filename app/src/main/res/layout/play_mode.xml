@@ -226,6 +226,18 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
+    <!-- 진동 on/off 버튼 -->
+    <Switch
+        android:id="@+id/btn_vive"
+        android:layout_width="50dp"
+        android:layout_height="30dp"
+        android:layout_marginEnd="65dp"
+        android:layout_marginBottom="16dp"
+        android:track="@drawable/switch_track_selector"
+        android:thumb="@drawable/switch_thumb"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
     <!-- 도움말 버튼 -->
     <Button
         android:id="@+id/btn_help"
@@ -242,7 +254,7 @@
     <Button
         android:id="@+id/switch_mode"
         android:layout_marginEnd="24dp"
-        android:layout_marginBottom="24dp"
+        android:layout_marginBottom="16dp"
         android:layout_width="30dp"
         android:layout_height="30dp"
         android:background="@drawable/smallbtn_shape"
@@ -250,5 +262,6 @@
         android:textSize="15dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

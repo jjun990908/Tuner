@@ -1,9 +1,11 @@
 package com.cookandroid.tuner;
 
+import android.content.Context;
 import android.content.Intent;
 import android.media.SoundPool;
 import android.os.Bundle;
 import android.os.Handler;
+import android.os.Vibrator;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.WindowManager;
@@ -21,6 +23,7 @@ public class play_mode extends AppCompatActivity {
 
     Button btn_c_l,btn_d_l,btn_e_l,btn_f_l,btn_g_l,btn_a_l,btn_b_l,btn_c_h,btn_d_h,btn_e_h,btn_f_h,btn_g_h,btn_a_h,btn_b_h,btn_c_hh,btn_d_hh,btn_e_hh,btn_help,btn_tune;
     Button btn_switch;
+    Switch btn_vive;
     int jangjo=0;
 
     @Override
@@ -82,6 +85,8 @@ public class play_mode extends AppCompatActivity {
                 WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.play_mode);
 
+        final Vibrator vibrator = (Vibrator)getSystemService(Context.VIBRATOR_SERVICE);
+
         //버튼 연결
         btn_c_l = (Button)findViewById(R.id.btn_c_l);
         btn_d_l = (Button)findViewById(R.id.btn_d_l);
@@ -103,6 +108,7 @@ public class play_mode extends AppCompatActivity {
         btn_help = (Button)findViewById(R.id.btn_help);
         btn_tune = (Button)findViewById(R.id.btn_tune);
         btn_switch = (Button)findViewById(R.id.switch_mode);
+        btn_vive = (Switch)findViewById(R.id.btn_vive);
 
         final ScaleSrc Scale = new ScaleSrc(play_mode.this);
         final SoundPool sp = Scale.sp;
@@ -110,6 +116,9 @@ public class play_mode extends AppCompatActivity {
         btn_c_l.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                if(!btn_vive.isChecked()){
+                    vibrator.vibrate(100);
+                }
                 if (jangjo>=2){
                     sp.play(Scale.do0_5,1,1,1,0,1.0f);
                 }
@@ -132,6 +141,9 @@ public class play_mode extends AppCompatActivity {
         btn_d_l.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                if(!btn_vive.isChecked()){
+                    vibrator.vibrate(100);
+                }
                 if (jangjo>=4){
                     sp.play(Scale.re0_5,1,1,1,0,1.0f);
                 }
@@ -153,6 +165,9 @@ public class play_mode extends AppCompatActivity {
         btn_e_l.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                if(!btn_vive.isChecked()){
+                    vibrator.vibrate(100);
+                }
                 if (jangjo>=6){
                     sp.play(Scale.fa0_0,1,1,1,0,1.0f);
                 }
@@ -174,6 +189,9 @@ public class play_mode extends AppCompatActivity {
         btn_f_l.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                if(!btn_vive.isChecked()){
+                    vibrator.vibrate(100);
+                }
                 if (jangjo>=1){
                     sp.play(Scale.fa0_5,1,1,1,0,1.0f);
                 }
@@ -196,6 +214,9 @@ public class play_mode extends AppCompatActivity {
         btn_g_l.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                if(!btn_vive.isChecked()){
+                    vibrator.vibrate(100);
+                }
                 if (jangjo>=3){
                     sp.play(Scale.sol0_5,1,1,1,0,1.0f);
                 }
@@ -217,6 +238,9 @@ public class play_mode extends AppCompatActivity {
         btn_a_l.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                if(!btn_vive.isChecked()){
+                    vibrator.vibrate(100);
+                }
                 if (jangjo>=5){
                     sp.play(Scale.la0_5,1,1,1,0,1.0f);
                 }
@@ -238,6 +262,9 @@ public class play_mode extends AppCompatActivity {
         btn_b_l.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                if(!btn_vive.isChecked()){
+                    vibrator.vibrate(100);
+                }
                 if (jangjo>=7){
                     sp.play(Scale.do1_0,1,1,1,0,1.0f);
                 }
@@ -259,6 +286,9 @@ public class play_mode extends AppCompatActivity {
         btn_c_h.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                if(!btn_vive.isChecked()){
+                    vibrator.vibrate(100);
+                }
                 if (jangjo>=2){
                     sp.play(Scale.do1_5,1,1,1,0,1.0f);
                 }
@@ -280,6 +310,9 @@ public class play_mode extends AppCompatActivity {
         btn_d_h.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                if(!btn_vive.isChecked()){
+                    vibrator.vibrate(100);
+                }
                 if (jangjo>=4){
                     sp.play(Scale.re1_5,1,1,1,0,1.0f);
                 }
@@ -301,6 +334,9 @@ public class play_mode extends AppCompatActivity {
         btn_e_h.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                if(!btn_vive.isChecked()){
+                    vibrator.vibrate(100);
+                }
                 if (jangjo>=6){
                     sp.play(Scale.fa1_0,1,1,1,0,1.0f);
                 }
@@ -322,6 +358,9 @@ public class play_mode extends AppCompatActivity {
         btn_f_h.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                if(!btn_vive.isChecked()){
+                    vibrator.vibrate(100);
+                }
                 if (jangjo>=1){
                     sp.play(Scale.fa1_5,1,1,1,0,1.0f);
                 }
@@ -343,6 +382,9 @@ public class play_mode extends AppCompatActivity {
         btn_g_h.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                if(!btn_vive.isChecked()){
+                    vibrator.vibrate(100);
+                }
                 if (jangjo>=3){
                     sp.play(Scale.sol1_5,1,1,1,0,1.0f);
                 }
@@ -364,6 +406,9 @@ public class play_mode extends AppCompatActivity {
         btn_a_h.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                if(!btn_vive.isChecked()){
+                    vibrator.vibrate(100);
+                }
                 if (jangjo>=5){
                     sp.play(Scale.la1_5,1,1,1,0,1.0f);
                 }
@@ -385,6 +430,9 @@ public class play_mode extends AppCompatActivity {
         btn_b_h.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                if(!btn_vive.isChecked()){
+                    vibrator.vibrate(100);
+                }
                 if (jangjo>=7){
                     sp.play(Scale.do2_0,1,1,1,0,1.0f);
                 }
@@ -406,6 +454,9 @@ public class play_mode extends AppCompatActivity {
         btn_c_hh.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                if(!btn_vive.isChecked()){
+                    vibrator.vibrate(100);
+                }
                 if (jangjo>=2){
                     sp.play(Scale.do2_5,1,1,1,0,1.0f);
                 }
@@ -427,6 +478,9 @@ public class play_mode extends AppCompatActivity {
         btn_d_hh.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                if(!btn_vive.isChecked()){
+                    vibrator.vibrate(100);
+                }
                 if (jangjo>=4){
                     sp.play(Scale.re2_5,1,1,1,0,1.0f);
                 }
@@ -448,6 +502,9 @@ public class play_mode extends AppCompatActivity {
         btn_e_hh.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                if(!btn_vive.isChecked()){
+                    vibrator.vibrate(100);
+                }
                 if (jangjo>=6){
                     sp.play(Scale.mi2_5,1,1,1,0,1.0f);
                 }
@@ -476,6 +533,17 @@ public class play_mode extends AppCompatActivity {
             }
         });
 
+        btn_vive.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean ischecked) {
+                if (ischecked){
+                    Toast.makeText(getApplicationContext(),"진동 OFF",Toast.LENGTH_SHORT).show();
+                }
+                else{
+                    Toast.makeText(getApplicationContext(),"진동 ON",Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
         btn_tune.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(final View view) {
