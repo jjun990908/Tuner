@@ -42,6 +42,7 @@ public class MainActivity extends AppCompatActivity{
     static float buffer[] = new float[5];
     static {for(int i = 0; i < 5; i ++){buffer[i] = 0;}}
     static Button buttonArray[] = new Button[7];
+    static String ScaleArray[];
     int frequency = 4400;
     int channelConfiguration = AudioFormat.CHANNEL_IN_MONO;
     int audioEncoding = AudioFormat.ENCODING_PCM_16BIT;
@@ -72,69 +73,15 @@ public class MainActivity extends AppCompatActivity{
     Boolean sharpmode=false,flatmode=false;
 
     //건반색 초기화함수
-    public void setBtnWhite(){
-        for(int i=0;i<17;i++){ buttonArray[i].setBackgroundResource(R.drawable.btn_key_shape); } }
-
-        //건반라벨 #추가함수
-    public void setSharpText(){
-        btn_c_l.setText("C#");
-        btn_d_l.setText("D#");
-        btn_e_l.setText("E#");
-        btn_f_l.setText("F#");
-        btn_g_l.setText("G#");
-        btn_a_l.setText("A#");
-        btn_b_l.setText("B#");
-        btn_c_h.setText("C#");
-        btn_d_h.setText("D#");
-        btn_e_h.setText("E#");
-        btn_f_h.setText("F#");
-        btn_g_h.setText("G#");
-        btn_a_h.setText("A#");
-        btn_b_h.setText("B#");
-        btn_c_hh.setText("C#");
-        btn_d_hh.setText("d#");
-        btn_e_hh.setText("e #");
-    }
+    public void setBtnWhite(){ for(int i=0;i<17;i++){ buttonArray[i].setBackgroundResource(R.drawable.btn_key_shape); } }
+    //건반라벨 #추가함수
+    public void setSharpText(){for(int i=0; i<17;i++){buttonArray[i].setText(ScaleArray[i%7]+"#");}}
     //건반라벨 b추가함수
-    public void setFlatText(){
-        btn_c_l.setText("C♭");
-        btn_d_l.setText("D♭");
-        btn_e_l.setText("E♭");
-        btn_f_l.setText("F♭");
-        btn_g_l.setText("G♭");
-        btn_a_l.setText("A♭");
-        btn_b_l.setText("B♭");
-        btn_c_h.setText("C♭");
-        btn_d_h.setText("D♭");
-        btn_e_h.setText("E♭");
-        btn_f_h.setText("F♭");
-        btn_g_h.setText("G♭");
-        btn_a_h.setText("A♭");
-        btn_b_h.setText("B♭");
-        btn_c_hh.setText("C♭");
-        btn_d_hh.setText("D♭");
-        btn_e_hh.setText("E♭");
-    }
+    public void setFlatText(){for(int i=0; i<17;i++){buttonArray[i].setText(ScaleArray[i%7]+"♭");}}
     //건반라벨 원음변환함수
-    public void setOriginText(){
-        btn_c_l.setText("C");
-        btn_d_l.setText("D");
-        btn_e_l.setText("E");
-        btn_f_l.setText("F");
-        btn_g_l.setText("G");
-        btn_a_l.setText("A");
-        btn_b_l.setText("B");
-        btn_c_h.setText("C");
-        btn_d_h.setText("D");
-        btn_e_h.setText("E");
-        btn_f_h.setText("F");
-        btn_g_h.setText("G");
-        btn_a_h.setText("A");
-        btn_b_h.setText("B");
-        btn_c_hh.setText("C");
-        btn_d_hh.setText("D");
-        btn_e_hh.setText("E");
-    }
+    public void setOriginText(){ for(int i=0; i<17;i++){buttonArray[i].setText(ScaleArray[i%7]);} }
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
@@ -145,7 +92,7 @@ public class MainActivity extends AppCompatActivity{
         recordTask = new RecordAudio();
         recordTask.execute();
 
-
+        ScaleArray = new String[]{"C", "D", "E", "F", "G", "A", "B"};
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
                 WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_main);
@@ -169,6 +116,8 @@ public class MainActivity extends AppCompatActivity{
         btn_d_hh = (Button)findViewById(R.id.btn_d_hh);
         btn_e_hh = (Button)findViewById(R.id.btn_e_hh);
         buttonArray = new Button[]{btn_c_l,btn_d_l,btn_e_l,btn_f_l,btn_g_l,btn_a_l,btn_b_l,btn_c_h,btn_d_h,btn_e_h,btn_f_h,btn_g_h,btn_a_h,btn_b_h,btn_c_hh,btn_d_hh,btn_e_hh};
+
+
         btn_help = (Button)findViewById(R.id.btn_help);
         btn_tune = (Button)findViewById(R.id.btn_tune);
         centerView = (View)findViewById(R.id.view_CenterView);
