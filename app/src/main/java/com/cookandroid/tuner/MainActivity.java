@@ -71,7 +71,6 @@ public class MainActivity extends AppCompatActivity{
     TextView keyText,sharpText,flatText;
     Button btn_switch;
     Boolean sharpmode=false,flatmode=false;
-
     //건반색 초기화함수
     public void setBtnWhite(){ for(int i=0;i<17;i++){ buttonArray[i].setBackgroundResource(R.drawable.btn_key_shape); } }
     //건반라벨 #추가함수
@@ -692,6 +691,22 @@ public class MainActivity extends AppCompatActivity{
 
                 fixed = avrg;
 
+            }
+
+            if((CuHz-avrg<5 && CuHz-avrg>0) || (avrg-CuHz<5 && avrg-CuHz>0)){
+                centerView.setBackgroundColor(Color.GREEN);//중앙 버튼 초록색
+            }
+            else if(CuHz-avrg>=5 && CuHz-avrg<10){
+                centerLView.setBackgroundColor(Color.RED);//왼쪽 버튼 붉은색
+            }
+            else if(CuHz-avrg>=10){
+                centerLLView.setBackgroundColor(Color.RED);//왼왼쪽 버튼 붉은색
+            }
+            else if(avrg-CuHz>=5 && avrg-CuHz<10){
+                centerRView.setBackgroundColor(Color.RED);//오른쪽 버튼 붉은색
+            }
+            else if(avrg-CuHz>=10){
+                centerRRView.setBackgroundColor(Color.RED);//오른오른쪽 버튼 붉은색
             }
         }
     }
