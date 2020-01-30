@@ -699,12 +699,12 @@ public class MainActivity extends AppCompatActivity{
                 appstart = true;
             }
             if (appstart == true) {
-                if ((CuHz - avrg < 5 && CuHz - avrg > 0) || (avrg - CuHz < 5 && avrg - CuHz > 0)) {
-                    centerLView.setBackgroundResource(R.drawable.btn_bottom_green);//중앙 버튼 초록색
+                if ((CuHz - avrg < 5 && CuHz - avrg >= 0) || (avrg - CuHz < 5 && avrg - CuHz >= 0)) {
+                    centerView.setBackgroundResource(R.drawable.btn_bottom_green);//중앙 버튼 초록색
                     THandler.postDelayed(new Runnable() {
                         @Override
                         public void run() {
-                            centerLView.setBackgroundResource(R.drawable.smallbtn_shape);
+                            centerView.setBackgroundResource(R.drawable.smallbtn_shape);
                         }
                     }, 1000);
                 } else if (CuHz - avrg >= 5 && CuHz - avrg < 10) {
@@ -720,7 +720,7 @@ public class MainActivity extends AppCompatActivity{
                     THandler.postDelayed(new Runnable() {
                         @Override
                         public void run() {
-                            centerLView.setBackgroundResource(R.drawable.smallbtn_shape);
+                            centerLLView.setBackgroundResource(R.drawable.smallbtn_shape);
                         }
                     }, 1000);
                 } else if (avrg - CuHz >= 5 && avrg - CuHz < 10) {
@@ -728,7 +728,7 @@ public class MainActivity extends AppCompatActivity{
                     THandler.postDelayed(new Runnable() {
                         @Override
                         public void run() {
-                            centerLView.setBackgroundResource(R.drawable.smallbtn_shape);
+                            centerRView.setBackgroundResource(R.drawable.smallbtn_shape);
                         }
                     }, 1000);
                 } else if (avrg - CuHz >= 10) {
@@ -736,7 +736,7 @@ public class MainActivity extends AppCompatActivity{
                     THandler.postDelayed(new Runnable() {
                         @Override
                         public void run() {
-                            centerLView.setBackgroundResource(R.drawable.smallbtn_shape);
+                            centerRRView.setBackgroundResource(R.drawable.smallbtn_shape);
                         }
                     }, 1000);
                 }
