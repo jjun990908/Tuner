@@ -120,6 +120,7 @@ public class play_mode extends AppCompatActivity {
             public boolean onTouch(View v, MotionEvent event) {
                 switch (event.getAction()) {
                     case MotionEvent.ACTION_DOWN:
+                    case MotionEvent.ACTION_POINTER_DOWN:
                         if(!btn_vive.isChecked()){
                             vibrator.vibrate(100);
                         }
@@ -148,6 +149,7 @@ public class play_mode extends AppCompatActivity {
         btn_d_l.setOnTouchListener(new View.OnTouchListener() {
             public boolean onTouch(View v, MotionEvent event) {
                 switch (event.getAction()) {
+                    case MotionEvent.ACTION_POINTER_DOWN:
                     case MotionEvent.ACTION_DOWN:
                         if(!btn_vive.isChecked()){
                             vibrator.vibrate(100);
@@ -177,6 +179,7 @@ public class play_mode extends AppCompatActivity {
             public boolean onTouch(View v, MotionEvent event) {
                 switch (event.getAction()) {
                     case MotionEvent.ACTION_DOWN:
+                    case MotionEvent.ACTION_POINTER_DOWN:
                         if(!btn_vive.isChecked()){
                             vibrator.vibrate(100);
                         }
@@ -205,6 +208,7 @@ public class play_mode extends AppCompatActivity {
             public boolean onTouch(View v, MotionEvent event) {
                 switch (event.getAction()) {
                     case MotionEvent.ACTION_DOWN:
+                    case MotionEvent.ACTION_POINTER_DOWN:
                         if(!btn_vive.isChecked()){
                             vibrator.vibrate(100);
                         }
@@ -234,6 +238,7 @@ public class play_mode extends AppCompatActivity {
             public boolean onTouch(View v, MotionEvent event) {
                 switch (event.getAction()) {
                     case MotionEvent.ACTION_DOWN:
+                    case MotionEvent.ACTION_POINTER_DOWN:
                         if(!btn_vive.isChecked()){
                             vibrator.vibrate(100);
                         }
@@ -262,6 +267,7 @@ public class play_mode extends AppCompatActivity {
             public boolean onTouch(View v, MotionEvent event) {
                 switch (event.getAction()) {
                     case MotionEvent.ACTION_DOWN:
+                    case MotionEvent.ACTION_POINTER_DOWN:
                         if(!btn_vive.isChecked()){
                             vibrator.vibrate(100);
                         }
@@ -290,6 +296,7 @@ public class play_mode extends AppCompatActivity {
             public boolean onTouch(View v, MotionEvent event) {
                 switch (event.getAction()) {
                     case MotionEvent.ACTION_DOWN:
+                    case MotionEvent.ACTION_POINTER_DOWN:
                         if(!btn_vive.isChecked()){
                             vibrator.vibrate(100);
                         }
@@ -318,6 +325,7 @@ public class play_mode extends AppCompatActivity {
             public boolean onTouch(View v, MotionEvent event) {
                 switch (event.getAction()) {
                     case MotionEvent.ACTION_DOWN:
+                    case MotionEvent.ACTION_POINTER_DOWN:
                         if(!btn_vive.isChecked()){
                             vibrator.vibrate(100);
                         }
@@ -346,6 +354,7 @@ public class play_mode extends AppCompatActivity {
             public boolean onTouch(View v, MotionEvent event) {
                 switch (event.getAction()) {
                     case MotionEvent.ACTION_DOWN:
+                    case MotionEvent.ACTION_POINTER_DOWN:
                         if(!btn_vive.isChecked()){
                             vibrator.vibrate(100);
                         }
@@ -374,6 +383,7 @@ public class play_mode extends AppCompatActivity {
             public boolean onTouch(View v, MotionEvent event) {
                 switch (event.getAction()) {
                     case MotionEvent.ACTION_DOWN:
+                    case MotionEvent.ACTION_POINTER_DOWN:
                         if(!btn_vive.isChecked()){
                             vibrator.vibrate(100);
                         }
@@ -402,6 +412,7 @@ public class play_mode extends AppCompatActivity {
             public boolean onTouch(View v, MotionEvent event) {
                 switch (event.getAction()) {
                     case MotionEvent.ACTION_DOWN:
+                    case MotionEvent.ACTION_POINTER_DOWN:
                         if(!btn_vive.isChecked()){
                             vibrator.vibrate(100);
                         }
@@ -431,6 +442,7 @@ public class play_mode extends AppCompatActivity {
             public boolean onTouch(View v, MotionEvent event) {
                 switch (event.getAction()) {
                     case MotionEvent.ACTION_DOWN:
+                    case MotionEvent.ACTION_POINTER_DOWN:
                         if(!btn_vive.isChecked()){
                             vibrator.vibrate(100);
                         }
@@ -459,6 +471,7 @@ public class play_mode extends AppCompatActivity {
             public boolean onTouch(View v, MotionEvent event) {
                 switch (event.getAction()) {
                     case MotionEvent.ACTION_DOWN:
+                    case MotionEvent.ACTION_POINTER_DOWN:
                         if(!btn_vive.isChecked()){
                             vibrator.vibrate(100);
                         }
@@ -487,6 +500,7 @@ public class play_mode extends AppCompatActivity {
         btn_b_h.setOnTouchListener(new View.OnTouchListener() {
             public boolean onTouch(View v, MotionEvent event) {
                 switch (event.getAction()) {
+                    case MotionEvent.ACTION_POINTER_DOWN:
                     case MotionEvent.ACTION_DOWN:
                         if(!btn_vive.isChecked()){
                             vibrator.vibrate(100);
@@ -517,6 +531,7 @@ public class play_mode extends AppCompatActivity {
             public boolean onTouch(View v, MotionEvent event) {
                 switch (event.getAction()) {
                     case MotionEvent.ACTION_DOWN:
+                    case MotionEvent.ACTION_POINTER_DOWN:
                         if(!btn_vive.isChecked()){
                             vibrator.vibrate(100);
                         }
@@ -546,6 +561,7 @@ public class play_mode extends AppCompatActivity {
             public boolean onTouch(View v, MotionEvent event) {
                 switch (event.getAction()) {
                     case MotionEvent.ACTION_DOWN:
+                    case MotionEvent.ACTION_POINTER_DOWN:
                         if(!btn_vive.isChecked()){
                             vibrator.vibrate(100);
                         }
@@ -575,6 +591,7 @@ public class play_mode extends AppCompatActivity {
             public boolean onTouch(View v, MotionEvent event) {
                 switch (event.getAction()) {
                     case MotionEvent.ACTION_DOWN:
+                    case MotionEvent.ACTION_POINTER_DOWN:
                         if(!btn_vive.isChecked()){
                             vibrator.vibrate(100);
                         }
