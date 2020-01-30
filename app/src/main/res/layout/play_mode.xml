@@ -231,10 +231,12 @@
         android:id="@+id/btn_vive"
         android:layout_width="50dp"
         android:layout_height="30dp"
-        android:layout_marginStart="85dp"
+        android:layout_marginEnd="65dp"
         android:layout_marginBottom="16dp"
+        android:track="@drawable/switch_track_selector"
+        android:thumb="@drawable/switch_thumb"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent" />
 
     <!-- 도움말 버튼 -->
     <Button
@@ -252,7 +254,7 @@
     <Button
         android:id="@+id/switch_mode"
         android:layout_marginEnd="24dp"
-        android:layout_marginBottom="24dp"
+        android:layout_marginBottom="16dp"
         android:layout_width="30dp"
         android:layout_height="30dp"
         android:background="@drawable/smallbtn_shape"
