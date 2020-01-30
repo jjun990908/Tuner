@@ -41,9 +41,10 @@ import static java.lang.Math.abs;
 
 
 public class MainActivity extends AppCompatActivity{
-    static float avrg=0;
+    static float avrg;
     static View CurrentLight;
     static View CurrentLight_temp;
+    static int cyclecnt=0;
     float fixed = -1;
     static float buffer[] = new float[5];
     static {for(int i = 0; i < 5; i ++){buffer[i] = 0;}}
@@ -660,24 +661,27 @@ public class MainActivity extends AppCompatActivity{
             if (sharpmode == false && flatmode == false) {
                 double btnHz[] = {261.62, 293.66, 329.62, 349.22, 392, 440, 493.88, 523.25, 587.32, 659.25, 698.25, 784, 877.99, 987.76, 1046.5, 1174.6, 1318.51};
                 for (int i = 0; i < btns.length; i++) {
-                    if (btns[i].getId() == buttonId && CuHz != btnHz[i]) {
+                    if (btns[i].getId() == buttonId && Double.compare(CuHz,btnHz[i])!=0) {
                         CuHz = btnHz[i];
+                        cyclecnt = 0;
                         Log.i("현재음", arrays[i % 7] + "     " + Boolean.toString(sharpmode) + Boolean.toString(flatmode));
                     }
                 }
             } else if (sharpmode == true && flatmode == false) {
                 double btnHz[] = {277.18, 311.12, 349.22, 370, 415.30, 466.16, 523.25, 554.36, 619.4, 698.5, 739, 830.60, 932.32, 1046.5, 1108.7, 1244.50, 1396.91};
                 for (int i = 0; i < btns.length; i++) {
-                    if (btns[i].getId() == buttonId && CuHz != btnHz[i]) {
+                    if (btns[i].getId() == buttonId && Double.compare(CuHz,btnHz[i])!=0) {
                         CuHz = btnHz[i];
+                        cyclecnt = 0;
                         Log.i("현재음", arrays[i % 7] + "     " + Boolean.toString(sharpmode) + Boolean.toString(flatmode));
                     }
                 }
             } else {
                 double btnHz[] = {0, 277.18, 311.12, 329.62, 370, 415.30, 466.16, 493.88, 554.36, 619.4, 659.25, 739, 830.60, 932.32, 987.76, 1108.7, 1244.50};
                 for (int i = 0; i < btns.length; i++) {
-                    if (btns[i].getId() == buttonId && CuHz != btnHz[i]) {
+                    if (btns[i].getId() == buttonId && Double.compare(CuHz,btnHz[i])!=0) {
                         CuHz = btnHz[i];
+                        cyclecnt = 0;
                         Log.i("현재음", arrays[i % 7] + "     " + Boolean.toString(sharpmode) + Boolean.toString(flatmode));
                     }
                 }
@@ -692,7 +696,7 @@ public class MainActivity extends AppCompatActivity{
 
 
             fixedtemp = maxium(toTransform[0]);
-            if (CuHz * (0.8) <= fixedtemp && fixedtemp <= CuHz * 1.2) {
+            if (CuHz * (0.9) <= fixedtemp && fixedtemp <= CuHz * 1.1) {
                 for (int i = 0; i < 4; i++) {
                     float tmparray = buffer[i + 1];
                     buffer[i] = tmparray;
@@ -704,17 +708,17 @@ public class MainActivity extends AppCompatActivity{
                 Log.i("current Hz", Float.toString(fixedtemp));
                 Log.i("avrg Hz", Float.toString(avrg));
 
-                fixed = avrg;
+                fixed = cyclecnt++<3?fixedtemp:avrg;
                 appstart = true;
             }
             if(CurrentLight == null){CurrentLight = centerView;}
-                if (abs(CuHz - avrg) <5){                        CurrentLight_temp = centerView; }
-                else if (CuHz - avrg >= 5 && CuHz - avrg < 10) { CurrentLight_temp = centerLView; }
-                else if (CuHz - avrg >= 10) {                    CurrentLight_temp = centerLLView;
+                if (abs(CuHz - fixed) <5){                        CurrentLight_temp = centerView; }
+                else if (CuHz - fixed >= 5 && CuHz - avrg < 10) { CurrentLight_temp = centerLView; }
+                else if (CuHz - fixed >= 10) {                    CurrentLight_temp = centerLLView;
                 Log.i("AVRG는? : ", Float.toString(avrg));
                 }
-                else if (avrg - CuHz >= 5 && avrg - CuHz < 10) { CurrentLight_temp = centerRView; }
-                else if (avrg - CuHz >= 10) {                    CurrentLight_temp = centerRRView; }
+                else if (fixed - CuHz >= 5 && avrg - CuHz < 10) { CurrentLight_temp = centerRView; }
+                else if (fixed - CuHz >= 10) {                    CurrentLight_temp = centerRRView; }
                 else{                                            CurrentLight_temp = null;}
 
                 if(CurrentLight_temp != null && CurrentLight != CurrentLight_temp){
