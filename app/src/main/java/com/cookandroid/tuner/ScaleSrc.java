@@ -13,6 +13,10 @@ public class ScaleSrc {
     int do2_5, re2_5, mi2_5;
     SoundPool sp;
 
+    static int[] scaleArrayNormal;
+    static int[] scaleArrayFlat;
+    static int[] scaleArraySharp;
+
     ScaleSrc(Context context) {
         this.sp = new SoundPool(5,         // 최대 음악파일의 개수
                 AudioManager.STREAM_MUSIC, // 스트림 타입
@@ -128,5 +132,13 @@ public class ScaleSrc {
         this.mi2_5 = sp.load(context,
                 R.raw.kal_mi2_5,
                 1);
+
+        scaleArrayNormal = new int[]{do0_0,re0_0,mi0_0,fa0_0,sol0_0,la0_0,si0_0,do1_0,
+                re1_0,mi1_0,fa1_0,sol1_0,la1_0,si1_0,do2_0,re2_0,mi2_0};
+        scaleArrayFlat = new int[]{do0_5,do0_5,re0_5,mi0_0,fa0_5,sol0_5,la0_5,si0_0,do1_5,
+                re1_5,mi1_0,fa1_5,sol1_5,la1_5,si1_0,do2_5,re2_5};
+        scaleArraySharp = new int[]{do0_5,re0_5,fa0_0,fa0_5,sol0_5,la0_5,do1_0,
+                do1_5,re1_5,fa1_0,fa1_5,sol1_5,la1_5,do2_0,do2_5,re2_5,mi2_5};
+
     }
 }
