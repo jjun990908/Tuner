@@ -705,18 +705,39 @@ public class MainActivity extends AppCompatActivity{
                 return sum/3;
             }
         }
-        private void setHz(){
-            Button btns[] = {btn_c_l,btn_d_l,btn_e_l,btn_f_l,btn_g_l,btn_a_l,btn_b_l,btn_c_h,btn_d_h,btn_e_h,btn_f_h,btn_g_h,btn_a_h, btn_b_h,btn_c_hh,btn_d_hh,btn_e_hh};
-            String arrays[] = {"C", "D", "E", "F", "G", "A", "B"};
 
-            double btnHz[] = { 261.62, 293.66,329.62,349.22, 392,440,493.88,523.25,587.32,659.25,698.25,784,880,987.76,1046.5,1174.6 };
-            for(int i=0; i<btns.length;i++){
-                if(btns[i].getId()==buttonId && CuHz != btnHz[i]){
-                    CuHz = btnHz[i];
-                    Log.i("현재음",arrays[i%7]+ "     "+Boolean.toString(sharpmode)+ Boolean.toString(flatmode));
+        private void setHz() {
+                Button btns[] = {btn_c_l, btn_d_l, btn_e_l, btn_f_l, btn_g_l, btn_a_l, btn_b_l, btn_c_h, btn_d_h, btn_e_h, btn_f_h, btn_g_h, btn_a_h, btn_b_h, btn_c_hh, btn_d_hh, btn_e_hh};
+                String arrays[] = {"C", "D", "E", "F", "G", "A", "B"};
+            if (sharpmode == false && flatmode == false) {
+                double btnHz[] = {261.62, 293.66, 329.62, 349.22, 392, 440, 493.88, 523.25, 587.32, 659.25, 698.25, 784, 880, 987.76, 1046.5, 1174.6, 1318.51};
+                for (int i = 0; i < btns.length; i++) {
+                    if (btns[i].getId() == buttonId && CuHz != btnHz[i]) {
+                        CuHz = btnHz[i];
+                        Log.i("현재음", arrays[i % 7] + "     " + Boolean.toString(sharpmode) + Boolean.toString(flatmode));
+                    }
+                }
+            }
+            else if (sharpmode == true && flatmode == false){
+                double btnHz[] = {277.18, 311.12, 349.22, 370, 415.30, 466.16, 523.25, 554.36, 622.25, 698.5, 739, 830.60, 932.32, 1046.5, 1108.7, 1244.50, 1396.91};
+                for (int i = 0; i < btns.length; i++) {
+                    if (btns[i].getId() == buttonId && CuHz != btnHz[i]) {
+                        CuHz = btnHz[i];
+                        Log.i("현재음", arrays[i % 7] + "     " + Boolean.toString(sharpmode) + Boolean.toString(flatmode));
+                    }
+                }
+            }
+            else{
+                double btnHz[] = {0, 277.18, 311.12, 329.62, 370, 415.30, 466.16, 493.88, 554.36, 622.25, 659.25, 739, 830.60, 932.32, 987.76, 1108.7, 1244.50};
+                for (int i = 0; i < btns.length; i++) {
+                    if (btns[i].getId() == buttonId && CuHz != btnHz[i]) {
+                        CuHz = btnHz[i];
+                        Log.i("현재음", arrays[i % 7] + "     " + Boolean.toString(sharpmode) + Boolean.toString(flatmode));
+                    }
                 }
             }
         }
+
         @Override
         protected void onProgressUpdate(double[]... toTransform) {
             setHz();
