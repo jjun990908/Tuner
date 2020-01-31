@@ -1,6 +1,7 @@
 package com.cookandroid.tuner;
 
 
+import android.util.Log;
 import android.widget.Button;
 
 public class FFTfunc {
@@ -61,10 +62,15 @@ public class FFTfunc {
             }
             else if(flatmode && buttons[i].getId() == Pressed_Button_ID && Double.compare(ScaleSrc.scaleArrayFlat[i], Current_HZ)!=0){
                 MainActivity.CuHz = ScaleSrc.scaleArrayFlat[i];
+                System.out.println("s11");
             }
-            else if (buttons[i].getId() == Pressed_Button_ID && Double.compare(ScaleSrc.scaleArrayFlat[i], Current_HZ)!=0){
+            else if (buttons[i].getId() == Pressed_Button_ID && Double.compare(ScaleSrc.scaleArrayNormal[i], Current_HZ)!=0){
                 MainActivity.CuHz = ScaleSrc.scaleArrayNormal[i];
+                System.out.println("s22");
             }
+            else{continue;}
+
+
         }
     }
 }
