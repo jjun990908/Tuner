@@ -639,11 +639,11 @@ public class MainActivity extends AppCompatActivity{
                 buffer[4] = InputAudioHz;
                 avrg = NoiseDetect(buffer);
 
-                if (avrg<256.62){
+                if (avrg<251.62){
                     setOriginColor();
                     centerLLView.setBackgroundResource(R.drawable.btn_bottom_red);
                 }
-                else if(avrg<261.62){
+                else if(avrg<256.62){
                     setOriginColor();
                     centerLView.setBackgroundResource(R.drawable.btn_bottom_red);
                 }
