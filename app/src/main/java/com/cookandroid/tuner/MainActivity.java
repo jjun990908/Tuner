@@ -1,4 +1,6 @@
 package com.cookandroid.tuner;
+
+
 import com.cookandroid.tuner.fftpack.*;
 import androidx.annotation.ColorInt;
 import androidx.appcompat.app.AppCompatActivity;
@@ -38,40 +40,39 @@ import java.util.Arrays;
 import java.util.Collections;
 
 import static java.lang.Math.abs;
-
+import static java.lang.Math.max;
+import static com.cookandroid.tuner.FFTfunc.MaxInFFTArray;
 
 public class MainActivity extends AppCompatActivity{
+
+    ////////// FFT initialize ////////////////////
+
+    // 1. 성능 설정 변수 (수정 가능, 삭제 불가)
+    int frequency = 4400; // 가청 주파수 설정 (참고: 가청 주파수는 frequency 의 절반)
+    int blockSize = 1024; // 정밀도 설정 (참고: 반드시 2의 배수)
+
+    // 2. IO 연결 객체 (수정 가능, 삭제 불가)
+    int channelConfiguration = AudioFormat.CHANNEL_IN_MONO;
+    int audioEncoding = AudioFormat.ENCODING_PCM_16BIT;
+    RealDoubleFFT transformer;
+    RecordAudio recordTask;
+
+    // 3. 화면에 표시하기 위해, 따로 만든 변수들 (수정 가능, 삭제 가능)
     static float avrg;
     static View CurrentLight;
     static View CurrentLight_temp;
     static int cyclecnt=0;
-    float fixed = -1;
     static float buffer[] = new float[5];
     static {for(int i = 0; i < 5; i ++){buffer[i] = 0;}}
     static Button buttonArray[] = new Button[7];
     static String ScaleArray[];
-    int frequency = 4400;
-    int channelConfiguration = AudioFormat.CHANNEL_IN_MONO;
-    int audioEncoding = AudioFormat.ENCODING_PCM_16BIT;
+    float fixed = -1;
     double CuHz= 260;
     int buttonId;
-    Handler THandler = new Handler();
-    RealDoubleFFT transformer;
-
-    /////////////////////////////////////////////////////////////
-    /////////////////////////////////////////////////////////////
-    int blockSize = 1024;/////////////////////////////////////////
-    /////////////////////////////////////////////////////////////
-    Button startStopButton;
     boolean started = true;
+    ///////////////////////////////////////////
 
 
-    RecordAudio recordTask;
-    ImageView imageView;
-    Bitmap bitmap;
-    Canvas canvas;
-    Paint paint;
-    TextView textView;
     Button btn_c_l,btn_d_l,btn_e_l,btn_f_l,btn_g_l,btn_a_l,btn_b_l,btn_c_h,btn_d_h,btn_e_h,btn_f_h,btn_g_h,btn_a_h,btn_b_h,btn_c_hh,btn_d_hh,btn_e_hh,btn_help,btn_tune;
     View centerView,centerRView,centerLView,centerRRView,centerLLView;
     TextView keyText,sharpText,flatText;
@@ -89,15 +90,18 @@ public class MainActivity extends AppCompatActivity{
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        CurrentLight = centerView;
-
         super.onCreate(savedInstanceState);
-        transformer = new RealDoubleFFT(blockSize);
 
+        ///FFT initialize ///
+        CurrentLight = centerView;
+        transformer = new RealDoubleFFT(blockSize);
         recordTask = new RecordAudio();
         recordTask.execute();
-
         ScaleArray = new String[]{"C", "D", "E", "F", "G", "A", "B"};
+        /////////////////////
+
+
+
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
                 WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_main);
@@ -123,7 +127,6 @@ public class MainActivity extends AppCompatActivity{
         btn_d_hh = (Button)findViewById(R.id.btn_d_hh);
         btn_e_hh = (Button)findViewById(R.id.btn_e_hh);
         buttonArray = new Button[]{btn_c_l,btn_d_l,btn_e_l,btn_f_l,btn_g_l,btn_a_l,btn_b_l,btn_c_h,btn_d_h,btn_e_h,btn_f_h,btn_g_h,btn_a_h,btn_b_h,btn_c_hh,btn_d_hh,btn_e_hh};
-
 
         btn_help = (Button)findViewById(R.id.btn_help);
         btn_tune = (Button)findViewById(R.id.btn_tune);
@@ -601,22 +604,6 @@ public class MainActivity extends AppCompatActivity{
             return null;
         }
 
-        private float maxium(double[] arrays) {
-            int sound;
-            double maxius;
-            maxius = arrays[0];
-            float idx = 0;
-            for (int i = 0; i < arrays.length; i++)
-                if (maxius < arrays[i]) {
-                    maxius = arrays[i];
-                    idx = i;
-                }
-            if (maxius > 3) {
-                return idx * 4400 / 2 / 1024;
-            } else {
-                return -1;
-            }
-        }
 
         private float sumavrg(float[] arrays) {
             float max, min, sum;
@@ -695,7 +682,8 @@ public class MainActivity extends AppCompatActivity{
             float fixedtemp = -1;
 
 
-            fixedtemp = maxium(toTransform[0]);
+            fixedtemp = MaxInFFTArray(toTransform[0], 3);
+
             if (CuHz * (0.9) <= fixedtemp && fixedtemp <= CuHz * 1.1) {
                 for (int i = 0; i < 4; i++) {
                     float tmparray = buffer[i + 1];
@@ -715,7 +703,7 @@ public class MainActivity extends AppCompatActivity{
                 if (abs(CuHz - fixed) <5){                        CurrentLight_temp = centerView; }
                 else if (CuHz - fixed >= 5 && CuHz - avrg < 10) { CurrentLight_temp = centerLView; }
                 else if (CuHz - fixed >= 10) {                    CurrentLight_temp = centerLLView;
-                Log.i("AVRG는? : ", Float.toString(avrg));
+                Log.i("AVRG는? : ", Float.toString(fixed));
                 }
                 else if (fixed - CuHz >= 5 && avrg - CuHz < 10) { CurrentLight_temp = centerRView; }
                 else if (fixed - CuHz >= 10) {                    CurrentLight_temp = centerRRView; }
