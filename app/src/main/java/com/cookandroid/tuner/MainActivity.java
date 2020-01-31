@@ -602,43 +602,6 @@ public class MainActivity extends AppCompatActivity{
         }
 
 
-        private float sumavrg(float[] arrays) {
-            float max, min, sum;
-            max = sum = 0;
-            min = 9999;
-            int idxM, idxm;
-            idxM = 2;
-            idxm = 1;
-            for (int i = 0; i < 5; i++) {
-                if (arrays[i] > max + 1) {
-                    max = arrays[i];
-                    idxM = i;
-                }
-                if (arrays[i] < min - 1) {
-                    min = arrays[i];
-                    idxm = i;
-                }
-
-            }
-            if (idxM == idxm) {
-                for (int i = 0; i < 5; i++) {
-                    if (i != idxM && i != idxm) {
-                        sum += arrays[i];
-                    }
-
-                }
-                return sum / 4;
-            } else {
-                for (int i = 0; i < 5; i++) {
-                    if (i != idxM && i != idxm) {
-                        sum += arrays[i];
-                    }
-
-                }
-                return sum / 3;
-            }
-        }
-
         private void setHz() {
             Button btns[] = {btn_c_l, btn_d_l, btn_e_l, btn_f_l, btn_g_l, btn_a_l, btn_b_l, btn_c_h, btn_d_h, btn_e_h, btn_f_h, btn_g_h, btn_a_h, btn_b_h, btn_c_hh, btn_d_hh, btn_e_hh};
             String arrays[] = {"C", "D", "E", "F", "G", "A", "B"};
@@ -693,8 +656,6 @@ public class MainActivity extends AppCompatActivity{
                 Log.i("avrg Hz", Float.toString(avrg));
 
             }
-
-
         }
     }
 }
