@@ -99,28 +99,28 @@ public class MainActivity extends AppCompatActivity{
                 else if(266<=avrg && avrg<271) setColor(4);
                 else if(271<avrg) setColor(5);
                 break;
-            case 2:
+            case 18:
                 if (avrg<267) setColor(1);
                 else if(267<=avrg && avrg<272) setColor(2);
                 else if(272<=avrg && avrg<282) setColor(3);
                 else if(282<=avrg && avrg<287) setColor(4);
                 else if(287<avrg) setColor(5);
                 break;
-            case 3:
+            case 2:
                 if (avrg<283) setColor(1);
                 else if(283<=avrg && avrg<288) setColor(2);
                 else if(288<=avrg && avrg<298) setColor(3);
                 else if(298<=avrg && avrg<303) setColor(4);
                 else if(303<avrg) setColor(5);
                 break;
-            case 4:
+            case 19:
                 if (avrg<301) setColor(1);
                 else if(301<=avrg && avrg<306) setColor(2);
                 else if(306<=avrg && avrg<316) setColor(3);
                 else if(316<=avrg && avrg<321) setColor(4);
                 else if(321<avrg) setColor(5);
                 break;
-            case 5:
+            case 3:
                 if (avrg<319) setColor(1);
                 else if(319<=avrg && avrg<324) setColor(2);
                 else if(324<=avrg && avrg<334) setColor(3);
@@ -208,7 +208,6 @@ public class MainActivity extends AppCompatActivity{
                 setBtnWhite();
                 keyText.setText("C");
                 btn_c_l.setBackgroundResource(R.drawable.btn_key_select_shape);
-                judge_sound(1);
             }
         });
         btn_d_l.setOnClickListener(new View.OnClickListener() {
@@ -228,7 +227,6 @@ public class MainActivity extends AppCompatActivity{
                 setBtnWhite();
                 keyText.setText("D");
                 btn_d_l.setBackgroundResource(R.drawable.btn_key_select_shape);
-                judge_sound(3);
             }
         });
         btn_e_l.setOnClickListener(new View.OnClickListener() {
@@ -248,7 +246,6 @@ public class MainActivity extends AppCompatActivity{
                 setBtnWhite();
                 keyText.setText("E");
                 btn_e_l.setBackgroundResource(R.drawable.btn_key_select_shape);
-                judge_sound(5);
             }
         });
         btn_f_l.setOnClickListener(new View.OnClickListener() {
@@ -703,6 +700,12 @@ public class MainActivity extends AppCompatActivity{
 
                 Log.i("current Hz", Float.toString(InputAudioHz));
                 Log.i("avrg Hz", Float.toString(avrg));
+
+                for (int i=1;i<5;i++){
+                    if (buttonId == buttonArray[i].getId()){
+                        judge_sound(i);
+                    }
+                }
 
             }
         }
