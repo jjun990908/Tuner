@@ -45,7 +45,7 @@ public class MainActivity extends AppCompatActivity{
     static Button buttonArray[] = new Button[7];
     static String ScaleArray[];
     double CuHz= 260;
-    int buttonId;
+    int buttonId,color_state,judge_sound;
     boolean started = true;
     ///////////////////////////////////////////
 
@@ -71,8 +71,66 @@ public class MainActivity extends AppCompatActivity{
         centerRView.setBackgroundResource(R.drawable.smallbtn_shape);
         centerRRView.setBackgroundResource(R.drawable.smallbtn_shape);
     }
+    public void setColor(int color_state){
+        setOriginColor();
+        if (color_state == 1){
+            centerLLView.setBackgroundResource(R.drawable.btn_bottom_red);
+        }
+        else if (color_state == 2){
+            centerLView.setBackgroundResource(R.drawable.btn_bottom_red);
+        }
+        else if (color_state == 3){
+            centerView.setBackgroundResource(R.drawable.btn_bottom_green);
+        }
+        else if (color_state == 4){
+            centerRView.setBackgroundResource(R.drawable.btn_bottom_red);
+        }
+        else if (color_state == 5) {
+            centerRRView.setBackgroundResource(R.drawable.btn_bottom_red);
+        }
+    }
 
+    public void judge_sound(int judge_sound){
+        switch (judge_sound){
+            case 1:
+                if (avrg<251) setColor(1);
+                else if(251<=avrg && avrg<256) setColor(2);
+                else if(256<=avrg && avrg<266) setColor(3);
+                else if(266<=avrg && avrg<271) setColor(4);
+                else if(271<avrg) setColor(5);
+                break;
+            case 2:
+                if (avrg<267) setColor(1);
+                else if(267<=avrg && avrg<272) setColor(2);
+                else if(272<=avrg && avrg<282) setColor(3);
+                else if(282<=avrg && avrg<287) setColor(4);
+                else if(287<avrg) setColor(5);
+                break;
+            case 3:
+                if (avrg<283) setColor(1);
+                else if(283<=avrg && avrg<288) setColor(2);
+                else if(288<=avrg && avrg<298) setColor(3);
+                else if(298<=avrg && avrg<303) setColor(4);
+                else if(303<avrg) setColor(5);
+                break;
+            case 4:
+                if (avrg<301) setColor(1);
+                else if(301<=avrg && avrg<306) setColor(2);
+                else if(306<=avrg && avrg<316) setColor(3);
+                else if(316<=avrg && avrg<321) setColor(4);
+                else if(321<avrg) setColor(5);
+                break;
+            case 5:
+                if (avrg<319) setColor(1);
+                else if(319<=avrg && avrg<324) setColor(2);
+                else if(324<=avrg && avrg<334) setColor(3);
+                else if(334<=avrg && avrg<339) setColor(4);
+                else if(338<avrg) setColor(5);
+                break;
 
+        }
+
+    }
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -150,6 +208,7 @@ public class MainActivity extends AppCompatActivity{
                 setBtnWhite();
                 keyText.setText("C");
                 btn_c_l.setBackgroundResource(R.drawable.btn_key_select_shape);
+                judge_sound(1);
             }
         });
         btn_d_l.setOnClickListener(new View.OnClickListener() {
@@ -169,6 +228,7 @@ public class MainActivity extends AppCompatActivity{
                 setBtnWhite();
                 keyText.setText("D");
                 btn_d_l.setBackgroundResource(R.drawable.btn_key_select_shape);
+                judge_sound(3);
             }
         });
         btn_e_l.setOnClickListener(new View.OnClickListener() {
@@ -188,6 +248,7 @@ public class MainActivity extends AppCompatActivity{
                 setBtnWhite();
                 keyText.setText("E");
                 btn_e_l.setBackgroundResource(R.drawable.btn_key_select_shape);
+                judge_sound(5);
             }
         });
         btn_f_l.setOnClickListener(new View.OnClickListener() {
@@ -622,6 +683,7 @@ public class MainActivity extends AppCompatActivity{
             }
         }
 
+
         @Override
         protected void onProgressUpdate(double[]... toTransform) {
             setHz();
@@ -638,27 +700,6 @@ public class MainActivity extends AppCompatActivity{
                 }
                 buffer[4] = InputAudioHz;
                 avrg = NoiseDetect(buffer);
-
-                if (avrg<251.62){
-                    setOriginColor();
-                    centerLLView.setBackgroundResource(R.drawable.btn_bottom_red);
-                }
-                else if(avrg<256.62){
-                    setOriginColor();
-                    centerLView.setBackgroundResource(R.drawable.btn_bottom_red);
-                }
-                else if(avrg<=266.62){
-                    setOriginColor();
-                    centerView.setBackgroundResource(R.drawable.btn_bottom_green);
-                }
-                else if(avrg<271.62){
-                    setOriginColor();
-                    centerRView.setBackgroundResource(R.drawable.btn_bottom_red);
-                }
-                else if(avrg<276.62){
-                    setOriginColor();
-                    centerRRView.setBackgroundResource(R.drawable.btn_bottom_red);
-                }
 
                 Log.i("current Hz", Float.toString(InputAudioHz));
                 Log.i("avrg Hz", Float.toString(avrg));
