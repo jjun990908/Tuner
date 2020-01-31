@@ -145,7 +145,7 @@ public class play_mode extends AppCompatActivity {
                     case MotionEvent.ACTION_DOWN:
                     case MotionEvent.ACTION_POINTER_DOWN:
                         if(!btn_vive.isChecked()){
-                            vibrator.vibrate(100);
+                            vibrator.vibrate(50);
                             btn_c_l.startAnimation(anim_Twist);
                         }
                         if (jangjo>=2){
@@ -176,7 +176,7 @@ public class play_mode extends AppCompatActivity {
                     case MotionEvent.ACTION_POINTER_DOWN:
                     case MotionEvent.ACTION_DOWN:
                         if(!btn_vive.isChecked()){
-                            vibrator.vibrate(100);
+                            vibrator.vibrate(10);
                             btn_d_l.startAnimation(anim_Twist);
                         }
                         if (jangjo>=4){
@@ -206,7 +206,7 @@ public class play_mode extends AppCompatActivity {
                     case MotionEvent.ACTION_DOWN:
                     case MotionEvent.ACTION_POINTER_DOWN:
                         if(!btn_vive.isChecked()){
-                            vibrator.vibrate(100);
+                            vibrator.vibrate(200);
                             btn_e_l.startAnimation(anim_Twist);
                         }
                         if (jangjo>=6){
