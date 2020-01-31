@@ -41,7 +41,7 @@ import java.util.Collections;
 
 import static java.lang.Math.abs;
 import static java.lang.Math.max;
-import static com.cookandroid.tuner.FFTfunc.MaxInFFTArray;
+import static com.cookandroid.tuner.FFTfunc.*;
 
 public class MainActivity extends AppCompatActivity{
 
@@ -50,6 +50,7 @@ public class MainActivity extends AppCompatActivity{
     // 1. 성능 설정 변수 (수정 가능, 삭제 불가)
     int frequency = 4400; // 가청 주파수 설정 (참고: 가청 주파수는 frequency 의 절반)
     int blockSize = 1024; // 정밀도 설정 (참고: 반드시 2의 배수)
+    int sensitivity =  2; // 민감도 설정 (참고: 1~4까지가 적정)
 
     // 2. IO 연결 객체 (수정 가능, 삭제 불가)
     int channelConfiguration = AudioFormat.CHANNEL_IN_MONO;
@@ -59,14 +60,11 @@ public class MainActivity extends AppCompatActivity{
 
     // 3. 화면에 표시하기 위해, 따로 만든 변수들 (수정 가능, 삭제 가능)
     static float avrg;
-    static View CurrentLight;
-    static View CurrentLight_temp;
     static int cyclecnt=0;
     static float buffer[] = new float[5];
     static {for(int i = 0; i < 5; i ++){buffer[i] = 0;}}
     static Button buttonArray[] = new Button[7];
     static String ScaleArray[];
-    float fixed = -1;
     double CuHz= 260;
     int buttonId;
     boolean started = true;
@@ -93,7 +91,6 @@ public class MainActivity extends AppCompatActivity{
         super.onCreate(savedInstanceState);
 
         ///FFT initialize ///
-        CurrentLight = centerView;
         transformer = new RealDoubleFFT(blockSize);
         recordTask = new RecordAudio();
         recordTask.execute();
@@ -678,43 +675,24 @@ public class MainActivity extends AppCompatActivity{
         @Override
         protected void onProgressUpdate(double[]... toTransform) {
             setHz();
-            boolean appstart = false;
-            float fixedtemp = -1;
+            float InputAudioHz = -1;
 
 
-            fixedtemp = MaxInFFTArray(toTransform[0], 3);
+            InputAudioHz = MaxInFFTArray(toTransform[0], sensitivity) * frequency / (2*blockSize);
 
-            if (CuHz * (0.9) <= fixedtemp && fixedtemp <= CuHz * 1.1) {
+
+            if (CuHz * (0.9) <= InputAudioHz && InputAudioHz <= CuHz * 1.1) {
                 for (int i = 0; i < 4; i++) {
                     float tmparray = buffer[i + 1];
                     buffer[i] = tmparray;
                 }
-                buffer[4] = fixedtemp;
-                avrg = sumavrg(buffer);
+                buffer[4] = InputAudioHz;
+                avrg = NoiseDetect(buffer);
 
-
-                Log.i("current Hz", Float.toString(fixedtemp));
+                Log.i("current Hz", Float.toString(InputAudioHz));
                 Log.i("avrg Hz", Float.toString(avrg));
 
-                fixed = cyclecnt++<3?fixedtemp:avrg;
-                appstart = true;
             }
-            if(CurrentLight == null){CurrentLight = centerView;}
-                if (abs(CuHz - fixed) <5){                        CurrentLight_temp = centerView; }
-                else if (CuHz - fixed >= 5 && CuHz - avrg < 10) { CurrentLight_temp = centerLView; }
-                else if (CuHz - fixed >= 10) {                    CurrentLight_temp = centerLLView;
-                Log.i("AVRG는? : ", Float.toString(fixed));
-                }
-                else if (fixed - CuHz >= 5 && avrg - CuHz < 10) { CurrentLight_temp = centerRView; }
-                else if (fixed - CuHz >= 10) {                    CurrentLight_temp = centerRRView; }
-                else{                                            CurrentLight_temp = null;}
-
-                if(CurrentLight_temp != null && CurrentLight != CurrentLight_temp){
-                    CurrentLight.setBackgroundResource(R.drawable.smallbtn_shape);
-                    CurrentLight_temp.setBackgroundColor(CurrentLight_temp==centerView?Color.GREEN:Color.RED);
-
-                }
-            if(CurrentLight_temp != null){CurrentLight = CurrentLight_temp;}
 
 
         }
