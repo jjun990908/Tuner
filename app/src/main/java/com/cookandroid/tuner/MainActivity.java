@@ -208,11 +208,6 @@ public class MainActivity extends AppCompatActivity{
                 setBtnWhite();
                 keyText.setText("C");
                 btn_c_l.setBackgroundResource(R.drawable.btn_key_select_shape);
-                flag = false;
-                flag = true;
-                while (flag){
-                    judge_sound(1);
-                }
             }
         });
         btn_d_l.setOnClickListener(new View.OnClickListener() {
@@ -232,11 +227,6 @@ public class MainActivity extends AppCompatActivity{
                 setBtnWhite();
                 keyText.setText("D");
                 btn_d_l.setBackgroundResource(R.drawable.btn_key_select_shape);
-                flag = false;
-                flag = true;
-                while (flag){
-                    judge_sound(2);
-                }
             }
         });
         btn_e_l.setOnClickListener(new View.OnClickListener() {
@@ -256,11 +246,6 @@ public class MainActivity extends AppCompatActivity{
                 setBtnWhite();
                 keyText.setText("E");
                 btn_e_l.setBackgroundResource(R.drawable.btn_key_select_shape);
-                flag = false;
-                flag = true;
-                while (flag){
-                    judge_sound(3);
-                }
             }
         });
         btn_f_l.setOnClickListener(new View.OnClickListener() {
@@ -716,12 +701,12 @@ public class MainActivity extends AppCompatActivity{
                 Log.i("current Hz", Float.toString(InputAudioHz));
                 Log.i("avrg Hz", Float.toString(avrg));
 
-
-            }
-            for (int i=1;i<5;i++){
-                if (buttonId == buttonArray[i].getId()){
-                    judge_sound(i);
+                for (int i=1;i<5;i++){
+                    if (buttonId == buttonArray[i-1].getId()){
+                        judge_sound(i);
+                    }
                 }
+
             }
         }
     }
