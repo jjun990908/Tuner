@@ -1,52 +1,31 @@
 package com.cookandroid.tuner;
-
-
+import static com.cookandroid.tuner.FFTfunc.*;
 import com.cookandroid.tuner.fftpack.*;
-import androidx.annotation.ColorInt;
+
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import android.Manifest;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
-import android.graphics.Color;
-import android.media.AudioManager;
 import android.media.SoundPool;
 import android.os.Bundle;
-import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.WindowManager;
-import android.view.animation.Animation;
-import android.view.animation.AnimationUtils;
 import android.widget.Button;
-import android.widget.CompoundButton;
 import android.widget.PopupMenu;
-import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
-
-import android.Manifest;
-import android.app.*;
-import android.content.pm.PackageManager;
-import android.graphics.*;
 import android.media.*;
 import android.os.*;
 import android.util.*;
-import android.view.*;
-import android.view.View.OnClickListener;
-import android.widget.*;
-import java.util.Arrays;
-import java.util.Collections;
 
-import static java.lang.Math.abs;
-import static java.lang.Math.max;
-import static com.cookandroid.tuner.FFTfunc.*;
+
 
 public class MainActivity extends AppCompatActivity{
 
     ////////// FFT initialize ////////////////////
-
     // 1. 성능 설정 변수 (수정 가능, 삭제 불가)
     int frequency = 4400; // 가청 주파수 설정 (참고: 가청 주파수는 frequency 의 절반)
     int blockSize = 1024; // 정밀도 설정 (참고: 반드시 2의 배수)

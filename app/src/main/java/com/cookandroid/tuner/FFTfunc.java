@@ -20,7 +20,7 @@ public class FFTfunc {
 
 
     protected static float NoiseDetect(float[] Array_Float) {
-        // 위 함수는 배열 안에서 가장 큰 값, 작은 값을 제외한 세 개의 평균만을 리턴함
+        // 위 함수는 배열 안에서 가장 큰 값, 가장 작은 값을 제외한 세 개 값의 평균을 리턴함 (노이즈 제거)
 
         float MAX = -Float.MAX_VALUE;
         float min = Float.MIN_VALUE;
