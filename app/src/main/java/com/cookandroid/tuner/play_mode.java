@@ -1,5 +1,6 @@
 package com.cookandroid.tuner;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.media.SoundPool;
@@ -7,6 +8,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.Vibrator;
 import android.view.MenuItem;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.WindowManager;
 import android.view.animation.Animation;
@@ -79,6 +81,7 @@ public class play_mode extends AppCompatActivity {
         btn_d_hh.setText("D");
         btn_e_hh.setText("E");
     }
+    @SuppressLint("ClickableViewAccessibility")
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
@@ -113,414 +116,504 @@ public class play_mode extends AppCompatActivity {
         final ScaleSrc Scale = new ScaleSrc(play_mode.this);
         final SoundPool sp = Scale.sp;
 
-        btn_c_l.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                if(!btn_vive.isChecked()){
-                    vibrator.vibrate(100);
-                }
-                if (jangjo>=2){
-                    sp.play(Scale.do0_5,1,1,1,0,1.0f);
-                }
-                else{
-                    sp.play(Scale.do0_0,1,1,1,0,1.0f);
-                }
+        btn_c_l.setOnTouchListener(new View.OnTouchListener() {
+            public boolean onTouch(View v, MotionEvent event) {
+                switch (event.getAction()) {
+                    case MotionEvent.ACTION_DOWN:
+                    case MotionEvent.ACTION_POINTER_DOWN:
+                        if(!btn_vive.isChecked()){
+                            vibrator.vibrate(100);
+                        }
+                        if (jangjo>=2){
+                            sp.play(Scale.do0_5,1,1,1,0,1.0f);
+                        }
+                        else{
+                            sp.play(Scale.do0_0,1,1,1,0,1.0f);
+                        }
 
-                btn_c_l.setBackgroundResource(R.drawable.btn_key_select_shape);
-                new Handler().postDelayed(new Runnable()
-                {
-                    @Override
-                    public void run()
-                    {
-                        //여기에 딜레이 후 시작할 작업들을 입력
-                        btn_c_l.setBackgroundResource(R.drawable.btn_key_shape);
-                    }
-                }, 500);
+                        btn_c_l.setBackgroundResource(R.drawable.btn_key_select_shape);
+                        new Handler().postDelayed(new Runnable()
+                        {
+                            @Override
+                            public void run()
+                            {
+                                //여기에 딜레이 후 시작할 작업들을 입력
+                                btn_c_l.setBackgroundResource(R.drawable.btn_key_shape);
+                            }
+                        }, 500);
+                        break;
+                }
+                return false;
             }
         });
-        btn_d_l.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                if(!btn_vive.isChecked()){
-                    vibrator.vibrate(100);
+        btn_d_l.setOnTouchListener(new View.OnTouchListener() {
+            public boolean onTouch(View v, MotionEvent event) {
+                switch (event.getAction()) {
+                    case MotionEvent.ACTION_POINTER_DOWN:
+                    case MotionEvent.ACTION_DOWN:
+                        if(!btn_vive.isChecked()){
+                            vibrator.vibrate(100);
+                        }
+                        if (jangjo>=4){
+                            sp.play(Scale.re0_5,1,1,1,0,1.0f);
+                        }
+                        else{
+                            sp.play(Scale.re0_0,1,1,1,0,1.0f);
+                        }
+                        btn_d_l.setBackgroundResource(R.drawable.btn_key_select_shape);
+                        new Handler().postDelayed(new Runnable()
+                        {
+                            @Override
+                            public void run()
+                            {
+                                //여기에 딜레이 후 시작할 작업들을 입력
+                                btn_d_l.setBackgroundResource(R.drawable.btn_key_shape);
+                            }
+                        }, 500);
+                        break;
                 }
-                if (jangjo>=4){
-                    sp.play(Scale.re0_5,1,1,1,0,1.0f);
-                }
-                else{
-                    sp.play(Scale.re0_0,1,1,1,0,1.0f);
-                }
-                btn_d_l.setBackgroundResource(R.drawable.btn_key_select_shape);
-                new Handler().postDelayed(new Runnable()
-                {
-                    @Override
-                    public void run()
-                    {
-                        //여기에 딜레이 후 시작할 작업들을 입력
-                        btn_d_l.setBackgroundResource(R.drawable.btn_key_shape);
-                    }
-                }, 500);
+                return false;
             }
         });
-        btn_e_l.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                if(!btn_vive.isChecked()){
-                    vibrator.vibrate(100);
+        btn_e_l.setOnTouchListener(new View.OnTouchListener() {
+            public boolean onTouch(View v, MotionEvent event) {
+                switch (event.getAction()) {
+                    case MotionEvent.ACTION_DOWN:
+                    case MotionEvent.ACTION_POINTER_DOWN:
+                        if(!btn_vive.isChecked()){
+                            vibrator.vibrate(100);
+                        }
+                        if (jangjo>=6){
+                            sp.play(Scale.fa0_0,1,1,1,0,1.0f);
+                        }
+                        else{
+                            sp.play(Scale.mi0_0,1,1,1,0,1.0f);
+                        }
+                        btn_e_l.setBackgroundResource(R.drawable.btn_key_select_shape);
+                        new Handler().postDelayed(new Runnable()
+                        {
+                            @Override
+                            public void run()
+                            {
+                                //여기에 딜레이 후 시작할 작업들을 입력
+                                btn_e_l.setBackgroundResource(R.drawable.btn_key_shape);
+                            }
+                        }, 500);
+                        break;
                 }
-                if (jangjo>=6){
-                    sp.play(Scale.fa0_0,1,1,1,0,1.0f);
-                }
-                else{
-                    sp.play(Scale.mi0_0,1,1,1,0,1.0f);
-                }
-                btn_e_l.setBackgroundResource(R.drawable.btn_key_select_shape);
-                new Handler().postDelayed(new Runnable()
-                {
-                    @Override
-                    public void run()
-                    {
-                        //여기에 딜레이 후 시작할 작업들을 입력
-                        btn_e_l.setBackgroundResource(R.drawable.btn_key_shape);
-                    }
-                }, 500);
+                return false;
             }
         });
-        btn_f_l.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                if(!btn_vive.isChecked()){
-                    vibrator.vibrate(100);
-                }
-                if (jangjo>=1){
-                    sp.play(Scale.fa0_5,1,1,1,0,1.0f);
-                }
-                else{
-                    sp.play(Scale.fa0_0,1,1,1,0,1.0f);
-                }
+        btn_f_l.setOnTouchListener(new View.OnTouchListener() {
+            public boolean onTouch(View v, MotionEvent event) {
+                switch (event.getAction()) {
+                    case MotionEvent.ACTION_DOWN:
+                    case MotionEvent.ACTION_POINTER_DOWN:
+                        if(!btn_vive.isChecked()){
+                            vibrator.vibrate(100);
+                        }
+                        if (jangjo>=1){
+                            sp.play(Scale.fa0_5,1,1,1,0,1.0f);
+                        }
+                        else{
+                            sp.play(Scale.fa0_0,1,1,1,0,1.0f);
+                        }
 
-                btn_f_l.setBackgroundResource(R.drawable.btn_key_select_shape);
-                new Handler().postDelayed(new Runnable()
-                {
-                    @Override
-                    public void run()
-                    {
-                        //여기에 딜레이 후 시작할 작업들을 입력
-                        btn_f_l.setBackgroundResource(R.drawable.btn_key_shape);
-                    }
-                }, 500);
+                        btn_f_l.setBackgroundResource(R.drawable.btn_key_select_shape);
+                        new Handler().postDelayed(new Runnable()
+                        {
+                            @Override
+                            public void run()
+                            {
+                                //여기에 딜레이 후 시작할 작업들을 입력
+                                btn_f_l.setBackgroundResource(R.drawable.btn_key_shape);
+                            }
+                        }, 500);
+                        break;
+                }
+                return false;
             }
         });
-        btn_g_l.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                if(!btn_vive.isChecked()){
-                    vibrator.vibrate(100);
+        btn_g_l.setOnTouchListener(new View.OnTouchListener() {
+            public boolean onTouch(View v, MotionEvent event) {
+                switch (event.getAction()) {
+                    case MotionEvent.ACTION_DOWN:
+                    case MotionEvent.ACTION_POINTER_DOWN:
+                        if(!btn_vive.isChecked()){
+                            vibrator.vibrate(100);
+                        }
+                        if (jangjo>=3){
+                            sp.play(Scale.sol0_5,1,1,1,0,1.0f);
+                        }
+                        else{
+                            sp.play(Scale.sol0_0,1,1,1,0,1.0f);
+                        }
+                        btn_g_l.setBackgroundResource(R.drawable.btn_key_select_shape);
+                        new Handler().postDelayed(new Runnable()
+                        {
+                            @Override
+                            public void run()
+                            {
+                                //여기에 딜레이 후 시작할 작업들을 입력
+                                btn_g_l.setBackgroundResource(R.drawable.btn_key_shape);
+                            }
+                        }, 500);
+                        break;
                 }
-                if (jangjo>=3){
-                    sp.play(Scale.sol0_5,1,1,1,0,1.0f);
-                }
-                else{
-                    sp.play(Scale.sol0_0,1,1,1,0,1.0f);
-                }
-                btn_g_l.setBackgroundResource(R.drawable.btn_key_select_shape);
-                new Handler().postDelayed(new Runnable()
-                {
-                    @Override
-                    public void run()
-                    {
-                        //여기에 딜레이 후 시작할 작업들을 입력
-                        btn_g_l.setBackgroundResource(R.drawable.btn_key_shape);
-                    }
-                }, 500);
+                return false;
             }
         });
-        btn_a_l.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                if(!btn_vive.isChecked()){
-                    vibrator.vibrate(100);
+        btn_a_l.setOnTouchListener(new View.OnTouchListener() {
+            public boolean onTouch(View v, MotionEvent event) {
+                switch (event.getAction()) {
+                    case MotionEvent.ACTION_DOWN:
+                    case MotionEvent.ACTION_POINTER_DOWN:
+                        if(!btn_vive.isChecked()){
+                            vibrator.vibrate(100);
+                        }
+                        if (jangjo>=5){
+                            sp.play(Scale.la0_5,1,1,1,0,1.0f);
+                        }
+                        else{
+                            sp.play(Scale.la0_0,1,1,1,0,1.0f);
+                        }
+                        btn_a_l.setBackgroundResource(R.drawable.btn_key_select_shape);
+                        new Handler().postDelayed(new Runnable()
+                        {
+                            @Override
+                            public void run()
+                            {
+                                //여기에 딜레이 후 시작할 작업들을 입력
+                                btn_a_l.setBackgroundResource(R.drawable.btn_key_shape);
+                            }
+                        }, 500);
+                        break;
                 }
-                if (jangjo>=5){
-                    sp.play(Scale.la0_5,1,1,1,0,1.0f);
-                }
-                else{
-                    sp.play(Scale.la0_0,1,1,1,0,1.0f);
-                }
-                btn_a_l.setBackgroundResource(R.drawable.btn_key_select_shape);
-                new Handler().postDelayed(new Runnable()
-                {
-                    @Override
-                    public void run()
-                    {
-                        //여기에 딜레이 후 시작할 작업들을 입력
-                        btn_a_l.setBackgroundResource(R.drawable.btn_key_shape);
-                    }
-                }, 500);
+                return false;
             }
         });
-        btn_b_l.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                if(!btn_vive.isChecked()){
-                    vibrator.vibrate(100);
+        btn_b_l.setOnTouchListener(new View.OnTouchListener() {
+            public boolean onTouch(View v, MotionEvent event) {
+                switch (event.getAction()) {
+                    case MotionEvent.ACTION_DOWN:
+                    case MotionEvent.ACTION_POINTER_DOWN:
+                        if(!btn_vive.isChecked()){
+                            vibrator.vibrate(100);
+                        }
+                        if (jangjo>=7){
+                            sp.play(Scale.do1_0,1,1,1,0,1.0f);
+                        }
+                        else{
+                            sp.play(Scale.si0_0,1,1,1,0,1.0f);
+                        }
+                        btn_b_l.setBackgroundResource(R.drawable.btn_key_select_shape);
+                        new Handler().postDelayed(new Runnable()
+                        {
+                            @Override
+                            public void run()
+                            {
+                                //여기에 딜레이 후 시작할 작업들을 입력
+                                btn_b_l.setBackgroundResource(R.drawable.btn_key_shape);
+                            }
+                        }, 500);
+                        break;
                 }
-                if (jangjo>=7){
-                    sp.play(Scale.do1_0,1,1,1,0,1.0f);
-                }
-                else{
-                    sp.play(Scale.si0_0,1,1,1,0,1.0f);
-                }
-                btn_b_l.setBackgroundResource(R.drawable.btn_key_select_shape);
-                new Handler().postDelayed(new Runnable()
-                {
-                    @Override
-                    public void run()
-                    {
-                        //여기에 딜레이 후 시작할 작업들을 입력
-                        btn_b_l.setBackgroundResource(R.drawable.btn_key_shape);
-                    }
-                }, 500);
+                return false;
             }
         });
-        btn_c_h.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                if(!btn_vive.isChecked()){
-                    vibrator.vibrate(100);
+        btn_c_h.setOnTouchListener(new View.OnTouchListener() {
+            public boolean onTouch(View v, MotionEvent event) {
+                switch (event.getAction()) {
+                    case MotionEvent.ACTION_DOWN:
+                    case MotionEvent.ACTION_POINTER_DOWN:
+                        if(!btn_vive.isChecked()){
+                            vibrator.vibrate(100);
+                        }
+                        if (jangjo>=2){
+                            sp.play(Scale.do1_5,1,1,1,0,1.0f);
+                        }
+                        else{
+                            sp.play(Scale.do1_0,1,1,1,0,1.0f);
+                        }
+                        btn_c_h.setBackgroundResource(R.drawable.btn_key_select_shape);
+                        new Handler().postDelayed(new Runnable()
+                        {
+                            @Override
+                            public void run()
+                            {
+                                //여기에 딜레이 후 시작할 작업들을 입력
+                                btn_c_h.setBackgroundResource(R.drawable.btn_key_shape);
+                            }
+                        }, 500);
+                        break;
                 }
-                if (jangjo>=2){
-                    sp.play(Scale.do1_5,1,1,1,0,1.0f);
-                }
-                else{
-                    sp.play(Scale.do1_0,1,1,1,0,1.0f);
-                }
-                btn_c_h.setBackgroundResource(R.drawable.btn_key_select_shape);
-                new Handler().postDelayed(new Runnable()
-                {
-                    @Override
-                    public void run()
-                    {
-                        //여기에 딜레이 후 시작할 작업들을 입력
-                        btn_c_h.setBackgroundResource(R.drawable.btn_key_shape);
-                    }
-                }, 500);
+                return false;
             }
         });
-        btn_d_h.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                if(!btn_vive.isChecked()){
-                    vibrator.vibrate(100);
+        btn_d_h.setOnTouchListener(new View.OnTouchListener() {
+            public boolean onTouch(View v, MotionEvent event) {
+                switch (event.getAction()) {
+                    case MotionEvent.ACTION_DOWN:
+                    case MotionEvent.ACTION_POINTER_DOWN:
+                        if(!btn_vive.isChecked()){
+                            vibrator.vibrate(100);
+                        }
+                        if (jangjo>=4){
+                            sp.play(Scale.re1_5,1,1,1,0,1.0f);
+                        }
+                        else{
+                            sp.play(Scale.re1_0,1,1,1,0,1.0f);
+                        }
+                        btn_d_h.setBackgroundResource(R.drawable.btn_key_select_shape);
+                        new Handler().postDelayed(new Runnable()
+                        {
+                            @Override
+                            public void run()
+                            {
+                                //여기에 딜레이 후 시작할 작업들을 입력
+                                btn_d_h.setBackgroundResource(R.drawable.btn_key_shape);
+                            }
+                        }, 500);
+                        break;
                 }
-                if (jangjo>=4){
-                    sp.play(Scale.re1_5,1,1,1,0,1.0f);
-                }
-                else{
-                    sp.play(Scale.re1_0,1,1,1,0,1.0f);
-                }
-                btn_d_h.setBackgroundResource(R.drawable.btn_key_select_shape);
-                new Handler().postDelayed(new Runnable()
-                {
-                    @Override
-                    public void run()
-                    {
-                        //여기에 딜레이 후 시작할 작업들을 입력
-                        btn_d_h.setBackgroundResource(R.drawable.btn_key_shape);
-                    }
-                }, 500);
+                return false;
             }
         });
-        btn_e_h.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                if(!btn_vive.isChecked()){
-                    vibrator.vibrate(100);
+        btn_e_h.setOnTouchListener(new View.OnTouchListener() {
+            public boolean onTouch(View v, MotionEvent event) {
+                switch (event.getAction()) {
+                    case MotionEvent.ACTION_DOWN:
+                    case MotionEvent.ACTION_POINTER_DOWN:
+                        if(!btn_vive.isChecked()){
+                            vibrator.vibrate(100);
+                        }
+                        if (jangjo>=6){
+                            sp.play(Scale.fa1_0,1,1,1,0,1.0f);
+                        }
+                        else{
+                            sp.play(Scale.mi1_0,1,1,1,0,1.0f);
+                        }
+                        btn_e_h.setBackgroundResource(R.drawable.btn_key_select_shape);
+                        new Handler().postDelayed(new Runnable()
+                        {
+                            @Override
+                            public void run()
+                            {
+                                //여기에 딜레이 후 시작할 작업들을 입력
+                                btn_e_h.setBackgroundResource(R.drawable.btn_key_shape);
+                            }
+                        }, 500);
+                        break;
                 }
-                if (jangjo>=6){
-                    sp.play(Scale.fa1_0,1,1,1,0,1.0f);
-                }
-                else{
-                    sp.play(Scale.mi1_0,1,1,1,0,1.0f);
-                }
-                btn_e_h.setBackgroundResource(R.drawable.btn_key_select_shape);
-                new Handler().postDelayed(new Runnable()
-                {
-                    @Override
-                    public void run()
-                    {
-                        //여기에 딜레이 후 시작할 작업들을 입력
-                        btn_e_h.setBackgroundResource(R.drawable.btn_key_shape);
-                    }
-                }, 500);
+                return false;
             }
         });
-        btn_f_h.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                if(!btn_vive.isChecked()){
-                    vibrator.vibrate(100);
+        btn_f_h.setOnTouchListener(new View.OnTouchListener() {
+            public boolean onTouch(View v, MotionEvent event) {
+                switch (event.getAction()) {
+                    case MotionEvent.ACTION_DOWN:
+                    case MotionEvent.ACTION_POINTER_DOWN:
+                        if(!btn_vive.isChecked()){
+                            vibrator.vibrate(100);
+                        }
+                        if (jangjo>=1){
+                            sp.play(Scale.fa1_5,1,1,1,0,1.0f);
+                        }
+                        else{
+                            sp.play(Scale.fa1_0,1,1,1,0,1.0f);
+                        }
+                        btn_f_h.setBackgroundResource(R.drawable.btn_key_select_shape);
+                        new Handler().postDelayed(new Runnable()
+                        {
+                            @Override
+                            public void run()
+                            {
+                                //여기에 딜레이 후 시작할 작업들을 입력
+                                btn_f_h.setBackgroundResource(R.drawable.btn_key_shape);
+                            }
+                        }, 500);
+                        break;
                 }
-                if (jangjo>=1){
-                    sp.play(Scale.fa1_5,1,1,1,0,1.0f);
-                }
-                else{
-                    sp.play(Scale.fa1_0,1,1,1,0,1.0f);
-                }
-                btn_f_h.setBackgroundResource(R.drawable.btn_key_select_shape);
-                new Handler().postDelayed(new Runnable()
-                {
-                    @Override
-                    public void run()
-                    {
-                        //여기에 딜레이 후 시작할 작업들을 입력
-                        btn_f_h.setBackgroundResource(R.drawable.btn_key_shape);
-                    }
-                }, 500);
+                return false;
             }
         });
-        btn_g_h.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                if(!btn_vive.isChecked()){
-                    vibrator.vibrate(100);
+
+        btn_g_h.setOnTouchListener(new View.OnTouchListener() {
+            public boolean onTouch(View v, MotionEvent event) {
+                switch (event.getAction()) {
+                    case MotionEvent.ACTION_DOWN:
+                    case MotionEvent.ACTION_POINTER_DOWN:
+                        if(!btn_vive.isChecked()){
+                            vibrator.vibrate(100);
+                        }
+                        if (jangjo>=3){
+                            sp.play(Scale.sol1_5,1,1,1,0,1.0f);
+                        }
+                        else{
+                            sp.play(Scale.sol1_0,1,1,1,0,1.0f);
+                        }
+                        btn_g_h.setBackgroundResource(R.drawable.btn_key_select_shape);
+                        new Handler().postDelayed(new Runnable()
+                        {
+                            @Override
+                            public void run()
+                            {
+                                //여기에 딜레이 후 시작할 작업들을 입력
+                                btn_g_h.setBackgroundResource(R.drawable.btn_key_shape);
+                            }
+                        }, 500);
+                        break;
                 }
-                if (jangjo>=3){
-                    sp.play(Scale.sol1_5,1,1,1,0,1.0f);
-                }
-                else{
-                    sp.play(Scale.sol1_0,1,1,1,0,1.0f);
-                }
-                btn_g_h.setBackgroundResource(R.drawable.btn_key_select_shape);
-                new Handler().postDelayed(new Runnable()
-                {
-                    @Override
-                    public void run()
-                    {
-                        //여기에 딜레이 후 시작할 작업들을 입력
-                        btn_g_h.setBackgroundResource(R.drawable.btn_key_shape);
-                    }
-                }, 500);
+                return false;
             }
         });
-        btn_a_h.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                if(!btn_vive.isChecked()){
-                    vibrator.vibrate(100);
+        btn_a_h.setOnTouchListener(new View.OnTouchListener() {
+            public boolean onTouch(View v, MotionEvent event) {
+                switch (event.getAction()) {
+                    case MotionEvent.ACTION_DOWN:
+                    case MotionEvent.ACTION_POINTER_DOWN:
+                        if(!btn_vive.isChecked()){
+                            vibrator.vibrate(100);
+                        }
+                        if (jangjo>=5){
+                            sp.play(Scale.la1_5,1,1,1,0,1.0f);
+                        }
+                        else{
+                            sp.play(Scale.la1_0,1,1,1,0,1.0f);
+                        }
+                        btn_a_h.setBackgroundResource(R.drawable.btn_key_select_shape);
+                        new Handler().postDelayed(new Runnable()
+                        {
+                            @Override
+                            public void run()
+                            {
+                                //여기에 딜레이 후 시작할 작업들을 입력
+                                btn_a_h.setBackgroundResource(R.drawable.btn_key_shape);
+                            }
+                        }, 500);
+                        break;
                 }
-                if (jangjo>=5){
-                    sp.play(Scale.la1_5,1,1,1,0,1.0f);
-                }
-                else{
-                    sp.play(Scale.la1_0,1,1,1,0,1.0f);
-                }
-                btn_a_h.setBackgroundResource(R.drawable.btn_key_select_shape);
-                new Handler().postDelayed(new Runnable()
-                {
-                    @Override
-                    public void run()
-                    {
-                        //여기에 딜레이 후 시작할 작업들을 입력
-                        btn_a_h.setBackgroundResource(R.drawable.btn_key_shape);
-                    }
-                }, 500);
+                return false;
             }
         });
-        btn_b_h.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                if(!btn_vive.isChecked()){
-                    vibrator.vibrate(100);
+
+        btn_b_h.setOnTouchListener(new View.OnTouchListener() {
+            public boolean onTouch(View v, MotionEvent event) {
+                switch (event.getAction()) {
+                    case MotionEvent.ACTION_POINTER_DOWN:
+                    case MotionEvent.ACTION_DOWN:
+                        if(!btn_vive.isChecked()){
+                            vibrator.vibrate(100);
+                        }
+                        if (jangjo>=7){
+                            sp.play(Scale.do2_0,1,1,1,0,1.0f);
+                        }
+                        else{
+                            sp.play(Scale.si1_0,1,1,1,0,1.0f);
+                        }
+                        btn_b_h.setBackgroundResource(R.drawable.btn_key_select_shape);
+                        new Handler().postDelayed(new Runnable()
+                        {
+                            @Override
+                            public void run()
+                            {
+                                //여기에 딜레이 후 시작할 작업들을 입력
+                                btn_b_h.setBackgroundResource(R.drawable.btn_key_shape);
+                            }
+                        }, 500);
+                        break;
                 }
-                if (jangjo>=7){
-                    sp.play(Scale.do2_0,1,1,1,0,1.0f);
-                }
-                else{
-                    sp.play(Scale.si1_0,1,1,1,0,1.0f);
-                }
-                btn_b_h.setBackgroundResource(R.drawable.btn_key_select_shape);
-                new Handler().postDelayed(new Runnable()
-                {
-                    @Override
-                    public void run()
-                    {
-                        //여기에 딜레이 후 시작할 작업들을 입력
-                        btn_b_h.setBackgroundResource(R.drawable.btn_key_shape);
-                    }
-                }, 500);
+                return false;
             }
         });
-        btn_c_hh.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                if(!btn_vive.isChecked()){
-                    vibrator.vibrate(100);
+
+        btn_c_hh.setOnTouchListener(new View.OnTouchListener() {
+            public boolean onTouch(View v, MotionEvent event) {
+                switch (event.getAction()) {
+                    case MotionEvent.ACTION_DOWN:
+                    case MotionEvent.ACTION_POINTER_DOWN:
+                        if(!btn_vive.isChecked()){
+                            vibrator.vibrate(100);
+                        }
+                        if (jangjo>=2){
+                            sp.play(Scale.do2_5,1,1,1,0,1.0f);
+                        }
+                        else{
+                            sp.play(Scale.do2_0,1,1,1,0,1.0f);
+                        }
+                        btn_c_hh.setBackgroundResource(R.drawable.btn_key_select_shape);
+                        new Handler().postDelayed(new Runnable()
+                        {
+                            @Override
+                            public void run()
+                            {
+                                //여기에 딜레이 후 시작할 작업들을 입력
+                                btn_c_hh.setBackgroundResource(R.drawable.btn_key_shape);
+                            }
+                        }, 500);
+                        break;
                 }
-                if (jangjo>=2){
-                    sp.play(Scale.do2_5,1,1,1,0,1.0f);
-                }
-                else{
-                    sp.play(Scale.do2_0,1,1,1,0,1.0f);
-                }
-                btn_c_hh.setBackgroundResource(R.drawable.btn_key_select_shape);
-                new Handler().postDelayed(new Runnable()
-                {
-                    @Override
-                    public void run()
-                    {
-                        //여기에 딜레이 후 시작할 작업들을 입력
-                        btn_c_hh.setBackgroundResource(R.drawable.btn_key_shape);
-                    }
-                }, 500);
+                return false;
             }
         });
-        btn_d_hh.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                if(!btn_vive.isChecked()){
-                    vibrator.vibrate(100);
+
+        btn_d_hh.setOnTouchListener(new View.OnTouchListener() {
+            public boolean onTouch(View v, MotionEvent event) {
+                switch (event.getAction()) {
+                    case MotionEvent.ACTION_DOWN:
+                    case MotionEvent.ACTION_POINTER_DOWN:
+                        if(!btn_vive.isChecked()){
+                            vibrator.vibrate(100);
+                        }
+                        if (jangjo>=4){
+                            sp.play(Scale.re2_5,1,1,1,0,1.0f);
+                        }
+                        else{
+                            sp.play(Scale.re2_0,1,1,1,0,1.0f);
+                        }
+                        btn_d_hh.setBackgroundResource(R.drawable.btn_key_select_shape);
+                        new Handler().postDelayed(new Runnable()
+                        {
+                            @Override
+                            public void run()
+                            {
+                                //여기에 딜레이 후 시작할 작업들을 입력
+                                btn_d_hh.setBackgroundResource(R.drawable.btn_key_shape);
+                            }
+                        }, 500);
+                        break;
                 }
-                if (jangjo>=4){
-                    sp.play(Scale.re2_5,1,1,1,0,1.0f);
-                }
-                else{
-                    sp.play(Scale.re2_0,1,1,1,0,1.0f);
-                }
-                btn_d_hh.setBackgroundResource(R.drawable.btn_key_select_shape);
-                new Handler().postDelayed(new Runnable()
-                {
-                    @Override
-                    public void run()
-                    {
-                        //여기에 딜레이 후 시작할 작업들을 입력
-                        btn_d_hh.setBackgroundResource(R.drawable.btn_key_shape);
-                    }
-                }, 500);
+                return false;
             }
         });
-        btn_e_hh.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                if(!btn_vive.isChecked()){
-                    vibrator.vibrate(100);
+
+        btn_e_hh.setOnTouchListener(new View.OnTouchListener() {
+            public boolean onTouch(View v, MotionEvent event) {
+                switch (event.getAction()) {
+                    case MotionEvent.ACTION_DOWN:
+                    case MotionEvent.ACTION_POINTER_DOWN:
+                        if(!btn_vive.isChecked()){
+                            vibrator.vibrate(100);
+                        }
+                        if (jangjo>=6){
+                            sp.play(Scale.mi2_5,1,1,1,0,1.0f);
+                        }
+                        else{
+                            sp.play(Scale.mi2_0,1,1,1,0,1.0f);
+                        }
+                        btn_e_hh.setBackgroundResource(R.drawable.btn_key_select_shape);
+                        new Handler().postDelayed(new Runnable()
+                        {
+                            @Override
+                            public void run()
+                            {
+                                //여기에 딜레이 후 시작할 작업들을 입력
+                                btn_e_hh.setBackgroundResource(R.drawable.btn_key_shape);
+                            }
+                        }, 500);
+                        break;
                 }
-                if (jangjo>=6){
-                    sp.play(Scale.mi2_5,1,1,1,0,1.0f);
-                }
-                else{
-                    sp.play(Scale.mi2_0,1,1,1,0,1.0f);
-                }
-                btn_e_hh.setBackgroundResource(R.drawable.btn_key_select_shape);
-                new Handler().postDelayed(new Runnable()
-                {
-                    @Override
-                    public void run()
-                    {
-                        //여기에 딜레이 후 시작할 작업들을 입력
-                        btn_e_hh.setBackgroundResource(R.drawable.btn_key_shape);
-                    }
-                }, 500);
+                return false;
             }
         });
 
