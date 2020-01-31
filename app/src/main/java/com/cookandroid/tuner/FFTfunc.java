@@ -1,6 +1,8 @@
 package com.cookandroid.tuner;
 
 
+import android.widget.Button;
+
 public class FFTfunc {
     protected static float MaxInFFTArray(double [] Array_Double, int sensitivity){
         // 위 함수는 배열 안에서 가장 큰 값을 리턴, 소리가 너무 작으면 -1 리턴
@@ -43,12 +45,20 @@ public class FFTfunc {
             if (i != idx1 && i != idx2) {
                 sum += Array_Float[i];
             }
-        }
+        }/*i*/
+
         if (idx1 != idx2) {
             return sum/3;
         } else {
             return (sum - Array_Float[0])/3;
         }
+    }
+
+    protected static void setCuHz(Button[] buttons,int Pressed_Button_ID, double Current_HZ ,boolean flatmode, boolean sharpmode){
+        for(int i=0;i<buttons.length;i++){
+        }
+
+
     }
 
 }

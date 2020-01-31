@@ -16,10 +16,12 @@ public class ScaleSrc {
     static double[] scaleArrayNormal;
     static double[] scaleArrayFlat;
     static double[] scaleArraySharp;
+    static String[] scaleArrayString;
     static {
         scaleArrayNormal = new double[]{261.62, 293.66, 329.62, 349.22, 392, 440, 493.88, 523.25, 587.32, 659.25, 698.25, 784, 877.99, 987.76, 1046.5, 1174.6, 1318.51};
         scaleArraySharp = new double[]{277.18, 311.12, 349.22, 370, 415.30, 466.16, 523.25, 554.36, 619.4, 698.5, 739, 830.60, 932.32, 1046.5, 1108.7, 1244.50, 1396.91};
         scaleArrayFlat = new double[]{0, 277.18, 311.12, 329.62, 370, 415.30, 466.16, 493.88, 554.36, 619.4, 659.25, 739, 830.60, 932.32, 987.76, 1108.7, 1244.50};
+        scaleArrayString = new String[]{"C", "D", "E", "F", "G", "A", "B"};
     }
 
     ScaleSrc(Context context) {
