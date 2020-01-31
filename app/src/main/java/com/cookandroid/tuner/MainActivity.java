@@ -701,12 +701,12 @@ public class MainActivity extends AppCompatActivity{
                 Log.i("current Hz", Float.toString(InputAudioHz));
                 Log.i("avrg Hz", Float.toString(avrg));
 
-                for (int i=1;i<5;i++){
-                    if (buttonId == buttonArray[i].getId()){
-                        judge_sound(i);
-                    }
-                }
 
+            }
+            for (int i=1;i<5;i++){
+                if (buttonId == buttonArray[i].getId()){
+                    judge_sound(i);
+                }
             }
         }
     }
