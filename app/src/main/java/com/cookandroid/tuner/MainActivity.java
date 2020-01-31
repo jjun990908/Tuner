@@ -63,6 +63,14 @@ public class MainActivity extends AppCompatActivity{
     public void setFlatText(){for(int i=0; i<17;i++){buttonArray[i].setText(ScaleArray[i%7]+"♭");}}
     //건반라벨 원음변환함수
     public void setOriginText(){ for(int i=0; i<17;i++){buttonArray[i].setText(ScaleArray[i%7]);} }
+    //튜닝확인 뷰 색 변환 함수
+    public void setOriginColor(){
+        centerLLView.setBackgroundResource(R.drawable.smallbtn_shape);
+        centerLView.setBackgroundResource(R.drawable.smallbtn_shape);
+        centerView.setBackgroundResource(R.drawable.smallbtn_shape);
+        centerRView.setBackgroundResource(R.drawable.smallbtn_shape);
+        centerRRView.setBackgroundResource(R.drawable.smallbtn_shape);
+    }
 
 
     @Override
@@ -630,6 +638,27 @@ public class MainActivity extends AppCompatActivity{
                 }
                 buffer[4] = InputAudioHz;
                 avrg = NoiseDetect(buffer);
+
+                if (avrg<256.62){
+                    setOriginColor();
+                    centerLLView.setBackgroundResource(R.drawable.btn_bottom_red);
+                }
+                else if(avrg<261.62){
+                    setOriginColor();
+                    centerLView.setBackgroundResource(R.drawable.btn_bottom_red);
+                }
+                else if(avrg<=266.62){
+                    setOriginColor();
+                    centerView.setBackgroundResource(R.drawable.btn_bottom_green);
+                }
+                else if(avrg<271.62){
+                    setOriginColor();
+                    centerRView.setBackgroundResource(R.drawable.btn_bottom_red);
+                }
+                else if(avrg<276.62){
+                    setOriginColor();
+                    centerRRView.setBackgroundResource(R.drawable.btn_bottom_red);
+                }
 
                 Log.i("current Hz", Float.toString(InputAudioHz));
                 Log.i("avrg Hz", Float.toString(avrg));
