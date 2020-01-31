@@ -44,7 +44,7 @@ public class MainActivity extends AppCompatActivity{
     static {for(int i = 0; i < 5; i ++){buffer[i] = 0;}}
     static Button buttonArray[] = new Button[7];
     static String ScaleArray[];
-    double CuHz= 260;
+    static double CuHz= 260;
     int buttonId,color_state,judge_sound;
     boolean started = true;
     ///////////////////////////////////////////
@@ -686,10 +686,10 @@ public class MainActivity extends AppCompatActivity{
 
         @Override
         protected void onProgressUpdate(double[]... toTransform) {
-            setHz();
+            setCuHz(buttonArray, buttonId, CuHz, flatmode, sharpmode);
             float InputAudioHz = -1;
 
-
+            Log.i("Button ID", "  "+buttonId);
             InputAudioHz = MaxInFFTArray(toTransform[0], sensitivity) * frequency / (2*blockSize);
 
 

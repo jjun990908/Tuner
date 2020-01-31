@@ -56,9 +56,15 @@ public class FFTfunc {
 
     protected static void setCuHz(Button[] buttons,int Pressed_Button_ID, double Current_HZ ,boolean flatmode, boolean sharpmode){
         for(int i=0;i<buttons.length;i++){
+            if(sharpmode && buttons[i].getId() == Pressed_Button_ID && Double.compare(ScaleSrc.scaleArraySharp[i], Current_HZ)!=0){
+                MainActivity.CuHz = ScaleSrc.scaleArraySharp[i];
+            }
+            else if(flatmode && buttons[i].getId() == Pressed_Button_ID && Double.compare(ScaleSrc.scaleArrayFlat[i], Current_HZ)!=0){
+                MainActivity.CuHz = ScaleSrc.scaleArrayFlat[i];
+            }
+            else if (buttons[i].getId() == Pressed_Button_ID && Double.compare(ScaleSrc.scaleArrayFlat[i], Current_HZ)!=0){
+                MainActivity.CuHz = ScaleSrc.scaleArrayNormal[i];
+            }
         }
-
-
     }
-
 }
