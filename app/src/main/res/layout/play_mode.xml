@@ -9,7 +9,6 @@
     <Button
         android:id="@+id/btn_c_l"
         android:layout_width="30dp"
-        android:layout_height="400dp"
         android:background="@drawable/btn_key_shape"
         android:duplicateParentState="false"
         android:elevation="30dp"
@@ -23,7 +22,6 @@
     <Button
         android:id="@+id/btn_e_l"
         android:layout_width="30dp"
-        android:layout_height="380dp"
         android:background="@drawable/btn_key_shape"
         android:text="E"
         app:layout_constraintRight_toLeftOf="@+id/btn_g_l"
@@ -35,7 +33,6 @@
     <Button
         android:id="@+id/btn_g_l"
         android:layout_width="30dp"
-        android:layout_height="360dp"
         android:background="@drawable/btn_key_shape"
         android:text="G"
         app:layout_constraintRight_toLeftOf="@+id/btn_b_l"
@@ -47,7 +44,6 @@
     <Button
         android:id="@+id/btn_b_l"
         android:layout_width="30dp"
-        android:layout_height="340dp"
         android:background="@drawable/btn_key_shape"
         android:text="B"
         app:layout_constraintRight_toLeftOf="@+id/btn_d_h"
@@ -59,7 +55,6 @@
     <Button
         android:id="@+id/btn_d_h"
         android:layout_width="30dp"
-        android:layout_height="320dp"
         android:background="@drawable/btn_key_shape"
         android:text="D"
         app:layout_constraintRight_toLeftOf="@+id/btn_f_h"
@@ -71,7 +66,6 @@
     <Button
         android:id="@+id/btn_f_h"
         android:layout_width="30dp"
-        android:layout_height="300dp"
         android:background="@drawable/btn_key_shape"
         android:text="F"
         app:layout_constraintRight_toLeftOf="@+id/btn_a_h"
@@ -83,7 +77,6 @@
     <Button
         android:id="@+id/btn_a_h"
         android:layout_width="30dp"
-        android:layout_height="280dp"
         android:background="@drawable/btn_key_shape"
         android:text="A"
         app:layout_constraintRight_toLeftOf="@+id/btn_c_hh"
@@ -95,7 +88,6 @@
     <Button
         android:id="@+id/btn_c_hh"
         android:layout_width="30dp"
-        android:layout_height="260dp"
         android:background="@drawable/btn_key_shape"
         android:text="C"
         app:layout_constraintRight_toLeftOf="@+id/btn_e_hh"
@@ -107,7 +99,6 @@
     <Button
         android:id="@+id/btn_e_hh"
         android:layout_width="30dp"
-        android:layout_height="240dp"
         android:background="@drawable/btn_key_shape"
         android:text="E"
         android:layout_marginRight="20dp"
@@ -120,7 +111,6 @@
     <Button
         android:id="@+id/btn_d_l"
         android:layout_width="30dp"
-        android:layout_height="380dp"
         android:background="@drawable/btn_key_shape"
         android:text="D"
         app:layout_constraintRight_toLeftOf="@+id/btn_c_l"
@@ -132,7 +122,6 @@
     <Button
         android:id="@+id/btn_f_l"
         android:layout_width="30dp"
-        android:layout_height="360dp"
         android:background="@drawable/btn_key_shape"
         android:text="F"
         app:layout_constraintRight_toLeftOf="@+id/btn_d_l"
@@ -144,7 +133,6 @@
     <Button
         android:id="@+id/btn_a_l"
         android:layout_width="30dp"
-        android:layout_height="340dp"
         android:background="@drawable/btn_key_shape"
         android:text="A"
         app:layout_constraintRight_toLeftOf="@+id/btn_f_l"
@@ -156,7 +144,6 @@
     <Button
         android:id="@+id/btn_c_h"
         android:layout_width="30dp"
-        android:layout_height="320dp"
         android:background="@drawable/btn_key_shape"
         android:text="C"
         app:layout_constraintRight_toLeftOf="@+id/btn_a_l"
@@ -168,7 +155,6 @@
     <Button
         android:id="@+id/btn_e_h"
         android:layout_width="30dp"
-        android:layout_height="300dp"
         android:background="@drawable/btn_key_shape"
         android:text="E"
         app:layout_constraintRight_toLeftOf="@+id/btn_c_h"
@@ -180,7 +166,6 @@
     <Button
         android:id="@+id/btn_g_h"
         android:layout_width="30dp"
-        android:layout_height="280dp"
         android:background="@drawable/btn_key_shape"
         android:text="G"
         app:layout_constraintRight_toLeftOf="@+id/btn_e_h"
@@ -192,7 +177,6 @@
     <Button
         android:id="@+id/btn_b_h"
         android:layout_width="30dp"
-        android:layout_height="260dp"
         android:background="@drawable/btn_key_shape"
         android:text="B"
         app:layout_constraintRight_toLeftOf="@+id/btn_g_h"
@@ -204,7 +188,6 @@
     <Button
         android:id="@+id/btn_d_hh"
         android:layout_width="30dp"
-        android:layout_height="240dp"
         android:background="@drawable/btn_key_shape"
         android:layout_marginLeft="20dp"
         android:text="D"
