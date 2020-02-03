@@ -747,8 +747,9 @@ public class play_mode extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Toast.makeText(play_mode.this, "튜닝모드", Toast.LENGTH_SHORT).show();
-                startActivity(new Intent(getApplicationContext(),MainActivity.class));
+                finish();
                 overridePendingTransition(R.anim.anim_slide_down,R.anim.anim_slide_up);
+
             }
         });
 
