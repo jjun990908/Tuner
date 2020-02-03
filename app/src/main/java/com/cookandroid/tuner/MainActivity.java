@@ -38,17 +38,14 @@ public class MainActivity extends AppCompatActivity{
     int audioEncoding = AudioFormat.ENCODING_PCM_16BIT;
     RealDoubleFFT transformer;
     RecordAudio recordTask;
+    boolean started = true;
 
     // 3. 화면에 표시하기 위해, 따로 만든 변수들 (수정 가능, 삭제 가능)
-    static float avrg;
-    static float[] buffer = new float[5];
-    static {for(int i = 0; i < 5; i ++){buffer[i] = 0;}}
-    static Button[] buttonArray = new Button[7];
-    static String[] ScaleArray;
-    static double CuHz= 260;
-    int buttonId;
-    boolean started = true;
-    TextView D1, D2, D3;
+    static Button[] buttonArray = new Button[17];        // 칼림바 건반의 버튼객체를 담고 있는 배열
+    static String[] ScaleArray;                          // C, D, E... 등의 음계를 담고 있는 String 배열
+    static double CuHz= 260;                             // 현재 누르고 있는 건반의 음계치를 담고 있는 Int 변수
+    int buttonId;                                        // 현재 누르고 있는 건반의 버튼 아이디를 담고 있는 Int 변수
+    TextView D0, D1, D2, D3;                             // 순차적으로 들어오는 Hz를 표시하기 위한 TextView
     /////////////////////////////////////////////
 
 
@@ -89,6 +86,7 @@ public class MainActivity extends AppCompatActivity{
         final Vibrator vibrator = (Vibrator)getSystemService(Context.VIBRATOR_SERVICE);
 
         // 디버그 연결
+        D0 = (TextView)findViewById(R.id.CurrentHzViewNow);
         D1 = (TextView)findViewById(R.id.CurrentHzView0);
         D2 = (TextView)findViewById(R.id.CurrentHzView1);
         D3 = (TextView)findViewById(R.id.CurrentHzView2);
@@ -595,7 +593,8 @@ public class MainActivity extends AppCompatActivity{
         public void DebugHz(double cin){
             D3.setText(D2.getText());
             D2.setText(D1.getText());
-            D1.setText(Double.toString(cin));
+            D1.setText(D0.getText());
+            D0.setText(Double.toString(cin));
         }
 
         @Override
@@ -604,19 +603,8 @@ public class MainActivity extends AppCompatActivity{
             float InputAudioHz = -1;
             InputAudioHz = MaxInFFTArray(toTransform[0], sensitivity) * frequency / (2*blockSize);
 
-
-            if (0 <= InputAudioHz) {
-                for (int i = 0; i < 4; i++) {
-                    float tmparray = buffer[i + 1];
-                    buffer[i] = tmparray;
-                }
-                buffer[4] = InputAudioHz;
-                avrg = NoiseDetect(buffer);
-
-                Log.i("current Hz", Float.toString(InputAudioHz));
-                DebugHz(avrg);
-
-            }
+            Log.i("current Hz", Float.toString(InputAudioHz));
+            if(InputAudioHz>100) {  DebugHz(InputAudioHz);  }
         }
     }
 }
