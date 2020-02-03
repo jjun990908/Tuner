@@ -21,6 +21,7 @@ import android.media.*;
 import android.os.*;
 import android.util.*;
 
+import org.w3c.dom.Text;
 
 
 public class MainActivity extends AppCompatActivity{
@@ -84,6 +85,12 @@ public class MainActivity extends AppCompatActivity{
         setContentView(R.layout.activity_main);
 
         final Vibrator vibrator = (Vibrator)getSystemService(Context.VIBRATOR_SERVICE);
+
+        // 디버그 연결
+        D1 = (TextView)findViewById(R.id.CurrentHzView0);
+        D2 = (TextView)findViewById(R.id.CurrentHzView1);
+        D3 = (TextView)findViewById(R.id.CurrentHzView2);
+
 
         //버튼 연결
         btn_c_l = (Button)findViewById(R.id.btn_c_l);
@@ -576,6 +583,12 @@ public class MainActivity extends AppCompatActivity{
 
 
 
+        public void DebugHz(double cin){
+            D3.setText(D2.getText());
+            D2.setText(D1.getText());
+            D1.setText(Double.toString(cin));
+        }
+
         @Override
         protected void onProgressUpdate(double[]... toTransform) {
             setCuHz(buttonArray, buttonId, CuHz, flatmode, sharpmode);
@@ -583,7 +596,7 @@ public class MainActivity extends AppCompatActivity{
             InputAudioHz = MaxInFFTArray(toTransform[0], sensitivity) * frequency / (2*blockSize);
 
 
-            if (CuHz * (0.9) <= InputAudioHz && InputAudioHz <= CuHz * 1.1) {
+            if (0 <= InputAudioHz) {
                 for (int i = 0; i < 4; i++) {
                     float tmparray = buffer[i + 1];
                     buffer[i] = tmparray;
@@ -592,15 +605,7 @@ public class MainActivity extends AppCompatActivity{
                 avrg = NoiseDetect(buffer);
 
                 Log.i("current Hz", Float.toString(InputAudioHz));
-                Log.i("avrg Hz", Float.toString(avrg));
-
-                for (int i=1;i<5;i++){
-                    if (buttonId == buttonArray[i-1].getId()){
-
-                    }
-                }
-
-
+                DebugHz(avrg);
 
             }
         }

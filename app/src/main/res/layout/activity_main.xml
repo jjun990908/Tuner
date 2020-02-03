@@ -18,6 +18,37 @@
         app:layout_constraintRight_toLeftOf="@id/btn_e_l"
         app:layout_constraintTop_toTopOf="parent"/>
 
+    <TextView
+        android:id="@+id/CurrentHzView0"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="52dp"
+        android:layout_marginTop="100dp"
+        app:layout_constraintStart_toEndOf="@+id/view_CenterRRView"
+        app:layout_constraintTop_toBottomOf="@+id/btn_f_h" />
+
+    <TextView
+        android:id="@+id/CurrentHzView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="52dp"
+        android:textColor="#A6A6A6"
+        app:layout_constraintBottom_toTopOf="@+id/CurrentHzView0"
+        app:layout_constraintStart_toEndOf="@+id/view_CenterRRView"
+        app:layout_constraintTop_toBottomOf="@+id/btn_d_h"
+        app:layout_constraintVertical_bias="0.983" />
+
+    <TextView
+        android:id="@+id/CurrentHzView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="52dp"
+        android:textColor="#D5D5D5"
+        app:layout_constraintBottom_toTopOf="@+id/CurrentHzView1"
+        app:layout_constraintStart_toEndOf="@+id/view_CenterRRView"
+        app:layout_constraintTop_toBottomOf="@+id/btn_f_h"
+        app:layout_constraintVertical_bias="1.0" />
+
     <Button
         android:id="@+id/btn_e_l"
         android:layout_width="30dp"
