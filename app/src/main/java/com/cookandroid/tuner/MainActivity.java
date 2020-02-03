@@ -28,7 +28,7 @@ public class MainActivity extends AppCompatActivity{
     ////////// FFT initialize ////////////////////
     // 1. 성능 설정 변수 (수정 가능, 삭제 불가)
     int frequency = 4400; // 가청 주파수 설정 (참고: 가청 주파수는 frequency 의 절반)
-    int blockSize = 1024; // 정밀도 설정 (참고: 반드시 2의 배수)
+    int blockSize = 1024; // 정밀도(속도와 관련) 설정 (참고: 반드시 2의 배수)
     int sensitivity =  2; // 민감도 설정 (참고: 1~4까지가 적정)
 
     // 2. IO 연결 객체 (수정 가능, 삭제 불가)
@@ -39,15 +39,14 @@ public class MainActivity extends AppCompatActivity{
 
     // 3. 화면에 표시하기 위해, 따로 만든 변수들 (수정 가능, 삭제 가능)
     static float avrg;
-    static int cyclecnt=0;
-    static float buffer[] = new float[5];
+    static float[] buffer = new float[5];
     static {for(int i = 0; i < 5; i ++){buffer[i] = 0;}}
-    static Button buttonArray[] = new Button[7];
-    static String ScaleArray[];
+    static Button[] buttonArray = new Button[7];
+    static String[] ScaleArray;
     static double CuHz= 260;
     int buttonId,color_state,judge_sound;
     boolean started = true, flag = true;
-    ///////////////////////////////////////////
+    /////////////////////////////////////////////
 
 
     Button btn_c_l,btn_d_l,btn_e_l,btn_f_l,btn_g_l,btn_a_l,btn_b_l,btn_c_h,btn_d_h,btn_e_h,btn_f_h,btn_g_h,btn_a_h,btn_b_h,btn_c_hh,btn_d_hh,btn_e_hh,btn_help,btn_tune;
@@ -610,24 +609,24 @@ public class MainActivity extends AppCompatActivity{
         first_time = System.currentTimeMillis();
     }
 
+
+
+
     public class RecordAudio extends AsyncTask<Void, double[], Void> {
 
         @Override
         protected Void doInBackground(Void... params) {
-            System.out.println("플래그 2: 다른 쓰레드에서 백그라운드 실행");
+            System.out.println("플래그 2:  백그라운드 쓰레드 실행");
 
-            try { // 예외처리를 무식하게 try에 모두 다 때려박음 : 나중에 몇 개의 부분만 선택해서 try에 넣도록 수정 필요
-
+            try {
                 int bufferSize = AudioRecord.getMinBufferSize(frequency, channelConfiguration, audioEncoding);
-                System.out.println("플래그 3: 오디오 사이즈에 할당된 버퍼? 같은게 생김");
+                System.out.println("플래그 3: 버퍼 모듈 초기화");
                 AudioRecord audioRecord = new AudioRecord(MediaRecorder.AudioSource.MIC, frequency,
                         channelConfiguration, audioEncoding, bufferSize);
-                System.out.println("플래그 -1: 오디오 레코딩에 잘못된 권한, 치명적 오류");
                 short[] buffer = new short[blockSize];
                 double[] toTransform = new double[blockSize];
 
                 audioRecord.startRecording();
-                Log.e("here you are", "this");
                 while (started) {
                     int bufferReadResult = audioRecord.read(buffer, 0, blockSize); //blockSize = 256
                     //Log.i("bufferReadResult", Integer.toString(bufferReadResult));
@@ -640,54 +639,18 @@ public class MainActivity extends AppCompatActivity{
                 }
                 audioRecord.stop();
             } catch (Throwable t) {
-                Log.e("오디오레코딩 실패함", "망한듯;;;");
-                System.out.println("플래그 -2: 치명적 오류 발생, 로깅파일 분석하셈");
+                Log.e("오디오레코딩 실패", "PATAL ERROR;");
             }
             return null;
         }
-
-
-        private void setHz() {
-            Button btns[] = {btn_c_l, btn_d_l, btn_e_l, btn_f_l, btn_g_l, btn_a_l, btn_b_l, btn_c_h, btn_d_h, btn_e_h, btn_f_h, btn_g_h, btn_a_h, btn_b_h, btn_c_hh, btn_d_hh, btn_e_hh};
-            String arrays[] = {"C", "D", "E", "F", "G", "A", "B"};
-            if (sharpmode == false && flatmode == false) {
-                double btnHz[] = {261.62, 293.66, 329.62, 349.22, 392, 440, 493.88, 523.25, 587.32, 659.25, 698.25, 784, 877.99, 987.76, 1046.5, 1174.6, 1318.51};
-                for (int i = 0; i < btns.length; i++) {
-                    if (btns[i].getId() == buttonId && Double.compare(CuHz,btnHz[i])!=0) {
-                        CuHz = btnHz[i];
-                        cyclecnt = 0;
-                        Log.i("현재음", arrays[i % 7] + "     " + Boolean.toString(sharpmode) + Boolean.toString(flatmode));
-                    }
-                }
-            } else if (sharpmode == true && flatmode == false) {
-                double btnHz[] = {277.18, 311.12, 349.22, 370, 415.30, 466.16, 523.25, 554.36, 619.4, 698.5, 739, 830.60, 932.32, 1046.5, 1108.7, 1244.50, 1396.91};
-                for (int i = 0; i < btns.length; i++) {
-                    if (btns[i].getId() == buttonId && Double.compare(CuHz,btnHz[i])!=0) {
-                        CuHz = btnHz[i];
-                        cyclecnt = 0;
-                        Log.i("현재음", arrays[i % 7] + "     " + Boolean.toString(sharpmode) + Boolean.toString(flatmode));
-                    }
-                }
-            } else {
-                double btnHz[] = {0, 277.18, 311.12, 329.62, 370, 415.30, 466.16, 493.88, 554.36, 619.4, 659.25, 739, 830.60, 932.32, 987.76, 1108.7, 1244.50};
-                for (int i = 0; i < btns.length; i++) {
-                    if (btns[i].getId() == buttonId && Double.compare(CuHz,btnHz[i])!=0) {
-                        CuHz = btnHz[i];
-                        cyclecnt = 0;
-                        Log.i("현재음", arrays[i % 7] + "     " + Boolean.toString(sharpmode) + Boolean.toString(flatmode));
-                    }
-                }
-            }
-        }
-
 
         @Override
         protected void onProgressUpdate(double[]... toTransform) {
             setCuHz(buttonArray, buttonId, CuHz, flatmode, sharpmode);
             float InputAudioHz = -1;
-
-            Log.i("Button ID", "  "+buttonId);
             InputAudioHz = MaxInFFTArray(toTransform[0], sensitivity) * frequency / (2*blockSize);
+            Log.i("Button ID", "  "+buttonId);
+
 
 
             if (CuHz * (0.9) <= InputAudioHz && InputAudioHz <= CuHz * 1.1) {
