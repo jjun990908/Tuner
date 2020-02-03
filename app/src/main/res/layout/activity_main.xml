@@ -18,36 +18,36 @@
         app:layout_constraintRight_toLeftOf="@id/btn_e_l"
         app:layout_constraintTop_toTopOf="parent"/>
 
-    <TextView
-        android:id="@+id/CurrentHzView0"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="52dp"
-        android:layout_marginTop="100dp"
-        app:layout_constraintStart_toEndOf="@+id/view_CenterRRView"
-        app:layout_constraintTop_toBottomOf="@+id/btn_f_h" />
+<!--    <TextView-->
+<!--        android:id="@+id/CurrentHzView0"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginStart="52dp"-->
+<!--        android:layout_marginTop="100dp"-->
+<!--        app:layout_constraintStart_toEndOf="@+id/view_CenterRRView"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/btn_f_h" />-->
 
-    <TextView
-        android:id="@+id/CurrentHzView1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="52dp"
-        android:textColor="#A6A6A6"
-        app:layout_constraintBottom_toTopOf="@+id/CurrentHzView0"
-        app:layout_constraintStart_toEndOf="@+id/view_CenterRRView"
-        app:layout_constraintTop_toBottomOf="@+id/btn_d_h"
-        app:layout_constraintVertical_bias="0.983" />
+<!--    <TextView-->
+<!--        android:id="@+id/CurrentHzView1"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginStart="52dp"-->
+<!--        android:textColor="#A6A6A6"-->
+<!--        app:layout_constraintBottom_toTopOf="@+id/CurrentHzView0"-->
+<!--        app:layout_constraintStart_toEndOf="@+id/view_CenterRRView"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/btn_d_h"-->
+<!--        app:layout_constraintVertical_bias="0.983" />-->
 
-    <TextView
-        android:id="@+id/CurrentHzView2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="52dp"
-        android:textColor="#D5D5D5"
-        app:layout_constraintBottom_toTopOf="@+id/CurrentHzView1"
-        app:layout_constraintStart_toEndOf="@+id/view_CenterRRView"
-        app:layout_constraintTop_toBottomOf="@+id/btn_f_h"
-        app:layout_constraintVertical_bias="1.0" />
+<!--    <TextView-->
+<!--        android:id="@+id/CurrentHzView2"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginStart="52dp"-->
+<!--        android:textColor="#D5D5D5"-->
+<!--        app:layout_constraintBottom_toTopOf="@+id/CurrentHzView1"-->
+<!--        app:layout_constraintStart_toEndOf="@+id/view_CenterRRView"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/btn_f_h"-->
+<!--        app:layout_constraintVertical_bias="1.0" />-->
 
     <Button
         android:id="@+id/btn_e_l"
@@ -235,67 +235,56 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
-    <View
-        android:id="@+id/view_CenterView"
-        android:layout_width="60dp"
-        android:layout_height="60dp"
-        android:layout_marginTop="40dp"
-        app:layout_constraintTop_toBottomOf="@id/btn_c_l"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        android:background="@drawable/smallbtn_shape"/>
+<!--    <View-->
+<!--        android:id="@+id/view_CenterView"-->
+<!--        android:layout_width="60dp"-->
+<!--        android:layout_height="60dp"-->
+<!--        android:layout_marginTop="40dp"-->
+<!--        app:layout_constraintTop_toBottomOf="@id/btn_c_l"-->
+<!--        app:layout_constraintLeft_toLeftOf="parent"-->
+<!--        app:layout_constraintRight_toRightOf="parent"-->
+<!--        android:background="@drawable/smallbtn_shape"/>-->
 
-    <View
-        android:id="@+id/view_CenterRView"
-        android:layout_width="30dp"
-        android:layout_height="30dp"
-        android:layout_marginTop="75dp"
-        android:layout_marginLeft="15dp"
-        app:layout_constraintTop_toBottomOf="@id/btn_d_l"
-        app:layout_constraintLeft_toRightOf="@+id/view_CenterView"
-        android:background="@drawable/smallbtn_shape"/>
+<!--    <View-->
+<!--        android:id="@+id/view_CenterRView"-->
+<!--        android:layout_width="30dp"-->
+<!--        android:layout_height="30dp"-->
+<!--        android:layout_marginTop="75dp"-->
+<!--        android:layout_marginLeft="15dp"-->
+<!--        app:layout_constraintTop_toBottomOf="@id/btn_d_l"-->
+<!--        app:layout_constraintLeft_toRightOf="@+id/view_CenterView"-->
+<!--        android:background="@drawable/smallbtn_shape"/>-->
 
-    <View
-        android:id="@+id/view_CenterLView"
-        android:layout_width="30dp"
-        android:layout_height="30dp"
-        android:layout_marginTop="75dp"
-        android:layout_marginRight="15dp"
-        app:layout_constraintTop_toBottomOf="@id/btn_d_l"
-        app:layout_constraintRight_toLeftOf="@+id/view_CenterView"
-        android:background="@drawable/smallbtn_shape"/>
+<!--    <View-->
+<!--        android:id="@+id/view_CenterLView"-->
+<!--        android:layout_width="30dp"-->
+<!--        android:layout_height="30dp"-->
+<!--        android:layout_marginTop="75dp"-->
+<!--        android:layout_marginRight="15dp"-->
+<!--        app:layout_constraintTop_toBottomOf="@id/btn_d_l"-->
+<!--        app:layout_constraintRight_toLeftOf="@+id/view_CenterView"-->
+<!--        android:background="@drawable/smallbtn_shape"/>-->
 
-    <View
-        android:id="@+id/view_CenterRRView"
-        android:layout_width="20dp"
-        android:layout_height="20dp"
-        android:layout_marginTop="80dp"
-        android:layout_marginLeft="15dp"
-        android:text=""
-        app:layout_constraintTop_toBottomOf="@id/btn_d_l"
-        app:layout_constraintLeft_toRightOf="@+id/view_CenterRView"
-        android:background="@drawable/smallbtn_shape"/>
+<!--    <View-->
+<!--        android:id="@+id/view_CenterRRView"-->
+<!--        android:layout_width="20dp"-->
+<!--        android:layout_height="20dp"-->
+<!--        android:layout_marginTop="80dp"-->
+<!--        android:layout_marginLeft="15dp"-->
+<!--        android:text=""-->
+<!--        app:layout_constraintTop_toBottomOf="@id/btn_d_l"-->
+<!--        app:layout_constraintLeft_toRightOf="@+id/view_CenterRView"-->
+<!--        android:background="@drawable/smallbtn_shape"/>-->
 
-    <View
-        android:id="@+id/view_CenterLLView"
-        android:layout_width="20dp"
-        android:layout_height="20dp"
-        android:layout_marginTop="80dp"
-        android:layout_marginRight="15dp"
-        app:layout_constraintTop_toBottomOf="@id/btn_d_l"
-        app:layout_constraintRight_toLeftOf="@+id/view_CenterLView"
-        android:background="@drawable/smallbtn_shape"/>
-
-    <TextView
-        android:id="@+id/key"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="C"
-        android:textSize="30sp"
-        android:layout_marginTop="48dp"
-        app:layout_constraintTop_toBottomOf="@id/btn_c_l"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent" />
+<!--    <View-->
+<!--        android:id="@+id/view_CenterLLView"-->
+<!--        android:layout_width="20dp"-->
+<!--        android:layout_height="20dp"-->
+<!--        android:layout_marginTop="80dp"-->
+<!--        android:layout_marginRight="15dp"-->
+<!--        app:layout_constraintTop_toBottomOf="@id/btn_d_l"-->
+<!--        app:layout_constraintRight_toLeftOf="@+id/view_CenterLView"-->
+<!--        android:background="@drawable/smallbtn_shape"/>-->
 
     <TextView
         android:id="@+id/sharp"
@@ -334,5 +323,15 @@
         android:textSize="15dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
+
+    <ImageView
+        android:id="@+id/sound_label"
+        android:layout_width="499dp"
+        android:layout_height="335dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/sound_label"
+        tools:layout_editor_absoluteY="286dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

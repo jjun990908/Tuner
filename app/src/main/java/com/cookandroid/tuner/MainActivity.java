@@ -14,6 +14,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.PopupMenu;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -55,6 +56,7 @@ public class MainActivity extends AppCompatActivity{
     TextView keyText,sharpText,flatText;
     Button btn_switch;
     Boolean sharpmode=false,flatmode=false;
+    ImageView sound_label;
     //건반색 초기화함수
     public void setBtnWhite(){ for(int i=0;i<17;i++){ buttonArray[i].setBackgroundResource(R.drawable.btn_key_shape); } }
     //건반라벨 #추가함수
@@ -114,10 +116,10 @@ public class MainActivity extends AppCompatActivity{
 
         btn_help = (Button)findViewById(R.id.btn_help);
         btn_tune = (Button)findViewById(R.id.btn_tune);
-        keyText = (TextView)findViewById(R.id.key);
         sharpText = (TextView)findViewById(R.id.sharp);
         flatText = (TextView)findViewById(R.id.flat);
         btn_switch = (Button)findViewById(R.id.switch_mode);
+        sound_label = (ImageView)findViewById(R.id.sound_label);
 
         if(ActivityCompat.checkSelfPermission(getApplicationContext(), Manifest.permission.RECORD_AUDIO) != PackageManager.PERMISSION_GRANTED){
         //마이크 권한 확인
@@ -145,6 +147,7 @@ public class MainActivity extends AppCompatActivity{
                 setBtnWhite();
                 keyText.setText("C");
                 btn_c_l.setBackgroundResource(R.drawable.btn_key_select_shape);
+                sound_label.setRotation(0);
             }
         });
         btn_d_l.setOnClickListener(new View.OnClickListener() {
@@ -164,6 +167,7 @@ public class MainActivity extends AppCompatActivity{
                 setBtnWhite();
                 keyText.setText("D");
                 btn_d_l.setBackgroundResource(R.drawable.btn_key_select_shape);
+                sound_label.setRotation(60);
             }
         });
         btn_e_l.setOnClickListener(new View.OnClickListener() {
@@ -182,6 +186,7 @@ public class MainActivity extends AppCompatActivity{
 
                 setBtnWhite();
                 keyText.setText("E");
+                sound_label.setRotation(120);
                 btn_e_l.setBackgroundResource(R.drawable.btn_key_select_shape);
             }
         });
@@ -201,6 +206,7 @@ public class MainActivity extends AppCompatActivity{
 
                 setBtnWhite();
                 keyText.setText("F");
+                sound_label.setRotation(150);
                 btn_f_l.setBackgroundResource(R.drawable.btn_key_select_shape);
             }
         });
@@ -220,6 +226,7 @@ public class MainActivity extends AppCompatActivity{
 
                 setBtnWhite();
                 keyText.setText("G");
+                sound_label.setRotation(180);
                 btn_g_l.setBackgroundResource(R.drawable.btn_key_select_shape);
             }
         });
@@ -239,6 +246,7 @@ public class MainActivity extends AppCompatActivity{
 
                 setBtnWhite();
                 keyText.setText("A");
+                sound_label.setRotation(210);
                 btn_a_l.setBackgroundResource(R.drawable.btn_key_select_shape);
             }
         });
@@ -258,6 +266,7 @@ public class MainActivity extends AppCompatActivity{
 
                 setBtnWhite();
                 keyText.setText("B");
+                sound_label.setRotation(300);
                 btn_b_l.setBackgroundResource(R.drawable.btn_key_select_shape);
             }
         });
