@@ -29,7 +29,7 @@ public class MainActivity extends AppCompatActivity{
     // 1. 성능 설정 변수 (수정 가능, 삭제 불가)
     int frequency = 4400; // 가청 주파수 설정 (참고: 가청 주파수는 frequency 의 절반)
     int blockSize = 1024; // 정밀도(속도와 관련) 설정 (참고: 반드시 2의 배수)
-    int sensitivity =  2; // 민감도 설정 (참고: 1~4까지가 적정)
+    int sensitivity =  1; // 민감도 설정 (참고: 1~4까지가 적정)
 
     // 2. IO 연결 객체 (수정 가능, 삭제 불가)
     int channelConfiguration = AudioFormat.CHANNEL_IN_MONO;
@@ -44,13 +44,13 @@ public class MainActivity extends AppCompatActivity{
     static Button[] buttonArray = new Button[7];
     static String[] ScaleArray;
     static double CuHz= 260;
-    int buttonId,color_state,judge_sound;
-    boolean started = true, flag = true;
+    int buttonId;
+    boolean started = true;
+    TextView D1, D2, D3;
     /////////////////////////////////////////////
 
 
     Button btn_c_l,btn_d_l,btn_e_l,btn_f_l,btn_g_l,btn_a_l,btn_b_l,btn_c_h,btn_d_h,btn_e_h,btn_f_h,btn_g_h,btn_a_h,btn_b_h,btn_c_hh,btn_d_hh,btn_e_hh,btn_help,btn_tune;
-    View centerView,centerRView,centerLView,centerRRView,centerLLView;
     TextView keyText,sharpText,flatText;
     Button btn_switch;
     Boolean sharpmode=false,flatmode=false;
@@ -63,228 +63,9 @@ public class MainActivity extends AppCompatActivity{
     //건반라벨 원음변환함수
     public void setOriginText(){ for(int i=0; i<17;i++){buttonArray[i].setText(ScaleArray[i%7]);} }
     //튜닝확인 뷰 색 변환 함수
-    public void setOriginColor(){
-        centerLLView.setBackgroundResource(R.drawable.smallbtn_shape);
-        centerLView.setBackgroundResource(R.drawable.smallbtn_shape);
-        centerView.setBackgroundResource(R.drawable.smallbtn_shape);
-        centerRView.setBackgroundResource(R.drawable.smallbtn_shape);
-        centerRRView.setBackgroundResource(R.drawable.smallbtn_shape);
-    }
-    //튜닝확인 뷰 색 변환 함수
-    public void setColor(int color_state){
-        setOriginColor();
-        if (color_state == 1){
-            centerLLView.setBackgroundResource(R.drawable.btn_bottom_red);
-        }
-        else if (color_state == 2){
-            centerLView.setBackgroundResource(R.drawable.btn_bottom_red);
-        }
-        else if (color_state == 3){
-            centerView.setBackgroundResource(R.drawable.btn_bottom_green);
-        }
-        else if (color_state == 4){
-            centerRView.setBackgroundResource(R.drawable.btn_bottom_red);
-        }
-        else if (color_state == 5) {
-            centerRRView.setBackgroundResource(R.drawable.btn_bottom_red);
-        }
-    }
 
-    //각 음계에 대한 튜닝 범위 설정
-    public void judge_sound(int judge_sound){
-        switch (judge_sound){
-            case 1:
-                if (avrg<251) setColor(1);
-                else if(251<=avrg && avrg<256) setColor(2);
-                else if(256<=avrg && avrg<266) setColor(3);
-                else if(266<=avrg && avrg<271) setColor(4);
-                else if(271<=avrg) setColor(5);
-                break;
-            case 2:
-                if (avrg<283) setColor(1);
-                else if(283<=avrg && avrg<288) setColor(2);
-                else if(288<=avrg && avrg<298) setColor(3);
-                else if(298<=avrg && avrg<303) setColor(4);
-                else if(303<=avrg) setColor(5);
-                break;
-            case 3:
-                if (avrg<319) setColor(1);
-                else if(319<=avrg && avrg<324) setColor(2);
-                else if(324<=avrg && avrg<334) setColor(3);
-                else if(334<=avrg && avrg<339) setColor(4);
-                else if(338<=avrg) setColor(5);
-                break;
-            case 4:
-                if (avrg<339) setColor(1);
-                else if(339<=avrg && avrg<344) setColor(2);
-                else if(344<=avrg && avrg<354) setColor(3);
-                else if(354<=avrg && avrg<359) setColor(4);
-                else if(359<=avrg) setColor(5);
-                break;
-            case 5:
-                if (avrg<382) setColor(1);
-                else if(382<=avrg && avrg<387) setColor(2);
-                else if(387<=avrg && avrg<397) setColor(3);
-                else if(397<=avrg && avrg<402) setColor(4);
-                else if(402<=avrg) setColor(5);
-                break;
-            case 6:
-                if (avrg<430) setColor(1);
-                else if(430<=avrg && avrg<435) setColor(2);
-                else if(435<=avrg && avrg<445) setColor(3);
-                else if(445<=avrg && avrg<450) setColor(4);
-                else if(450<=avrg) setColor(5);
-                break;
-            case 7:
-                if (avrg<483) setColor(1);
-                else if(483<=avrg && avrg<488) setColor(2);
-                else if(488<=avrg && avrg<498) setColor(3);
-                else if(498<=avrg && avrg<503) setColor(4);
-                else if(503<=avrg) setColor(5);
-                break;
-            case 8:
-                if (avrg<513) setColor(1);
-                else if(513<=avrg && avrg<518) setColor(2);
-                else if(518<=avrg && avrg<528) setColor(3);
-                else if(528<=avrg && avrg<533) setColor(4);
-                else if(533<=avrg) setColor(5);
-                break;
-            case 9:
-                if (avrg<577) setColor(1);
-                else if(577<=avrg && avrg<582) setColor(2);
-                else if(582<=avrg && avrg<592) setColor(3);
-                else if(592<=avrg && avrg<597) setColor(4);
-                else if(597<=avrg) setColor(5);
-                break;
-            case 10:
-                if (avrg<649) setColor(1);
-                else if(649<=avrg && avrg<654) setColor(2);
-                else if(654<=avrg && avrg<664) setColor(3);
-                else if(664<=avrg && avrg<669) setColor(4);
-                else if(669<=avrg) setColor(5);
-                break;
-            case 11:
-                if (avrg<688) setColor(1);
-                else if(688<=avrg && avrg<693) setColor(2);
-                else if(693<=avrg && avrg<703) setColor(3);
-                else if(703<=avrg && avrg<708) setColor(4);
-                else if(708<=avrg) setColor(5);
-                break;
-            case 12:
-                if (avrg<774) setColor(1);
-                else if(774<=avrg && avrg<779) setColor(2);
-                else if(779<=avrg && avrg<789) setColor(3);
-                else if(789<=avrg && avrg<794) setColor(4);
-                else if(794<=avrg) setColor(5);
-                break;
-            case 13:
-                if (avrg<870) setColor(1);
-                else if(870<=avrg && avrg<875) setColor(2);
-                else if(875<=avrg && avrg<885) setColor(3);
-                else if(885<=avrg && avrg<890) setColor(4);
-                else if(890<=avrg) setColor(5);
-                break;
-            case 14:
-                if (avrg<977) setColor(1);
-                else if(977<=avrg && avrg<982) setColor(2);
-                else if(982<=avrg && avrg<992) setColor(3);
-                else if(992<=avrg && avrg<997) setColor(4);
-                else if(997<=avrg) setColor(5);
-                break;
-            case 15:
-                if (avrg<1036) setColor(1);
-                else if(1036<=avrg && avrg<1041) setColor(2);
-                else if(1041<=avrg && avrg<1051) setColor(3);
-                else if(1051<=avrg && avrg<1056) setColor(4);
-                else if(1056<=avrg) setColor(5);
-                break;
-            case 16:
-                if (avrg<1164) setColor(1);
-                else if(1164<=avrg && avrg<1169) setColor(2);
-                else if(1169<=avrg && avrg<1179) setColor(3);
-                else if(1179<=avrg && avrg<1184) setColor(4);
-                else if(1184<=avrg) setColor(5);
-                break;
-            case 18:
-                if (avrg<267) setColor(1);
-                else if(267<=avrg && avrg<272) setColor(2);
-                else if(272<=avrg && avrg<282) setColor(3);
-                else if(282<=avrg && avrg<287) setColor(4);
-                else if(287<=avrg) setColor(5);
-                break;
-            case 19:
-                if (avrg<301) setColor(1);
-                else if(301<=avrg && avrg<306) setColor(2);
-                else if(306<=avrg && avrg<316) setColor(3);
-                else if(316<=avrg && avrg<321) setColor(4);
-                else if(321<=avrg) setColor(5);
-                break;
-            case 20:
-                if (avrg<360) setColor(1);
-                else if(360<=avrg && avrg<365) setColor(2);
-                else if(375<=avrg && avrg<385) setColor(3);
-                else if(885<=avrg && avrg<890) setColor(4);
-                else if(890<=avrg) setColor(5);
-                break;
-            case 21:
-                if (avrg<405) setColor(1);
-                else if(405<=avrg && avrg<410) setColor(2);
-                else if(410<=avrg && avrg<420) setColor(3);
-                else if(420<=avrg && avrg<425) setColor(4);
-                else if(425<=avrg) setColor(5);
-                break;
-            case 22:
-                if (avrg<456) setColor(1);
-                else if(456<=avrg && avrg<461) setColor(2);
-                else if(461<=avrg && avrg<471) setColor(3);
-                else if(471<=avrg && avrg<476) setColor(4);
-                else if(476<=avrg) setColor(5);
-                break;
-            case 23:
-                if (avrg<544) setColor(1);
-                else if(544<=avrg && avrg<549) setColor(2);
-                else if(549<=avrg && avrg<559) setColor(3);
-                else if(559<=avrg && avrg<564) setColor(4);
-                else if(564<=avrg) setColor(5);
-                break;
-            case 24:
-                if (avrg<612) setColor(1);
-                else if(612<=avrg && avrg<617) setColor(2);
-                else if(617<=avrg && avrg<627) setColor(3);
-                else if(627<=avrg && avrg<632) setColor(4);
-                else if(632<=avrg) setColor(5);
-                break;
-            case 25:
-                if (avrg<729) setColor(1);
-                else if(729<=avrg && avrg<734) setColor(2);
-                else if(734<=avrg && avrg<744) setColor(3);
-                else if(744<=avrg && avrg<749) setColor(4);
-                else if(749<=avrg) setColor(5);
-                break;
-            case 26:
-                if (avrg<820) setColor(1);
-                else if(820<=avrg && avrg<825) setColor(2);
-                else if(825<=avrg && avrg<835) setColor(3);
-                else if(835<=avrg && avrg<840) setColor(4);
-                else if(840<=avrg) setColor(5);
-                break;
-            case 27:
-                if (avrg<922) setColor(1);
-                else if(922<=avrg && avrg<927) setColor(2);
-                else if(927<=avrg && avrg<937) setColor(3);
-                else if(937<=avrg && avrg<942) setColor(4);
-                else if(942<=avrg) setColor(5);
-                break;
-            case 28:
-                if (avrg<1098) setColor(1);
-                else if(1098<=avrg && avrg<1103) setColor(2);
-                else if(1103<=avrg && avrg<1113) setColor(3);
-                else if(1113<=avrg && avrg<1118) setColor(4);
-                else if(1118<=avrg) setColor(5);
-                break;
-        }
 
-    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -326,11 +107,6 @@ public class MainActivity extends AppCompatActivity{
 
         btn_help = (Button)findViewById(R.id.btn_help);
         btn_tune = (Button)findViewById(R.id.btn_tune);
-        centerView = (View)findViewById(R.id.view_CenterView);
-        centerRView = (View)findViewById(R.id.view_CenterRView);
-        centerRRView = (View)findViewById(R.id.view_CenterRRView);
-        centerLView = (View)findViewById(R.id.view_CenterLView);
-        centerLLView = (View)findViewById(R.id.view_CenterLLView);
         keyText = (TextView)findViewById(R.id.key);
         sharpText = (TextView)findViewById(R.id.sharp);
         flatText = (TextView)findViewById(R.id.flat);
@@ -768,7 +544,6 @@ public class MainActivity extends AppCompatActivity{
 
 
     public class RecordAudio extends AsyncTask<Void, double[], Void> {
-
         @Override
         protected Void doInBackground(Void... params) {
             System.out.println("플래그 2:  백그라운드 쓰레드 실행");
@@ -799,13 +574,13 @@ public class MainActivity extends AppCompatActivity{
             return null;
         }
 
+
+
         @Override
         protected void onProgressUpdate(double[]... toTransform) {
             setCuHz(buttonArray, buttonId, CuHz, flatmode, sharpmode);
             float InputAudioHz = -1;
             InputAudioHz = MaxInFFTArray(toTransform[0], sensitivity) * frequency / (2*blockSize);
-            Log.i("Button ID", "  "+buttonId);
-
 
 
             if (CuHz * (0.9) <= InputAudioHz && InputAudioHz <= CuHz * 1.1) {
@@ -821,9 +596,12 @@ public class MainActivity extends AppCompatActivity{
 
                 for (int i=1;i<5;i++){
                     if (buttonId == buttonArray[i-1].getId()){
-                        judge_sound(i);
+
                     }
                 }
+
+
+
             }
         }
     }
