@@ -689,6 +689,12 @@ public class MainActivity extends AppCompatActivity{
 
             Log.i("current Hz", Float.toString(InputAudioHz));
             if(InputAudioHz>100) {  DebugHz(InputAudioHz);  }
+            if(InputAudioHz>=261 && InputAudioHz<277){
+                sound_label.setRotation((277- InputAudioHz)*(float)-1.875);
+            }
+            else if (InputAudioHz>=277 && InputAudioHz<293){
+                sound_label.setRotation((293- InputAudioHz)*(float)-1.875);
+            }
         }
     }
 }
