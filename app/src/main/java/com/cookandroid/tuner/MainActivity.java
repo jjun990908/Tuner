@@ -99,10 +99,44 @@ public class MainActivity extends AppCompatActivity{
     }
 
 
+
+    public void ROTATE (float inputHz){
+        if(inputHz <277){return;}
+        int Scaleidx = 0;
+        int HZidx = 0;
+        float[]SCALEHZ = {252, 277, 293, 311, 329, 349, 370, 392, 415, 440, 466, 493, 523, 554, 587, 622,659,698,739,784,830,880,932,987,1046,1108,1174};
+        for(int i = 0 ; i< SCALEHZ.length; i++){
+            if(inputHz < SCALEHZ[i]){
+                Scaleidx = i; break;
+            } }
+
+        double TEMP = SCALEHZ[Scaleidx-1];
+
+        double INTERVAL = (SCALEHZ[Scaleidx] - SCALEHZ[Scaleidx-1])/30;
+        Log.i("인터벌은", ""+INTERVAL);
+        Log.i("템프와 인풋은", TEMP+"        "+inputHz);
+        for(int i = 0; i < 30; i++){
+            if(TEMP > inputHz){
+                HZidx = i;
+                break;
+            }
+            else{TEMP += INTERVAL;}
+            if(i==29){
+                HZidx = 29;
+            }
+        }
+        sound_label.setRotation(-((Scaleidx-1)*30+HZidx));
+        Log.i("각도는", (Scaleidx-1)*30 + "  +  "+HZidx);
+    }
+
+
     @SuppressLint("ClickableViewAccessibility")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+
+
 
         ///FFT initialize ///
         transformer = new RealDoubleFFT(blockSize);
@@ -718,9 +752,8 @@ public class MainActivity extends AppCompatActivity{
             float InputAudioHz = -1;
             InputAudioHz = MaxInFFTArray(toTransform[0], sensitivity) * frequency / (2*blockSize);
 
-            Log.i("current Hz", Float.toString(InputAudioHz));
-            if(InputAudioHz>100) {  DebugHz(InputAudioHz);  }
-            rotateLabel(InputAudioHz);
+            if(InputAudioHz>278) {  DebugHz(InputAudioHz);
+            ROTATE(InputAudioHz);}
         }
     }
 }

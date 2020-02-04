@@ -5,6 +5,8 @@ import android.widget.Button;
 
 
 public class FFTfunc {
+
+
     public static float MaxInFFTArray(double [] Array_Double, int sensitivity){
         // 위 함수는 배열 안에서 가장 큰 값을 리턴, 소리가 너무 작으면 -1 리턴
         double MAX = 0; // initialize
