@@ -695,6 +695,33 @@ public class MainActivity extends AppCompatActivity{
             else if (InputAudioHz>=277 && InputAudioHz<293){
                 sound_label.setRotation((293- InputAudioHz)*(float)-1.875);
             }
+            else if (InputAudioHz>=293 && InputAudioHz<311){
+                sound_label.setRotation((311- InputAudioHz)*(float)-1.875);
+            }
+            else if (InputAudioHz>=311 && InputAudioHz<329){
+                sound_label.setRotation((329- InputAudioHz)*(float)-1.875);
+            }
+            else if (InputAudioHz>=329 && InputAudioHz<349){
+                sound_label.setRotation((349- InputAudioHz)*(float)-1.5);
+            }
+            else if (InputAudioHz>=349 && InputAudioHz<370){
+                sound_label.setRotation((370- InputAudioHz)*(float)-1.428);
+            }
+            else if (InputAudioHz>=370 && InputAudioHz<392){
+                sound_label.setRotation((370- InputAudioHz)*(float)-1.363);
+            }
+            else if (InputAudioHz>=392 && InputAudioHz<415){
+                sound_label.setRotation((370- InputAudioHz)*(float)-1.304);
+            }
+            else if (InputAudioHz>=415 && InputAudioHz<440){
+                sound_label.setRotation((370- InputAudioHz)*(float)-1.2);
+            }
+            else if (InputAudioHz>=440 && InputAudioHz<466){
+                sound_label.setRotation((370- InputAudioHz)*(float)-1.25);
+            }
+
+
+
         }
     }
 }
