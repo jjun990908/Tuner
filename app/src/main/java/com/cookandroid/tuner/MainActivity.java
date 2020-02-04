@@ -5,12 +5,14 @@ import com.cookandroid.tuner.fftpack.*;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import android.Manifest;
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.media.SoundPool;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.Button;
@@ -66,6 +68,7 @@ public class MainActivity extends AppCompatActivity{
 
 
 
+    @SuppressLint("ClickableViewAccessibility")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -128,326 +131,424 @@ public class MainActivity extends AppCompatActivity{
         final ScaleSrc Scale = new ScaleSrc(MainActivity.this);
         final SoundPool sp = Scale.sp;
 
-        btn_c_l.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                buttonId = view.getId();
-                if (sharpmode){
-                    sp.play(Scale.do0_5,1,1,1,0,1.0f);
-                }
-                else if (flatmode){
-                    sp.play(Scale.do0_5,1,1,1,0,1.0f);
-                }
-                else{
-                    sp.play(Scale.do0_0,1,1,1,0,1.0f);
-                }
+        btn_c_l.setOnTouchListener(new View.OnTouchListener() {
+            public boolean onTouch(View v, MotionEvent event) {
+                switch (event.getAction()) {
+                    case MotionEvent.ACTION_DOWN:
+                    case MotionEvent.ACTION_POINTER_DOWN:
 
-                setBtnWhite();
-                btn_c_l.setBackgroundResource(R.drawable.btn_key_select_shape);
-                sound_label.setRotation(0);
+                        buttonId = v.getId();
+                        if (sharpmode){
+                            sp.play(Scale.do0_5,1,1,1,0,1.0f);
+                        }
+                        else if (flatmode){
+                            sp.play(Scale.do0_5,1,1,1,0,1.0f);
+                        }
+                        else{
+                            sp.play(Scale.do0_0,1,1,1,0,1.0f);
+                        }
+
+                        setBtnWhite();
+                        btn_c_l.setBackgroundResource(R.drawable.btn_key_select_shape);
+                        sound_label.setRotation(0);
+                        break;
+                }
+                return false;
             }
         });
-        btn_d_l.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                buttonId = view.getId();
-                if (sharpmode){
-                    sp.play(Scale.re0_5,1,1,1,0,1.0f);
-                }
-                else if (flatmode){
-                    sp.play(Scale.do0_5,1,1,1,0,1.0f);
-                }
-                else{
-                    sp.play(Scale.re0_0,1,1,1,0,1.0f);
-                }
+        btn_d_l.setOnTouchListener(new View.OnTouchListener() {
+            public boolean onTouch(View v, MotionEvent event) {
+                switch (event.getAction()) {
+                    case MotionEvent.ACTION_POINTER_DOWN:
+                    case MotionEvent.ACTION_DOWN:
+                        buttonId = v.getId();
+                        if (sharpmode){
+                            sp.play(Scale.re0_5,1,1,1,0,1.0f);
+                        }
+                        else if (flatmode){
+                            sp.play(Scale.do0_5,1,1,1,0,1.0f);
+                        }
+                        else{
+                            sp.play(Scale.re0_0,1,1,1,0,1.0f);
+                        }
 
-                setBtnWhite();
-                btn_d_l.setBackgroundResource(R.drawable.btn_key_select_shape);
-                sound_label.setRotation(-60);
+                        setBtnWhite();
+                        btn_d_l.setBackgroundResource(R.drawable.btn_key_select_shape);
+                        sound_label.setRotation(-60);
+                        break;
+                }
+                return false;
             }
         });
-        btn_e_l.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                buttonId = view.getId();
-                if (sharpmode){
-                    sp.play(Scale.fa0_0,1,1,1,0,1.0f);
-                }
-                else if (flatmode){
-                    sp.play(Scale.re0_5,1,1,1,0,1.0f);
-                }
-                else{
-                    sp.play(Scale.mi0_0,1,1,1,0,1.0f);
-                }
+        btn_e_l.setOnTouchListener(new View.OnTouchListener() {
+            public boolean onTouch(View v, MotionEvent event) {
+                switch (event.getAction()) {
+                    case MotionEvent.ACTION_POINTER_DOWN:
+                    case MotionEvent.ACTION_DOWN:
 
-                setBtnWhite();
-                sound_label.setRotation(-120);
-                btn_e_l.setBackgroundResource(R.drawable.btn_key_select_shape);
+                        buttonId = v.getId();
+                        if (sharpmode){
+                            sp.play(Scale.fa0_0,1,1,1,0,1.0f);
+                        }
+                        else if (flatmode){
+                            sp.play(Scale.re0_5,1,1,1,0,1.0f);
+                        }
+                        else{
+                            sp.play(Scale.mi0_0,1,1,1,0,1.0f);
+                        }
+
+                        setBtnWhite();
+                        sound_label.setRotation(-120);
+                        btn_e_l.setBackgroundResource(R.drawable.btn_key_select_shape);
+                        break;
+                }
+                return false;
             }
         });
-        btn_f_l.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                buttonId = view.getId();
-                if (sharpmode){
-                    sp.play(Scale.fa0_5,1,1,1,0,1.0f);
-                }
-                else if (flatmode){
-                    sp.play(Scale.mi0_0,1,1,1,0,1.0f);
-                }
-                else{
-                    sp.play(Scale.fa0_0,1,1,1,0,1.0f);
-                }
+        btn_f_l.setOnTouchListener(new View.OnTouchListener() {
+            public boolean onTouch(View v, MotionEvent event) {
+                switch (event.getAction()) {
+                    case MotionEvent.ACTION_POINTER_DOWN:
+                    case MotionEvent.ACTION_DOWN:
 
-                setBtnWhite();
-                sound_label.setRotation(-150);
-                btn_f_l.setBackgroundResource(R.drawable.btn_key_select_shape);
+                        buttonId = v.getId();
+                        if (sharpmode){
+                            sp.play(Scale.fa0_5,1,1,1,0,1.0f);
+                        }
+                        else if (flatmode){
+                            sp.play(Scale.mi0_0,1,1,1,0,1.0f);
+                        }
+                        else{
+                            sp.play(Scale.fa0_0,1,1,1,0,1.0f);
+                        }
+
+                        setBtnWhite();
+                        sound_label.setRotation(-150);
+                        btn_f_l.setBackgroundResource(R.drawable.btn_key_select_shape);
+                        break;
+                }
+                return false;
             }
         });
-        btn_g_l.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                buttonId = view.getId();
-                if (sharpmode){
-                    sp.play(Scale.sol0_5,1,1,1,0,1.0f);
-                }
-                else if (flatmode){
-                    sp.play(Scale.fa0_5,1,1,1,0,1.0f);
-                }
-                else{
-                    sp.play(Scale.sol0_0,1,1,1,0,1.0f);
-                }
+        btn_g_l.setOnTouchListener(new View.OnTouchListener() {
+            public boolean onTouch(View v, MotionEvent event) {
+                switch (event.getAction()) {
+                    case MotionEvent.ACTION_POINTER_DOWN:
+                    case MotionEvent.ACTION_DOWN:
 
-                setBtnWhite();
-                sound_label.setRotation(-180);
-                btn_g_l.setBackgroundResource(R.drawable.btn_key_select_shape);
+                        buttonId = v.getId();
+                        if (sharpmode){
+                            sp.play(Scale.sol0_5,1,1,1,0,1.0f);
+                        }
+                        else if (flatmode){
+                            sp.play(Scale.fa0_5,1,1,1,0,1.0f);
+                        }
+                        else{
+                            sp.play(Scale.sol0_0,1,1,1,0,1.0f);
+                        }
+
+                        setBtnWhite();
+                        sound_label.setRotation(-180);
+                        btn_g_l.setBackgroundResource(R.drawable.btn_key_select_shape);
+                        break;
+                }
+                return false;
             }
         });
-        btn_a_l.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                buttonId = view.getId();
-                if (sharpmode){
-                    sp.play(Scale.la0_5,1,1,1,0,1.0f);
-                }
-                else if (flatmode){
-                    sp.play(Scale.sol0_5,1,1,1,0,1.0f);
-                }
-                else{
-                    sp.play(Scale.la0_0,1,1,1,0,1.0f);
-                }
+        btn_a_l.setOnTouchListener(new View.OnTouchListener() {
+            public boolean onTouch(View v, MotionEvent event) {
+                switch (event.getAction()) {
+                    case MotionEvent.ACTION_POINTER_DOWN:
+                    case MotionEvent.ACTION_DOWN:
 
-                setBtnWhite();
-                sound_label.setRotation(-210);
-                btn_a_l.setBackgroundResource(R.drawable.btn_key_select_shape);
+                        buttonId = v.getId();
+                        if (sharpmode){
+                            sp.play(Scale.la0_5,1,1,1,0,1.0f);
+                        }
+                        else if (flatmode){
+                            sp.play(Scale.sol0_5,1,1,1,0,1.0f);
+                        }
+                        else{
+                            sp.play(Scale.la0_0,1,1,1,0,1.0f);
+                        }
+
+                        setBtnWhite();
+                        sound_label.setRotation(-210);
+                        btn_a_l.setBackgroundResource(R.drawable.btn_key_select_shape);
+                        break;
+                }
+                return false;
             }
         });
-        btn_b_l.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                buttonId = view.getId();
-                if (sharpmode){
-                    sp.play(Scale.do1_0,1,1,1,0,1.0f);
-                }
-                else if (flatmode){
-                    sp.play(Scale.la0_5,1,1,1,0,1.0f);
-                }
-                else{
-                    sp.play(Scale.si0_0,1,1,1,0,1.0f);
-                }
+        btn_b_l.setOnTouchListener(new View.OnTouchListener() {
+            public boolean onTouch(View v, MotionEvent event) {
+                switch (event.getAction()) {
+                    case MotionEvent.ACTION_POINTER_DOWN:
+                    case MotionEvent.ACTION_DOWN:
 
-                setBtnWhite();
-                sound_label.setRotation(-300);
-                btn_b_l.setBackgroundResource(R.drawable.btn_key_select_shape);
+                        buttonId = v.getId();
+                        if (sharpmode){
+                            sp.play(Scale.do1_0,1,1,1,0,1.0f);
+                        }
+                        else if (flatmode){
+                            sp.play(Scale.la0_5,1,1,1,0,1.0f);
+                        }
+                        else{
+                            sp.play(Scale.si0_0,1,1,1,0,1.0f);
+                        }
+
+                        setBtnWhite();
+                        sound_label.setRotation(-300);
+                        btn_b_l.setBackgroundResource(R.drawable.btn_key_select_shape);
+                        break;
+                }
+                return false;
             }
         });
-        btn_c_h.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                buttonId = view.getId();
-                if (sharpmode){
-                    sp.play(Scale.do1_5,1,1,1,0,1.0f);
-                }
-                else if (flatmode){
-                    sp.play(Scale.si0_0,1,1,1,0,1.0f);
-                }
-                else{
-                    sp.play(Scale.do1_0,1,1,1,0,1.0f);
-                }
+        btn_c_h.setOnTouchListener(new View.OnTouchListener() {
+            public boolean onTouch(View v, MotionEvent event) {
+                switch (event.getAction()) {
+                    case MotionEvent.ACTION_POINTER_DOWN:
+                    case MotionEvent.ACTION_DOWN:
 
-                setBtnWhite();
-                btn_c_h.setBackgroundResource(R.drawable.btn_key_select_shape);
+                        buttonId = v.getId();
+                        if (sharpmode){
+                            sp.play(Scale.do1_5,1,1,1,0,1.0f);
+                        }
+                        else if (flatmode){
+                            sp.play(Scale.si0_0,1,1,1,0,1.0f);
+                        }
+                        else{
+                            sp.play(Scale.do1_0,1,1,1,0,1.0f);
+                        }
+
+                        setBtnWhite();
+                        btn_c_h.setBackgroundResource(R.drawable.btn_key_select_shape);
+                        break;
+                }
+                return false;
             }
         });
-        btn_d_h.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                buttonId = view.getId();
+        btn_d_h.setOnTouchListener(new View.OnTouchListener() {
+            public boolean onTouch(View v, MotionEvent event) {
+                switch (event.getAction()) {
+                    case MotionEvent.ACTION_POINTER_DOWN:
+                    case MotionEvent.ACTION_DOWN:
 
-                if (sharpmode){
-                    sp.play(Scale.re1_5,1,1,1,0,1.0f);
-                }
-                else if (flatmode){
-                    sp.play(Scale.do1_5,1,1,1,0,1.0f);
-                }
-                else{
-                    sp.play(Scale.re1_0,1,1,1,0,1.0f);
-                }
+                        buttonId = v.getId();
 
-                setBtnWhite();
-                btn_d_h.setBackgroundResource(R.drawable.btn_key_select_shape);
+                        if (sharpmode){
+                            sp.play(Scale.re1_5,1,1,1,0,1.0f);
+                        }
+                        else if (flatmode){
+                            sp.play(Scale.do1_5,1,1,1,0,1.0f);
+                        }
+                        else{
+                            sp.play(Scale.re1_0,1,1,1,0,1.0f);
+                        }
+
+                        setBtnWhite();
+                        btn_d_h.setBackgroundResource(R.drawable.btn_key_select_shape);
+                        break;
+                }
+                return false;
             }
         });
-        btn_e_h.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                buttonId = view.getId();
+        btn_e_h.setOnTouchListener(new View.OnTouchListener() {
+            public boolean onTouch(View v, MotionEvent event) {
+                switch (event.getAction()) {
+                    case MotionEvent.ACTION_POINTER_DOWN:
+                    case MotionEvent.ACTION_DOWN:
 
-                if (sharpmode){
-                    sp.play(Scale.fa1_0,1,1,1,0,1.0f);
-                }
-                else if (flatmode){
-                    sp.play(Scale.re1_5,1,1,1,0,1.0f);
-                }
-                else{
-                    sp.play(Scale.mi1_0,1,1,1,0,1.0f);
-                }
+                        buttonId = v.getId();
 
-                setBtnWhite();
-                btn_e_h.setBackgroundResource(R.drawable.btn_key_select_shape);
+                        if (sharpmode){
+                            sp.play(Scale.fa1_0,1,1,1,0,1.0f);
+                        }
+                        else if (flatmode){
+                            sp.play(Scale.re1_5,1,1,1,0,1.0f);
+                        }
+                        else{
+                            sp.play(Scale.mi1_0,1,1,1,0,1.0f);
+                        }
+
+                        setBtnWhite();
+                        btn_e_h.setBackgroundResource(R.drawable.btn_key_select_shape);
+                        break;
+                }
+                return false;
             }
         });
-        btn_f_h.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                buttonId = view.getId();
+        btn_f_h.setOnTouchListener(new View.OnTouchListener() {
+            public boolean onTouch(View v, MotionEvent event) {
+                switch (event.getAction()) {
+                    case MotionEvent.ACTION_POINTER_DOWN:
+                    case MotionEvent.ACTION_DOWN:
 
-                if (sharpmode){
-                    sp.play(Scale.fa1_5,1,1,1,0,1.0f);
-                }
-                else if (flatmode){
-                    sp.play(Scale.mi1_0,1,1,1,0,1.0f);
-                }
-                else{
-                    sp.play(Scale.fa1_0,1,1,1,0,1.0f);
-                }
+                        buttonId = v.getId();
 
-                setBtnWhite();
-                btn_f_h.setBackgroundResource(R.drawable.btn_key_select_shape);
+                        if (sharpmode){
+                            sp.play(Scale.fa1_5,1,1,1,0,1.0f);
+                        }
+                        else if (flatmode){
+                            sp.play(Scale.mi1_0,1,1,1,0,1.0f);
+                        }
+                        else{
+                            sp.play(Scale.fa1_0,1,1,1,0,1.0f);
+                        }
+
+                        setBtnWhite();
+                        btn_f_h.setBackgroundResource(R.drawable.btn_key_select_shape);
+                        break;
+                }
+                return false;
             }
         });
-        btn_g_h.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                buttonId = view.getId();
+        btn_g_h.setOnTouchListener(new View.OnTouchListener() {
+            public boolean onTouch(View v, MotionEvent event) {
+                switch (event.getAction()) {
+                    case MotionEvent.ACTION_POINTER_DOWN:
+                    case MotionEvent.ACTION_DOWN:
 
-                if (sharpmode){
-                    sp.play(Scale.sol1_5,1,1,1,0,1.0f);
-                }
-                else if (flatmode){
-                    sp.play(Scale.fa1_5,1,1,1,0,1.0f);
-                }
-                else{
-                    sp.play(Scale.sol1_0,1,1,1,0,1.0f);
-                }
+                        buttonId = v.getId();
 
-                setBtnWhite();
-                btn_g_h.setBackgroundResource(R.drawable.btn_key_select_shape);
+                        if (sharpmode){
+                            sp.play(Scale.sol1_5,1,1,1,0,1.0f);
+                        }
+                        else if (flatmode){
+                            sp.play(Scale.fa1_5,1,1,1,0,1.0f);
+                        }
+                        else{
+                            sp.play(Scale.sol1_0,1,1,1,0,1.0f);
+                        }
+
+                        setBtnWhite();
+                        btn_g_h.setBackgroundResource(R.drawable.btn_key_select_shape);
+                        break;
+                }
+                return false;
             }
         });
-        btn_a_h.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                buttonId = view.getId();
+        btn_a_h.setOnTouchListener(new View.OnTouchListener() {
+            public boolean onTouch(View v, MotionEvent event) {
+                switch (event.getAction()) {
+                    case MotionEvent.ACTION_POINTER_DOWN:
+                    case MotionEvent.ACTION_DOWN:
 
-                if (sharpmode){
-                    sp.play(Scale.la1_5,1,1,1,0,1.0f);
-                }
-                else if (flatmode){
-                    sp.play(Scale.sol1_5,1,1,1,0,1.0f);
-                }
-                else{
-                    sp.play(Scale.la1_0,1,1,1,0,1.0f);
-                }
+                        buttonId = v.getId();
 
-                setBtnWhite();
-                btn_a_h.setBackgroundResource(R.drawable.btn_key_select_shape);
+                        if (sharpmode){
+                            sp.play(Scale.la1_5,1,1,1,0,1.0f);
+                        }
+                        else if (flatmode){
+                            sp.play(Scale.sol1_5,1,1,1,0,1.0f);
+                        }
+                        else{
+                            sp.play(Scale.la1_0,1,1,1,0,1.0f);
+                        }
+
+                        setBtnWhite();
+                        btn_a_h.setBackgroundResource(R.drawable.btn_key_select_shape);
+                        break;
+                }
+                return false;
             }
         });
-        btn_b_h.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                buttonId = view.getId();
+        btn_b_h.setOnTouchListener(new View.OnTouchListener() {
+            public boolean onTouch(View v, MotionEvent event) {
+                switch (event.getAction()) {
+                    case MotionEvent.ACTION_POINTER_DOWN:
+                    case MotionEvent.ACTION_DOWN:
 
-                if (sharpmode){
-                    sp.play(Scale.do2_0,1,1,1,0,1.0f);
-                }
-                else if (flatmode){
-                    sp.play(Scale.la1_5,1,1,1,0,1.0f);
-                }
-                else{
-                    sp.play(Scale.si1_0,1,1,1,0,1.0f);
-                }
+                        buttonId = v.getId();
 
-                setBtnWhite();
-                btn_b_h.setBackgroundResource(R.drawable.btn_key_select_shape);
+                        if (sharpmode){
+                            sp.play(Scale.do2_0,1,1,1,0,1.0f);
+                        }
+                        else if (flatmode){
+                            sp.play(Scale.la1_5,1,1,1,0,1.0f);
+                        }
+                        else{
+                            sp.play(Scale.si1_0,1,1,1,0,1.0f);
+                        }
+
+                        setBtnWhite();
+                        btn_b_h.setBackgroundResource(R.drawable.btn_key_select_shape);
+                        break;
+                }
+                return false;
             }
         });
-        btn_c_hh.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                buttonId = view.getId();
+        btn_c_hh.setOnTouchListener(new View.OnTouchListener() {
+            public boolean onTouch(View v, MotionEvent event) {
+                switch (event.getAction()) {
+                    case MotionEvent.ACTION_POINTER_DOWN:
+                    case MotionEvent.ACTION_DOWN:
+                        buttonId = v.getId();
 
-                if (sharpmode){
-                    sp.play(Scale.do2_5,1,1,1,0,1.0f);
-                }
-                else if (flatmode){
-                    sp.play(Scale.si1_0,1,1,1,0,1.0f);
-                }
-                else{
-                    sp.play(Scale.do2_0,1,1,1,0,1.0f);
-                }
+                        if (sharpmode){
+                            sp.play(Scale.do2_5,1,1,1,0,1.0f);
+                        }
+                        else if (flatmode){
+                            sp.play(Scale.si1_0,1,1,1,0,1.0f);
+                        }
+                        else{
+                            sp.play(Scale.do2_0,1,1,1,0,1.0f);
+                        }
 
-                setBtnWhite();
-                btn_c_hh.setBackgroundResource(R.drawable.btn_key_select_shape);
+                        setBtnWhite();
+                        btn_c_hh.setBackgroundResource(R.drawable.btn_key_select_shape);
+                        break;
+                }
+                return false;
             }
         });
-        btn_d_hh.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                buttonId = view.getId();
+        btn_d_hh.setOnTouchListener(new View.OnTouchListener() {
+            public boolean onTouch(View v, MotionEvent event) {
+                switch (event.getAction()) {
+                    case MotionEvent.ACTION_POINTER_DOWN:
+                    case MotionEvent.ACTION_DOWN:
+                        buttonId = v.getId();
 
-                if (sharpmode){
-                    sp.play(Scale.re2_5,1,1,1,0,1.0f);
-                }
-                else if (flatmode){
-                    sp.play(Scale.do2_5,1,1,1,0,1.0f);
-                }
-                else{
-                    sp.play(Scale.re2_0,1,1,1,0,1.0f);
-                }
+                        if (sharpmode){
+                            sp.play(Scale.re2_5,1,1,1,0,1.0f);
+                        }
+                        else if (flatmode){
+                            sp.play(Scale.do2_5,1,1,1,0,1.0f);
+                        }
+                        else{
+                            sp.play(Scale.re2_0,1,1,1,0,1.0f);
+                        }
 
-                setBtnWhite();
-                btn_d_hh.setBackgroundResource(R.drawable.btn_key_select_shape);
+                        setBtnWhite();
+                        btn_d_hh.setBackgroundResource(R.drawable.btn_key_select_shape);
+                        break;
+                }
+                return false;
             }
         });
-        btn_e_hh.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                buttonId = view.getId();
+        btn_e_hh.setOnTouchListener(new View.OnTouchListener() {
+            public boolean onTouch(View v, MotionEvent event) {
+                switch (event.getAction()) {
+                    case MotionEvent.ACTION_POINTER_DOWN:
+                    case MotionEvent.ACTION_DOWN:
+                        buttonId = v.getId();
 
-                if (sharpmode){
-                    sp.play(Scale.mi2_5,1,1,1,0,1.0f);
-                }
-                else if (flatmode){
-                    sp.play(Scale.re2_5,1,1,1,0,1.0f);
-                }
-                else{
-                    sp.play(Scale.mi2_0,1,1,1,0,1.0f);
-                }
+                        if (sharpmode){
+                            sp.play(Scale.mi2_5,1,1,1,0,1.0f);
+                        }
+                        else if (flatmode){
+                            sp.play(Scale.re2_5,1,1,1,0,1.0f);
+                        }
+                        else{
+                            sp.play(Scale.mi2_0,1,1,1,0,1.0f);
+                        }
 
-                setBtnWhite();
-                btn_e_hh.setBackgroundResource(R.drawable.btn_key_select_shape);
+                        setBtnWhite();
+                        btn_e_hh.setBackgroundResource(R.drawable.btn_key_select_shape);
+                        break;
+                }
+                return false;
             }
         });
 
