@@ -85,16 +85,16 @@ public class MainActivity extends AppCompatActivity{
             sound_label.setRotation((370- InputAudioHz)*(float)-1.428 - 150);
         }
         else if (InputAudioHz>=370 && InputAudioHz<392){
-            sound_label.setRotation((370- InputAudioHz)*(float)-1.363 - 180);
+            sound_label.setRotation((392- InputAudioHz)*(float)-1.363 - 180);
         }
         else if (InputAudioHz>=392 && InputAudioHz<415){
-            sound_label.setRotation((370- InputAudioHz)*(float)-1.304 -210);
+            sound_label.setRotation((415- InputAudioHz)*(float)-1.304 -210);
         }
         else if (InputAudioHz>=415 && InputAudioHz<440){
-            sound_label.setRotation((370- InputAudioHz)*(float)-1.2 - 240);
+            sound_label.setRotation((440- InputAudioHz)*(float)-1.2 - 240);
         }
         else if (InputAudioHz>=440 && InputAudioHz<466){
-            sound_label.setRotation((370- InputAudioHz)*(float)-1.25 - 270);
+            sound_label.setRotation((466- InputAudioHz)*(float)-1.25 - 270);
         }
     }
 
@@ -759,7 +759,7 @@ public class MainActivity extends AppCompatActivity{
             InputAudioHz = MaxInFFTArray(toTransform[0], sensitivity) * frequency / (2*blockSize);
 
             if(InputAudioHz>278) {  DebugHz(InputAudioHz);
-            ROTATE(InputAudioHz);}
+            rotateLabel(InputAudioHz);}
         }
     }
 }
