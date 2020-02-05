@@ -344,4 +344,15 @@
         app:layout_constraintTop_toBottomOf="@+id/btn_c_l"
         app:srcCompat="@drawable/sound_label" />
 
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        app:layout_constraintEnd_toEndOf="@+id/sound_label"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="@+id/sound_label"
+        app:layout_constraintTop_toTopOf="@+id/sound_label"
+        app:srcCompat="@drawable/niddle" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
