@@ -15,6 +15,8 @@ import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.WindowManager;
+import android.view.animation.Animation;
+import android.view.animation.RotateAnimation;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.PopupMenu;
@@ -48,6 +50,7 @@ public class MainActivity extends AppCompatActivity{
     static double CuHz= 260;                             // 현재 누르고 있는 건반의 음계치를 담고 있는 Int 변수
     int buttonId;                                        // 현재 누르고 있는 건반의 버튼 아이디를 담고 있는 Int 변수
     TextView D0, D1, D2, D3;                             // 순차적으로 들어오는 Hz를 표시하기 위한 TextView
+    float before;
     /////////////////////////////////////////////
 
 
@@ -105,16 +108,8 @@ public class MainActivity extends AppCompatActivity{
        final float gap;
        if(hz1>hz2) gap = (hz1 - hz2)/20;
        else gap = (hz2 - hz1)/20;
-       for (final int i =0; i<20; i++){
-           new Handler().postDelayed(new Runnable()
-           {
-               @Override
-               public void run()
-               {
-                   //여기에 딜레이 후 시작할 작업들을 입력
-                   ROTATE(hz1 + (gap*i));
-               }
-           }, 500);
+       for (int i =0; i<20; i++){
+           ROTATE(hz1 + (gap*i));
        }
     }
 
@@ -149,11 +144,18 @@ public class MainActivity extends AppCompatActivity{
             if(i==29){  HZidx = 29;  } // 만약 범위 끝까지 안구해지면 29도를 부여(각도 끝 구간의 예외처리)
         }
 
-
-        sound_label.setRotation(-((Scaleidx-1)*30+HZidx));  // 구간으로 나눈 Scale인덱스엔 30을 곱하고, TEMP는 1도를 부여
+        anim_rotate(-((Scaleidx-1)*30+HZidx));
+//        sound_label.setRotation(-((Scaleidx-1)*30+HZidx));  // 구간으로 나눈 Scale인덱스엔 30을 곱하고, TEMP는 1도를 부여
         Log.i("각도는", (Scaleidx-1)*30 + "  +  "+HZidx);
     }
 
+    public void anim_rotate(float i){
+        RotateAnimation ra = new RotateAnimation(before,i, Animation.RELATIVE_TO_SELF,0.5f,Animation.RELATIVE_TO_SELF,0.5f);
+        ra.setDuration(50);
+        ra.setFillAfter(true);
+        sound_label.startAnimation(ra);
+        before = i;
+    }
 
     @SuppressLint("ClickableViewAccessibility")
     @Override
