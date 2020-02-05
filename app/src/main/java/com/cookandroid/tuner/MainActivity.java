@@ -722,8 +722,11 @@ public class MainActivity extends AppCompatActivity{
         second_time = System.currentTimeMillis();
         if(second_time - first_time < 3000){
             super.onBackPressed();
+            moveTaskToBack(true);
+            finish();
             finishAffinity();
             ExitToast.cancel();
+            android.os.Process.killProcess(android.os.Process.myPid());
         }
         else{ExitToast.show();
         }
