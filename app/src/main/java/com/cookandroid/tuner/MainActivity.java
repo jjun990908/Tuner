@@ -51,6 +51,8 @@ public class MainActivity extends AppCompatActivity{
     /////////////////////////////////////////////
 
 
+    float TEMP1=0, TEMP2=0;
+
     Button btn_c_l,btn_d_l,btn_e_l,btn_f_l,btn_g_l,btn_a_l,btn_b_l,btn_c_h,btn_d_h,btn_e_h,btn_f_h,btn_g_h,btn_a_h,btn_b_h,btn_c_hh,btn_d_hh,btn_e_hh,btn_help,btn_tune;
     TextView keyText,sharpText,flatText;
     Button btn_switch;
@@ -99,18 +101,27 @@ public class MainActivity extends AppCompatActivity{
     }
 
 
+    public void INPUT (float hz1, float hz2 ) {
+       float gap;
+       if(hz1>hz2) gap = (hz1 - hz2)/20;
+       else gap = (hz2 - hz1)/20;
+       for (int i =0; i<20; i++){
+           ROTATE(hz1 + (gap*i));
+       }
+    }
 
     public void ROTATE (float inputHz){
         if(inputHz <277){return;}
         int Scaleidx = 0;
         int HZidx = 0;
-        float[]SCALEHZ = {252, 277, 293, 311, 329, 349, 370, 392, 415, 440, 466, 493, 523, 554, 587, 622,659,698,739,784,830,880,932,987,1046,1108,1174};
+        float[]SCALEHZ = {252, 277, 293, 311, 329, 349, 370, 392, 415, 440, 466, 493, 523, 554, 587, 622, 659, 698, 739, 784, 830, 880, 932, 987, 1046, 1108, 1174, 1244, 1318};
 
         for(int i = 0 ; i< SCALEHZ.length; i++){ // 어느 구간에 있는지 확인함 (예를 들어 262는 [252~ 277] 사이이다.)
             if(inputHz < SCALEHZ[i]){
                 Scaleidx = i;
                 break;
             }
+            else Scaleidx = SCALEHZ.length-1;
         }
 
         double TEMP = SCALEHZ[Scaleidx-1];  // TEMP 는 속해있는 구간의 맨 왼쪽 범위 (예를 들어 262의 TEMP는 252이다.)
@@ -754,12 +765,16 @@ public class MainActivity extends AppCompatActivity{
 
         @Override
         protected void onProgressUpdate(double[]... toTransform) {
+
             setCuHz(buttonArray, buttonId, CuHz, flatmode, sharpmode);
             float InputAudioHz = -1;
             InputAudioHz = MaxInFFTArray(toTransform[0], sensitivity) * frequency / (2*blockSize);
-
+            TEMP1 = InputAudioHz;
             if(InputAudioHz>278) {  DebugHz(InputAudioHz);
-            rotateLabel(InputAudioHz);}
+            INPUT(TEMP1,TEMP2);}
+
+
+            TEMP2 = TEMP1;
         }
     }
 }
