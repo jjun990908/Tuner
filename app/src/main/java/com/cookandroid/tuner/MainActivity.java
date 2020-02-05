@@ -112,10 +112,10 @@ public class MainActivity extends AppCompatActivity{
     }
 
     public void ROTATE (float inputHz){
-        if(inputHz <277){return;}
+        if(inputHz <233){return;}
         int Scaleidx = 0;
         int HZidx = 0;
-        float[]SCALEHZ = {252, 277, 293, 311, 329, 349, 370, 392, 415, 440, 466, 493, 523, 554, 587, 622, 659, 698, 739, 784, 830, 880, 932, 987, 1046, 1108, 1174, 1244, 1318};
+        float[]SCALEHZ = {233,247, 260, 277, 293, 311, 329, 349, 370, 392, 415, 439, 466, 493, 523, 554, 587, 622, 659, 698, 739, 784, 830, 880, 932, 987, 1046, 1108, 1174, 1244, 1318, 1397};
 
         for(int i = 0 ; i< SCALEHZ.length; i++){ // 어느 구간에 있는지 확인함 (예를 들어 262는 [252~ 277] 사이이다.)
             if(inputHz < SCALEHZ[i]){
@@ -139,12 +139,12 @@ public class MainActivity extends AppCompatActivity{
                 break;
             }
             else{TEMP += INTERVAL;}
-            if(i==119){  HZidx = 239;  } // 만약 범위 끝까지 안구해지면 29도를 부여(각도 끝 구간의 예외처리)
+            if(i==239){  HZidx = 239;  } // 만약 범위 끝까지 안구해지면 29도를 부여(각도 끝 구간의 예외처리)
         }
 
-        anim_rotate(-((Scaleidx-1)*30+(float)(HZidx*0.125)));
+        anim_rotate(-(-60+(Scaleidx-1)*30+(float)(HZidx*0.125)));
 //        sound_label.setRotation(-((Scaleidx-1)*30+HZidx));  // 구간으로 나눈 Scale인덱스엔 30을 곱하고, TEMP는 1도를 부여
-        Log.i("각도는", (Scaleidx-1)*30 + "  +  "+HZidx);
+        Log.i("각도는", -60 + (Scaleidx-1)*30 + "  +  "+HZidx);
     }
 
     public void anim_rotate(float i){
@@ -781,7 +781,7 @@ public class MainActivity extends AppCompatActivity{
             float InputAudioHz = -1;
             InputAudioHz = MaxInFFTArray(toTransform[0], sensitivity) * frequency / (2*blockSize);
             TEMP1 = InputAudioHz;
-            if(InputAudioHz>278) {
+            if(InputAudioHz>234) {
                 DebugHz(InputAudioHz);
                 double[] R = {TEMP1,TEMP2,TEMP3,TEMP4,TEMP5};
                 if (Similar(R,10)) {
