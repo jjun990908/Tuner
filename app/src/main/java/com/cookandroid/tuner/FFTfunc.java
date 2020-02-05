@@ -1,10 +1,24 @@
 package com.cookandroid.tuner;
-
+import static java.lang.Math.abs;
 import android.util.Log;
 import android.widget.Button;
 
 
 public class FFTfunc {
+
+    public static boolean Similar(double[] ArrayDouble, int ocha){
+        boolean RETURN = true;
+        for(int i = 0; i<ArrayDouble.length; i++){
+            for(int j = i+1; j < ArrayDouble.length; j++){
+                if(abs(ArrayDouble[i]-ArrayDouble[j])>ocha){
+                    RETURN = false;
+                    break;
+                }
+            }
+        }
+        return RETURN;
+    }
+
 
 
     public static float MaxInFFTArray(double [] Array_Double, int sensitivity){
