@@ -128,23 +128,23 @@ public class MainActivity extends AppCompatActivity{
         }
 
         double TEMP = SCALEHZ[Scaleidx-1];  // TEMP 는 속해있는 구간의 맨 왼쪽 범위 (예를 들어 262의 TEMP는 252이다.)
-        double INTERVAL = (SCALEHZ[Scaleidx] - SCALEHZ[Scaleidx-1])/30; // 그 구간을 30으로 나눈 간격 (예를 들어 252~277의 30등분은 0.83322 이다.
+        double INTERVAL = (SCALEHZ[Scaleidx] - SCALEHZ[Scaleidx-1])/120; // 그 구간을 30으로 나눈 간격 (예를 들어 252~277의 30등분은 0.83322 이다.
                                                                         // 30등분하는 이유는 그 간격이 1도와 같기 때문이다.
 
         Log.i("인터벌은", ""+INTERVAL);
         Log.i("템프와 인풋은", TEMP+"        "+inputHz);
 
-        for(int i = 0; i < 30; i++){ // 위에서 구한 30등분한 간격을 얼마나 더해야 InputHZ와 같아지는지 확인함 (인터벌이 한번 더해질때마다 1도씩 늘어나는 것임)
+        for(int i = 0; i < 120; i++){ // 위에서 구한 30등분한 간격을 얼마나 더해야 InputHZ와 같아지는지 확인함 (인터벌이 한번 더해질때마다 1도씩 늘어나는 것임)
                                      // 예를 들어 252값에 0.8333을 13번쯤 더해야 262와 유사해지므로, HZidx는 13이 된다.
             if(TEMP > inputHz){
                 HZidx = i;
                 break;
             }
             else{TEMP += INTERVAL;}
-            if(i==29){  HZidx = 29;  } // 만약 범위 끝까지 안구해지면 29도를 부여(각도 끝 구간의 예외처리)
+            if(i==119){  HZidx = 119;  } // 만약 범위 끝까지 안구해지면 29도를 부여(각도 끝 구간의 예외처리)
         }
 
-        anim_rotate(-((Scaleidx-1)*30+HZidx));
+        anim_rotate(-((Scaleidx-1)*30+(float)(HZidx*0.25)));
 //        sound_label.setRotation(-((Scaleidx-1)*30+HZidx));  // 구간으로 나눈 Scale인덱스엔 30을 곱하고, TEMP는 1도를 부여
         Log.i("각도는", (Scaleidx-1)*30 + "  +  "+HZidx);
     }
@@ -781,7 +781,7 @@ public class MainActivity extends AppCompatActivity{
             InputAudioHz = MaxInFFTArray(toTransform[0], sensitivity) * frequency / (2*blockSize);
             TEMP1 = InputAudioHz;
             if(InputAudioHz>278) {  DebugHz(InputAudioHz);
-            ROTATE(InputAudioHz);}
+            ROTATE((TEMP1+TEMP2)/2);}
 
 
             TEMP2 = TEMP1;
