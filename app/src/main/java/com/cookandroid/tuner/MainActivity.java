@@ -151,7 +151,7 @@ public class MainActivity extends AppCompatActivity{
 
     public void anim_rotate(float i){
         RotateAnimation ra = new RotateAnimation(before,i, Animation.RELATIVE_TO_SELF,0.5f,Animation.RELATIVE_TO_SELF,0.5f);
-        ra.setDuration(50);
+        ra.setDuration(100);
         ra.setFillAfter(true);
         sound_label.startAnimation(ra);
         before = i;
@@ -781,7 +781,7 @@ public class MainActivity extends AppCompatActivity{
             InputAudioHz = MaxInFFTArray(toTransform[0], sensitivity) * frequency / (2*blockSize);
             TEMP1 = InputAudioHz;
             if(InputAudioHz>278) {  DebugHz(InputAudioHz);
-            INPUT(TEMP1,TEMP2);}
+            ROTATE(InputAudioHz);}
 
 
             TEMP2 = TEMP1;
