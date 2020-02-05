@@ -101,12 +101,20 @@ public class MainActivity extends AppCompatActivity{
     }
 
 
-    public void INPUT (float hz1, float hz2 ) {
-       float gap;
+    public void INPUT (final float hz1, final float hz2 ) {
+       final float gap;
        if(hz1>hz2) gap = (hz1 - hz2)/20;
        else gap = (hz2 - hz1)/20;
-       for (int i =0; i<20; i++){
-           ROTATE(hz1 + (gap*i));
+       for (final int i =0; i<20; i++){
+           new Handler().postDelayed(new Runnable()
+           {
+               @Override
+               public void run()
+               {
+                   //여기에 딜레이 후 시작할 작업들을 입력
+                   ROTATE(hz1 + (gap*i));
+               }
+           }, 500);
        }
     }
 
