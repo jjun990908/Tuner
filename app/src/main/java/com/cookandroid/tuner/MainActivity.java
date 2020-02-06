@@ -54,7 +54,6 @@ public class MainActivity extends AppCompatActivity{
     /////////////////////////////////////////////
 
 
-    float TEMP1=0, TEMP2=0, TEMP3=0, TEMP4=0, TEMP5=0;
 
     Button btn_c_l,btn_d_l,btn_e_l,btn_f_l,btn_g_l,btn_a_l,btn_b_l,btn_c_h,btn_d_h,btn_e_h,btn_f_h,btn_g_h,btn_a_h,btn_b_h,btn_c_hh,btn_d_hh,btn_e_hh,btn_help,btn_tune;
     TextView keyText,sharpText,flatText;
@@ -69,49 +68,8 @@ public class MainActivity extends AppCompatActivity{
     public void setFlatText(){for(int i=0; i<17;i++){buttonArray[i].setText(ScaleArray[i%7]+"♭");}}
     //건반라벨 원음변환함수
     public void setOriginText(){ for(int i=0; i<17;i++){buttonArray[i].setText(ScaleArray[i%7]);} }
-    //음계 원판 돌림 함수
-    public void rotateLabel(float InputAudioHz){
-        if(InputAudioHz>=261 && InputAudioHz<277){
-            sound_label.setRotation((277- InputAudioHz)*(float)-1.875);
-        }
-        else if (InputAudioHz>=277 && InputAudioHz<293){
-            sound_label.setRotation((293- InputAudioHz)*(float)-1.875 -30);
-        }
-        else if (InputAudioHz>=293 && InputAudioHz<311){
-            sound_label.setRotation((311- InputAudioHz)*(float)-1.875 - 60);
-        }
-        else if (InputAudioHz>=311 && InputAudioHz<329){
-            sound_label.setRotation((329- InputAudioHz)*(float)-1.875 - 90);
-        }
-        else if (InputAudioHz>=329 && InputAudioHz<349){
-            sound_label.setRotation((349- InputAudioHz)*(float)-1.5 - 120);
-        }
-        else if (InputAudioHz>=349 && InputAudioHz<370){
-            sound_label.setRotation((370- InputAudioHz)*(float)-1.428 - 150);
-        }
-        else if (InputAudioHz>=370 && InputAudioHz<392){
-            sound_label.setRotation((392- InputAudioHz)*(float)-1.363 - 180);
-        }
-        else if (InputAudioHz>=392 && InputAudioHz<415){
-            sound_label.setRotation((415- InputAudioHz)*(float)-1.304 -210);
-        }
-        else if (InputAudioHz>=415 && InputAudioHz<440){
-            sound_label.setRotation((440- InputAudioHz)*(float)-1.2 - 240);
-        }
-        else if (InputAudioHz>=440 && InputAudioHz<466){
-            sound_label.setRotation((466- InputAudioHz)*(float)-1.25 - 270);
-        }
-    }
 
 
-    public void INPUT (final float hz1, final float hz2 ) {
-       final float gap;
-       if(hz1>hz2) gap = (hz1 - hz2)/20;
-       else gap = (hz2 - hz1)/20;
-       for (int i =0; i<20; i++){
-           ROTATE(hz1 + (gap*i));
-       }
-    }
 
     public void ROTATE (float inputHz){
         if(inputHz <233){return;}
@@ -157,7 +115,7 @@ public class MainActivity extends AppCompatActivity{
 
     public void anim_rotate(float i){
         RotateAnimation ra = new RotateAnimation(before,i, Animation.RELATIVE_TO_SELF,0.5f,Animation.RELATIVE_TO_SELF,0.5f);
-        ra.setDuration(100);
+        ra.setDuration(200);
         ra.setFillAfter(true);
         sound_label.startAnimation(ra);
         before = i;
@@ -785,11 +743,10 @@ public class MainActivity extends AppCompatActivity{
 
         @Override
         protected void onProgressUpdate(double[]... toTransform) {
+            float InputAudioHz = MaxInFFTArray(toTransform[0], sensitivity) * frequency / (2*blockSize);
 
-            setCuHz(buttonArray, buttonId, CuHz, flatmode, sharpmode);
-            float InputAudioHz = -1;
-            InputAudioHz = MaxInFFTArray(toTransform[0], sensitivity) * frequency / (2*blockSize);
-            TEMP1 = InputAudioHz;
+
+
             if(InputAudioHz>234) {
                 DebugHz(InputAudioHz, DEBUG_MODE);
                 double[] R = {InputAudioHz};
@@ -798,10 +755,6 @@ public class MainActivity extends AppCompatActivity{
                 }else{ROTATE(InputAudioHz);}
             }
 
-            TEMP5 = TEMP4;
-            TEMP4 = TEMP3;
-            TEMP3 = TEMP2;
-            TEMP2 = TEMP1;
         }
     }
 }
