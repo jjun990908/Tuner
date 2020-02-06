@@ -763,15 +763,8 @@ public class play_mode extends AppCompatActivity {
     @Override
     public void onBackPressed() {
 
-        Toast ExitToast = Toast.makeText(play_mode.this, "종료하시려면 뒤로가기 버튼을 한 번 더 눌러주세요.", Toast.LENGTH_SHORT);
-        second_time = System.currentTimeMillis();
-        if(second_time - first_time < 3000){
-            super.onBackPressed();
-            finishAffinity();
-            ExitToast.cancel();
-        }
-        else{ExitToast.show();
-        }
-        first_time = System.currentTimeMillis();
+        Toast.makeText(play_mode.this, "튜닝모드", Toast.LENGTH_SHORT).show();
+        finish();
+        overridePendingTransition(R.anim.anim_slide_down,R.anim.anim_slide_up);
     }
 }
