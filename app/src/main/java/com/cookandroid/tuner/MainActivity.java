@@ -32,7 +32,7 @@ public class MainActivity extends AppCompatActivity{
     ////////// FFT initialize ////////////////////
     // 1. 성능 설정 변수 (수정 가능, 삭제 불가)
     int frequency = 4400; // 가청 주파수 설정 (참고: 가청 주파수는 frequency 의 절반)
-    int blockSize = 1024; // 정밀도(속도와 관련) 설정 (참고: 반드시 2의 배수)
+    int blockSize = 2048; // 정밀도(속도와 관련) 설정 (참고: 반드시 2의 배수)
     int sensitivity =  1; // 민감도 설정 (참고: 1~4까지가 적정)
 
     // 2. IO 연결 객체 (수정 가능, 삭제 불가)
@@ -43,6 +43,8 @@ public class MainActivity extends AppCompatActivity{
     boolean started = true;
 
     // 3. 화면에 표시하기 위해, 따로 만든 변수들 (수정 가능, 삭제 가능)
+    boolean DEBUG_MODE = false;
+
     static Button[] buttonArray = new Button[17];        // 칼림바 건반의 버튼객체를 담고 있는 배열
     static String[] ScaleArray;                          // C, D, E... 등의 음계를 담고 있는 String 배열
     static double CuHz= 260;                             // 현재 누르고 있는 건반의 음계치를 담고 있는 Int 변수
@@ -140,6 +142,12 @@ public class MainActivity extends AppCompatActivity{
             }
             else{TEMP += INTERVAL;}
             if(i==239){  HZidx = 239;  } // 만약 범위 끝까지 안구해지면 29도를 부여(각도 끝 구간의 예외처리)
+        }
+        if(220<=HZidx&& HZidx<=239){
+            HZidx = 240;
+        }
+        else if(0<= HZidx && HZidx <=20){
+            HZidx = 0;
         }
 
         anim_rotate(-(-60+(Scaleidx-1)*30+(float)(HZidx*0.125)));
@@ -767,7 +775,8 @@ public class MainActivity extends AppCompatActivity{
 
 
 
-        public void DebugHz(double cin){
+        public void DebugHz(double cin,boolean DEBUG){
+            if(!DEBUG)return;
             D3.setText(D2.getText());
             D2.setText(D1.getText());
             D1.setText(D0.getText());
@@ -782,10 +791,10 @@ public class MainActivity extends AppCompatActivity{
             InputAudioHz = MaxInFFTArray(toTransform[0], sensitivity) * frequency / (2*blockSize);
             TEMP1 = InputAudioHz;
             if(InputAudioHz>234) {
-                DebugHz(InputAudioHz);
-                double[] R = {TEMP1,TEMP2,TEMP3,TEMP4,TEMP5};
+                DebugHz(InputAudioHz, DEBUG_MODE);
+                double[] R = {InputAudioHz};
                 if (Similar(R,10)) {
-                    ROTATE((TEMP1 + TEMP2 + TEMP3+ TEMP4 + TEMP5) / 5);
+                    ROTATE((InputAudioHz));
                 }else{ROTATE(InputAudioHz);}
             }
 
