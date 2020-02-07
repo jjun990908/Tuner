@@ -105,6 +105,7 @@ public class MainActivity extends AppCompatActivity{
                 {
                     //여기에 딜레이 후 시작할 작업들을 입력
                     sound_label_correct.setVisibility(View.VISIBLE);
+                    sound_label_correct.clearAnimation();
                 }
             }, 500);
         }
@@ -129,6 +130,7 @@ public class MainActivity extends AppCompatActivity{
             public void onAnimationStart(Animation animation) {}
             @Override
             public void onAnimationEnd(Animation animation) {
+                sound_label_correct.clearAnimation();
                 sound_label_correct.setVisibility(View.INVISIBLE);
             }
             @Override
