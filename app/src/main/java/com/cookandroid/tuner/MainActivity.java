@@ -9,6 +9,7 @@ import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.graphics.Color;
 import android.media.SoundPool;
 import android.os.Bundle;
 import android.view.MotionEvent;
@@ -124,6 +125,7 @@ public class MainActivity extends AppCompatActivity{
 
 
 
+        getWindow().setNavigationBarColor(Color.BLACK);
 
         ///FFT initialize ///
         transformer = new RealDoubleFFT(blockSize);
