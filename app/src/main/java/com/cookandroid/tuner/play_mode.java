@@ -132,6 +132,47 @@ public class play_mode extends AppCompatActivity {
                 return false;
             }
         });
+        btn_c_l.setOnDragListener(new View.OnDragListener(){
+            public boolean onDrag(View v, DragEvent event) {
+                switch (event.getAction()) {
+                    case MotionEvent.ACTION_DOWN:
+                    case DragEvent.ACTION_DRAG_ENTERED:
+                        if(!changemod){
+                            if(!btn_vive.isChecked()){
+                                vibrator.vibrate(30);
+                                btn_c_l.startAnimation(anim_Twist);
+                            }
+                            if (jangjo[0]==0){
+                                sp.play(Scale.do0_0,1,1,1,0,1.0f);
+                            }
+                            else if(jangjo[0]==1){
+                                sp.play(Scale.do0_5,1,1,1,0,1.0f);
+                            }
+                            else{
+                                sp.play(Scale.do0_5,1,1,1,0,1.0f);
+                            }
+
+                            btn_c_l.setImageResource(R.drawable.key2_click);
+                            new Handler().postDelayed(new Runnable()
+                            {
+                                @Override
+                                public void run()
+                                {
+                                    //여기에 딜레이 후 시작할 작업들을 입력
+                                    btn_c_l.setImageResource(R.drawable.key2);
+                                }
+                            }, 500);
+                        }
+                        else{
+                            if (jangjo[0]==0) jangjo[0]++;
+                            else if(jangjo[0]==1) jangjo[0]++;
+                            else jangjo[0] = 0;
+                        }
+                        break;
+                }
+                return false;
+            }
+        });
         btn_d_l.setOnTouchListener(new View.OnTouchListener() {
             public boolean onTouch(View v, MotionEvent event) {
                 switch (event.getAction()) {
