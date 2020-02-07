@@ -61,15 +61,6 @@ public class MainActivity extends AppCompatActivity{
     ImageButton btn_switch,btn_help;
     Boolean sharpmode=false,flatmode=false;
     ImageView sound_label,sound_label_correct;
-    //건반색 초기화함수
-    public void setBtnWhite(){
-        for(int i=0;i<17;i++){
-            buttonArray[i].setImageResource(R.drawable.key1);
-            if (i==0||i==5||i==6||i==11||i==12){
-                buttonArray[i].setImageResource(R.drawable.key2);
-            }
-        }
-    }
 
 
     public void ROTATE (float inputHz){
@@ -133,6 +124,16 @@ public class MainActivity extends AppCompatActivity{
         ra.setFillAfter(true);
         sound_label.startAnimation(ra);
         sound_label_correct.startAnimation((ra));
+        ra.setAnimationListener(new Animation.AnimationListener() {
+            @Override
+            public void onAnimationStart(Animation animation) {}
+            @Override
+            public void onAnimationEnd(Animation animation) {
+                sound_label_correct.setVisibility(View.INVISIBLE);
+            }
+            @Override
+            public void onAnimationRepeat(Animation animation) {}
+        });
         before = i;
     }
 
@@ -187,7 +188,6 @@ public class MainActivity extends AppCompatActivity{
         buttonArray = new ImageButton[]{btn_c_l,btn_d_l,btn_e_l,btn_f_l,btn_g_l,btn_a_l,btn_b_l,btn_c_h,btn_d_h,btn_e_h,btn_f_h,btn_g_h,btn_a_h,btn_b_h,btn_c_hh,btn_d_hh,btn_e_hh};
 
         btn_help = (ImageButton)findViewById(R.id.btn_help);
-        btn_tune = (ImageButton)findViewById(R.id.btn_tune);
         sharpText = (TextView)findViewById(R.id.sharp);
         flatText = (TextView)findViewById(R.id.flat);
         btn_switch = (ImageButton)findViewById(R.id.switch_mode);

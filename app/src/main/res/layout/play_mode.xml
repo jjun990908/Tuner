@@ -248,18 +248,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <!-- #, 원음, 플랫버튼 -->
-    <ImageButton
-        android:id="@+id/btn_tune"
-        android:layout_width="30dp"
-        android:layout_height="30dp"
-        android:layout_marginStart="55dp"
-        android:layout_marginBottom="16dp"
-        android:background="@drawable/smallbtn_shape"
-        android:text="#"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
-
     <!-- 진동 on/off 버튼 -->
     <Switch
         android:id="@+id/btn_vive"

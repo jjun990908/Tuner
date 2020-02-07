@@ -84,7 +84,6 @@ public class play_mode extends AppCompatActivity {
         btn_d_hh = (ImageButton)findViewById(R.id.btn_d_hh);
         btn_e_hh = (ImageButton)findViewById(R.id.btn_e_hh);
         btn_help = (ImageButton)findViewById(R.id.btn_help);
-        btn_tune = (ImageButton)findViewById(R.id.btn_tune);
         btn_switch = (ImageButton)findViewById(R.id.switch_mode);
         btn_vive = (Switch)findViewById(R.id.btn_vive);
 
