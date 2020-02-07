@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/background"
     tools:context=".MainActivity">
 
     <Button
@@ -239,26 +240,28 @@
         app:layout_constraintEnd_toEndOf="parent" />
 
     <!-- 도움말 버튼 -->
-    <Button
+    <ImageButton
         android:id="@+id/btn_help"
-        android:layout_width="30dp"
-        android:layout_height="30dp"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
         android:layout_marginStart="15dp"
         android:layout_marginBottom="16dp"
+        android:src="@drawable/button_help"
+        android:scaleType="centerInside"
         android:background="@drawable/smallbtn_shape"
-        android:text="?"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
     <!-- 연주 모드 버튼 -->
-    <Button
+    <ImageButton
         android:id="@+id/switch_mode"
         android:layout_marginEnd="24dp"
         android:layout_marginBottom="16dp"
-        android:layout_width="30dp"
-        android:layout_height="30dp"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
         android:background="@drawable/smallbtn_shape"
-        android:text="T"
+        android:src="@drawable/button_tuning"
+        android:scaleType="centerInside"
         android:textSize="15dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />

@@ -4,12 +4,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/background"
     tools:context=".MainActivity">
 
     <Button
         android:id="@+id/btn_c_l"
         android:layout_width="30dp"
-        android:layout_height="250dp"
+        android:layout_height="200dp"
         android:background="@drawable/btn_key_shape"
         android:duplicateParentState="false"
         android:elevation="30dp"
@@ -221,26 +222,15 @@
         app:layout_constraintTop_toTopOf="parent"/>
 
     <!-- 도움말 버튼 -->
-    <Button
+    <ImageButton
         android:id="@+id/btn_help"
-        android:layout_width="30dp"
-        android:layout_height="30dp"
-        android:layout_marginStart="15dp"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="20dp"
         android:layout_marginBottom="16dp"
+        android:src="@drawable/button_help"
+        android:scaleType="centerInside"
         android:background="@drawable/smallbtn_shape"
-        android:text="?"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <!-- #, 원음, 플랫버튼 -->
-    <Button
-        android:id="@+id/btn_tune"
-        android:layout_width="30dp"
-        android:layout_height="30dp"
-        android:layout_marginStart="55dp"
-        android:layout_marginBottom="16dp"
-        android:background="@drawable/smallbtn_shape"
-        android:text="#"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
@@ -295,64 +285,51 @@
 <!--        app:layout_constraintRight_toLeftOf="@+id/view_CenterLView"-->
 <!--        android:background="@drawable/smallbtn_shape"/>-->
 
-    <TextView
-        android:id="@+id/sharp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="24dp"
-        android:layout_marginTop="45dp"
-        android:text="#"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/btn_c_l"
-        android:visibility="gone"/>
-
-    <TextView
-        android:id="@+id/flat"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="28dp"
-        android:layout_marginTop="43dp"
-        android:text="♭"
-        android:textSize="24sp"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/btn_c_l"
-        android:visibility="gone"/>
-
     <!-- 연주 모드 버튼 -->
-    <Button
+    <ImageButton
         android:id="@+id/switch_mode"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
         android:layout_marginEnd="24dp"
         android:layout_marginBottom="16dp"
-        android:layout_width="30dp"
-        android:layout_height="30dp"
+        android:scaleType="centerInside"
         android:background="@drawable/smallbtn_shape"
-        android:text="♫"
-        android:textSize="15dp"
+        android:src="@drawable/button_play"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
     <ImageView
         android:id="@+id/sound_label"
-        android:layout_width="499dp"
-        android:layout_height="335dp"
-        android:layout_marginTop="24dp"
+        android:layout_width="550dp"
+        android:layout_height="350dp"
+        android:layout_marginTop="35dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btn_c_l"
-        app:srcCompat="@drawable/sound_label" />
+        app:srcCompat="@drawable/scale1" />
 
     <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="50dp"
+        android:id="@+id/sound_label_cover"
+        android:layout_width="350dp"
+        android:layout_height="175dp"
+        android:layout_marginTop="36dp"
+        android:layout_marginLeft="0dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btn_c_l"
+        app:srcCompat="@drawable/scale1_light" />
+
+    <ImageView
+        android:id="@+id/neddle"
+        android:layout_width="60dp"
+        android:layout_height="140dp"
+        android:layout_marginTop="40dp"
         app:layout_constraintEnd_toEndOf="@+id/sound_label"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="@+id/sound_label"
         app:layout_constraintTop_toTopOf="@+id/sound_label"
-        app:srcCompat="@drawable/niddle" />
+        app:srcCompat="@drawable/neddle" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
