@@ -11,16 +11,13 @@ import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.media.SoundPool;
 import android.os.Bundle;
-import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.WindowManager;
 import android.view.animation.Animation;
 import android.view.animation.RotateAnimation;
-import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
-import android.widget.PopupMenu;
 import android.widget.TextView;
 import android.widget.Toast;
 import android.media.*;
@@ -97,21 +94,10 @@ public class MainActivity extends AppCompatActivity{
 
 //        sound_label_correct.setVisibility(View.INVISIBLE);
         sound_label.setImageResource(R.drawable.scale1);
-        if(230<=HZidx&& HZidx<=239){
+        if(200<=HZidx&& HZidx<=239){
             HZidx = 240;
-            new Handler().postDelayed(new Runnable()
-            {
-                @Override
-                public void run()
-                {
-                    //여기에 딜레이 후 시작할 작업들을 입력
-//                    sound_label_correct.setVisibility(View.VISIBLE);
-                    sound_label.setImageResource(R.drawable.scale2);
-                    sound_label_correct.clearAnimation();
-                }
-            }, 500);
         }
-        else if(0<= HZidx && HZidx <=20){
+        else if(0<= HZidx && HZidx <=40){
             HZidx = 0;
         }
 
@@ -125,19 +111,9 @@ public class MainActivity extends AppCompatActivity{
         RotateAnimation ra = new RotateAnimation(before,i, Animation.RELATIVE_TO_SELF,0.5f,Animation.RELATIVE_TO_SELF,0.5f);
         ra.setDuration(200);
         ra.setFillAfter(true);
+
         sound_label.startAnimation(ra);
         sound_label_correct.startAnimation((ra));
-        ra.setAnimationListener(new Animation.AnimationListener() {
-            @Override
-            public void onAnimationStart(Animation animation) {}
-            @Override
-            public void onAnimationEnd(Animation animation) {
-                sound_label_correct.clearAnimation();
-                sound_label_correct.setVisibility(View.INVISIBLE);
-            }
-            @Override
-            public void onAnimationRepeat(Animation animation) {}
-        });
         before = i;
     }
 
