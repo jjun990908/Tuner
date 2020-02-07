@@ -23,6 +23,7 @@ import android.widget.Toast;
 import android.media.*;
 import android.os.*;
 import android.util.*;
+import android.view.WindowManager;
 
 
 public class MainActivity extends AppCompatActivity{
@@ -121,6 +122,7 @@ public class MainActivity extends AppCompatActivity{
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
 
 
 
