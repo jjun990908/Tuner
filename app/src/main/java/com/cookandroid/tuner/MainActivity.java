@@ -95,10 +95,10 @@ public class MainActivity extends AppCompatActivity{
 
 
         sound_label.setImageResource(R.drawable.scale1);
-        if(200<=HZidx&& HZidx<=239){
+        if(205<=HZidx&& HZidx<=239){
             HZidx = 240;
         }
-        else if(0<= HZidx && HZidx <=40){
+        else if(0<= HZidx && HZidx <=35){
             HZidx = 0;
         }
 
