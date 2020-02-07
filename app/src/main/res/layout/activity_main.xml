@@ -327,6 +327,18 @@
         app:srcCompat="@drawable/scale1" />
 
     <ImageView
+        android:id="@+id/sound_label_correct"
+        android:layout_width="550dp"
+        android:layout_height="350dp"
+        android:layout_marginTop="35dp"
+        android:visibility="invisible"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btn_c_l"
+        app:srcCompat="@drawable/scale2" />
+
+    <ImageView
         android:id="@+id/sound_label_cover"
         android:layout_width="350dp"
         android:layout_height="175dp"

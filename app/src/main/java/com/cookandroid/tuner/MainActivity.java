@@ -60,7 +60,7 @@ public class MainActivity extends AppCompatActivity{
     TextView keyText,sharpText,flatText;
     ImageButton btn_switch,btn_help;
     Boolean sharpmode=false,flatmode=false;
-    ImageView sound_label;
+    ImageView sound_label,sound_label_correct;
     //건반색 초기화함수
     public void setBtnWhite(){
         for(int i=0;i<17;i++){
@@ -109,12 +109,17 @@ public class MainActivity extends AppCompatActivity{
             else{TEMP += INTERVAL;}
             if(i==239){  HZidx = 239;  } // 만약 범위 끝까지 안구해지면 29도를 부여(각도 끝 구간의 예외처리)
         }
+
+
+        sound_label_correct.setVisibility(View.INVISIBLE);
         if(220<=HZidx&& HZidx<=239){
             HZidx = 240;
+            sound_label_correct.setVisibility(View.VISIBLE);
         }
         else if(0<= HZidx && HZidx <=20){
             HZidx = 0;
         }
+
 
         anim_rotate(-(-60+(Scaleidx-1)*30+(float)(HZidx*0.125)));
 //        sound_label.setRotation(-((Scaleidx-1)*30+HZidx));  // 구간으로 나눈 Scale인덱스엔 30을 곱하고, TEMP는 1도를 부여
@@ -185,6 +190,7 @@ public class MainActivity extends AppCompatActivity{
         flatText = (TextView)findViewById(R.id.flat);
         btn_switch = (ImageButton)findViewById(R.id.switch_mode);
         sound_label = (ImageView)findViewById(R.id.sound_label);
+        sound_label_correct = (ImageView)findViewById(R.id.sound_label_correct);
 
         if(ActivityCompat.checkSelfPermission(getApplicationContext(), Manifest.permission.RECORD_AUDIO) != PackageManager.PERMISSION_GRANTED){
         //마이크 권한 확인
