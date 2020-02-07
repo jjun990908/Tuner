@@ -207,7 +207,7 @@ public class MainActivity extends AppCompatActivity{
 
                         setBtnWhite();
                         btn_c_l.setBackgroundResource(R.drawable.btn_key_select_shape);
-                        sound_label.setRotation(0);
+
                         break;
                 }
                 return false;
@@ -231,7 +231,7 @@ public class MainActivity extends AppCompatActivity{
 
                         setBtnWhite();
                         btn_d_l.setBackgroundResource(R.drawable.btn_key_select_shape);
-                        sound_label.setRotation(-60);
+
                         break;
                 }
                 return false;
@@ -255,7 +255,7 @@ public class MainActivity extends AppCompatActivity{
                         }
 
                         setBtnWhite();
-                        sound_label.setRotation(-120);
+
                         btn_e_l.setBackgroundResource(R.drawable.btn_key_select_shape);
                         break;
                 }
@@ -280,7 +280,7 @@ public class MainActivity extends AppCompatActivity{
                         }
 
                         setBtnWhite();
-                        sound_label.setRotation(-150);
+
                         btn_f_l.setBackgroundResource(R.drawable.btn_key_select_shape);
                         break;
                 }
@@ -305,7 +305,7 @@ public class MainActivity extends AppCompatActivity{
                         }
 
                         setBtnWhite();
-                        sound_label.setRotation(-180);
+
                         btn_g_l.setBackgroundResource(R.drawable.btn_key_select_shape);
                         break;
                 }
@@ -330,7 +330,7 @@ public class MainActivity extends AppCompatActivity{
                         }
 
                         setBtnWhite();
-                        sound_label.setRotation(-210);
+
                         btn_a_l.setBackgroundResource(R.drawable.btn_key_select_shape);
                         break;
                 }
@@ -355,7 +355,7 @@ public class MainActivity extends AppCompatActivity{
                         }
 
                         setBtnWhite();
-                        sound_label.setRotation(-300);
+
                         btn_b_l.setBackgroundResource(R.drawable.btn_key_select_shape);
                         break;
                 }
