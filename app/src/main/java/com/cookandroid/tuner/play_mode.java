@@ -7,6 +7,7 @@ import android.media.SoundPool;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Vibrator;
+import android.view.DragEvent;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.WindowManager;
@@ -94,7 +95,7 @@ public class play_mode extends AppCompatActivity {
             public boolean onTouch(View v, MotionEvent event) {
                 switch (event.getAction()) {
                     case MotionEvent.ACTION_DOWN:
-                    case MotionEvent.ACTION_POINTER_DOWN:
+                    case DragEvent.ACTION_DRAG_ENTERED:
                         if(!changemod){
                             if(!btn_vive.isChecked()){
                                 vibrator.vibrate(30);
@@ -134,7 +135,7 @@ public class play_mode extends AppCompatActivity {
         btn_d_l.setOnTouchListener(new View.OnTouchListener() {
             public boolean onTouch(View v, MotionEvent event) {
                 switch (event.getAction()) {
-                    case MotionEvent.ACTION_POINTER_DOWN:
+                    case DragEvent.ACTION_DRAG_ENTERED:
                     case MotionEvent.ACTION_DOWN:
                         if(!changemod){
                             if(!btn_vive.isChecked()){
@@ -158,7 +159,7 @@ public class play_mode extends AppCompatActivity {
                                 public void run()
                                 {
                                     //여기에 딜레이 후 시작할 작업들을 입력
-                                    btn_d_l.setImageResource(R.drawable.key2);
+                                    btn_d_l.setImageResource(R.drawable.key1);
                                 }
                             }, 500);
                         }
@@ -176,11 +177,11 @@ public class play_mode extends AppCompatActivity {
             public boolean onTouch(View v, MotionEvent event) {
                 switch (event.getAction()) {
                     case MotionEvent.ACTION_DOWN:
-                    case MotionEvent.ACTION_POINTER_DOWN:
+                    case DragEvent.ACTION_DRAG_ENTERED:
                         if(!changemod){
                             if(!btn_vive.isChecked()){
                                 vibrator.vibrate(30);
-                                btn_c_l.startAnimation(anim_Twist);
+                                btn_e_l.startAnimation(anim_Twist);
                             }
                             if (jangjo[2]==0){
                                 sp.play(Scale.mi0_0,1,1,1,0,1.0f);
@@ -217,7 +218,7 @@ public class play_mode extends AppCompatActivity {
             public boolean onTouch(View v, MotionEvent event) {
                 switch (event.getAction()) {
                     case MotionEvent.ACTION_DOWN:
-                    case MotionEvent.ACTION_POINTER_DOWN:
+                    case DragEvent.ACTION_DRAG_ENTERED:
                         if(!changemod){
                             if(!btn_vive.isChecked()){
                                 vibrator.vibrate(30);
@@ -257,7 +258,7 @@ public class play_mode extends AppCompatActivity {
             public boolean onTouch(View v, MotionEvent event) {
                 switch (event.getAction()) {
                     case MotionEvent.ACTION_DOWN:
-                    case MotionEvent.ACTION_POINTER_DOWN:
+                    case DragEvent.ACTION_DRAG_ENTERED:
                         if(!changemod){
                             if(!btn_vive.isChecked()){
                                 vibrator.vibrate(30);
@@ -298,7 +299,7 @@ public class play_mode extends AppCompatActivity {
             public boolean onTouch(View v, MotionEvent event) {
                 switch (event.getAction()) {
                     case MotionEvent.ACTION_DOWN:
-                    case MotionEvent.ACTION_POINTER_DOWN:
+                    case DragEvent.ACTION_DRAG_ENTERED:
                         if(!changemod){
                             if(!btn_vive.isChecked()){
                                 vibrator.vibrate(30);
@@ -339,7 +340,7 @@ public class play_mode extends AppCompatActivity {
             public boolean onTouch(View v, MotionEvent event) {
                 switch (event.getAction()) {
                     case MotionEvent.ACTION_DOWN:
-                    case MotionEvent.ACTION_POINTER_DOWN:
+                    case DragEvent.ACTION_DRAG_ENTERED:
                         if(!changemod){
                             if(!btn_vive.isChecked()){
                                 vibrator.vibrate(30);
@@ -380,7 +381,7 @@ public class play_mode extends AppCompatActivity {
             public boolean onTouch(View v, MotionEvent event) {
                 switch (event.getAction()) {
                     case MotionEvent.ACTION_DOWN:
-                    case MotionEvent.ACTION_POINTER_DOWN:
+                    case DragEvent.ACTION_DRAG_ENTERED:
                         if(!changemod){
                             if(!btn_vive.isChecked()){
                                 vibrator.vibrate(30);
@@ -421,7 +422,7 @@ public class play_mode extends AppCompatActivity {
             public boolean onTouch(View v, MotionEvent event) {
                 switch (event.getAction()) {
                     case MotionEvent.ACTION_DOWN:
-                    case MotionEvent.ACTION_POINTER_DOWN:
+                    case DragEvent.ACTION_DRAG_ENTERED:
                         if(!changemod){
                             if(!btn_vive.isChecked()){
                                 vibrator.vibrate(30);
@@ -462,7 +463,7 @@ public class play_mode extends AppCompatActivity {
             public boolean onTouch(View v, MotionEvent event) {
                 switch (event.getAction()) {
                     case MotionEvent.ACTION_DOWN:
-                    case MotionEvent.ACTION_POINTER_DOWN:
+                    case DragEvent.ACTION_DRAG_ENTERED:
                         if(!changemod){
                             if(!btn_vive.isChecked()){
                                 vibrator.vibrate(30);
@@ -503,7 +504,7 @@ public class play_mode extends AppCompatActivity {
             public boolean onTouch(View v, MotionEvent event) {
                 switch (event.getAction()) {
                     case MotionEvent.ACTION_DOWN:
-                    case MotionEvent.ACTION_POINTER_DOWN:
+                    case DragEvent.ACTION_DRAG_ENTERED:
                         if(!changemod){
                             if(!btn_vive.isChecked()){
                                 vibrator.vibrate(30);
@@ -545,7 +546,7 @@ public class play_mode extends AppCompatActivity {
             public boolean onTouch(View v, MotionEvent event) {
                 switch (event.getAction()) {
                     case MotionEvent.ACTION_DOWN:
-                    case MotionEvent.ACTION_POINTER_DOWN:
+                    case DragEvent.ACTION_DRAG_ENTERED:
                         if(!changemod){
                             if(!btn_vive.isChecked()){
                                 vibrator.vibrate(30);
@@ -586,7 +587,7 @@ public class play_mode extends AppCompatActivity {
             public boolean onTouch(View v, MotionEvent event) {
                 switch (event.getAction()) {
                     case MotionEvent.ACTION_DOWN:
-                    case MotionEvent.ACTION_POINTER_DOWN:
+                    case DragEvent.ACTION_DRAG_ENTERED:
                         if(!changemod){
                             if(!btn_vive.isChecked()){
                                 vibrator.vibrate(30);
@@ -627,7 +628,7 @@ public class play_mode extends AppCompatActivity {
         btn_b_h.setOnTouchListener(new View.OnTouchListener() {
             public boolean onTouch(View v, MotionEvent event) {
                 switch (event.getAction()) {
-                    case MotionEvent.ACTION_POINTER_DOWN:
+                    case DragEvent.ACTION_DRAG_ENTERED:
                     case MotionEvent.ACTION_DOWN:
                         if(!changemod){
                             if(!btn_vive.isChecked()){
@@ -670,7 +671,7 @@ public class play_mode extends AppCompatActivity {
             public boolean onTouch(View v, MotionEvent event) {
                 switch (event.getAction()) {
                     case MotionEvent.ACTION_DOWN:
-                    case MotionEvent.ACTION_POINTER_DOWN:
+                    case DragEvent.ACTION_DRAG_ENTERED:
                         if(!changemod){
                             if(!btn_vive.isChecked()){
                                 vibrator.vibrate(30);
@@ -712,7 +713,7 @@ public class play_mode extends AppCompatActivity {
             public boolean onTouch(View v, MotionEvent event) {
                 switch (event.getAction()) {
                     case MotionEvent.ACTION_DOWN:
-                    case MotionEvent.ACTION_POINTER_DOWN:
+                    case DragEvent.ACTION_DRAG_ENTERED:
                         if(!changemod){
                             if(!btn_vive.isChecked()){
                                 vibrator.vibrate(30);
@@ -754,7 +755,7 @@ public class play_mode extends AppCompatActivity {
             public boolean onTouch(View v, MotionEvent event) {
                 switch (event.getAction()) {
                     case MotionEvent.ACTION_DOWN:
-                    case MotionEvent.ACTION_POINTER_DOWN:
+                    case DragEvent.ACTION_DRAG_ENTERED:
                         if(!changemod){
                             if(!btn_vive.isChecked()){
                                 vibrator.vibrate(30);
