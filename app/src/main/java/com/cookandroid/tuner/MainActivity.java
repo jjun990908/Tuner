@@ -46,7 +46,7 @@ public class MainActivity extends AppCompatActivity{
     // 3. 화면에 표시하기 위해, 따로 만든 변수들 (수정 가능, 삭제 가능)
     boolean DEBUG_MODE = false;
 
-    static Button[] buttonArray = new Button[17];        // 칼림바 건반의 버튼객체를 담고 있는 배열
+    static ImageButton[] buttonArray = new ImageButton[17];        // 칼림바 건반의 버튼객체를 담고 있는 배열
     static String[] ScaleArray;                          // C, D, E... 등의 음계를 담고 있는 String 배열
     static double CuHz= 260;                             // 현재 누르고 있는 건반의 음계치를 담고 있는 Int 변수
     int buttonId;                                        // 현재 누르고 있는 건반의 버튼 아이디를 담고 있는 Int 변수
@@ -56,7 +56,7 @@ public class MainActivity extends AppCompatActivity{
 
 
 
-    Button btn_c_l,btn_d_l,btn_e_l,btn_f_l,btn_g_l,btn_a_l,btn_b_l,btn_c_h,btn_d_h,btn_e_h,btn_f_h,btn_g_h,btn_a_h,btn_b_h,btn_c_hh,btn_d_hh,btn_e_hh,btn_tune;
+    ImageButton btn_c_l,btn_d_l,btn_e_l,btn_f_l,btn_g_l,btn_a_l,btn_b_l,btn_c_h,btn_d_h,btn_e_h,btn_f_h,btn_g_h,btn_a_h,btn_b_h,btn_c_hh,btn_d_hh,btn_e_hh,btn_tune;
     TextView keyText,sharpText,flatText;
     ImageButton btn_switch,btn_help;
     Boolean sharpmode=false,flatmode=false;
@@ -64,19 +64,12 @@ public class MainActivity extends AppCompatActivity{
     //건반색 초기화함수
     public void setBtnWhite(){
         for(int i=0;i<17;i++){
-            buttonArray[i].setBackgroundResource(R.drawable.key1);
+            buttonArray[i].setImageResource(R.drawable.key1);
             if (i==0||i==5||i==6||i==11||i==12){
-                buttonArray[i].setBackgroundResource(R.drawable.key2);
+                buttonArray[i].setImageResource(R.drawable.key2);
             }
         }
     }
-    //건반라벨 #추가함수
-    public void setSharpText(){for(int i=0; i<17;i++){buttonArray[i].setText(ScaleArray[i%7]+"#");}}
-    //건반라벨 b추가함수
-    public void setFlatText(){for(int i=0; i<17;i++){buttonArray[i].setText(ScaleArray[i%7]+"♭");}}
-    //건반라벨 원음변환함수
-    public void setOriginText(){ for(int i=0; i<17;i++){buttonArray[i].setText(ScaleArray[i%7]);} }
-
 
 
     public void ROTATE (float inputHz){
@@ -174,27 +167,27 @@ public class MainActivity extends AppCompatActivity{
 
 
         //버튼 연결
-        btn_c_l = (Button)findViewById(R.id.btn_c_l);
-        btn_d_l = (Button)findViewById(R.id.btn_d_l);
-        btn_e_l = (Button)findViewById(R.id.btn_e_l);
-        btn_f_l = (Button)findViewById(R.id.btn_f_l);
-        btn_g_l = (Button)findViewById(R.id.btn_g_l);
-        btn_a_l = (Button)findViewById(R.id.btn_a_l);
-        btn_b_l = (Button)findViewById(R.id.btn_b_l);
-        btn_c_h = (Button)findViewById(R.id.btn_c_h);
-        btn_d_h = (Button)findViewById(R.id.btn_d_h);
-        btn_e_h = (Button)findViewById(R.id.btn_e_h);
-        btn_f_h = (Button)findViewById(R.id.btn_f_h);
-        btn_g_h = (Button)findViewById(R.id.btn_g_h);
-        btn_a_h = (Button)findViewById(R.id.btn_a_h);
-        btn_b_h = (Button)findViewById(R.id.btn_b_h);
-        btn_c_hh = (Button)findViewById(R.id.btn_c_hh);
-        btn_d_hh = (Button)findViewById(R.id.btn_d_hh);
-        btn_e_hh = (Button)findViewById(R.id.btn_e_hh);
-        buttonArray = new Button[]{btn_c_l,btn_d_l,btn_e_l,btn_f_l,btn_g_l,btn_a_l,btn_b_l,btn_c_h,btn_d_h,btn_e_h,btn_f_h,btn_g_h,btn_a_h,btn_b_h,btn_c_hh,btn_d_hh,btn_e_hh};
+        btn_c_l = (ImageButton)findViewById(R.id.btn_c_l);
+        btn_d_l = (ImageButton)findViewById(R.id.btn_d_l);
+        btn_e_l = (ImageButton)findViewById(R.id.btn_e_l);
+        btn_f_l = (ImageButton)findViewById(R.id.btn_f_l);
+        btn_g_l = (ImageButton)findViewById(R.id.btn_g_l);
+        btn_a_l = (ImageButton)findViewById(R.id.btn_a_l);
+        btn_b_l = (ImageButton)findViewById(R.id.btn_b_l);
+        btn_c_h = (ImageButton)findViewById(R.id.btn_c_h);
+        btn_d_h = (ImageButton)findViewById(R.id.btn_d_h);
+        btn_e_h = (ImageButton)findViewById(R.id.btn_e_h);
+        btn_f_h = (ImageButton)findViewById(R.id.btn_f_h);
+        btn_g_h = (ImageButton)findViewById(R.id.btn_g_h);
+        btn_a_h = (ImageButton)findViewById(R.id.btn_a_h);
+        btn_b_h = (ImageButton)findViewById(R.id.btn_b_h);
+        btn_c_hh = (ImageButton)findViewById(R.id.btn_c_hh);
+        btn_d_hh = (ImageButton)findViewById(R.id.btn_d_hh);
+        btn_e_hh = (ImageButton)findViewById(R.id.btn_e_hh);
+        buttonArray = new ImageButton[]{btn_c_l,btn_d_l,btn_e_l,btn_f_l,btn_g_l,btn_a_l,btn_b_l,btn_c_h,btn_d_h,btn_e_h,btn_f_h,btn_g_h,btn_a_h,btn_b_h,btn_c_hh,btn_d_hh,btn_e_hh};
 
         btn_help = (ImageButton)findViewById(R.id.btn_help);
-        btn_tune = (Button)findViewById(R.id.btn_tune);
+        btn_tune = (ImageButton)findViewById(R.id.btn_tune);
         sharpText = (TextView)findViewById(R.id.sharp);
         flatText = (TextView)findViewById(R.id.flat);
         btn_switch = (ImageButton)findViewById(R.id.switch_mode);
@@ -226,10 +219,16 @@ public class MainActivity extends AppCompatActivity{
                         else{
                             sp.play(Scale.do0_0,1,1,1,0,1.0f);
                         }
-
-                        setBtnWhite();
-                        btn_c_l.setBackgroundResource(R.drawable.key2_click);
-
+                        btn_c_l.setImageResource(R.drawable.key2_click);
+                        new Handler().postDelayed(new Runnable()
+                        {
+                            @Override
+                            public void run()
+                            {
+                                //여기에 딜레이 후 시작할 작업들을 입력
+                                btn_c_l.setImageResource(R.drawable.key2);
+                            }
+                        }, 500);
                         break;
                 }
                 return false;
@@ -250,10 +249,16 @@ public class MainActivity extends AppCompatActivity{
                         else{
                             sp.play(Scale.re0_0,1,1,1,0,1.0f);
                         }
-
-                        setBtnWhite();
-                        btn_d_l.setBackgroundResource(R.drawable.key1_click);
-
+                        btn_d_l.setImageResource(R.drawable.key1_click);
+                        new Handler().postDelayed(new Runnable()
+                        {
+                            @Override
+                            public void run()
+                            {
+                                //여기에 딜레이 후 시작할 작업들을 입력
+                                btn_d_l.setImageResource(R.drawable.key1);
+                            }
+                        }, 500);
                         break;
                 }
                 return false;
@@ -275,10 +280,16 @@ public class MainActivity extends AppCompatActivity{
                         else{
                             sp.play(Scale.mi0_0,1,1,1,0,1.0f);
                         }
-
-                        setBtnWhite();
-
-                        btn_e_l.setBackgroundResource(R.drawable.key1_click);
+                        btn_e_l.setImageResource(R.drawable.key1_click);
+                        new Handler().postDelayed(new Runnable()
+                        {
+                            @Override
+                            public void run()
+                            {
+                                //여기에 딜레이 후 시작할 작업들을 입력
+                                btn_e_l.setImageResource(R.drawable.key1);
+                            }
+                        }, 500);
                         break;
                 }
                 return false;
@@ -300,10 +311,16 @@ public class MainActivity extends AppCompatActivity{
                         else{
                             sp.play(Scale.fa0_0,1,1,1,0,1.0f);
                         }
-
-                        setBtnWhite();
-
-                        btn_f_l.setBackgroundResource(R.drawable.key1_click);
+                        btn_f_l.setImageResource(R.drawable.key1_click);
+                        new Handler().postDelayed(new Runnable()
+                        {
+                            @Override
+                            public void run()
+                            {
+                                //여기에 딜레이 후 시작할 작업들을 입력
+                                btn_f_l.setImageResource(R.drawable.key1);
+                            }
+                        }, 500);
                         break;
                 }
                 return false;
@@ -325,10 +342,16 @@ public class MainActivity extends AppCompatActivity{
                         else{
                             sp.play(Scale.sol0_0,1,1,1,0,1.0f);
                         }
-
-                        setBtnWhite();
-
-                        btn_g_l.setBackgroundResource(R.drawable.key1_click);
+                        btn_g_l.setImageResource(R.drawable.key1_click);
+                        new Handler().postDelayed(new Runnable()
+                        {
+                            @Override
+                            public void run()
+                            {
+                                //여기에 딜레이 후 시작할 작업들을 입력
+                                btn_g_l.setImageResource(R.drawable.key1);
+                            }
+                        }, 500);
                         break;
                 }
                 return false;
@@ -350,10 +373,16 @@ public class MainActivity extends AppCompatActivity{
                         else{
                             sp.play(Scale.la0_0,1,1,1,0,1.0f);
                         }
-
-                        setBtnWhite();
-
-                        btn_a_l.setBackgroundResource(R.drawable.key2_click);
+                        btn_a_l.setImageResource(R.drawable.key2_click);
+                        new Handler().postDelayed(new Runnable()
+                        {
+                            @Override
+                            public void run()
+                            {
+                                //여기에 딜레이 후 시작할 작업들을 입력
+                                btn_a_l.setImageResource(R.drawable.key2);
+                            }
+                        }, 500);
                         break;
                 }
                 return false;
@@ -375,10 +404,16 @@ public class MainActivity extends AppCompatActivity{
                         else{
                             sp.play(Scale.si0_0,1,1,1,0,1.0f);
                         }
-
-                        setBtnWhite();
-
-                        btn_b_l.setBackgroundResource(R.drawable.key2_click);
+                        btn_b_l.setImageResource(R.drawable.key2_click);
+                        new Handler().postDelayed(new Runnable()
+                        {
+                            @Override
+                            public void run()
+                            {
+                                //여기에 딜레이 후 시작할 작업들을 입력
+                                btn_b_l.setImageResource(R.drawable.key2);
+                            }
+                        }, 500);
                         break;
                 }
                 return false;
@@ -400,9 +435,16 @@ public class MainActivity extends AppCompatActivity{
                         else{
                             sp.play(Scale.do1_0,1,1,1,0,1.0f);
                         }
-
-                        setBtnWhite();
-                        btn_c_h.setBackgroundResource(R.drawable.key1_click);
+                        btn_c_h.setImageResource(R.drawable.key1_click);
+                        new Handler().postDelayed(new Runnable()
+                        {
+                            @Override
+                            public void run()
+                            {
+                                //여기에 딜레이 후 시작할 작업들을 입력
+                                btn_c_h.setImageResource(R.drawable.key1);
+                            }
+                        }, 500);
                         break;
                 }
                 return false;
@@ -425,9 +467,16 @@ public class MainActivity extends AppCompatActivity{
                         else{
                             sp.play(Scale.re1_0,1,1,1,0,1.0f);
                         }
-
-                        setBtnWhite();
-                        btn_d_h.setBackgroundResource(R.drawable.key1_click);
+                        btn_d_h.setImageResource(R.drawable.key1_click);
+                        new Handler().postDelayed(new Runnable()
+                        {
+                            @Override
+                            public void run()
+                            {
+                                //여기에 딜레이 후 시작할 작업들을 입력
+                                btn_d_h.setImageResource(R.drawable.key1);
+                            }
+                        }, 500);
                         break;
                 }
                 return false;
@@ -450,9 +499,16 @@ public class MainActivity extends AppCompatActivity{
                         else{
                             sp.play(Scale.mi1_0,1,1,1,0,1.0f);
                         }
-
-                        setBtnWhite();
-                        btn_e_h.setBackgroundResource(R.drawable.key1_click);
+                        btn_e_h.setImageResource(R.drawable.key1_click);
+                        new Handler().postDelayed(new Runnable()
+                        {
+                            @Override
+                            public void run()
+                            {
+                                //여기에 딜레이 후 시작할 작업들을 입력
+                                btn_e_h.setImageResource(R.drawable.key1);
+                            }
+                        }, 500);
                         break;
                 }
                 return false;
@@ -475,9 +531,16 @@ public class MainActivity extends AppCompatActivity{
                         else{
                             sp.play(Scale.fa1_0,1,1,1,0,1.0f);
                         }
-
-                        setBtnWhite();
-                        btn_f_h.setBackgroundResource(R.drawable.key1_click);
+                        btn_f_h.setImageResource(R.drawable.key1_click);
+                        new Handler().postDelayed(new Runnable()
+                        {
+                            @Override
+                            public void run()
+                            {
+                                //여기에 딜레이 후 시작할 작업들을 입력
+                                btn_f_h.setImageResource(R.drawable.key1);
+                            }
+                        }, 500);
                         break;
                 }
                 return false;
@@ -500,9 +563,16 @@ public class MainActivity extends AppCompatActivity{
                         else{
                             sp.play(Scale.sol1_0,1,1,1,0,1.0f);
                         }
-
-                        setBtnWhite();
-                        btn_g_h.setBackgroundResource(R.drawable.key2_click);
+                        btn_g_h.setImageResource(R.drawable.key2_click);
+                        new Handler().postDelayed(new Runnable()
+                        {
+                            @Override
+                            public void run()
+                            {
+                                //여기에 딜레이 후 시작할 작업들을 입력
+                                btn_g_h.setImageResource(R.drawable.key2);
+                            }
+                        }, 500);
                         break;
                 }
                 return false;
@@ -525,9 +595,16 @@ public class MainActivity extends AppCompatActivity{
                         else{
                             sp.play(Scale.la1_0,1,1,1,0,1.0f);
                         }
-
-                        setBtnWhite();
-                        btn_a_h.setBackgroundResource(R.drawable.key2_click);
+                        btn_a_h.setImageResource(R.drawable.key2_click);
+                        new Handler().postDelayed(new Runnable()
+                        {
+                            @Override
+                            public void run()
+                            {
+                                //여기에 딜레이 후 시작할 작업들을 입력
+                                btn_a_h.setImageResource(R.drawable.key2);
+                            }
+                        }, 500);
                         break;
                 }
                 return false;
@@ -550,9 +627,16 @@ public class MainActivity extends AppCompatActivity{
                         else{
                             sp.play(Scale.si1_0,1,1,1,0,1.0f);
                         }
-
-                        setBtnWhite();
-                        btn_b_h.setBackgroundResource(R.drawable.key1_click);
+                        btn_b_h.setImageResource(R.drawable.key1_click);
+                        new Handler().postDelayed(new Runnable()
+                        {
+                            @Override
+                            public void run()
+                            {
+                                //여기에 딜레이 후 시작할 작업들을 입력
+                                btn_b_h.setImageResource(R.drawable.key1);
+                            }
+                        }, 500);
                         break;
                 }
                 return false;
@@ -574,9 +658,16 @@ public class MainActivity extends AppCompatActivity{
                         else{
                             sp.play(Scale.do2_0,1,1,1,0,1.0f);
                         }
-
-                        setBtnWhite();
-                        btn_c_hh.setBackgroundResource(R.drawable.key1_click);
+                        btn_c_hh.setImageResource(R.drawable.key1_click);
+                        new Handler().postDelayed(new Runnable()
+                        {
+                            @Override
+                            public void run()
+                            {
+                                //여기에 딜레이 후 시작할 작업들을 입력
+                                btn_c_hh.setImageResource(R.drawable.key1);
+                            }
+                        }, 500);
                         break;
                 }
                 return false;
@@ -598,9 +689,16 @@ public class MainActivity extends AppCompatActivity{
                         else{
                             sp.play(Scale.re2_0,1,1,1,0,1.0f);
                         }
-
-                        setBtnWhite();
-                        btn_d_hh.setBackgroundResource(R.drawable.key1_click);
+                        btn_d_hh.setImageResource(R.drawable.key1_click);
+                        new Handler().postDelayed(new Runnable()
+                        {
+                            @Override
+                            public void run()
+                            {
+                                //여기에 딜레이 후 시작할 작업들을 입력
+                                btn_d_hh.setImageResource(R.drawable.key1);
+                            }
+                        }, 500);
                         break;
                 }
                 return false;
@@ -622,9 +720,16 @@ public class MainActivity extends AppCompatActivity{
                         else{
                         sp.play(Scale.mi2_0,1,1,1,0,1.0f);
                     }
-
-                    setBtnWhite();
-                        btn_e_hh.setBackgroundResource(R.drawable.key1_click);
+                        btn_e_hh.setImageResource(R.drawable.key1_click);
+                        new Handler().postDelayed(new Runnable()
+                        {
+                            @Override
+                            public void run()
+                            {
+                                //여기에 딜레이 후 시작할 작업들을 입력
+                                btn_e_hh.setImageResource(R.drawable.key1);
+                            }
+                        }, 500);
                         break;
                 }
                 return false;

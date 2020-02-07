@@ -7,18 +7,20 @@
     android:background="@drawable/background"
     tools:context=".MainActivity">
 
-    <Button
+    <ImageButton
         android:id="@+id/btn_c_l"
-        android:layout_width="30dp"
-        android:layout_height="200dp"
-        android:background="@drawable/key2"
-        android:scaleType="centerInside"
-        android:duplicateParentState="false"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="260dp"
+        android:background="?android:attr/panelBackground"
         android:elevation="30dp"
+        android:scaleType="centerInside"
+        android:src="@drawable/key2"
         android:text="C"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toRightOf="@id/btn_d_l"
         app:layout_constraintRight_toLeftOf="@id/btn_e_l"
-        app:layout_constraintTop_toTopOf="parent"/>
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/CurrentHzView0"
@@ -60,183 +62,247 @@
         app:layout_constraintTop_toBottomOf="@+id/btn_f_h"
         app:layout_constraintVertical_bias="1.0" />
 
-    <Button
+    <ImageButton
         android:id="@+id/btn_e_l"
-        android:layout_width="30dp"
-        android:layout_height="230dp"
-        android:background="@drawable/key1"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="280dp"
+        android:background="?android:attr/panelBackground"
+        android:elevation="30dp"
         android:scaleType="centerInside"
+        android:src="@drawable/key1"
         android:text="E"
-        app:layout_constraintRight_toLeftOf="@+id/btn_g_l"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toRightOf="@+id/btn_c_l"
-        app:layout_constraintTop_toTopOf="parent"/>
+        app:layout_constraintRight_toLeftOf="@+id/btn_g_l"
+        app:layout_constraintTop_toTopOf="parent" />
 
-    <Button
+    <ImageButton
         android:id="@+id/btn_g_l"
-        android:layout_width="30dp"
-        android:layout_height="210dp"
-        android:background="@drawable/key1"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="300dp"
+        android:background="?android:attr/panelBackground"
+        android:elevation="30dp"
         android:scaleType="centerInside"
+        android:src="@drawable/key1"
         android:text="G"
-        app:layout_constraintRight_toLeftOf="@+id/btn_b_l"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toRightOf="@+id/btn_e_l"
-        app:layout_constraintTop_toTopOf="parent"/>
+        app:layout_constraintRight_toLeftOf="@+id/btn_b_l"
+        app:layout_constraintTop_toTopOf="parent" />
 
-    <Button
+    <ImageButton
         android:id="@+id/btn_b_l"
-        android:layout_width="30dp"
-        android:layout_height="190dp"
-        android:background="@drawable/key2"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="320dp"
+        android:background="?android:attr/panelBackground"
+        android:elevation="30dp"
         android:scaleType="centerInside"
+        android:src="@drawable/key2"
         android:text="B"
-        app:layout_constraintRight_toLeftOf="@+id/btn_d_h"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toRightOf="@+id/btn_g_l"
-        app:layout_constraintTop_toTopOf="parent"/>
+        app:layout_constraintRight_toLeftOf="@+id/btn_d_h"
+        app:layout_constraintTop_toTopOf="parent" />
 
-    <Button
+    <ImageButton
         android:id="@+id/btn_d_h"
-        android:layout_width="30dp"
-        android:layout_height="170dp"
-        android:background="@drawable/key1"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="340dp"
+        android:background="?android:attr/panelBackground"
+        android:elevation="30dp"
         android:scaleType="centerInside"
+        android:src="@drawable/key1"
         android:text="D"
-        app:layout_constraintRight_toLeftOf="@+id/btn_f_h"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toRightOf="@+id/btn_b_l"
-        app:layout_constraintTop_toTopOf="parent"/>
+        app:layout_constraintRight_toLeftOf="@+id/btn_f_h"
+        app:layout_constraintTop_toTopOf="parent" />
 
-    <Button
+    <ImageButton
         android:id="@+id/btn_f_h"
-        android:layout_width="30dp"
-        android:layout_height="150dp"
-        android:background="@drawable/key1"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="360dp"
+        android:background="?android:attr/panelBackground"
+        android:elevation="30dp"
         android:scaleType="centerInside"
+        android:src="@drawable/key1"
         android:text="F"
-        app:layout_constraintRight_toLeftOf="@+id/btn_a_h"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toRightOf="@+id/btn_d_h"
-        app:layout_constraintTop_toTopOf="parent"/>
+        app:layout_constraintRight_toLeftOf="@+id/btn_a_h"
+        app:layout_constraintTop_toTopOf="parent" />
 
-    <Button
+    <ImageButton
         android:id="@+id/btn_a_h"
-        android:layout_width="30dp"
-        android:layout_height="130dp"
-        android:background="@drawable/key2"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="380dp"
+        android:background="?android:attr/panelBackground"
+        android:elevation="30dp"
         android:scaleType="centerInside"
+        android:src="@drawable/key2"
         android:text="A"
-        app:layout_constraintRight_toLeftOf="@+id/btn_c_hh"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toRightOf="@+id/btn_f_h"
-        app:layout_constraintTop_toTopOf="parent"/>
+        app:layout_constraintRight_toLeftOf="@+id/btn_c_hh"
+        app:layout_constraintTop_toTopOf="parent" />
 
-    <Button
+    <ImageButton
         android:id="@+id/btn_c_hh"
-        android:layout_width="30dp"
-        android:layout_height="110dp"
-        android:background="@drawable/key1"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="400dp"
+        android:background="?android:attr/panelBackground"
+        android:elevation="30dp"
         android:scaleType="centerInside"
+        android:src="@drawable/key1"
         android:text="C"
-        app:layout_constraintRight_toLeftOf="@+id/btn_e_hh"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toRightOf="@+id/btn_a_h"
-        app:layout_constraintTop_toTopOf="parent"/>
+        app:layout_constraintRight_toLeftOf="@+id/btn_e_hh"
+        app:layout_constraintTop_toTopOf="parent" />
 
-    <Button
+    <ImageButton
         android:id="@+id/btn_e_hh"
-        android:layout_width="30dp"
-        android:layout_height="90dp"
-        android:background="@drawable/key1"
-        android:scaleType="centerInside"
-        android:text="E"
+        android:layout_width="40dp"
+        android:layout_height="wrap_content"
         android:layout_marginRight="20dp"
-        app:layout_constraintLeft_toRightOf="@+id/btn_c_hh"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"/>
-
-    <Button
-        android:id="@+id/btn_d_l"
-        android:layout_width="30dp"
-        android:layout_height="230dp"
-        android:background="@drawable/key1"
+        android:layout_marginBottom="420dp"
+        android:background="?android:attr/panelBackground"
+        android:elevation="30dp"
         android:scaleType="centerInside"
-        android:text="D"
-        app:layout_constraintRight_toLeftOf="@+id/btn_c_l"
-        app:layout_constraintLeft_toRightOf="@+id/btn_f_l"
-        app:layout_constraintTop_toTopOf="parent"/>
-
-    <Button
-        android:id="@+id/btn_f_l"
-        android:layout_width="30dp"
-        android:layout_height="210dp"
-        android:background="@drawable/key1"
-        android:scaleType="centerInside"
-        android:text="F"
-        app:layout_constraintRight_toLeftOf="@+id/btn_d_l"
-        app:layout_constraintLeft_toRightOf="@+id/btn_a_l"
-        app:layout_constraintTop_toTopOf="parent"/>
-
-    <Button
-        android:id="@+id/btn_a_l"
-        android:layout_width="30dp"
-        android:layout_height="190dp"
-        android:background="@drawable/key2"
-        android:scaleType="centerInside"
-        android:text="A"
-        app:layout_constraintRight_toLeftOf="@+id/btn_f_l"
-        app:layout_constraintLeft_toRightOf="@+id/btn_c_h"
-        app:layout_constraintTop_toTopOf="parent"/>
-
-    <Button
-        android:id="@+id/btn_c_h"
-        android:layout_width="30dp"
-        android:layout_height="170dp"
-        android:background="@drawable/key1"
-        android:scaleType="centerInside"
-        android:text="C"
-        app:layout_constraintRight_toLeftOf="@+id/btn_a_l"
-        app:layout_constraintLeft_toRightOf="@+id/btn_e_h"
-        app:layout_constraintTop_toTopOf="parent"/>
-
-    <Button
-        android:id="@+id/btn_e_h"
-        android:layout_width="30dp"
-        android:layout_height="150dp"
-        android:background="@drawable/key1"
-        android:scaleType="centerInside"
+        android:src="@drawable/key1"
         android:text="E"
-        app:layout_constraintRight_toLeftOf="@+id/btn_c_h"
-        app:layout_constraintLeft_toRightOf="@+id/btn_g_h"
-        app:layout_constraintTop_toTopOf="parent"/>
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintLeft_toRightOf="@+id/btn_c_hh"
+        app:layout_constraintTop_toTopOf="parent" />
 
-    <Button
-        android:id="@+id/btn_g_h"
-        android:layout_width="30dp"
-        android:layout_height="130dp"
-        android:background="@drawable/key2"
+    <ImageButton
+        android:id="@+id/btn_d_l"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="280dp"
+        android:background="?android:attr/panelBackground"
+        android:elevation="30dp"
         android:scaleType="centerInside"
-        android:text="G"
-        app:layout_constraintRight_toLeftOf="@+id/btn_e_h"
-        app:layout_constraintLeft_toRightOf="@+id/btn_b_h"
-        app:layout_constraintTop_toTopOf="parent"/>
-
-    <Button
-        android:id="@+id/btn_b_h"
-        android:layout_width="30dp"
-        android:layout_height="110dp"
-        android:background="@drawable/key1"
-        android:scaleType="centerInside"
-        android:text="B"
-        app:layout_constraintRight_toLeftOf="@+id/btn_g_h"
-        app:layout_constraintLeft_toRightOf="@+id/btn_d_hh"
-        app:layout_constraintTop_toTopOf="parent"/>
-
-    <Button
-        android:id="@+id/btn_d_hh"
-        android:layout_width="30dp"
-        android:layout_height="90dp"
-        android:background="@drawable/key1"
-        android:scaleType="centerInside"
-        android:layout_marginLeft="20dp"
+        android:src="@drawable/key1"
         android:text="D"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toRightOf="@+id/btn_f_l"
+        app:layout_constraintRight_toLeftOf="@+id/btn_c_l"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageButton
+        android:id="@+id/btn_f_l"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="300dp"
+        android:background="?android:attr/panelBackground"
+        android:elevation="30dp"
+        android:scaleType="centerInside"
+        android:src="@drawable/key1"
+        android:text="F"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toRightOf="@+id/btn_a_l"
+        app:layout_constraintRight_toLeftOf="@+id/btn_d_l"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageButton
+        android:id="@+id/btn_a_l"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="320dp"
+        android:background="?android:attr/panelBackground"
+        android:elevation="30dp"
+        android:scaleType="centerInside"
+        android:src="@drawable/key2"
+        android:text="A"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toRightOf="@+id/btn_c_h"
+        app:layout_constraintRight_toLeftOf="@+id/btn_f_l"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageButton
+        android:id="@+id/btn_c_h"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="340dp"
+        android:background="?android:attr/panelBackground"
+        android:elevation="30dp"
+        android:scaleType="centerInside"
+        android:src="@drawable/key1"
+        android:text="C"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toRightOf="@+id/btn_e_h"
+        app:layout_constraintRight_toLeftOf="@+id/btn_a_l"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageButton
+        android:id="@+id/btn_e_h"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="360dp"
+        android:background="?android:attr/panelBackground"
+        android:elevation="30dp"
+        android:scaleType="centerInside"
+        android:src="@drawable/key1"
+        android:text="E"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toRightOf="@+id/btn_g_h"
+        app:layout_constraintRight_toLeftOf="@+id/btn_c_h"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageButton
+        android:id="@+id/btn_g_h"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="380dp"
+        android:background="?android:attr/panelBackground"
+        android:elevation="30dp"
+        android:scaleType="centerInside"
+        android:src="@drawable/key2"
+        android:text="G"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toRightOf="@+id/btn_b_h"
+        app:layout_constraintRight_toLeftOf="@+id/btn_e_h"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageButton
+        android:id="@+id/btn_b_h"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="400dp"
+        android:background="?android:attr/panelBackground"
+        android:elevation="30dp"
+        android:scaleType="centerInside"
+        android:src="@drawable/key1"
+        android:text="B"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toRightOf="@+id/btn_d_hh"
+        app:layout_constraintRight_toLeftOf="@+id/btn_g_h"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageButton
+        android:id="@+id/btn_d_hh"
+        android:layout_width="40dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginBottom="420dp"
+        android:background="?android:attr/panelBackground"
+        android:elevation="30dp"
+        android:scaleType="centerInside"
+        android:src="@drawable/key1"
+        android:text="D"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintRight_toLeftOf="@+id/btn_b_h"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"/>
+        app:layout_constraintTop_toTopOf="parent" />
 
     <!-- 도움말 버튼 -->
     <ImageButton
@@ -319,7 +385,7 @@
         android:id="@+id/sound_label"
         android:layout_width="550dp"
         android:layout_height="350dp"
-        android:layout_marginTop="35dp"
+        android:layout_marginTop="20dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
@@ -330,7 +396,7 @@
         android:id="@+id/sound_label_correct"
         android:layout_width="550dp"
         android:layout_height="350dp"
-        android:layout_marginTop="35dp"
+        android:layout_marginTop="20dp"
         android:visibility="invisible"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.495"
@@ -342,10 +408,8 @@
         android:id="@+id/sound_label_cover"
         android:layout_width="350dp"
         android:layout_height="175dp"
-        android:layout_marginTop="36dp"
-        android:layout_marginLeft="0dp"
+        android:layout_marginTop="20dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btn_c_l"
         app:srcCompat="@drawable/scale1_light" />
