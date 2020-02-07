@@ -253,17 +253,16 @@
     <!-- 도움말 버튼 -->
 
     <!-- 연주 모드 버튼 -->
-
     <Switch
         android:id="@+id/btn_vive"
         android:layout_width="50dp"
         android:layout_height="30dp"
-        android:layout_marginEnd="664dp"
-        android:layout_marginBottom="16dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginBottom="24dp"
         android:thumb="@drawable/switch_thumb"
         android:track="@drawable/switch_track_selector"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <ImageButton
         android:id="@+id/switch_mode"

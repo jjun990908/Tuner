@@ -25,7 +25,7 @@ import androidx.appcompat.app.AppCompatActivity;
 public class play_mode extends AppCompatActivity {
 
     ImageButton btn_c_l,btn_d_l,btn_e_l,btn_f_l,btn_g_l,btn_a_l,btn_b_l,btn_c_h,btn_d_h,btn_e_h,btn_f_h,btn_g_h,btn_a_h,btn_b_h,btn_c_hh,btn_d_hh,btn_e_hh,btn_tune;
-    ImageButton btn_switch,btn_help;
+    ImageButton btn_switch;
     Switch btn_vive;
     boolean isViewPressed;
     int jangjo=0;
@@ -83,7 +83,6 @@ public class play_mode extends AppCompatActivity {
         btn_c_hh = (ImageButton)findViewById(R.id.btn_c_hh);
         btn_d_hh = (ImageButton)findViewById(R.id.btn_d_hh);
         btn_e_hh = (ImageButton)findViewById(R.id.btn_e_hh);
-        btn_help = (ImageButton)findViewById(R.id.btn_help);
         btn_switch = (ImageButton)findViewById(R.id.switch_mode);
         btn_vive = (Switch)findViewById(R.id.btn_vive);
 
@@ -607,15 +606,6 @@ public class play_mode extends AppCompatActivity {
                         break;
                 }
                 return false;
-            }
-        });
-
-        //도움말 버튼 클릭 함수
-        btn_help.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                //팝업창 액티비티로 연결
-                startActivity(new Intent(getApplicationContext(),help_popup.class));
             }
         });
 
