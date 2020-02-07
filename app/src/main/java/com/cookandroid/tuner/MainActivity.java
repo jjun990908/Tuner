@@ -95,8 +95,9 @@ public class MainActivity extends AppCompatActivity{
         }
 
 
-        sound_label_correct.setVisibility(View.INVISIBLE);
-        if(220<=HZidx&& HZidx<=239){
+//        sound_label_correct.setVisibility(View.INVISIBLE);
+        sound_label.setImageResource(R.drawable.scale1);
+        if(230<=HZidx&& HZidx<=239){
             HZidx = 240;
             new Handler().postDelayed(new Runnable()
             {
@@ -104,7 +105,8 @@ public class MainActivity extends AppCompatActivity{
                 public void run()
                 {
                     //여기에 딜레이 후 시작할 작업들을 입력
-                    sound_label_correct.setVisibility(View.VISIBLE);
+//                    sound_label_correct.setVisibility(View.VISIBLE);
+                    sound_label.setImageResource(R.drawable.scale2);
                     sound_label_correct.clearAnimation();
                 }
             }, 500);
