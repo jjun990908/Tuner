@@ -111,10 +111,18 @@ public class MainActivity extends AppCompatActivity{
         }
 
 
-        sound_label_correct.setVisibility(View.INVISIBLE);
         if(220<=HZidx&& HZidx<=239){
             HZidx = 240;
-            sound_label_correct.setVisibility(View.VISIBLE);
+            new Handler().postDelayed(new Runnable()
+            {
+                @Override
+                public void run()
+                {
+                    //여기에 딜레이 후 시작할 작업들을 입력
+                    sound_label_correct.setVisibility(View.VISIBLE);
+                }
+            }, 500);
+            sound_label_correct.setVisibility(View.INVISIBLE);
         }
         else if(0<= HZidx && HZidx <=20){
             HZidx = 0;
@@ -131,6 +139,7 @@ public class MainActivity extends AppCompatActivity{
         ra.setDuration(200);
         ra.setFillAfter(true);
         sound_label.startAnimation(ra);
+        sound_label_correct.startAnimation((ra));
         before = i;
     }
 
