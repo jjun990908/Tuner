@@ -630,56 +630,6 @@ public class play_mode extends AppCompatActivity {
                 }
             }
         });
-        btn_tune.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(final View view) {
-                //팝업메뉴 객체 생성
-                PopupMenu popup = new PopupMenu(getApplicationContext(),view);
-                popup.getMenuInflater().inflate(R.menu.popup_playmode,popup.getMenu());
-                //팝업메뉴 클릭시 이벤트
-                popup.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
-                    @Override
-                    public boolean onMenuItemClick(MenuItem menuItem) {
-                        switch (menuItem.getItemId()){
-                            case R.id.sharp_1:
-                                Toast.makeText(getApplicationContext(),"파샵",Toast.LENGTH_SHORT).show();
-                                jangjo= 1;
-                                break;
-                            case R.id.sharp_2:
-                                Toast.makeText(getApplicationContext(),"도샵",Toast.LENGTH_SHORT).show();
-                                jangjo= 2;
-                                break;
-                            case R.id.sharp_3:
-                                Toast.makeText(getApplicationContext(),"솔샵",Toast.LENGTH_SHORT).show();
-                                jangjo= 3;
-                                break;
-                            case R.id.sharp_4:
-                                Toast.makeText(getApplicationContext(),"레샵",Toast.LENGTH_SHORT).show();
-                                jangjo= 4;
-                                break;
-                            case R.id.sharp_5:
-                                Toast.makeText(getApplicationContext(),"라샵",Toast.LENGTH_SHORT).show();
-                                jangjo= 5;
-                                break;
-                            case R.id.sharp_6:
-                                Toast.makeText(getApplicationContext(),"미샵",Toast.LENGTH_SHORT).show();
-                                jangjo= 6;
-                                break;
-                            case R.id.sharp_7:
-                                Toast.makeText(getApplicationContext(),"시샵",Toast.LENGTH_SHORT).show();
-                                jangjo= 7;
-                                break;
-                            case R.id.sharp_0:
-                                Toast.makeText(getApplicationContext(),"원음",Toast.LENGTH_SHORT).show();
-                                jangjo= 0;
-
-                        }
-                        return true;
-                    }
-                });
-                popup.show();
-            }
-        });
         //튜닝모드 전환
         btn_switch.setOnClickListener(new View.OnClickListener() {
             @Override
