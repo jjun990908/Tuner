@@ -92,8 +92,7 @@ public class MainActivity extends AppCompatActivity{
             if(i==239){  HZidx = 239;  } // 만약 범위 끝까지 안구해지면 29도를 부여(각도 끝 구간의 예외처리)
         }
 
-
-//        sound_label_correct.setVisibility(View.INVISIBLE);
+        
         sound_label.setImageResource(R.drawable.scale1);
         if(200<=HZidx&& HZidx<=239){
             HZidx = 240;
@@ -104,7 +103,6 @@ public class MainActivity extends AppCompatActivity{
 
 
         anim_rotate(-(-60+(Scaleidx-1)*30+(float)(HZidx*0.125)));
-//        sound_label.setRotation(-((Scaleidx-1)*30+HZidx));  // 구간으로 나눈 Scale인덱스엔 30을 곱하고, TEMP는 1도를 부여
         Log.i("각도는", -60 + (Scaleidx-1)*30 + "  +  "+HZidx);
     }
 
