@@ -62,7 +62,14 @@ public class MainActivity extends AppCompatActivity{
     Boolean sharpmode=false,flatmode=false;
     ImageView sound_label;
     //건반색 초기화함수
-    public void setBtnWhite(){ for(int i=0;i<17;i++){ buttonArray[i].setBackgroundResource(R.drawable.btn_key_shape); } }
+    public void setBtnWhite(){
+        for(int i=0;i<17;i++){
+            buttonArray[i].setBackgroundResource(R.drawable.key1);
+            if (i==0||i==5||i==6||i==11||i==12){
+                buttonArray[i].setBackgroundResource(R.drawable.key2);
+            }
+        }
+    }
     //건반라벨 #추가함수
     public void setSharpText(){for(int i=0; i<17;i++){buttonArray[i].setText(ScaleArray[i%7]+"#");}}
     //건반라벨 b추가함수
@@ -206,7 +213,7 @@ public class MainActivity extends AppCompatActivity{
                         }
 
                         setBtnWhite();
-                        btn_c_l.setBackgroundResource(R.drawable.btn_key_select_shape);
+                        btn_c_l.setBackgroundResource(R.drawable.key2_click);
 
                         break;
                 }
@@ -230,7 +237,7 @@ public class MainActivity extends AppCompatActivity{
                         }
 
                         setBtnWhite();
-                        btn_d_l.setBackgroundResource(R.drawable.btn_key_select_shape);
+                        btn_d_l.setBackgroundResource(R.drawable.key1_click);
 
                         break;
                 }
@@ -256,7 +263,7 @@ public class MainActivity extends AppCompatActivity{
 
                         setBtnWhite();
 
-                        btn_e_l.setBackgroundResource(R.drawable.btn_key_select_shape);
+                        btn_e_l.setBackgroundResource(R.drawable.key1_click);
                         break;
                 }
                 return false;
@@ -281,7 +288,7 @@ public class MainActivity extends AppCompatActivity{
 
                         setBtnWhite();
 
-                        btn_f_l.setBackgroundResource(R.drawable.btn_key_select_shape);
+                        btn_f_l.setBackgroundResource(R.drawable.key1_click);
                         break;
                 }
                 return false;
@@ -306,7 +313,7 @@ public class MainActivity extends AppCompatActivity{
 
                         setBtnWhite();
 
-                        btn_g_l.setBackgroundResource(R.drawable.btn_key_select_shape);
+                        btn_g_l.setBackgroundResource(R.drawable.key1_click);
                         break;
                 }
                 return false;
@@ -331,7 +338,7 @@ public class MainActivity extends AppCompatActivity{
 
                         setBtnWhite();
 
-                        btn_a_l.setBackgroundResource(R.drawable.btn_key_select_shape);
+                        btn_a_l.setBackgroundResource(R.drawable.key2_click);
                         break;
                 }
                 return false;
@@ -356,7 +363,7 @@ public class MainActivity extends AppCompatActivity{
 
                         setBtnWhite();
 
-                        btn_b_l.setBackgroundResource(R.drawable.btn_key_select_shape);
+                        btn_b_l.setBackgroundResource(R.drawable.key2_click);
                         break;
                 }
                 return false;
@@ -380,7 +387,7 @@ public class MainActivity extends AppCompatActivity{
                         }
 
                         setBtnWhite();
-                        btn_c_h.setBackgroundResource(R.drawable.btn_key_select_shape);
+                        btn_c_h.setBackgroundResource(R.drawable.key1_click);
                         break;
                 }
                 return false;
@@ -405,7 +412,7 @@ public class MainActivity extends AppCompatActivity{
                         }
 
                         setBtnWhite();
-                        btn_d_h.setBackgroundResource(R.drawable.btn_key_select_shape);
+                        btn_d_h.setBackgroundResource(R.drawable.key1_click);
                         break;
                 }
                 return false;
@@ -430,7 +437,7 @@ public class MainActivity extends AppCompatActivity{
                         }
 
                         setBtnWhite();
-                        btn_e_h.setBackgroundResource(R.drawable.btn_key_select_shape);
+                        btn_e_h.setBackgroundResource(R.drawable.key1_click);
                         break;
                 }
                 return false;
@@ -455,7 +462,7 @@ public class MainActivity extends AppCompatActivity{
                         }
 
                         setBtnWhite();
-                        btn_f_h.setBackgroundResource(R.drawable.btn_key_select_shape);
+                        btn_f_h.setBackgroundResource(R.drawable.key1_click);
                         break;
                 }
                 return false;
@@ -480,7 +487,7 @@ public class MainActivity extends AppCompatActivity{
                         }
 
                         setBtnWhite();
-                        btn_g_h.setBackgroundResource(R.drawable.btn_key_select_shape);
+                        btn_g_h.setBackgroundResource(R.drawable.key2_click);
                         break;
                 }
                 return false;
@@ -505,7 +512,7 @@ public class MainActivity extends AppCompatActivity{
                         }
 
                         setBtnWhite();
-                        btn_a_h.setBackgroundResource(R.drawable.btn_key_select_shape);
+                        btn_a_h.setBackgroundResource(R.drawable.key2_click);
                         break;
                 }
                 return false;
@@ -530,7 +537,7 @@ public class MainActivity extends AppCompatActivity{
                         }
 
                         setBtnWhite();
-                        btn_b_h.setBackgroundResource(R.drawable.btn_key_select_shape);
+                        btn_b_h.setBackgroundResource(R.drawable.key1_click);
                         break;
                 }
                 return false;
@@ -554,7 +561,7 @@ public class MainActivity extends AppCompatActivity{
                         }
 
                         setBtnWhite();
-                        btn_c_hh.setBackgroundResource(R.drawable.btn_key_select_shape);
+                        btn_c_hh.setBackgroundResource(R.drawable.key1_click);
                         break;
                 }
                 return false;
@@ -578,7 +585,7 @@ public class MainActivity extends AppCompatActivity{
                         }
 
                         setBtnWhite();
-                        btn_d_hh.setBackgroundResource(R.drawable.btn_key_select_shape);
+                        btn_d_hh.setBackgroundResource(R.drawable.key1_click);
                         break;
                 }
                 return false;
@@ -598,11 +605,11 @@ public class MainActivity extends AppCompatActivity{
                             sp.play(Scale.re2_5,1,1,1,0,1.0f);
                         }
                         else{
-                            sp.play(Scale.mi2_0,1,1,1,0,1.0f);
-                        }
+                        sp.play(Scale.mi2_0,1,1,1,0,1.0f);
+                    }
 
-                        setBtnWhite();
-                        btn_e_hh.setBackgroundResource(R.drawable.btn_key_select_shape);
+                    setBtnWhite();
+                        btn_e_hh.setBackgroundResource(R.drawable.key1_click);
                         break;
                 }
                 return false;
