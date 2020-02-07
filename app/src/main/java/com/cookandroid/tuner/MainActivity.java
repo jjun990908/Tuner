@@ -9,6 +9,7 @@ import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.graphics.Color;
 import android.media.SoundPool;
 import android.os.Bundle;
 import android.view.MotionEvent;
@@ -23,7 +24,6 @@ import android.widget.Toast;
 import android.media.*;
 import android.os.*;
 import android.util.*;
-import android.view.WindowManager;
 
 
 public class MainActivity extends AppCompatActivity{
@@ -43,6 +43,7 @@ public class MainActivity extends AppCompatActivity{
 
     // 3. 화면에 표시하기 위해, 따로 만든 변수들 (수정 가능, 삭제 가능)
     boolean DEBUG_MODE = false;
+
 
     static ImageButton[] buttonArray = new ImageButton[17];        // 칼림바 건반의 버튼객체를 담고 있는 배열
     static String[] ScaleArray;                          // C, D, E... 등의 음계를 담고 있는 String 배열
@@ -92,7 +93,7 @@ public class MainActivity extends AppCompatActivity{
             if(i==239){  HZidx = 239;  } // 만약 범위 끝까지 안구해지면 29도를 부여(각도 끝 구간의 예외처리)
         }
 
-        
+
         sound_label.setImageResource(R.drawable.scale1);
         if(200<=HZidx&& HZidx<=239){
             HZidx = 240;
@@ -124,6 +125,7 @@ public class MainActivity extends AppCompatActivity{
 
 
 
+        getWindow().setNavigationBarColor(Color.BLACK);
 
         ///FFT initialize ///
         transformer = new RealDoubleFFT(blockSize);
