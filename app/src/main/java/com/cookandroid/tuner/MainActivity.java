@@ -111,6 +111,7 @@ public class MainActivity extends AppCompatActivity{
         }
 
 
+        sound_label_correct.setVisibility(View.INVISIBLE);
         if(220<=HZidx&& HZidx<=239){
             HZidx = 240;
             new Handler().postDelayed(new Runnable()
@@ -122,7 +123,6 @@ public class MainActivity extends AppCompatActivity{
                     sound_label_correct.setVisibility(View.VISIBLE);
                 }
             }, 500);
-            sound_label_correct.setVisibility(View.INVISIBLE);
         }
         else if(0<= HZidx && HZidx <=20){
             HZidx = 0;
