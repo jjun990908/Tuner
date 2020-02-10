@@ -5,15 +5,13 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ImageButton;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 public class Input_Code_Popup extends AppCompatActivity {
     TextView txt_codeview, text_Explanation2;
-    Button btn_close;
-    ImageButton btn_confirmcode, btn_confirm, btn_buycode;
+    Button btn_close,btn_confirmcode, btn_confirm, btn_buycode;
     boolean codenumbercheck =false , codeenglishcheck =false;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -79,7 +77,6 @@ public class Input_Code_Popup extends AppCompatActivity {
 
         });
 
-        txt_codeview = (TextView)findViewById(R.id.text_codeview);
         btn_close = (Button)findViewById(R.id.btn_close);
 
 
