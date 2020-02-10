@@ -201,14 +201,14 @@ public class MainActivity extends AppCompatActivity{
                         else{
                             sp.play(Scale.do0_0,1,1,1,0,1.0f);
                         }
-                        btn_c_l.setImageResource(R.drawable.key2_click);
+                        btn_c_l.setImageResource(R.drawable.key1);
                         new Handler().postDelayed(new Runnable()
                         {
                             @Override
                             public void run()
                             {
                                 //여기에 딜레이 후 시작할 작업들을 입력
-                                btn_c_l.setImageResource(R.drawable.key2);
+                                btn_c_l.setImageResource(R.drawable.key_c);
                             }
                         }, 500);
                         break;
@@ -238,7 +238,7 @@ public class MainActivity extends AppCompatActivity{
                             public void run()
                             {
                                 //여기에 딜레이 후 시작할 작업들을 입력
-                                btn_d_l.setImageResource(R.drawable.key1);
+                                btn_d_l.setImageResource(R.drawable.key_d);
                             }
                         }, 500);
                         break;
@@ -269,7 +269,7 @@ public class MainActivity extends AppCompatActivity{
                             public void run()
                             {
                                 //여기에 딜레이 후 시작할 작업들을 입력
-                                btn_e_l.setImageResource(R.drawable.key1);
+                                btn_e_l.setImageResource(R.drawable.key_e);
                             }
                         }, 500);
                         break;
@@ -300,7 +300,7 @@ public class MainActivity extends AppCompatActivity{
                             public void run()
                             {
                                 //여기에 딜레이 후 시작할 작업들을 입력
-                                btn_f_l.setImageResource(R.drawable.key1);
+                                btn_f_l.setImageResource(R.drawable.key_f);
                             }
                         }, 500);
                         break;
@@ -331,7 +331,7 @@ public class MainActivity extends AppCompatActivity{
                             public void run()
                             {
                                 //여기에 딜레이 후 시작할 작업들을 입력
-                                btn_g_l.setImageResource(R.drawable.key1);
+                                btn_g_l.setImageResource(R.drawable.key_g);
                             }
                         }, 500);
                         break;
@@ -362,7 +362,7 @@ public class MainActivity extends AppCompatActivity{
                             public void run()
                             {
                                 //여기에 딜레이 후 시작할 작업들을 입력
-                                btn_a_l.setImageResource(R.drawable.key2);
+                                btn_a_l.setImageResource(R.drawable.key_a);
                             }
                         }, 500);
                         break;
@@ -393,7 +393,7 @@ public class MainActivity extends AppCompatActivity{
                             public void run()
                             {
                                 //여기에 딜레이 후 시작할 작업들을 입력
-                                btn_b_l.setImageResource(R.drawable.key2);
+                                btn_b_l.setImageResource(R.drawable.key_b);
                             }
                         }, 500);
                         break;
@@ -424,7 +424,7 @@ public class MainActivity extends AppCompatActivity{
                             public void run()
                             {
                                 //여기에 딜레이 후 시작할 작업들을 입력
-                                btn_c_h.setImageResource(R.drawable.key1);
+                                btn_c_h.setImageResource(R.drawable.key_c1);
                             }
                         }, 500);
                         break;
@@ -456,7 +456,7 @@ public class MainActivity extends AppCompatActivity{
                             public void run()
                             {
                                 //여기에 딜레이 후 시작할 작업들을 입력
-                                btn_d_h.setImageResource(R.drawable.key1);
+                                btn_d_h.setImageResource(R.drawable.key_d1);
                             }
                         }, 500);
                         break;
@@ -488,7 +488,7 @@ public class MainActivity extends AppCompatActivity{
                             public void run()
                             {
                                 //여기에 딜레이 후 시작할 작업들을 입력
-                                btn_e_h.setImageResource(R.drawable.key1);
+                                btn_e_h.setImageResource(R.drawable.key_e1);
                             }
                         }, 500);
                         break;
@@ -520,7 +520,7 @@ public class MainActivity extends AppCompatActivity{
                             public void run()
                             {
                                 //여기에 딜레이 후 시작할 작업들을 입력
-                                btn_f_h.setImageResource(R.drawable.key1);
+                                btn_f_h.setImageResource(R.drawable.key_f1);
                             }
                         }, 500);
                         break;
@@ -552,7 +552,7 @@ public class MainActivity extends AppCompatActivity{
                             public void run()
                             {
                                 //여기에 딜레이 후 시작할 작업들을 입력
-                                btn_g_h.setImageResource(R.drawable.key2);
+                                btn_g_h.setImageResource(R.drawable.key_g1);
                             }
                         }, 500);
                         break;
@@ -584,7 +584,7 @@ public class MainActivity extends AppCompatActivity{
                             public void run()
                             {
                                 //여기에 딜레이 후 시작할 작업들을 입력
-                                btn_a_h.setImageResource(R.drawable.key2);
+                                btn_a_h.setImageResource(R.drawable.key_a1);
                             }
                         }, 500);
                         break;
@@ -616,7 +616,7 @@ public class MainActivity extends AppCompatActivity{
                             public void run()
                             {
                                 //여기에 딜레이 후 시작할 작업들을 입력
-                                btn_b_h.setImageResource(R.drawable.key1);
+                                btn_b_h.setImageResource(R.drawable.key_b1);
                             }
                         }, 500);
                         break;
@@ -647,7 +647,7 @@ public class MainActivity extends AppCompatActivity{
                             public void run()
                             {
                                 //여기에 딜레이 후 시작할 작업들을 입력
-                                btn_c_hh.setImageResource(R.drawable.key1);
+                                btn_c_hh.setImageResource(R.drawable.key_c1);
                             }
                         }, 500);
                         break;
@@ -678,7 +678,7 @@ public class MainActivity extends AppCompatActivity{
                             public void run()
                             {
                                 //여기에 딜레이 후 시작할 작업들을 입력
-                                btn_d_hh.setImageResource(R.drawable.key1);
+                                btn_d_hh.setImageResource(R.drawable.key_d2);
                             }
                         }, 500);
                         break;
@@ -709,7 +709,7 @@ public class MainActivity extends AppCompatActivity{
                             public void run()
                             {
                                 //여기에 딜레이 후 시작할 작업들을 입력
-                                btn_e_hh.setImageResource(R.drawable.key1);
+                                btn_e_hh.setImageResource(R.drawable.key_e2);
                             }
                         }, 500);
                         break;
