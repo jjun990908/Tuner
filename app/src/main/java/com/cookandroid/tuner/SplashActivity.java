@@ -17,6 +17,8 @@ import java.util.Timer;
 import java.util.TimerTask;
 
 public class SplashActivity extends AppCompatActivity {
+    boolean PASS = false;  // 사용자의 화면이 MainActivity 로 넘어갔는지 확인함
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -41,10 +43,12 @@ public class SplashActivity extends AppCompatActivity {
             }
             else{
                 cancel(); // 지금 이 Task 를 멈춘다.
-
-                Intent intent = new Intent(SplashActivity.this, MainActivity.class);
-                startActivity(intent);
-                finish();
+                if(!PASS){
+                    PASS = true;
+                    Intent intent = new Intent(SplashActivity.this, MainActivity.class);
+                    startActivity(intent);
+                    finish();
+                }
             }
         }
     };
