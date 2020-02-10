@@ -247,7 +247,6 @@
         app:layout_constraintRight_toLeftOf="@+id/btn_b_h"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-
     <!-- 진동 on/off 버튼 -->
 
     <!-- 도움말 버튼 -->
