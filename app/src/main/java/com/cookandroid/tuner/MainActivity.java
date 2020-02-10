@@ -48,7 +48,7 @@ public class MainActivity extends AppCompatActivity{
     RealDoubleFFT transformer;
     RecordAudio recordTask;
     boolean started = true;
-    boolean wikicode = false;
+    boolean wikicode = true;
     boolean codeenglishcheck = false;
     boolean codenumbercheck = false;
     // 3. 화면에 표시하기 위해, 따로 만든 변수들 (수정 가능, 삭제 가능)
@@ -212,7 +212,7 @@ public class MainActivity extends AppCompatActivity{
                         else{
                             sp.play(Scale.do0_0,1,1,1,0,1.0f);
                         }
-                        btn_c_l.setImageResource(R.drawable.key1);
+                        btn_c_l.setImageResource(R.drawable.keyc_c);
                         new Handler().postDelayed(new Runnable()
                         {
                             @Override
@@ -242,7 +242,7 @@ public class MainActivity extends AppCompatActivity{
                         else{
                             sp.play(Scale.re0_0,1,1,1,0,1.0f);
                         }
-                        btn_d_l.setImageResource(R.drawable.key1_click);
+                        btn_d_l.setImageResource(R.drawable.keyc_d);
                         new Handler().postDelayed(new Runnable()
                         {
                             @Override
@@ -273,7 +273,7 @@ public class MainActivity extends AppCompatActivity{
                         else{
                             sp.play(Scale.mi0_0,1,1,1,0,1.0f);
                         }
-                        btn_e_l.setImageResource(R.drawable.key1_click);
+                        btn_e_l.setImageResource(R.drawable.keyc_e);
                         new Handler().postDelayed(new Runnable()
                         {
                             @Override
@@ -304,7 +304,7 @@ public class MainActivity extends AppCompatActivity{
                         else{
                             sp.play(Scale.fa0_0,1,1,1,0,1.0f);
                         }
-                        btn_f_l.setImageResource(R.drawable.key1_click);
+                        btn_f_l.setImageResource(R.drawable.keyc_f);
                         new Handler().postDelayed(new Runnable()
                         {
                             @Override
@@ -335,7 +335,7 @@ public class MainActivity extends AppCompatActivity{
                         else{
                             sp.play(Scale.sol0_0,1,1,1,0,1.0f);
                         }
-                        btn_g_l.setImageResource(R.drawable.key1_click);
+                        btn_g_l.setImageResource(R.drawable.keyc_g);
                         new Handler().postDelayed(new Runnable()
                         {
                             @Override
@@ -366,7 +366,7 @@ public class MainActivity extends AppCompatActivity{
                         else{
                             sp.play(Scale.la0_0,1,1,1,0,1.0f);
                         }
-                        btn_a_l.setImageResource(R.drawable.key2_click);
+                        btn_a_l.setImageResource(R.drawable.keyc_a);
                         new Handler().postDelayed(new Runnable()
                         {
                             @Override
@@ -397,7 +397,7 @@ public class MainActivity extends AppCompatActivity{
                         else{
                             sp.play(Scale.si0_0,1,1,1,0,1.0f);
                         }
-                        btn_b_l.setImageResource(R.drawable.key2_click);
+                        btn_b_l.setImageResource(R.drawable.keyc_b);
                         new Handler().postDelayed(new Runnable()
                         {
                             @Override
@@ -428,7 +428,7 @@ public class MainActivity extends AppCompatActivity{
                         else{
                             sp.play(Scale.do1_0,1,1,1,0,1.0f);
                         }
-                        btn_c_h.setImageResource(R.drawable.key1_click);
+                        btn_c_h.setImageResource(R.drawable.keyc_c1);
                         new Handler().postDelayed(new Runnable()
                         {
                             @Override
@@ -460,7 +460,7 @@ public class MainActivity extends AppCompatActivity{
                         else{
                             sp.play(Scale.re1_0,1,1,1,0,1.0f);
                         }
-                        btn_d_h.setImageResource(R.drawable.key1_click);
+                        btn_d_h.setImageResource(R.drawable.keyc_d1);
                         new Handler().postDelayed(new Runnable()
                         {
                             @Override
@@ -492,7 +492,7 @@ public class MainActivity extends AppCompatActivity{
                         else{
                             sp.play(Scale.mi1_0,1,1,1,0,1.0f);
                         }
-                        btn_e_h.setImageResource(R.drawable.key1_click);
+                        btn_e_h.setImageResource(R.drawable.keyc_e1);
                         new Handler().postDelayed(new Runnable()
                         {
                             @Override
@@ -524,7 +524,7 @@ public class MainActivity extends AppCompatActivity{
                         else{
                             sp.play(Scale.fa1_0,1,1,1,0,1.0f);
                         }
-                        btn_f_h.setImageResource(R.drawable.key1_click);
+                        btn_f_h.setImageResource(R.drawable.keyc_f1);
                         new Handler().postDelayed(new Runnable()
                         {
                             @Override
@@ -556,7 +556,7 @@ public class MainActivity extends AppCompatActivity{
                         else{
                             sp.play(Scale.sol1_0,1,1,1,0,1.0f);
                         }
-                        btn_g_h.setImageResource(R.drawable.key2_click);
+                        btn_g_h.setImageResource(R.drawable.keyc_g1);
                         new Handler().postDelayed(new Runnable()
                         {
                             @Override
@@ -588,7 +588,7 @@ public class MainActivity extends AppCompatActivity{
                         else{
                             sp.play(Scale.la1_0,1,1,1,0,1.0f);
                         }
-                        btn_a_h.setImageResource(R.drawable.key2_click);
+                        btn_a_h.setImageResource(R.drawable.keyc_a1);
                         new Handler().postDelayed(new Runnable()
                         {
                             @Override
@@ -620,7 +620,7 @@ public class MainActivity extends AppCompatActivity{
                         else{
                             sp.play(Scale.si1_0,1,1,1,0,1.0f);
                         }
-                        btn_b_h.setImageResource(R.drawable.key1_click);
+                        btn_b_h.setImageResource(R.drawable.keyc_b1);
                         new Handler().postDelayed(new Runnable()
                         {
                             @Override
@@ -651,14 +651,14 @@ public class MainActivity extends AppCompatActivity{
                         else{
                             sp.play(Scale.do2_0,1,1,1,0,1.0f);
                         }
-                        btn_c_hh.setImageResource(R.drawable.key1_click);
+                        btn_c_hh.setImageResource(R.drawable.keyc_c2);
                         new Handler().postDelayed(new Runnable()
                         {
                             @Override
                             public void run()
                             {
                                 //여기에 딜레이 후 시작할 작업들을 입력
-                                btn_c_hh.setImageResource(R.drawable.key_c1);
+                                btn_c_hh.setImageResource(R.drawable.key_c2);
                             }
                         }, 500);
                         break;
@@ -682,7 +682,7 @@ public class MainActivity extends AppCompatActivity{
                         else{
                             sp.play(Scale.re2_0,1,1,1,0,1.0f);
                         }
-                        btn_d_hh.setImageResource(R.drawable.key1_click);
+                        btn_d_hh.setImageResource(R.drawable.keyc_d2);
                         new Handler().postDelayed(new Runnable()
                         {
                             @Override
@@ -713,7 +713,7 @@ public class MainActivity extends AppCompatActivity{
                         else{
                         sp.play(Scale.mi2_0,1,1,1,0,1.0f);
                     }
-                        btn_e_hh.setImageResource(R.drawable.key1_click);
+                        btn_e_hh.setImageResource(R.drawable.keyc_e2);
                         new Handler().postDelayed(new Runnable()
                         {
                             @Override
