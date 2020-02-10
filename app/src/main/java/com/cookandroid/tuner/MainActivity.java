@@ -709,7 +709,7 @@ public class MainActivity extends AppCompatActivity{
                             public void run()
                             {
                                 //여기에 딜레이 후 시작할 작업들을 입력
-                                btn_e_hh.setImageResource(R.drawable.key_e2);
+                                btn_e_hh.setImageResource(R.drawable.key_e2a);
                             }
                         }, 500);
                         break;
