@@ -1,30 +1,37 @@
 package com.cookandroid.tuner;
-import static com.cookandroid.tuner.FFTfunc.*;
-import com.cookandroid.tuner.fftpack.*;
-
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.app.ActivityCompat;
 import android.Manifest;
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.graphics.Color;
+import android.media.AudioFormat;
+import android.media.AudioRecord;
+import android.media.MediaRecorder;
 import android.media.SoundPool;
+import android.os.AsyncTask;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Vibrator;
+import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.WindowManager;
 import android.view.animation.Animation;
 import android.view.animation.RotateAnimation;
-import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
-import android.media.*;
-import android.os.*;
-import android.util.*;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
+
+import com.cookandroid.tuner.fftpack.RealDoubleFFT;
+
+import static com.cookandroid.tuner.FFTfunc.MaxInFFTArray;
+import static com.cookandroid.tuner.FFTfunc.Similar;
 
 
 public class MainActivity extends AppCompatActivity{
@@ -735,6 +742,8 @@ public class MainActivity extends AppCompatActivity{
         btn_switch.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                SharedPreferences cc = getSharedPreferences("check", MODE_PRIVATE);
+                wikicode = cc.getBoolean("codecheck",false);
                 if(wikicode) {
                     Toast.makeText(MainActivity.this, "연주모드", Toast.LENGTH_SHORT).show();
                     startActivity(new Intent(getApplicationContext(), play_mode.class));

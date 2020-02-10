@@ -1,6 +1,6 @@
 package com.cookandroid.tuner;
 
-import android.app.AppComponentFactory;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -13,7 +13,7 @@ import androidx.appcompat.app.AppCompatActivity;
 public class Input_Code_Popup extends AppCompatActivity {
     TextView txt_codeview, text_Explanation2;
     Button btn_close;
-    ImageButton btn_confirmcode;
+    ImageButton btn_confirmcode, btn_confirm, btn_buycode;
     boolean codenumbercheck =false , codeenglishcheck =false;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,7 +37,7 @@ public class Input_Code_Popup extends AppCompatActivity {
                     codeenglishcheck = false;
                 }
                 else {                                                //공백이 아닐 때 처리할 내용
-                    if(codetext.substring(0)== "W" && codetext.substring(1)== "K"){
+                    if(codetext.charAt(0)== 87 && codetext.charAt(1)== 75){
                         codeenglishcheck = true;
                     }
                     else{
@@ -47,7 +47,7 @@ public class Input_Code_Popup extends AppCompatActivity {
 
                     int count = 0;
                     for(int i = 2; i<7; i++ ) {
-                        if (codetext.charAt(i) >= 48 && codetext.charAt(i) <= 57) {
+                        if (codetext.charAt(i) >= 48 && codetext.charAt(i) <= 57 && codeenglishcheck ==true) {
                             count++;
                         }
                     }
@@ -62,6 +62,21 @@ public class Input_Code_Popup extends AppCompatActivity {
                      }
                 }
             }
+        });
+        btn_confirm = findViewById(R.id.btn_confirm);
+        btn_confirm.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view){
+                if(codeenglishcheck == true && codenumbercheck ==true){
+                    SharedPreferences sharedPreferences = getSharedPreferences("check", MODE_PRIVATE);
+                    SharedPreferences.Editor editor = sharedPreferences.edit();
+                    Boolean checked = true;
+                    editor.putBoolean("codecheck", checked);
+                    editor.commit();
+                    finish();
+                }
+            }
+
         });
 
         txt_codeview = (TextView)findViewById(R.id.text_codeview);
