@@ -38,10 +38,10 @@ public class SplashActivity extends AppCompatActivity {
         };
 
 
-
+/*
         final Timer timer = new Timer();
         timer.schedule(Auth,0,3000);
-
+*/
 
     }
 }

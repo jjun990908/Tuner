@@ -15,7 +15,7 @@
         android:background="?android:attr/panelBackground"
         android:elevation="30dp"
         android:scaleType="centerInside"
-        android:src="@drawable/key2"
+        android:src="@drawable/key_c"
         android:text="C"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toRightOf="@id/btn_d_l"
