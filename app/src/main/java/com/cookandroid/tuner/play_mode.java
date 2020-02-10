@@ -27,6 +27,9 @@ public class play_mode extends AppCompatActivity {
     Switch btn_vive;
     boolean changemod = false;
     int[] jangjo ={0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0};
+
+    long LOADING_TIME = System.currentTimeMillis();
+
     @Override
     public void finish(){
         overridePendingTransition(R.anim.anim_slide_not_move,R.anim.anim_slide_up);
@@ -83,7 +86,9 @@ public class play_mode extends AppCompatActivity {
         btn_c_hh = (ImageButton)findViewById(R.id.btn_c_hh);
         btn_d_hh = (ImageButton)findViewById(R.id.btn_d_hh);
         btn_e_hh = (ImageButton)findViewById(R.id.btn_e_hh);
+
         btn_switch = (ImageButton)findViewById(R.id.switch_mode);
+
         btn_vive = (Switch)findViewById(R.id.btn_vive);
 
         final Animation anim_Twist = AnimationUtils.loadAnimation(
@@ -808,6 +813,9 @@ public class play_mode extends AppCompatActivity {
         btn_switch.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
+                if(System.currentTimeMillis() - LOADING_TIME < 1000){ return; }
+
                 Toast.makeText(play_mode.this, "튜닝모드", Toast.LENGTH_SHORT).show();
                 finish();
                 overridePendingTransition(R.anim.anim_slide_down,R.anim.anim_slide_up);

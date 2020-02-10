@@ -71,7 +71,7 @@ public class MainActivity extends AppCompatActivity{
     Boolean sharpmode=false,flatmode=false;
     ImageView sound_label,sound_label_correct;
     TextView text_Explanation2;
-
+    long LOADING_TIME;
 
     public void ROTATE (float inputHz){
         if(inputHz <233){return;}
@@ -134,7 +134,7 @@ public class MainActivity extends AppCompatActivity{
         super.onCreate(savedInstanceState);
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
 
-
+         LOADING_TIME = System.currentTimeMillis();
 
         getWindow().setNavigationBarColor(Color.BLACK);
 
@@ -742,6 +742,9 @@ public class MainActivity extends AppCompatActivity{
         btn_switch.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                if(System.currentTimeMillis() - LOADING_TIME < 1000){
+                    return;
+                }
                 SharedPreferences cc = getSharedPreferences("check", MODE_PRIVATE);
                 wikicode = cc.getBoolean("codecheck",false);
                 if(wikicode) {
