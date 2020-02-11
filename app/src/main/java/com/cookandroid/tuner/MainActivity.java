@@ -77,7 +77,7 @@ public class MainActivity extends AppCompatActivity{
     TextView keyText,sharpText,flatText;
     ImageButton btn_switch,btn_help,btn_confirmcode;
     Boolean sharpmode=false,flatmode=false;
-    ImageView sound_label,sound_label_correct;
+    ImageView sound_label,sound_label_correct, sound_label_correct_cover, sound_label_cover;
     TextView text_Explanation2;
     long LOADING_TIME;
 
@@ -146,7 +146,10 @@ public class MainActivity extends AppCompatActivity{
     }
 
     public void anim_rotate(float i){
-        if(correct_cnt<2){ sound_label_correct.setVisibility(View.INVISIBLE); }
+        if(correct_cnt<2){
+            sound_label_cover.setVisibility(View.VISIBLE);
+            sound_label_correct.setVisibility(View.INVISIBLE);
+            sound_label_correct_cover.setVisibility(View.INVISIBLE);}
         RotateAnimation ra = new RotateAnimation(before,i, Animation.RELATIVE_TO_SELF,0.5f,Animation.RELATIVE_TO_SELF,0.5f);
         ra.setDuration(200);
         ra.setFillAfter(true);
@@ -156,7 +159,10 @@ public class MainActivity extends AppCompatActivity{
     }
 
     public void anime_rotate2(float i ){
-        if(correct_cnt>=2){ sound_label_correct.setVisibility(View.VISIBLE); }
+        if(correct_cnt>=2){
+            sound_label_cover.setVisibility(View.INVISIBLE);
+            sound_label_correct.setVisibility(View.VISIBLE);
+            sound_label_correct_cover.setVisibility(View.VISIBLE);}
 
         sound_label_correct.setRotation(i);
     }
@@ -219,7 +225,10 @@ public class MainActivity extends AppCompatActivity{
         flatText = (TextView)findViewById(R.id.flat);
         btn_switch = (ImageButton)findViewById(R.id.switch_mode);
         sound_label = (ImageView)findViewById(R.id.sound_label);
+        sound_label_cover = (ImageView)findViewById(R.id.sound_label_cover);
         sound_label_correct = (ImageView)findViewById(R.id.sound_label_correct);
+
+        sound_label_correct_cover = (ImageView)findViewById(R.id.sound_label_correct_cover);
 
         if(ActivityCompat.checkSelfPermission(getApplicationContext(), Manifest.permission.RECORD_AUDIO) != PackageManager.PERMISSION_GRANTED){
         //마이크 권한 확인
