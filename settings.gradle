@@ -1,2 +1,2 @@
-include ':app'
+include ':app', ':android-inapp-billing-v3-master', ':material-dialogs-master'
 rootProject.name='Tuner'
