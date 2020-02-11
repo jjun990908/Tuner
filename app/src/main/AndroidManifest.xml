@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.cookandroid.tuner">
+    <uses-permission android:name="com.android.vending.BILLING" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
     <application
         android:allowBackup="true"
         android:icon="@drawable/icon_2"
@@ -26,8 +28,10 @@
             android:screenOrientation="landscape"/>
 
         <activity android:name=".help_popup"
-            android:theme="@style/popupTheme"
+
+            android:theme="@style/popupTheme" />
             android:screenOrientation="landscape"/>
+
         <activity android:name=".Input_Code_Popup"
             android:theme="@style/popupTheme"
             android:screenOrientation="landscape"/>
