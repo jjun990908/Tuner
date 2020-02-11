@@ -1203,9 +1203,14 @@ public class play_mode extends AppCompatActivity {
         btn_sharp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (!changemod)changemod = true;
-                else changemod = false;
-                Toast.makeText(play_mode.this, "반음 설정", Toast.LENGTH_SHORT).show();
+                if (!changemod){
+                    changemod = true;
+                    Toast.makeText(play_mode.this, "반음 설정", Toast.LENGTH_SHORT).show();
+                }
+                else {
+                    changemod = false;
+                    Toast.makeText(play_mode.this, "연주 모드", Toast.LENGTH_SHORT).show();
+                }
             }
         });
     }
