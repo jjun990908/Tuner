@@ -20,6 +20,7 @@ import android.view.View;
 import android.view.WindowManager;
 import android.view.animation.Animation;
 import android.view.animation.RotateAnimation;
+import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -47,13 +48,15 @@ public class MainActivity extends AppCompatActivity{
     int audioEncoding = AudioFormat.ENCODING_PCM_16BIT;
     RealDoubleFFT transformer;
     RecordAudio recordTask;
+
+    // 3. 화면에 표시하기 위해, 따로 만든 변수들 (수정 가능, 삭제 가능)
     boolean started = true;
     boolean wikicode = true;
     boolean codeenglishcheck = false;
     boolean codenumbercheck = false;
-    // 3. 화면에 표시하기 위해, 따로 만든 변수들 (수정 가능, 삭제 가능)
-    boolean DEBUG_MODE = false;
 
+    boolean DEBUG_MODE = false;
+    boolean ROTATE_MODE = false;
 
     static ImageButton[] buttonArray = new ImageButton[17];        // 칼림바 건반의 버튼객체를 담고 있는 배열
     static String[] ScaleArray;                          // C, D, E... 등의 음계를 담고 있는 String 배열
@@ -61,8 +64,9 @@ public class MainActivity extends AppCompatActivity{
     int buttonId;                                        // 현재 누르고 있는 건반의 버튼 아이디를 담고 있는 Int 변수
     TextView D0, D1, D2, D3;                             // 순차적으로 들어오는 Hz를 표시하기 위한 TextView
     float before;
+    int correct_cnt = 0;
+    double angle = 0;
     /////////////////////////////////////////////
-
 
 
     ImageButton btn_c_l,btn_d_l,btn_e_l,btn_f_l,btn_g_l,btn_a_l,btn_b_l,btn_c_h,btn_d_h,btn_e_h,btn_f_h,btn_g_h,btn_a_h,btn_b_h,btn_c_hh,btn_d_hh,btn_e_hh,btn_tune;
@@ -105,27 +109,51 @@ public class MainActivity extends AppCompatActivity{
         }
 
 
+
         sound_label.setImageResource(R.drawable.scale1);
-        if(205<=HZidx&& HZidx<=239){
+        if(210<=HZidx&& HZidx<=239){
             HZidx = 240;
+            correct_cnt++;
         }
-        else if(0<= HZidx && HZidx <=35){
+        else if(0<= HZidx && HZidx <=30){
             HZidx = 0;
+            correct_cnt++;
+        }
+        else{
+            correct_cnt = 0;
+        }
+        Log.i(""+angle, "     "+(-60+(Scaleidx-1)*30+(float)(HZidx*0.125)));
+        if(0!=Double.compare(angle,(-60+(Scaleidx-1)*30+(float)(HZidx*0.125)))){
+            correct_cnt = 0;
         }
 
 
+
+        anime_rotate2(-(-60+(Scaleidx-1)*30+(float)(HZidx*0.125)));
         anim_rotate(-(-60+(Scaleidx-1)*30+(float)(HZidx*0.125)));
         Log.i("각도는", -60 + (Scaleidx-1)*30 + "  +  "+HZidx);
+        angle = (-60+(Scaleidx-1)*30+(float)(HZidx*0.125));
+
     }
 
     public void anim_rotate(float i){
+        if(correct_cnt<2){
+            sound_label_correct.setVisibility(View.INVISIBLE);
+        }
         RotateAnimation ra = new RotateAnimation(before,i, Animation.RELATIVE_TO_SELF,0.5f,Animation.RELATIVE_TO_SELF,0.5f);
         ra.setDuration(200);
         ra.setFillAfter(true);
 
         sound_label.startAnimation(ra);
-        sound_label_correct.startAnimation((ra));
+
         before = i;
+    }
+
+    public void anime_rotate2(float i ){
+        if(correct_cnt>=2){
+            sound_label_correct.setVisibility(View.VISIBLE);
+        }
+        sound_label_correct.setRotation(i);
     }
 
     @SuppressLint("ClickableViewAccessibility")
@@ -757,6 +785,7 @@ public class MainActivity extends AppCompatActivity{
                 }
             }
         });
+
     }
 
 
