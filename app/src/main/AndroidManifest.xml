@@ -26,8 +26,10 @@
             android:screenOrientation="landscape"/>
 
         <activity android:name=".help_popup"
-            android:theme="@style/popupTheme"
+
+            android:theme="@style/popupTheme" />
             android:screenOrientation="landscape"/>
+
         <activity android:name=".Input_Code_Popup"
             android:theme="@style/popupTheme"
             android:screenOrientation="landscape"/>
