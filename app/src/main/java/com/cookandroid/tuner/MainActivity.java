@@ -56,18 +56,19 @@ public class MainActivity extends AppCompatActivity{
     boolean codeenglishcheck = false;
     boolean codenumbercheck = false;
 
-    boolean DEBUG_MODE = false;
+    boolean DEBUG_MODE = false;                                    // 화면에 순차적으로 들어오는 4개의 Hz 값을 띄워주는 모드
 
     static ImageButton[] buttonArray = new ImageButton[17];        // 칼림바 건반의 버튼객체를 담고 있는 배열
-    static String[] ScaleArray;                          // C, D, E... 등의 음계를 담고 있는 String 배열
-    static double CuHz= 260;                             // 현재 누르고 있는 건반의 음계치를 담고 있는 Int 변수
-    int buttonId;                                        // 현재 누르고 있는 건반의 버튼 아이디를 담고 있는 Int 변수
-    TextView D0, D1, D2, D3;                             // 순차적으로 들어오는 Hz를 표시하기 위한 TextView
-    float before;
-    int correct_cnt = 0;
-    double angle = 0;
+    static String[] ScaleArray;                                    // C, D, E... 등의 음계를 담고 있는 String 배열
+    static double CuHz= 260;                                       // 현재 누르고 있는 건반의 음계치를 담고 있는 Int 변수
+    int buttonId;                                                  // 현재 누르고 있는 건반의 버튼 아이디를 담고 있는 Int 변수
+    TextView D0, D1, D2, D3;                                       // 순차적으로 들어오는 Hz를 표시하기 위한 TextView
 
-    double correction = 30;
+    float before;                                                  // 이전 돌림판의 각도값을 저장하기 위한 Float 변수
+    int correct_cnt = 0;                                           // 돌림판의 correct 시기를 결정하는 카운트용 Int 변수
+    double angle = 0;                                              // 이전 돌림판의 각도값을 저장하기 위한 Double 변수
+
+    double correction = 30;                                        // 각도 보정 값 (대체로 15~40이 적당)
 
     /////////////////////////////////////////////
 
@@ -145,24 +146,19 @@ public class MainActivity extends AppCompatActivity{
     }
 
     public void anim_rotate(float i){
-        if(correct_cnt<2){
-            sound_label_correct.setVisibility(View.INVISIBLE);
-        }
+        if(correct_cnt<2){ sound_label_correct.setVisibility(View.INVISIBLE); }
         RotateAnimation ra = new RotateAnimation(before,i, Animation.RELATIVE_TO_SELF,0.5f,Animation.RELATIVE_TO_SELF,0.5f);
         ra.setDuration(200);
         ra.setFillAfter(true);
 
         sound_label.startAnimation(ra);
-
         before = i;
     }
 
     public void anime_rotate2(float i ){
-        if(correct_cnt>=2){
-            sound_label_correct.setVisibility(View.VISIBLE);
-        }
-        sound_label_correct.setRotation(i);
+        if(correct_cnt>=2){ sound_label_correct.setVisibility(View.VISIBLE); }
 
+        sound_label_correct.setRotation(i);
     }
 
     @SuppressLint("ClickableViewAccessibility")
@@ -785,7 +781,7 @@ public class MainActivity extends AppCompatActivity{
             }
         });
 
-        //연주모드 버튼 함수z
+        //연주모드 버튼 함수
         btn_switch.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -865,9 +861,8 @@ public class MainActivity extends AppCompatActivity{
         }
 
 
-
-        public void DebugHz(double cin,boolean DEBUG){
-            if(!DEBUG)return;
+        public void DebugHz(double cin, boolean DEBUG) {
+            if (!DEBUG) return;
             D3.setText(D2.getText());
             D2.setText(D1.getText());
             D1.setText(D0.getText());
@@ -876,18 +871,9 @@ public class MainActivity extends AppCompatActivity{
 
         @Override
         protected void onProgressUpdate(double[]... toTransform) {
-            float InputAudioHz = MaxInFFTArray(toTransform[0], sensitivity) * frequency / (2*blockSize);
-
-
-
-            if(InputAudioHz>234) {
-                DebugHz(InputAudioHz, DEBUG_MODE);
-                double[] R = {InputAudioHz};
-                if (Similar(R,10)) {
-                    ROTATE((InputAudioHz));
-                }else{ROTATE(InputAudioHz);}
-            }
-
+            float InputAudioHz = MaxInFFTArray(toTransform[0], sensitivity) * frequency / (2 * blockSize);
+            DebugHz(InputAudioHz, DEBUG_MODE);
+            if (InputAudioHz > 234) { ROTATE(InputAudioHz); }
         }
     }
 }
