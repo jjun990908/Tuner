@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="594dp"
     android:layout_height="324dp"
+    android:background="@color/no"
     tools:context=".MainActivity">
 
     <Button

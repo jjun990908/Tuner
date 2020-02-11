@@ -21,6 +21,9 @@ import android.widget.ToggleButton;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import static android.view.DragEvent.ACTION_DRAG_ENTERED;
+import static android.view.DragEvent.ACTION_DRAG_STARTED;
+import static android.view.DragEvent.ACTION_DROP;
 public class play_mode extends AppCompatActivity {
 
     ImageButton btn_c_l,btn_d_l,btn_e_l,btn_f_l,btn_g_l,btn_a_l,btn_b_l,btn_c_h,btn_d_h,btn_e_h,btn_f_h,btn_g_h,btn_a_h,btn_b_h,btn_c_hh,btn_d_hh,btn_e_hh,btn_tune;
@@ -36,27 +39,6 @@ public class play_mode extends AppCompatActivity {
         overridePendingTransition(R.anim.anim_slide_not_move,R.anim.anim_slide_up);
         super.finish();
     }
-//    public boolean onTouch(View v, MotionEvent event){
-//        int action = event.getAction();
-//        switch (action) {
-//            case MotionEvent.ACTION_DOWN:
-//                isViewPressed = true;
-//                break;
-//            case MotionEvent.ACTION_MOVE:
-//                if (!v.isPressed()) {
-//                    isViewPressed = false;
-//                }
-//                break;
-//            case MotionEvent.ACTION_UP:
-//                if (isViewPressed) {
-//
-//                }
-//                break;
-//            default:
-//                break;
-//        }
-//        return false;
-//    } }
 
     @SuppressLint("ClickableViewAccessibility")
     protected void onCreate(Bundle savedInstanceState) {
@@ -98,69 +80,134 @@ public class play_mode extends AppCompatActivity {
         final ScaleSrc Scale = new ScaleSrc(play_mode.this);
         final SoundPool sp = Scale.sp;
 
-        btn_c_l.setOnTouchListener(new View.OnTouchListener() {
-            public boolean onTouch(View v, MotionEvent event) {
-                switch (event.getAction()) {
-                    case MotionEvent.ACTION_DOWN:
-                    case DragEvent.ACTION_DRAG_ENTERED:
-                        if(!changemod){
-                            if(!btn_vive.isChecked()){
-                                vibrator.vibrate(30);
-                                btn_c_l.startAnimation(anim_Twist);
-                            }
-                            if (jangjo[0]==0){
-                                sp.play(Scale.do0_0,1,1,1,0,1.0f);
-                                btn_c_l.setImageResource(R.drawable.keyc_c);
-                            }
-                            else if(jangjo[0]==1){
-                                sp.play(Scale.do0_5,1,1,1,0,1.0f);
-                                btn_c_l.setImageResource(R.drawable.keycs_c);
-                            }
-                            else{
-                                sp.play(Scale.do0_5,1,1,1,0,1.0f);
-                                btn_c_l.setImageResource(R.drawable.keycf_c);
-                            }
-
-                            new Handler().postDelayed(new Runnable()
-                            {
-                                @Override
-                                public void run()
-                                {
-                                    //여기에 딜레이 후 시작할 작업들을 입력
+        btn_c_l.setOnDragListener(
+                new View.OnDragListener() {
+                    @Override
+                    public boolean onDrag(View view, DragEvent dragEvent) {
+                        switch (dragEvent.getAction()) {
+                            case ACTION_DRAG_ENTERED:
+                            case ACTION_DRAG_STARTED:
+                                if(!changemod){
+                                    if(!btn_vive.isChecked()){
+                                        vibrator.vibrate(30);
+                                        btn_c_l.startAnimation(anim_Twist);
+                                    }
                                     if (jangjo[0]==0){
-                                        btn_c_l.setImageResource(R.drawable.key_c);
+                                        sp.play(Scale.do0_0,1,1,1,0,1.0f);
+                                        btn_c_l.setImageResource(R.drawable.keyc_c);
                                     }
                                     else if(jangjo[0]==1){
-                                        btn_c_l.setImageResource(R.drawable.keys_c);
+                                        sp.play(Scale.do0_5,1,1,1,0,1.0f);
+                                        btn_c_l.setImageResource(R.drawable.keycs_c);
                                     }
                                     else{
+                                        sp.play(Scale.do0_5,1,1,1,0,1.0f);
+                                        btn_c_l.setImageResource(R.drawable.keycf_c);
+                                    }
+
+                                    new Handler().postDelayed(new Runnable()
+                                    {
+                                        @Override
+                                        public void run()
+                                        {
+                                            //여기에 딜레이 후 시작할 작업들을 입력
+                                            if (jangjo[0]==0){
+                                                btn_c_l.setImageResource(R.drawable.key_c);
+                                            }
+                                            else if(jangjo[0]==1){
+                                                btn_c_l.setImageResource(R.drawable.keys_c);
+                                            }
+                                            else{
+                                                btn_c_l.setImageResource(R.drawable.keyf_c);
+                                            }
+                                        }
+                                    }, 500);
+                                }
+                                else{
+                                    if (jangjo[0]==0) {
+                                        jangjo[0]++;
+                                        btn_c_l.setImageResource(R.drawable.keys_c);
+                                        sp.play(Scale.do0_5,1,1,1,0,1.0f);
+                                    }
+                                    else if(jangjo[0]==1) {
+                                        jangjo[0]++;
                                         btn_c_l.setImageResource(R.drawable.keyf_c);
+                                        sp.play(Scale.do0_5,1,1,1,0,1.0f);
+                                    }
+                                    else {
+                                        jangjo[0] = 0;
+                                        btn_c_l.setImageResource(R.drawable.key_c);
+                                        sp.play(Scale.do0_0,1,1,1,0,1.0f);
                                     }
                                 }
-                            }, 500);
+                                break;
                         }
-                        else{
-                            if (jangjo[0]==0) {
-                                jangjo[0]++;
-                                btn_c_l.setImageResource(R.drawable.keys_c);
-                                sp.play(Scale.do0_5,1,1,1,0,1.0f);
-                            }
-                            else if(jangjo[0]==1) {
-                                jangjo[0]++;
-                                btn_c_l.setImageResource(R.drawable.keyf_c);
-                                sp.play(Scale.do0_5,1,1,1,0,1.0f);
-                            }
-                            else {
-                                jangjo[0] = 0;
-                                btn_c_l.setImageResource(R.drawable.key_c);
-                                sp.play(Scale.do0_0,1,1,1,0,1.0f);
-                            }
-                        }
-                        break;
-                }
-                return false;
-            }
-        });
+                        return false;
+                    }
+                });
+//        btn_c_l.setOnTouchListener(new View.OnTouchListener() {
+//            public boolean onTouch(View v, MotionEvent event) {
+//                switch (event.getAction()) {
+//                    case MotionEvent.ACTION_DOWN:
+//                    case DragEvent.ACTION_DRAG_ENTERED:
+//                        if(!changemod){
+//                            if(!btn_vive.isChecked()){
+//                                vibrator.vibrate(30);
+//                                btn_c_l.startAnimation(anim_Twist);
+//                            }
+//                            if (jangjo[0]==0){
+//                                sp.play(Scale.do0_0,1,1,1,0,1.0f);
+//                                btn_c_l.setImageResource(R.drawable.keyc_c);
+//                            }
+//                            else if(jangjo[0]==1){
+//                                sp.play(Scale.do0_5,1,1,1,0,1.0f);
+//                                btn_c_l.setImageResource(R.drawable.keycs_c);
+//                            }
+//                            else{
+//                                sp.play(Scale.do0_5,1,1,1,0,1.0f);
+//                                btn_c_l.setImageResource(R.drawable.keycf_c);
+//                            }
+//
+//                            new Handler().postDelayed(new Runnable()
+//                            {
+//                                @Override
+//                                public void run()
+//                                {
+//                                    //여기에 딜레이 후 시작할 작업들을 입력
+//                                    if (jangjo[0]==0){
+//                                        btn_c_l.setImageResource(R.drawable.key_c);
+//                                    }
+//                                    else if(jangjo[0]==1){
+//                                        btn_c_l.setImageResource(R.drawable.keys_c);
+//                                    }
+//                                    else{
+//                                        btn_c_l.setImageResource(R.drawable.keyf_c);
+//                                    }
+//                                }
+//                            }, 500);
+//                        }
+//                        else{
+//                            if (jangjo[0]==0) {
+//                                jangjo[0]++;
+//                                btn_c_l.setImageResource(R.drawable.keys_c);
+//                                sp.play(Scale.do0_5,1,1,1,0,1.0f);
+//                            }
+//                            else if(jangjo[0]==1) {
+//                                jangjo[0]++;
+//                                btn_c_l.setImageResource(R.drawable.keyf_c);
+//                                sp.play(Scale.do0_5,1,1,1,0,1.0f);
+//                            }
+//                            else {
+//                                jangjo[0] = 0;
+//                                btn_c_l.setImageResource(R.drawable.key_c);
+//                                sp.play(Scale.do0_0,1,1,1,0,1.0f);
+//                            }
+//                        }
+//                        break;
+//                }
+//                return false;
+//            }
+//        });
         btn_d_l.setOnTouchListener(new View.OnTouchListener() {
             public boolean onTouch(View v, MotionEvent event) {
                 switch (event.getAction()) {
