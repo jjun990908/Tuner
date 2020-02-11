@@ -35,7 +35,7 @@ public class Input_Code_Popup extends AppCompatActivity {
                     codeenglishcheck = false;
                 }
                 else {                                                //공백이 아닐 때 처리할 내용
-                    if(codetext.charAt(0)== 87 && codetext.charAt(1)== 75){
+                    if(codetext.charAt(0)== 87 && codetext.charAt(1)== 75 || codetext.charAt(0)== 119 && codetext.charAt(1)== 107){
                         codeenglishcheck = true;
                     }
                     else{
