@@ -10,6 +10,7 @@ import android.media.AudioFormat;
 import android.media.AudioRecord;
 import android.media.MediaRecorder;
 import android.media.SoundPool;
+import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Handler;
@@ -69,7 +70,7 @@ public class MainActivity extends AppCompatActivity{
     /////////////////////////////////////////////
 
 
-    ImageButton btn_c_l,btn_d_l,btn_e_l,btn_f_l,btn_g_l,btn_a_l,btn_b_l,btn_c_h,btn_d_h,btn_e_h,btn_f_h,btn_g_h,btn_a_h,btn_b_h,btn_c_hh,btn_d_hh,btn_e_hh,btn_tune;
+    ImageButton btn_c_l,btn_d_l,btn_e_l,btn_f_l,btn_g_l,btn_a_l,btn_b_l,btn_c_h,btn_d_h,btn_e_h,btn_f_h,btn_g_h,btn_a_h,btn_b_h,btn_c_hh,btn_d_hh,btn_e_hh,btn_link;
     TextView keyText,sharpText,flatText;
     ImageButton btn_switch,btn_help,btn_confirmcode;
     Boolean sharpmode=false,flatmode=false;
@@ -209,6 +210,7 @@ public class MainActivity extends AppCompatActivity{
         buttonArray = new ImageButton[]{btn_c_l,btn_d_l,btn_e_l,btn_f_l,btn_g_l,btn_a_l,btn_b_l,btn_c_h,btn_d_h,btn_e_h,btn_f_h,btn_g_h,btn_a_h,btn_b_h,btn_c_hh,btn_d_hh,btn_e_hh};
 
         btn_help = (ImageButton)findViewById(R.id.btn_help);
+        btn_link = (ImageButton)findViewById(R.id.btn_link);
         sharpText = (TextView)findViewById(R.id.sharp);
         flatText = (TextView)findViewById(R.id.flat);
         btn_switch = (ImageButton)findViewById(R.id.switch_mode);
@@ -763,6 +765,15 @@ public class MainActivity extends AppCompatActivity{
             public void onClick(View view) {
                 //팝업창 액티비티로 연결
                 startActivity(new Intent(getApplicationContext(),help_popup.class));
+            }
+        });
+
+        //카트 버튼 클릭 함수
+        btn_link.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(" https://smartstore.naver.com/wikiwiki/products/4257558123"));
+                startActivity(intent);
             }
         });
 
