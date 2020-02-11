@@ -55,8 +55,7 @@ public class MainActivity extends AppCompatActivity{
     boolean codeenglishcheck = false;
     boolean codenumbercheck = false;
 
-    boolean DEBUG_MODE = false;
-    boolean ROTATE_MODE = false;
+    boolean DEBUG_MODE = true;
 
     static ImageButton[] buttonArray = new ImageButton[17];        // 칼림바 건반의 버튼객체를 담고 있는 배열
     static String[] ScaleArray;                          // C, D, E... 등의 음계를 담고 있는 String 배열
@@ -66,6 +65,9 @@ public class MainActivity extends AppCompatActivity{
     float before;
     int correct_cnt = 0;
     double angle = 0;
+
+    double correction = 30;
+
     /////////////////////////////////////////////
 
 
@@ -111,21 +113,26 @@ public class MainActivity extends AppCompatActivity{
 
 
         sound_label.setImageResource(R.drawable.scale1);
-        if(210<=HZidx&& HZidx<=239){
+        if(240-correction<=HZidx&& HZidx<=239){
             HZidx = 240;
             correct_cnt++;
+            if(240-(correction*0.5)<=HZidx){correct_cnt++;}
         }
-        else if(0<= HZidx && HZidx <=30){
+        else if(0<= HZidx && HZidx <=correction){
             HZidx = 0;
             correct_cnt++;
+            if(HZidx<=(correction*0.5)){correct_cnt++;}
         }
         else{
             correct_cnt = 0;
         }
-        Log.i(""+angle, "     "+(-60+(Scaleidx-1)*30+(float)(HZidx*0.125)));
+
         if(0!=Double.compare(angle,(-60+(Scaleidx-1)*30+(float)(HZidx*0.125)))){
             correct_cnt = 0;
         }
+
+        Log.i(""+angle, "     "+(-60+(Scaleidx-1)*30+(float)(HZidx*0.125)));
+
 
 
 
@@ -154,6 +161,7 @@ public class MainActivity extends AppCompatActivity{
             sound_label_correct.setVisibility(View.VISIBLE);
         }
         sound_label_correct.setRotation(i);
+
     }
 
     @SuppressLint("ClickableViewAccessibility")
