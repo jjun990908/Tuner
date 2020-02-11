@@ -5,7 +5,7 @@
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
     <application
         android:allowBackup="true"
-        android:icon="@drawable/icon"
+        android:icon="@drawable/icon_2"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
@@ -28,8 +28,10 @@
             android:screenOrientation="landscape"/>
 
         <activity android:name=".help_popup"
-            android:theme="@style/popupTheme"
+
+            android:theme="@style/popupTheme" />
             android:screenOrientation="landscape"/>
+
         <activity android:name=".Input_Code_Popup"
             android:theme="@style/popupTheme"
             android:screenOrientation="landscape"/>
@@ -37,4 +39,6 @@
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
     <uses-permission android:name="android.permission.RECORD_AUDIO"/>
     <uses-permission android:name="android.permission.VIBRATE"/>
+    <uses-permission android:name="android.permission.GET_TASKS"/>
+
 </manifest>

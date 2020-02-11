@@ -288,6 +288,8 @@
         app:layout_constraintRight_toLeftOf="@+id/btn_g_h"
         app:layout_constraintTop_toTopOf="parent" />
 
+
+
     <ImageButton
         android:id="@+id/btn_d_hh"
         android:layout_width="40dp"
@@ -316,6 +318,19 @@
         android:background="@drawable/smallbtn_shape"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
+
+    <!-- 도움말 버튼 -->
+    <ImageButton
+        android:id="@+id/btn_link"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginBottom="16dp"
+        android:background="@drawable/smallbtn_shape"
+        android:scaleType="centerInside"
+        android:src="@drawable/butoon_shop"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@id/btn_help" />
 
 <!--    <View-->
 <!--        android:id="@+id/view_CenterView"-->
@@ -393,6 +408,16 @@
         app:srcCompat="@drawable/scale1" />
 
     <ImageView
+        android:id="@+id/sound_label_cover"
+        android:layout_width="350dp"
+        android:layout_height="175dp"
+        android:layout_marginTop="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btn_c_l"
+        app:srcCompat="@drawable/scale1_light" />
+
+    <ImageView
         android:id="@+id/sound_label_correct"
         android:layout_width="550dp"
         android:layout_height="350dp"
@@ -405,14 +430,15 @@
         app:srcCompat="@drawable/scale2" />
 
     <ImageView
-        android:id="@+id/sound_label_cover"
+        android:id="@+id/sound_label_correct_cover"
         android:layout_width="350dp"
         android:layout_height="175dp"
         android:layout_marginTop="20dp"
+        android:visibility="invisible"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btn_c_l"
-        app:srcCompat="@drawable/scale1_light" />
+        app:srcCompat="@drawable/scale2_light" />
 
     <ImageView
         android:id="@+id/neddle"
@@ -424,5 +450,6 @@
         app:layout_constraintStart_toStartOf="@+id/sound_label"
         app:layout_constraintTop_toTopOf="@+id/sound_label"
         app:srcCompat="@drawable/neddle" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

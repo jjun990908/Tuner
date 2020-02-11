@@ -7,5 +7,6 @@
     <color name="popupbg">#f2f2f2</color>
     <color name="writecode">#c2c2c2</color>
     <color name="Black">#000000</color>
-    <color name="stroke">#999999</color>
+    <color name="stroke">#3E999999</color>
+    <color name="no">#00FFFFFF</color>
 </resources>

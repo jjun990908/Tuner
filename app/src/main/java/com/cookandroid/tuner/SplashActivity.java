@@ -2,6 +2,8 @@ package com.cookandroid.tuner;
 
 import android.Manifest;
 import android.app.Activity;
+import android.app.ActivityManager;
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
@@ -13,6 +15,7 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 
+import java.util.List;
 import java.util.Timer;
 import java.util.TimerTask;
 
@@ -28,11 +31,6 @@ public class SplashActivity extends AppCompatActivity {
     }
 
 
-
-
-
-
-
     final TimerTask Auth = new TimerTask() {
         @Override
         public void run() {
@@ -42,9 +40,10 @@ public class SplashActivity extends AppCompatActivity {
                 Log.i("Wating response", ":         AUDIO");
             }
             else{
-                cancel(); // 지금 이 Task 를 멈춘다.
                 if(!PASS){
                     PASS = true;
+
+                    cancel(); // 지금 이 Task 를 멈춘다.\
                     Intent intent = new Intent(SplashActivity.this, MainActivity.class);
                     startActivity(intent);
                     finish();
@@ -54,4 +53,3 @@ public class SplashActivity extends AppCompatActivity {
     };
 
 }
-
