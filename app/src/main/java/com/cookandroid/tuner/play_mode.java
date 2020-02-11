@@ -515,7 +515,7 @@ public class play_mode extends AppCompatActivity {
                         else{
                             if (jangjo[6]==0) {
                                 jangjo[6]++;
-                                btn_b_l.setImageResource(R.drawable.key_c1);
+                                btn_b_l.setImageResource(R.drawable.keys_b_red);
                                 sp.play(Scale.si0_5,1,1,1,0,1.0f);
                             }
                             else if(jangjo[6]==1) {
@@ -1140,7 +1140,7 @@ public class play_mode extends AppCompatActivity {
                                         btn_e_hh.setImageResource(R.drawable.key_e2);
                                     }
                                     else if(jangjo[16]==1){
-                                        btn_e_hh.setImageResource(R.drawable.key_e2);
+                                        btn_e_hh.setImageResource(R.drawable.keys_e2);
                                     }
                                     else{
                                         btn_e_hh.setImageResource(R.drawable.keyf_e2);
@@ -1151,7 +1151,7 @@ public class play_mode extends AppCompatActivity {
                         else{
                             if (jangjo[16]==0) {
                                 jangjo[16]++;
-                                btn_e_hh.setImageResource(R.drawable.key_f1);
+                                btn_e_hh.setImageResource(R.drawable.keys_e2);
                                 sp.play(Scale.mi2_5,1,1,1,0,1.0f);
                             }
                             else if(jangjo[16]==1) {
@@ -1206,12 +1206,12 @@ public class play_mode extends AppCompatActivity {
                 if (!changemod){
                     changemod = true;
                     Toast.makeText(play_mode.this, "반음 설정", Toast.LENGTH_SHORT).show();
-                    btn_sharp.setBackgroundResource(R.drawable.button_sharp_push);
+                    btn_sharp.setImageResource(R.drawable.button_sharp_push);
                 }
                 else {
                     changemod = false;
                     Toast.makeText(play_mode.this, "연주 모드", Toast.LENGTH_SHORT).show();
-                    btn_sharp.setBackgroundResource(R.drawable.button_sharp);
+                    btn_sharp.setImageResource(R.drawable.button_sharp);
                 }
             }
         });
