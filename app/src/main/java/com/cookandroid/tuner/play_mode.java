@@ -177,10 +177,10 @@ public class play_mode extends AppCompatActivity {
                                 @Override
                                 public void run()
                                 {
-                                    if (jangjo[0]==0){
+                                    if (jangjo[1]==0){
                                         btn_d_l.setImageResource(R.drawable.key_d);
                                     }
-                                    else if(jangjo[0]==1){
+                                    else if(jangjo[1]==1){
                                         btn_d_l.setImageResource(R.drawable.keys_d);
                                     }
                                     else{
@@ -227,10 +227,10 @@ public class play_mode extends AppCompatActivity {
                                 @Override
                                 public void run()
                                 {
-                                    if (jangjo[0]==0){
+                                    if (jangjo[2]==0){
                                         btn_e_l.setImageResource(R.drawable.key_e);
                                     }
-                                    else if(jangjo[0]==1){
+                                    else if(jangjo[2]==1){
                                         btn_e_l.setImageResource(R.drawable.keys_e);
                                     }
                                     else{
@@ -276,10 +276,10 @@ public class play_mode extends AppCompatActivity {
                                 @Override
                                 public void run()
                                 {
-                                    if (jangjo[0]==0){
+                                    if (jangjo[3]==0){
                                         btn_f_l.setImageResource(R.drawable.key_f);
                                     }
-                                    else if(jangjo[0]==1){
+                                    else if(jangjo[3]==1){
                                         btn_f_l.setImageResource(R.drawable.keys_f);
                                     }
                                     else{
@@ -326,10 +326,10 @@ public class play_mode extends AppCompatActivity {
                                 @Override
                                 public void run()
                                 {
-                                    if (jangjo[0]==0){
+                                    if (jangjo[4]==0){
                                         btn_g_l.setImageResource(R.drawable.key_g);
                                     }
-                                    else if(jangjo[0]==1){
+                                    else if(jangjo[4]==1){
                                         btn_g_l.setImageResource(R.drawable.keys_g);
                                     }
                                     else{
@@ -377,10 +377,10 @@ public class play_mode extends AppCompatActivity {
                                 public void run()
                                 {
                                     //여기에 딜레이 후 시작할 작업들을 입력
-                                    if (jangjo[0]==0){
+                                    if (jangjo[5]==0){
                                         btn_a_l.setImageResource(R.drawable.key_a);
                                     }
-                                    else if(jangjo[0]==1){
+                                    else if(jangjo[5]==1){
                                         btn_a_l.setImageResource(R.drawable.keys_a);
                                     }
                                     else{
@@ -428,10 +428,10 @@ public class play_mode extends AppCompatActivity {
                                 public void run()
                                 {
                                     //여기에 딜레이 후 시작할 작업들을 입력
-                                    if (jangjo[0]==0){
+                                    if (jangjo[6]==0){
                                         btn_b_l.setImageResource(R.drawable.key_b);
                                     }
-                                    else if(jangjo[0]==1){
+                                    else if(jangjo[6]==1){
                                         btn_b_l.setImageResource(R.drawable.keys_b);
                                     }
                                     else{
@@ -479,10 +479,10 @@ public class play_mode extends AppCompatActivity {
                                 public void run()
                                 {
                                     //여기에 딜레이 후 시작할 작업들을 입력
-                                    if (jangjo[0]==0){
+                                    if (jangjo[7]==0){
                                         btn_c_h.setImageResource(R.drawable.key_c1);
                                     }
-                                    else if(jangjo[0]==1){
+                                    else if(jangjo[7]==1){
                                         btn_c_h.setImageResource(R.drawable.keys_c1);
                                     }
                                     else{
@@ -530,10 +530,10 @@ public class play_mode extends AppCompatActivity {
                                 public void run()
                                 {
                                     //여기에 딜레이 후 시작할 작업들을 입력
-                                    if (jangjo[0]==0){
+                                    if (jangjo[8]==0){
                                         btn_d_h.setImageResource(R.drawable.key_d1);
                                     }
-                                    else if(jangjo[0]==1){
+                                    else if(jangjo[8]==1){
                                         btn_d_h.setImageResource(R.drawable.keys_d1);
                                     }
                                     else{
@@ -581,10 +581,10 @@ public class play_mode extends AppCompatActivity {
                                 public void run()
                                 {
                                     //여기에 딜레이 후 시작할 작업들을 입력
-                                    if (jangjo[0]==0){
+                                    if (jangjo[9]==0){
                                         btn_e_h.setImageResource(R.drawable.key_e1);
                                     }
-                                    else if(jangjo[0]==1){
+                                    else if(jangjo[9]==1){
                                         btn_e_h.setImageResource(R.drawable.keys_e1);
                                     }
                                     else{
@@ -632,10 +632,10 @@ public class play_mode extends AppCompatActivity {
                                 public void run()
                                 {
                                     //여기에 딜레이 후 시작할 작업들을 입력
-                                    if (jangjo[0]==0){
+                                    if (jangjo[10]==0){
                                         btn_f_h.setImageResource(R.drawable.key_f1);
                                     }
-                                    else if(jangjo[0]==1){
+                                    else if(jangjo[10]==1){
                                         btn_f_h.setImageResource(R.drawable.keys_f1);
                                     }
                                     else{
@@ -684,10 +684,10 @@ public class play_mode extends AppCompatActivity {
                                 public void run()
                                 {
                                     //여기에 딜레이 후 시작할 작업들을 입력
-                                    if (jangjo[0]==0){
+                                    if (jangjo[11]==0){
                                         btn_g_h.setImageResource(R.drawable.key_g1);
                                     }
-                                    else if(jangjo[0]==1){
+                                    else if(jangjo[11]==1){
                                         btn_g_h.setImageResource(R.drawable.keys_g1);
                                     }
                                     else{
@@ -735,10 +735,10 @@ public class play_mode extends AppCompatActivity {
                                 public void run()
                                 {
                                     //여기에 딜레이 후 시작할 작업들을 입력
-                                    if (jangjo[0]==0){
+                                    if (jangjo[12]==0){
                                         btn_a_h.setImageResource(R.drawable.key_a1);
                                     }
-                                    else if(jangjo[0]==1){
+                                    else if(jangjo[12]==1){
                                         btn_a_h.setImageResource(R.drawable.keys_a1);
                                     }
                                     else{
@@ -787,10 +787,10 @@ public class play_mode extends AppCompatActivity {
                                 public void run()
                                 {
                                     //여기에 딜레이 후 시작할 작업들을 입력
-                                    if (jangjo[0]==0){
+                                    if (jangjo[13]==0){
                                         btn_b_h.setImageResource(R.drawable.key_b1);
                                     }
-                                    else if(jangjo[0]==1){
+                                    else if(jangjo[13]==1){
                                         btn_b_h.setImageResource(R.drawable.keys_b1);
                                     }
                                     else{
@@ -839,10 +839,10 @@ public class play_mode extends AppCompatActivity {
                                 public void run()
                                 {
                                     //여기에 딜레이 후 시작할 작업들을 입력
-                                    if (jangjo[0]==0){
+                                    if (jangjo[14]==0){
                                         btn_c_hh.setImageResource(R.drawable.key_c2);
                                     }
-                                    else if(jangjo[0]==1){
+                                    else if(jangjo[14]==1){
                                         btn_c_hh.setImageResource(R.drawable.keys_c2);
                                     }
                                     else{
@@ -891,10 +891,10 @@ public class play_mode extends AppCompatActivity {
                                 public void run()
                                 {
                                     //여기에 딜레이 후 시작할 작업들을 입력
-                                    if (jangjo[0]==0){
+                                    if (jangjo[15]==0){
                                         btn_d_hh.setImageResource(R.drawable.key_d2);
                                     }
-                                    else if(jangjo[0]==1){
+                                    else if(jangjo[15]==1){
                                         btn_d_hh.setImageResource(R.drawable.keys_d2);
                                     }
                                     else{
@@ -943,10 +943,10 @@ public class play_mode extends AppCompatActivity {
                                 public void run()
                                 {
                                 //여기에 딜레이 후 시작할 작업들을 입력
-                                    if (jangjo[0]==0){
+                                    if (jangjo[16]==0){
                                         btn_e_hh.setImageResource(R.drawable.key_e2);
                                     }
-                                    else if(jangjo[0]==1){
+                                    else if(jangjo[16]==1){
                                         btn_e_hh.setImageResource(R.drawable.keys_e2);
                                     }
                                     else{
