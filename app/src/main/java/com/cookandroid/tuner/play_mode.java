@@ -487,7 +487,7 @@ public class play_mode extends AppCompatActivity {
                             }
                             else if(jangjo[6]==1){
                                 sp.play(Scale.si0_5,1,1,1,0,1.0f);
-                                btn_b_l.setImageResource(R.drawable.keycs_b);
+                                btn_b_l.setImageResource(R.drawable.keycs_b_red);
                             }
                             else{
                                 sp.play(Scale.la0_5,1,1,1,0,1.0f);
@@ -504,7 +504,7 @@ public class play_mode extends AppCompatActivity {
                                         btn_b_l.setImageResource(R.drawable.key_b);
                                     }
                                     else if(jangjo[6]==1){
-                                        btn_b_l.setImageResource(R.drawable.keys_b);
+                                        btn_b_l.setImageResource(R.drawable.keys_b_red);
                                     }
                                     else{
                                         btn_b_l.setImageResource(R.drawable.keyf_b);
