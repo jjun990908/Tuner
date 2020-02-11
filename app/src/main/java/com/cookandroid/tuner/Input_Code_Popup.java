@@ -6,6 +6,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -67,6 +68,7 @@ public class Input_Code_Popup extends AppCompatActivity {
             public void onClick(View view){
                 if(codeenglishcheck == true && codenumbercheck ==true){
                     SharedPreferences sharedPreferences = getSharedPreferences("check", MODE_PRIVATE);
+                    Toast.makeText(Input_Code_Popup.this, "연주모드를 사용하실 수 있습니다.", Toast.LENGTH_SHORT).show();
                     SharedPreferences.Editor editor = sharedPreferences.edit();
                     Boolean checked = true;
                     editor.putBoolean("codecheck", checked);
