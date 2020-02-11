@@ -56,7 +56,7 @@ public class MainActivity extends AppCompatActivity{
     boolean codeenglishcheck = false;
     boolean codenumbercheck = false;
 
-    boolean DEBUG_MODE = true;
+    boolean DEBUG_MODE = false;
 
     static ImageButton[] buttonArray = new ImageButton[17];        // 칼림바 건반의 버튼객체를 담고 있는 배열
     static String[] ScaleArray;                          // C, D, E... 등의 음계를 담고 있는 String 배열
