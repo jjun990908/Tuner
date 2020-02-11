@@ -14,6 +14,7 @@
         android:layout_marginTop="8dp"
         android:layout_marginRight="8dp"
         android:background="@drawable/code_cancel"
+        android:backgroundTint="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -23,7 +24,21 @@
         android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0"
         app:srcCompat="@drawable/help1" />
+
+    <Button
+        android:id="@+id/btn_next"
+        android:layout_width="44dp"
+        android:layout_height="49dp"
+        android:layout_marginEnd="8dp"
+        android:background="@android:drawable/ic_media_play"
+        android:text=" "
+        app:layout_constraintEnd_toEndOf="@+id/imageView"
+        app:layout_constraintTop_toTopOf="@+id/imageView"
+        app:layout_constraintBottom_toBottomOf="@+id/imageView"
+        tools:layout_editor_absoluteY="173dp" />
 </androidx.constraintlayout.widget.ConstraintLayout>
