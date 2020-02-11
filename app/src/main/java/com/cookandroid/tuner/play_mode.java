@@ -143,14 +143,17 @@ public class play_mode extends AppCompatActivity {
                             if (jangjo[0]==0) {
                                 jangjo[0]++;
                                 btn_c_l.setImageResource(R.drawable.keys_c);
+                                sp.play(Scale.do0_5,1,1,1,0,1.0f);
                             }
                             else if(jangjo[0]==1) {
                                 jangjo[0]++;
                                 btn_c_l.setImageResource(R.drawable.keyf_c);
+                                sp.play(Scale.do0_5,1,1,1,0,1.0f);
                             }
                             else {
                                 jangjo[0] = 0;
                                 btn_c_l.setImageResource(R.drawable.key_c);
+                                sp.play(Scale.do0_0,1,1,1,0,1.0f);
                             }
                         }
                         break;
@@ -202,14 +205,17 @@ public class play_mode extends AppCompatActivity {
                             if (jangjo[1]==0) {
                                 jangjo[1]++;
                                 btn_d_l.setImageResource(R.drawable.keys_d);
+                                sp.play(Scale.re0_5,1,1,1,0,1.0f);
                             }
                             else if(jangjo[1]==1) {
                                 jangjo[1]++;
                                 btn_d_l.setImageResource(R.drawable.keyf_d);
+                                sp.play(Scale.do0_5,1,1,1,0,1.0f);
                             }
                             else {
                                 jangjo[1] = 0;
                                 btn_d_l.setImageResource(R.drawable.key_d);
+                                sp.play(Scale.re0_0,1,1,1,0,1.0f);
                             }
                         }
                         break;
@@ -233,7 +239,7 @@ public class play_mode extends AppCompatActivity {
                             }
                             else if(jangjo[2]==1){
                                 sp.play(Scale.mi0_5,1,1,1,0,1.0f);
-                                btn_e_l.setImageResource(R.drawable.keycs_e);
+                                btn_e_l.setImageResource(R.drawable.keyc_f);
                             }
                             else{
                                 sp.play(Scale.re0_5,1,1,1,0,1.0f);
@@ -249,7 +255,7 @@ public class play_mode extends AppCompatActivity {
                                         btn_e_l.setImageResource(R.drawable.key_e);
                                     }
                                     else if(jangjo[2]==1){
-                                        btn_e_l.setImageResource(R.drawable.keys_e);
+                                        btn_e_l.setImageResource(R.drawable.key_f);
                                     }
                                     else{
                                         btn_e_l.setImageResource(R.drawable.keyf_e);
@@ -260,15 +266,18 @@ public class play_mode extends AppCompatActivity {
                         else{
                             if (jangjo[2]==0) {
                                 jangjo[2]++;
-                                btn_e_l.setImageResource(R.drawable.keys_e);
+                                btn_e_l.setImageResource(R.drawable.key_f);
+                                sp.play(Scale.mi0_5,1,1,1,0,1.0f);
                             }
                             else if(jangjo[2]==1) {
                                 jangjo[2]++;
                                 btn_e_l.setImageResource(R.drawable.keyf_e);
+                                sp.play(Scale.re0_5,1,1,1,0,1.0f);
                             }
                             else {
                                 jangjo[2] = 0;
                                 btn_e_l.setImageResource(R.drawable.key_e);
+                                sp.play(Scale.mi0_0,1,1,1,0,1.0f);
                             }
                         }
                         break;
@@ -296,7 +305,7 @@ public class play_mode extends AppCompatActivity {
                             }
                             else{
                                 sp.play(Scale.mi0_0,1,1,1,0,1.0f);
-                                btn_f_l.setImageResource(R.drawable.keycf_f);
+                                btn_f_l.setImageResource(R.drawable.keyc_e);
                             }
                             new Handler().postDelayed(new Runnable()
                             {
@@ -310,7 +319,7 @@ public class play_mode extends AppCompatActivity {
                                         btn_f_l.setImageResource(R.drawable.keys_f);
                                     }
                                     else{
-                                        btn_f_l.setImageResource(R.drawable.keyf_f);
+                                        btn_f_l.setImageResource(R.drawable.key_e);
                                     }
                                 }
                             }, 500);
@@ -319,14 +328,17 @@ public class play_mode extends AppCompatActivity {
                             if (jangjo[3]==0) {
                                 jangjo[3]++;
                                 btn_f_l.setImageResource(R.drawable.keys_f);
+                                sp.play(Scale.fa0_5,1,1,1,0,1.0f);
                             }
                             else if(jangjo[3]==1) {
                                 jangjo[3]++;
-                                btn_f_l.setImageResource(R.drawable.keyf_f);
+                                btn_f_l.setImageResource(R.drawable.key_e);
+                                sp.play(Scale.mi0_0,1,1,1,0,1.0f);
                             }
                             else {
                                 jangjo[3] = 0;
                                 btn_f_l.setImageResource(R.drawable.key_f);
+                                sp.play(Scale.fa0_0,1,1,1,0,1.0f);
                             }
                         }
                         break;
@@ -378,14 +390,17 @@ public class play_mode extends AppCompatActivity {
                             if (jangjo[4]==0) {
                                 jangjo[4]++;
                                 btn_g_l.setImageResource(R.drawable.keys_g);
+                                sp.play(Scale.sol0_5,1,1,1,0,1.0f);
                             }
                             else if(jangjo[4]==1) {
                                 jangjo[4]++;
                                 btn_g_l.setImageResource(R.drawable.keyf_g);
+                                sp.play(Scale.fa0_5,1,1,1,0,1.0f);
                             }
                             else {
                                 jangjo[4] = 0;
                                 btn_g_l.setImageResource(R.drawable.key_g);
+                                sp.play(Scale.sol0_0,1,1,1,0,1.0f);
                             }
                         }
                         break;
@@ -438,14 +453,17 @@ public class play_mode extends AppCompatActivity {
                             if (jangjo[5]==0) {
                                 jangjo[5]++;
                                 btn_a_l.setImageResource(R.drawable.keys_a);
+                                sp.play(Scale.la0_5,1,1,1,0,1.0f);
                             }
                             else if(jangjo[5]==1) {
                                 jangjo[5]++;
                                 btn_a_l.setImageResource(R.drawable.keyf_a);
+                                sp.play(Scale.sol0_5,1,1,1,0,1.0f);
                             }
                             else {
                                 jangjo[5] = 0;
                                 btn_a_l.setImageResource(R.drawable.key_a);
+                                sp.play(Scale.la0_0,1,1,1,0,1.0f);
                             }
                         }
                         break;
@@ -469,7 +487,7 @@ public class play_mode extends AppCompatActivity {
                             }
                             else if(jangjo[6]==1){
                                 sp.play(Scale.si0_5,1,1,1,0,1.0f);
-                                btn_b_l.setImageResource(R.drawable.keycs_b);
+                                btn_b_l.setImageResource(R.drawable.keyc_c1);
                             }
                             else{
                                 sp.play(Scale.la0_5,1,1,1,0,1.0f);
@@ -486,7 +504,7 @@ public class play_mode extends AppCompatActivity {
                                         btn_b_l.setImageResource(R.drawable.key_b);
                                     }
                                     else if(jangjo[6]==1){
-                                        btn_b_l.setImageResource(R.drawable.keys_b);
+                                        btn_b_l.setImageResource(R.drawable.key_c1);
                                     }
                                     else{
                                         btn_b_l.setImageResource(R.drawable.keyf_b);
@@ -497,15 +515,18 @@ public class play_mode extends AppCompatActivity {
                         else{
                             if (jangjo[6]==0) {
                                 jangjo[6]++;
-                                btn_b_l.setImageResource(R.drawable.keys_b);
+                                btn_b_l.setImageResource(R.drawable.key_c1);
+                                sp.play(Scale.si0_5,1,1,1,0,1.0f);
                             }
                             else if(jangjo[6]==1) {
                                 jangjo[6]++;
                                 btn_b_l.setImageResource(R.drawable.keyf_b);
+                                sp.play(Scale.la0_5,1,1,1,0,1.0f);
                             }
                             else {
                                 jangjo[6] = 0;
                                 btn_b_l.setImageResource(R.drawable.key_b);
+                                sp.play(Scale.si0_0,1,1,1,0,1.0f);
                             }
                         }
                         break;
@@ -558,14 +579,17 @@ public class play_mode extends AppCompatActivity {
                             if (jangjo[7]==0) {
                                 jangjo[7]++;
                                 btn_c_h.setImageResource(R.drawable.keys_c1);
+                                sp.play(Scale.do1_5,1,1,1,0,1.0f);
                             }
                             else if(jangjo[7]==1) {
                                 jangjo[7]++;
                                 btn_c_h.setImageResource(R.drawable.keyf_c1);
+                                sp.play(Scale.si0_0,1,1,1,0,1.0f);
                             }
                             else {
                                 jangjo[7] = 0;
                                 btn_c_h.setImageResource(R.drawable.key_c1);
+                                sp.play(Scale.do1_0,1,1,1,0,1.0f);
                             }
                         }
                         break;
@@ -618,14 +642,17 @@ public class play_mode extends AppCompatActivity {
                             if (jangjo[8]==0) {
                                 jangjo[8]++;
                                 btn_d_h.setImageResource(R.drawable.keys_d1);
+                                sp.play(Scale.re1_5,1,1,1,0,1.0f);
                             }
                             else if(jangjo[8]==1) {
                                 jangjo[8]++;
                                 btn_d_h.setImageResource(R.drawable.keyf_d1);
+                                sp.play(Scale.do1_5,1,1,1,0,1.0f);
                             }
                             else {
                                 jangjo[8] = 0;
                                 btn_d_h.setImageResource(R.drawable.key_d1);
+                                sp.play(Scale.re1_0,1,1,1,0,1.0f);
                             }
                         }
                         break;
@@ -649,7 +676,7 @@ public class play_mode extends AppCompatActivity {
                             }
                             else if(jangjo[9]==1){
                                 sp.play(Scale.mi1_5,1,1,1,0,1.0f);
-                                btn_e_h.setImageResource(R.drawable.keycs_e1);
+                                btn_e_h.setImageResource(R.drawable.keyc_f1);
                             }
                             else{
                                 sp.play(Scale.re1_5,1,1,1,0,1.0f);
@@ -666,7 +693,7 @@ public class play_mode extends AppCompatActivity {
                                         btn_e_h.setImageResource(R.drawable.key_e1);
                                     }
                                     else if(jangjo[9]==1){
-                                        btn_e_h.setImageResource(R.drawable.keys_e1);
+                                        btn_e_h.setImageResource(R.drawable.key_f1);
                                     }
                                     else{
                                         btn_e_h.setImageResource(R.drawable.keyf_e1);
@@ -677,15 +704,18 @@ public class play_mode extends AppCompatActivity {
                         else{
                             if (jangjo[9]==0) {
                                 jangjo[9]++;
-                                btn_e_h.setImageResource(R.drawable.keys_e1);
+                                btn_e_h.setImageResource(R.drawable.keys_f1);
+                                sp.play(Scale.mi1_5,1,1,1,0,1.0f);
                             }
                             else if(jangjo[9]==1) {
                                 jangjo[9]++;
                                 btn_e_h.setImageResource(R.drawable.keyf_e1);
+                                sp.play(Scale.re1_5,1,1,1,0,1.0f);
                             }
                             else {
                                 jangjo[9] = 0;
                                 btn_e_h.setImageResource(R.drawable.key_e1);
+                                sp.play(Scale.mi1_0,1,1,1,0,1.0f);
                             }
                         }
                         break;
@@ -713,7 +743,7 @@ public class play_mode extends AppCompatActivity {
                             }
                             else{
                                 sp.play(Scale.mi1_0,1,1,1,0,1.0f);
-                                btn_f_h.setImageResource(R.drawable.keycf_f1);
+                                btn_f_h.setImageResource(R.drawable.keyc_e1);
                             }
 
                             new Handler().postDelayed(new Runnable()
@@ -729,7 +759,7 @@ public class play_mode extends AppCompatActivity {
                                         btn_f_h.setImageResource(R.drawable.keys_f1);
                                     }
                                     else{
-                                        btn_f_h.setImageResource(R.drawable.keyf_f1);
+                                        btn_f_h.setImageResource(R.drawable.key_e1);
                                     }
                                 }
                             }, 500);
@@ -738,14 +768,17 @@ public class play_mode extends AppCompatActivity {
                             if (jangjo[10]==0) {
                                 jangjo[10]++;
                                 btn_f_h.setImageResource(R.drawable.keys_f1);
+                                sp.play(Scale.fa1_5,1,1,1,0,1.0f);
                             }
                             else if(jangjo[10]==1) {
                                 jangjo[10]++;
-                                btn_f_h.setImageResource(R.drawable.keyf_f1);
+                                btn_f_h.setImageResource(R.drawable.key_e1);
+                                sp.play(Scale.mi1_0,1,1,1,0,1.0f);
                             }
                             else {
                                 jangjo[10] = 0;
                                 btn_f_h.setImageResource(R.drawable.key_f1);
+                                sp.play(Scale.fa1_0,1,1,1,0,1.0f);
                             }
                         }
                         break;
@@ -799,14 +832,17 @@ public class play_mode extends AppCompatActivity {
                             if (jangjo[11]==0) {
                                 jangjo[11]++;
                                 btn_g_h.setImageResource(R.drawable.keys_g1);
+                                sp.play(Scale.sol1_5,1,1,1,0,1.0f);
                             }
                             else if(jangjo[11]==1) {
                                 jangjo[11]++;
                                 btn_g_h.setImageResource(R.drawable.keyf_g1);
+                                sp.play(Scale.fa1_5,1,1,1,0,1.0f);
                             }
                             else {
                                 jangjo[11] = 0;
                                 btn_g_h.setImageResource(R.drawable.key_g1);
+                                sp.play(Scale.sol1_0,1,1,1,0,1.0f);
                             }
                         }
                         break;
@@ -859,15 +895,18 @@ public class play_mode extends AppCompatActivity {
                             if (jangjo[12]==0) {
                                 jangjo[12]++;
                                 btn_a_h.setImageResource(R.drawable.keys_a1);
+                                sp.play(Scale.la1_5,1,1,1,0,1.0f);
                             }
                             else if(jangjo[12]==1) {
                                 jangjo[12]++;
                                 btn_a_h.setImageResource(R.drawable.keyf_a1);
+                                sp.play(Scale.sol1_5,1,1,1,0,1.0f);
 
                             }
                             else {
                                 jangjo[12] = 0;
                                 btn_a_h.setImageResource(R.drawable.key_a1);
+                                sp.play(Scale.la1_0,1,1,1,0,1.0f);
                             }
                         }
                         break;
@@ -892,7 +931,7 @@ public class play_mode extends AppCompatActivity {
                             }
                             else if(jangjo[13]==1){
                                 sp.play(Scale.si1_5,1,1,1,0,1.0f);
-                                btn_b_h.setImageResource(R.drawable.keycs_b1);
+                                btn_b_h.setImageResource(R.drawable.keyc_c2);
                             }
                             else{
                                 sp.play(Scale.la1_5,1,1,1,0,1.0f);
@@ -909,7 +948,7 @@ public class play_mode extends AppCompatActivity {
                                         btn_b_h.setImageResource(R.drawable.key_b1);
                                     }
                                     else if(jangjo[13]==1){
-                                        btn_b_h.setImageResource(R.drawable.keys_b1);
+                                        btn_b_h.setImageResource(R.drawable.key_c2);
                                     }
                                     else{
                                         btn_b_h.setImageResource(R.drawable.keyf_b1);
@@ -920,15 +959,18 @@ public class play_mode extends AppCompatActivity {
                         else{
                             if (jangjo[13]==0) {
                                 jangjo[13]++;
-                                btn_b_h.setImageResource(R.drawable.keys_b1);
+                                btn_b_h.setImageResource(R.drawable.key_c2);
+                                sp.play(Scale.si1_5,1,1,1,0,1.0f);
                             }
                             else if(jangjo[13]==1) {
                                 jangjo[13]++;
                                 btn_b_h.setImageResource(R.drawable.keyf_b1);
+                                sp.play(Scale.la1_5,1,1,1,0,1.0f);
                             }
                             else {
                                 jangjo[13] = 0;
                                 btn_b_h.setImageResource(R.drawable.key_b1);
+                                sp.play(Scale.si1_0,1,1,1,0,1.0f);
                             }
                         }
                         break;
@@ -982,14 +1024,17 @@ public class play_mode extends AppCompatActivity {
                             if (jangjo[14]==0) {
                                 jangjo[14]++;
                                 btn_c_hh.setImageResource(R.drawable.keys_c2);
+                                sp.play(Scale.do2_5,1,1,1,0,1.0f);
                             }
                             else if(jangjo[14]==1) {
                                 jangjo[14]++;
                                 btn_c_hh.setImageResource(R.drawable.keyf_c2);
+                                sp.play(Scale.si1_0,1,1,1,0,1.0f);
                             }
                             else {
                                 jangjo[14] = 0;
                                 btn_c_hh.setImageResource(R.drawable.key_c2);
+                                sp.play(Scale.do2_0,1,1,1,0,1.0f);
                             }
                         }
                         break;
@@ -1043,14 +1088,17 @@ public class play_mode extends AppCompatActivity {
                             if (jangjo[15]==0) {
                                 jangjo[15]++;
                                 btn_d_hh.setImageResource(R.drawable.keys_d2);
+                                sp.play(Scale.re2_5,1,1,1,0,1.0f);
                             }
                             else if(jangjo[15]==1) {
                                 jangjo[15]++;
                                 btn_d_hh.setImageResource(R.drawable.keyf_d2);
+                                sp.play(Scale.do2_5,1,1,1,0,1.0f);
                             }
                             else {
                                 jangjo[15] = 0;
                                 btn_d_hh.setImageResource(R.drawable.key_d2);
+                                sp.play(Scale.re2_0,1,1,1,0,1.0f);
                             }
                         }
                         break;
@@ -1075,7 +1123,7 @@ public class play_mode extends AppCompatActivity {
                             }
                             else if(jangjo[16]==1){
                                 sp.play(Scale.mi2_5,1,1,1,0,1.0f);
-                                btn_e_hh.setImageResource(R.drawable.keycs_e2);
+                                btn_e_hh.setImageResource(R.drawable.keyc_f1);
                             }
                             else{
                                 sp.play(Scale.re2_5,1,1,1,0,1.0f);
@@ -1092,7 +1140,7 @@ public class play_mode extends AppCompatActivity {
                                         btn_e_hh.setImageResource(R.drawable.key_e2);
                                     }
                                     else if(jangjo[16]==1){
-                                        btn_e_hh.setImageResource(R.drawable.keys_e2);
+                                        btn_e_hh.setImageResource(R.drawable.key_f1);
                                     }
                                     else{
                                         btn_e_hh.setImageResource(R.drawable.keyf_e2);
@@ -1103,15 +1151,18 @@ public class play_mode extends AppCompatActivity {
                         else{
                             if (jangjo[16]==0) {
                                 jangjo[16]++;
-                                btn_e_hh.setImageResource(R.drawable.keys_e2);
+                                btn_e_hh.setImageResource(R.drawable.key_f1);
+                                sp.play(Scale.mi2_5,1,1,1,0,1.0f);
                             }
                             else if(jangjo[16]==1) {
                                 jangjo[16]++;
                                 btn_e_hh.setImageResource(R.drawable.keyf_e2);
+                                sp.play(Scale.re2_5,1,1,1,0,1.0f);
                             }
                             else {
                                 jangjo[16] = 0;
                                 btn_e_hh.setImageResource(R.drawable.key_e2);
+                                sp.play(Scale.mi2_0,1,1,1,0,1.0f);
                             }
                         }
                         break;
@@ -1154,7 +1205,7 @@ public class play_mode extends AppCompatActivity {
             public void onClick(View view) {
                 if (!changemod)changemod = true;
                 else changemod = false;
-                Toast.makeText(play_mode.this, "튜닝모드", Toast.LENGTH_SHORT).show();
+                Toast.makeText(play_mode.this, "반음 설정", Toast.LENGTH_SHORT).show();
             }
         });
     }
@@ -1167,7 +1218,7 @@ public class play_mode extends AppCompatActivity {
     @Override
     public void onBackPressed() {
 
-        Toast.makeText(play_mode.this, "튜닝모드", Toast.LENGTH_SHORT).show();
+        Toast.makeText(play_mode.this, "튜닝 모드", Toast.LENGTH_SHORT).show();
         finish();
         overridePendingTransition(R.anim.anim_slide_down,R.anim.anim_slide_up);
     }

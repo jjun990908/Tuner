@@ -776,7 +776,7 @@ public class MainActivity extends AppCompatActivity{
                 SharedPreferences cc = getSharedPreferences("check", MODE_PRIVATE);
                 wikicode = cc.getBoolean("codecheck",false);
                 if(wikicode) {
-                    Toast.makeText(MainActivity.this, "연주모드", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(MainActivity.this, "연주 모드", Toast.LENGTH_SHORT).show();
                     startActivity(new Intent(getApplicationContext(), play_mode.class));
                     overridePendingTransition(R.anim.anim_slide_down, R.anim.anim_slide_up);
                 }
