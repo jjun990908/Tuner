@@ -28,11 +28,6 @@ public class SplashActivity extends AppCompatActivity {
     }
 
 
-
-
-
-
-
     final TimerTask Auth = new TimerTask() {
         @Override
         public void run() {
@@ -54,4 +49,3 @@ public class SplashActivity extends AppCompatActivity {
     };
 
 }
-
