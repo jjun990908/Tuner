@@ -140,9 +140,18 @@ public class play_mode extends AppCompatActivity {
                             }, 500);
                         }
                         else{
-                            if (jangjo[0]==0) jangjo[0]++;
-                            else if(jangjo[0]==1) jangjo[0]++;
-                            else jangjo[0] = 0;
+                            if (jangjo[0]==0) {
+                                jangjo[0]++;
+                                btn_c_l.setImageResource(R.drawable.keys_c);
+                            }
+                            else if(jangjo[0]==1) {
+                                jangjo[0]++;
+                                btn_c_l.setImageResource(R.drawable.keyf_c);
+                            }
+                            else {
+                                jangjo[0] = 0;
+                                btn_c_l.setImageResource(R.drawable.key_c);
+                            }
                         }
                         break;
                 }
@@ -190,9 +199,18 @@ public class play_mode extends AppCompatActivity {
                             }, 500);
                         }
                         else{
-                            if (jangjo[1]==0) jangjo[1]++;
-                            else if(jangjo[1]==1) jangjo[1]++;
-                            else jangjo[1] = 0;
+                            if (jangjo[1]==0) {
+                                jangjo[1]++;
+                                btn_d_l.setImageResource(R.drawable.keys_d);
+                            }
+                            else if(jangjo[1]==1) {
+                                jangjo[1]++;
+                                btn_d_l.setImageResource(R.drawable.keyf_d);
+                            }
+                            else {
+                                jangjo[1] = 0;
+                                btn_d_l.setImageResource(R.drawable.key_d);
+                            }
                         }
                         break;
                 }
@@ -240,9 +258,18 @@ public class play_mode extends AppCompatActivity {
                             }, 500);
                         }
                         else{
-                            if (jangjo[2]==0) jangjo[2]++;
-                            else if(jangjo[2]==1) jangjo[2]++;
-                            else jangjo[2] = 0;
+                            if (jangjo[2]==0) {
+                                jangjo[2]++;
+                                btn_e_l.setImageResource(R.drawable.keys_e);
+                            }
+                            else if(jangjo[2]==1) {
+                                jangjo[2]++;
+                                btn_e_l.setImageResource(R.drawable.keyf_e);
+                            }
+                            else {
+                                jangjo[2] = 0;
+                                btn_e_l.setImageResource(R.drawable.key_e);
+                            }
                         }
                         break;
                 }
@@ -289,9 +316,18 @@ public class play_mode extends AppCompatActivity {
                             }, 500);
                         }
                         else{
-                            if (jangjo[3]==0) jangjo[3]++;
-                            else if(jangjo[3]==1) jangjo[3]++;
-                            else jangjo[3] = 0;
+                            if (jangjo[3]==0) {
+                                jangjo[3]++;
+                                btn_f_l.setImageResource(R.drawable.keys_f);
+                            }
+                            else if(jangjo[3]==1) {
+                                jangjo[3]++;
+                                btn_f_l.setImageResource(R.drawable.keyf_f);
+                            }
+                            else {
+                                jangjo[3] = 0;
+                                btn_f_l.setImageResource(R.drawable.key_f);
+                            }
                         }
                         break;
                 }
@@ -339,9 +375,18 @@ public class play_mode extends AppCompatActivity {
                             }, 500);
                         }
                         else{
-                            if (jangjo[4]==0) jangjo[4]++;
-                            else if(jangjo[4]==1) jangjo[4]++;
-                            else jangjo[4] = 0;
+                            if (jangjo[4]==0) {
+                                jangjo[4]++;
+                                btn_g_l.setImageResource(R.drawable.keys_g);
+                            }
+                            else if(jangjo[4]==1) {
+                                jangjo[4]++;
+                                btn_g_l.setImageResource(R.drawable.keyf_g);
+                            }
+                            else {
+                                jangjo[4] = 0;
+                                btn_g_l.setImageResource(R.drawable.key_g);
+                            }
                         }
                         break;
                 }
@@ -390,9 +435,18 @@ public class play_mode extends AppCompatActivity {
                             }, 500);
                         }
                         else{
-                            if (jangjo[5]==0) jangjo[5]++;
-                            else if(jangjo[5]==1) jangjo[5]++;
-                            else jangjo[5] = 0;
+                            if (jangjo[5]==0) {
+                                jangjo[5]++;
+                                btn_a_l.setImageResource(R.drawable.keys_a);
+                            }
+                            else if(jangjo[5]==1) {
+                                jangjo[5]++;
+                                btn_a_l.setImageResource(R.drawable.keyf_a);
+                            }
+                            else {
+                                jangjo[5] = 0;
+                                btn_a_l.setImageResource(R.drawable.key_a);
+                            }
                         }
                         break;
                 }
@@ -441,9 +495,18 @@ public class play_mode extends AppCompatActivity {
                             }, 500);
                         }
                         else{
-                            if (jangjo[6]==0) jangjo[6]++;
-                            else if(jangjo[6]==1) jangjo[6]++;
-                            else jangjo[6] = 0;
+                            if (jangjo[6]==0) {
+                                jangjo[6]++;
+                                btn_b_l.setImageResource(R.drawable.keys_b);
+                            }
+                            else if(jangjo[6]==1) {
+                                jangjo[6]++;
+                                btn_b_l.setImageResource(R.drawable.keyf_b);
+                            }
+                            else {
+                                jangjo[6] = 0;
+                                btn_b_l.setImageResource(R.drawable.key_b);
+                            }
                         }
                         break;
                 }
@@ -492,9 +555,18 @@ public class play_mode extends AppCompatActivity {
                             }, 500);
                         }
                         else{
-                            if (jangjo[7]==0) jangjo[7]++;
-                            else if(jangjo[7]==1) jangjo[7]++;
-                            else jangjo[7] = 0;
+                            if (jangjo[7]==0) {
+                                jangjo[7]++;
+                                btn_c_h.setImageResource(R.drawable.keys_c1);
+                            }
+                            else if(jangjo[7]==1) {
+                                jangjo[7]++;
+                                btn_c_h.setImageResource(R.drawable.keyf_c1);
+                            }
+                            else {
+                                jangjo[7] = 0;
+                                btn_c_h.setImageResource(R.drawable.key_c1);
+                            }
                         }
                         break;
                 }
@@ -543,9 +615,18 @@ public class play_mode extends AppCompatActivity {
                             }, 500);
                         }
                         else{
-                            if (jangjo[8]==0) jangjo[8]++;
-                            else if(jangjo[8]==1) jangjo[8]++;
-                            else jangjo[8] = 0;
+                            if (jangjo[8]==0) {
+                                jangjo[8]++;
+                                btn_d_h.setImageResource(R.drawable.keys_d1);
+                            }
+                            else if(jangjo[8]==1) {
+                                jangjo[8]++;
+                                btn_d_h.setImageResource(R.drawable.keyf_d1);
+                            }
+                            else {
+                                jangjo[8] = 0;
+                                btn_d_h.setImageResource(R.drawable.key_d1);
+                            }
                         }
                         break;
                 }
@@ -594,9 +675,18 @@ public class play_mode extends AppCompatActivity {
                             }, 500);
                         }
                         else{
-                            if (jangjo[9]==0) jangjo[9]++;
-                            else if(jangjo[9]==1) jangjo[9]++;
-                            else jangjo[9] = 0;
+                            if (jangjo[9]==0) {
+                                jangjo[9]++;
+                                btn_e_h.setImageResource(R.drawable.keys_e1);
+                            }
+                            else if(jangjo[9]==1) {
+                                jangjo[9]++;
+                                btn_e_h.setImageResource(R.drawable.keyf_e1);
+                            }
+                            else {
+                                jangjo[9] = 0;
+                                btn_e_h.setImageResource(R.drawable.key_e1);
+                            }
                         }
                         break;
                 }
@@ -645,9 +735,18 @@ public class play_mode extends AppCompatActivity {
                             }, 500);
                         }
                         else{
-                            if (jangjo[10]==0) jangjo[10]++;
-                            else if(jangjo[10]==1) jangjo[10]++;
-                            else jangjo[10] = 0;
+                            if (jangjo[10]==0) {
+                                jangjo[10]++;
+                                btn_f_h.setImageResource(R.drawable.keys_f1);
+                            }
+                            else if(jangjo[10]==1) {
+                                jangjo[10]++;
+                                btn_f_h.setImageResource(R.drawable.keyf_f1);
+                            }
+                            else {
+                                jangjo[10] = 0;
+                                btn_f_h.setImageResource(R.drawable.key_f1);
+                            }
                         }
                         break;
                 }
@@ -697,9 +796,18 @@ public class play_mode extends AppCompatActivity {
                             }, 500);
                         }
                         else{
-                            if (jangjo[11]==0) jangjo[11]++;
-                            else if(jangjo[11]==1) jangjo[11]++;
-                            else jangjo[11] = 0;
+                            if (jangjo[11]==0) {
+                                jangjo[11]++;
+                                btn_g_h.setImageResource(R.drawable.keys_g1);
+                            }
+                            else if(jangjo[11]==1) {
+                                jangjo[11]++;
+                                btn_g_h.setImageResource(R.drawable.keyf_g1);
+                            }
+                            else {
+                                jangjo[11] = 0;
+                                btn_g_h.setImageResource(R.drawable.key_g1);
+                            }
                         }
                         break;
                 }
@@ -748,9 +856,19 @@ public class play_mode extends AppCompatActivity {
                             }, 500);
                         }
                         else{
-                            if (jangjo[12]==0) jangjo[12]++;
-                            else if(jangjo[12]==1) jangjo[12]++;
-                            else jangjo[12] = 0;
+                            if (jangjo[12]==0) {
+                                jangjo[12]++;
+                                btn_a_h.setImageResource(R.drawable.keys_a1);
+                            }
+                            else if(jangjo[12]==1) {
+                                jangjo[12]++;
+                                btn_a_h.setImageResource(R.drawable.keyf_a1);
+
+                            }
+                            else {
+                                jangjo[12] = 0;
+                                btn_a_h.setImageResource(R.drawable.key_a1);
+                            }
                         }
                         break;
                 }
@@ -800,9 +918,18 @@ public class play_mode extends AppCompatActivity {
                             }, 500);
                         }
                         else{
-                            if (jangjo[13]==0) jangjo[13]++;
-                            else if(jangjo[13]==1) jangjo[13]++;
-                            else jangjo[13] = 0;
+                            if (jangjo[13]==0) {
+                                jangjo[13]++;
+                                btn_b_h.setImageResource(R.drawable.keys_b1);
+                            }
+                            else if(jangjo[13]==1) {
+                                jangjo[13]++;
+                                btn_b_h.setImageResource(R.drawable.keyf_b1);
+                            }
+                            else {
+                                jangjo[13] = 0;
+                                btn_b_h.setImageResource(R.drawable.key_b1);
+                            }
                         }
                         break;
                 }
@@ -852,9 +979,18 @@ public class play_mode extends AppCompatActivity {
                             }, 500);
                         }
                         else{
-                            if (jangjo[14]==0) jangjo[14]++;
-                            else if(jangjo[14]==1) jangjo[14]++;
-                            else jangjo[14] = 0;
+                            if (jangjo[14]==0) {
+                                jangjo[14]++;
+                                btn_c_hh.setImageResource(R.drawable.keys_c2);
+                            }
+                            else if(jangjo[14]==1) {
+                                jangjo[14]++;
+                                btn_c_hh.setImageResource(R.drawable.keyf_c2);
+                            }
+                            else {
+                                jangjo[14] = 0;
+                                btn_c_hh.setImageResource(R.drawable.key_c2);
+                            }
                         }
                         break;
                 }
@@ -904,9 +1040,18 @@ public class play_mode extends AppCompatActivity {
                             }, 500);
                         }
                         else{
-                            if (jangjo[15]==0) jangjo[15]++;
-                            else if(jangjo[15]==1) jangjo[15]++;
-                            else jangjo[15] = 0;
+                            if (jangjo[15]==0) {
+                                jangjo[15]++;
+                                btn_d_hh.setImageResource(R.drawable.keys_d2);
+                            }
+                            else if(jangjo[15]==1) {
+                                jangjo[15]++;
+                                btn_d_hh.setImageResource(R.drawable.keyf_d2);
+                            }
+                            else {
+                                jangjo[15] = 0;
+                                btn_d_hh.setImageResource(R.drawable.key_d2);
+                            }
                         }
                         break;
                 }
@@ -956,9 +1101,18 @@ public class play_mode extends AppCompatActivity {
                             }, 500);
                         }
                         else{
-                            if (jangjo[16]==0) jangjo[16]++;
-                            else if(jangjo[16]==1) jangjo[16]++;
-                            else jangjo[16] = 0;
+                            if (jangjo[16]==0) {
+                                jangjo[16]++;
+                                btn_e_hh.setImageResource(R.drawable.keys_e2);
+                            }
+                            else if(jangjo[16]==1) {
+                                jangjo[16]++;
+                                btn_e_hh.setImageResource(R.drawable.keyf_e2);
+                            }
+                            else {
+                                jangjo[16] = 0;
+                                btn_e_hh.setImageResource(R.drawable.key_e2);
+                            }
                         }
                         break;
                 }
@@ -1000,6 +1154,7 @@ public class play_mode extends AppCompatActivity {
             public void onClick(View view) {
                 if (!changemod)changemod = true;
                 else changemod = false;
+                Toast.makeText(play_mode.this, "튜닝모드", Toast.LENGTH_SHORT).show();
             }
         });
     }
