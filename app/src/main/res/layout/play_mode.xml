@@ -252,16 +252,17 @@
     <!-- 도움말 버튼 -->
 
     <!-- 연주 모드 버튼 -->
-    <Switch
+    <ToggleButton
         android:id="@+id/btn_vive"
-        android:layout_width="50dp"
-        android:layout_height="30dp"
-        android:layout_marginStart="32dp"
-        android:layout_marginBottom="24dp"
-        android:thumb="@drawable/switch_thumb"
-        android:track="@drawable/switch_track_selector"
+        android:layout_width="48dp"
+        android:layout_height="50dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="16dp"
+        android:background="@drawable/butoon_vi_on"
+        android:textOff=" "
+        android:textOn=" "
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintEnd_toStartOf="@+id/switch_mode" />
 
     <ImageButton
         android:id="@+id/switch_mode"
@@ -272,9 +273,19 @@
         android:background="@drawable/smallbtn_shape"
         android:src="@drawable/button_tuning"
         android:scaleType="centerInside"
-        android:textSize="15dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
+    <ImageButton
+        android:id="@+id/btn_sharp"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginBottom="16dp"
+        android:background="@drawable/smallbtn_shape"
+        android:scaleType="centerInside"
+        android:src="@drawable/button_sharp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
