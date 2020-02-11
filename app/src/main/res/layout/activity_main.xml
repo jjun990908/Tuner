@@ -324,9 +324,9 @@
         android:layout_height="50dp"
         android:layout_marginStart="10dp"
         android:layout_marginBottom="16dp"
-        android:src="@drawable/button_help"
-        android:scaleType="centerInside"
         android:background="@drawable/smallbtn_shape"
+        android:scaleType="centerInside"
+        android:src="@drawable/butoon_shop"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toEndOf="@id/btn_help" />
 

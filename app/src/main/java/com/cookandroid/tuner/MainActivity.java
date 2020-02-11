@@ -772,7 +772,7 @@ public class MainActivity extends AppCompatActivity{
         btn_link.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(" https://smartstore.naver.com/wikiwiki/products/4257558123"));
+                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://smartstore.naver.com/wikiwiki/products/4257558123"));
                 startActivity(intent);
             }
         });
