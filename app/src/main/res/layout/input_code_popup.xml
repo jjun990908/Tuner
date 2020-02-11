@@ -12,7 +12,7 @@
         android:id="@+id/text_codeview"
         android:layout_width="match_parent"
         android:layout_height="35dp"
-        android:background="@color/white"
+        android:background="@color/stroke"
         android:fontFamily="@font/font2"
         android:gravity="center_horizontal|center_vertical"
         android:text="정품인증 코드등록"
@@ -25,8 +25,10 @@
 
     <Button
         android:id="@+id/btn_close"
-        android:layout_width="30dp"
-        android:layout_height="30dp"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_marginRight="7dp"
+        android:layout_marginTop="7dp"
         android:background="@drawable/code_cancel"
         android:backgroundTint="#000000"
         android:textSize="20dp"
