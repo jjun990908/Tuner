@@ -21,7 +21,10 @@ import android.widget.ToggleButton;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import static android.view.DragEvent.ACTION_DRAG_ENDED;
 import static android.view.DragEvent.ACTION_DRAG_ENTERED;
+import static android.view.DragEvent.ACTION_DRAG_EXITED;
+import static android.view.DragEvent.ACTION_DRAG_LOCATION;
 import static android.view.DragEvent.ACTION_DRAG_STARTED;
 import static android.view.DragEvent.ACTION_DROP;
 public class play_mode extends AppCompatActivity {
@@ -86,6 +89,9 @@ public class play_mode extends AppCompatActivity {
                     public boolean onDrag(View view, DragEvent dragEvent) {
                         switch (dragEvent.getAction()) {
                             case ACTION_DRAG_ENTERED:
+                            case ACTION_DRAG_LOCATION:
+                            case ACTION_DRAG_EXITED:
+                            case ACTION_DRAG_ENDED:
                             case ACTION_DRAG_STARTED:
                                 if(!changemod){
                                     if(!btn_vive.isChecked()){
@@ -101,7 +107,7 @@ public class play_mode extends AppCompatActivity {
                                         btn_c_l.setImageResource(R.drawable.keycs_c);
                                     }
                                     else{
-                                        sp.play(Scale.do0_5,1,1,1,0,1.0f);
+                                        sp.play(Scale.si00_0,1,1,1,0,1.0f);
                                         btn_c_l.setImageResource(R.drawable.keycf_c);
                                     }
 
@@ -132,7 +138,7 @@ public class play_mode extends AppCompatActivity {
                                     else if(jangjo[0]==1) {
                                         jangjo[0]++;
                                         btn_c_l.setImageResource(R.drawable.keyf_c);
-                                        sp.play(Scale.do0_5,1,1,1,0,1.0f);
+                                        sp.play(Scale.si00_0,1,1,1,0,1.0f);
                                     }
                                     else {
                                         jangjo[0] = 0;
@@ -164,7 +170,7 @@ public class play_mode extends AppCompatActivity {
                                 btn_c_l.setImageResource(R.drawable.keycs_c);
                             }
                             else{
-                                sp.play(Scale.do0_5,1,1,1,0,1.0f);
+                                sp.play(Scale.si00_0,1,1,1,0,1.0f);
                                 btn_c_l.setImageResource(R.drawable.keycf_c);
                             }
 
