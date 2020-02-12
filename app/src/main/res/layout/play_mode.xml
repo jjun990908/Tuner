@@ -254,10 +254,10 @@
     <!-- 연주 모드 버튼 -->
     <ToggleButton
         android:id="@+id/btn_vive"
-        android:layout_width="48dp"
-        android:layout_height="50dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginBottom="16dp"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="23dp"
         android:background="@drawable/butoon_vi_on"
         android:textOff=" "
         android:textOn=" "
@@ -266,20 +266,20 @@
 
     <ImageButton
         android:id="@+id/switch_mode"
-        android:layout_marginEnd="24dp"
-        android:layout_marginBottom="16dp"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:background="@drawable/smallbtn_shape"
-        android:src="@drawable/button_tuning"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginEnd="30dp"
+        android:layout_marginBottom="23dp"
         android:scaleType="centerInside"
+        android:background="@drawable/smallbtn_shape"
+        android:src="@drawable/button_play"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
     <ImageButton
         android:id="@+id/btn_sharp"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
         android:layout_marginStart="24dp"
         android:layout_marginBottom="16dp"
         android:background="@drawable/smallbtn_shape"
@@ -287,5 +287,15 @@
         android:src="@drawable/button_sharp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
+
+<!--    <ImageView-->
+<!--        android:id="@+id/imageView3"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        app:layout_constraintBottom_toBottomOf="parent"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toTopOf="parent"-->
+<!--        app:srcCompat="@drawable/help_play" />-->
 
 </androidx.constraintlayout.widget.ConstraintLayout>
