@@ -101,7 +101,7 @@ public class play_mode extends AppCompatActivity {
                                         btn_c_l.setImageResource(R.drawable.keycs_c);
                                     }
                                     else{
-                                        sp.play(Scale.do0_5,1,1,1,0,1.0f);
+                                        sp.play(Scale.si00_0,1,1,1,0,1.0f);
                                         btn_c_l.setImageResource(R.drawable.keycf_c);
                                     }
 
