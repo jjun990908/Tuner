@@ -74,8 +74,8 @@ public class MainActivity extends AppCompatActivity{
     ImageButton btn_c_l,btn_d_l,btn_e_l,btn_f_l,btn_g_l,btn_a_l,btn_b_l,btn_c_h,btn_d_h,btn_e_h,btn_f_h,btn_g_h,btn_a_h,btn_b_h,btn_c_hh,btn_d_hh,btn_e_hh,btn_link;
     TextView keyText,sharpText,flatText;
     ImageButton btn_switch,btn_help,btn_confirmcode;
-    Boolean sharpmode=false,flatmode=false,help_on = false;
-    ImageView sound_label,sound_label_correct, sound_label_correct_cover, sound_label_cover,img_help_main;
+    Boolean sharpmode=false,flatmode=false;
+    ImageView sound_label,sound_label_correct, sound_label_correct_cover, sound_label_cover;
     TextView text_Explanation2;
     long LOADING_TIME;
 
@@ -774,17 +774,7 @@ public class MainActivity extends AppCompatActivity{
         btn_help.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (!help_on){
-                    img_help_main.setVisibility(View.VISIBLE);
-                    img_help_main.bringToFront();
-                    btn_help.bringToFront();
-                    help_on = true;
-                }
-                else{
-                    img_help_main.setVisibility(View.INVISIBLE);
-                    help_on = false;
-                }
-//                startActivity(new Intent(getApplicationContext(),help_popup.class));
+                startActivity(new Intent(getApplicationContext(),help_popup.class));
             }
         });
 

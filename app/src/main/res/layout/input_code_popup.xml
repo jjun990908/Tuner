@@ -9,8 +9,8 @@
 
     <Button
         android:id="@+id/btn_close"
-        android:layout_width="30dp"
-        android:layout_height="30dp"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
         android:layout_marginTop="25dp"
         android:layout_marginEnd="30dp"
         android:background="@drawable/code_cancel"
@@ -53,7 +53,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="150dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="15dp"
         android:background="@color/no"
         android:fontFamily="@font/font2"
         android:text="구매하기"
@@ -69,7 +69,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="18dp"
         android:background="@color/no"
         android:fontFamily="@font/font2"
         android:text="등록"
