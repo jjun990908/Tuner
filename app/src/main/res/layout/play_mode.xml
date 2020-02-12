@@ -270,9 +270,9 @@
         android:layout_height="40dp"
         android:layout_marginEnd="30dp"
         android:layout_marginBottom="23dp"
-        android:scaleType="centerInside"
         android:background="@drawable/smallbtn_shape"
-        android:src="@drawable/button_play"
+        android:scaleType="centerInside"
+        android:src="@drawable/button_tuning"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
