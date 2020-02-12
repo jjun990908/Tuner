@@ -38,7 +38,7 @@ public class help_popup extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 img_help.setImageResource(R.drawable.help_tunning);
-                btn_left.setVisibility(View.VISIBLE);
+                btn_right.setVisibility(View.VISIBLE);
                 btn_left.setVisibility(View.GONE);
             }
         });
