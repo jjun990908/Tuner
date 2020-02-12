@@ -11,6 +11,7 @@ public class ScaleSrc {
     int do1_5, re1_5, mi1_5, fa1_5, sol1_5, la1_5, si1_5;
     int do2_0, re2_0, mi2_0;
     int do2_5, re2_5, mi2_5;
+    int si00_0;
     SoundPool sp;
 
     static double[] scaleArrayNormal;
@@ -30,6 +31,11 @@ public class ScaleSrc {
                 5);        // 음질 - 기본값:0
 
         // 각각의 재생하고자하는 음악을 미리 준비한다
+
+        //옥타브 lv -1
+        this.si00_0 = sp.load(context,
+                R.raw.kal_si00_0,
+                1);
 
         //옥타브 lv 0
         this.do0_0 = sp.load(context,
