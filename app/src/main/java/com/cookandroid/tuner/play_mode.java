@@ -145,69 +145,69 @@ public class play_mode extends AppCompatActivity {
                         return false;
                     }
                 });
-//        btn_c_l.setOnTouchListener(new View.OnTouchListener() {
-//            public boolean onTouch(View v, MotionEvent event) {
-//                switch (event.getAction()) {
-//                    case MotionEvent.ACTION_DOWN:
-//                    case DragEvent.ACTION_DRAG_ENTERED:
-//                        if(!changemod){
-//                            if(!btn_vive.isChecked()){
-//                                vibrator.vibrate(30);
-//                                btn_c_l.startAnimation(anim_Twist);
-//                            }
-//                            if (jangjo[0]==0){
-//                                sp.play(Scale.do0_0,1,1,1,0,1.0f);
-//                                btn_c_l.setImageResource(R.drawable.keyc_c);
-//                            }
-//                            else if(jangjo[0]==1){
-//                                sp.play(Scale.do0_5,1,1,1,0,1.0f);
-//                                btn_c_l.setImageResource(R.drawable.keycs_c);
-//                            }
-//                            else{
-//                                sp.play(Scale.do0_5,1,1,1,0,1.0f);
-//                                btn_c_l.setImageResource(R.drawable.keycf_c);
-//                            }
-//
-//                            new Handler().postDelayed(new Runnable()
-//                            {
-//                                @Override
-//                                public void run()
-//                                {
-//                                    //여기에 딜레이 후 시작할 작업들을 입력
-//                                    if (jangjo[0]==0){
-//                                        btn_c_l.setImageResource(R.drawable.key_c);
-//                                    }
-//                                    else if(jangjo[0]==1){
-//                                        btn_c_l.setImageResource(R.drawable.keys_c);
-//                                    }
-//                                    else{
-//                                        btn_c_l.setImageResource(R.drawable.keyf_c);
-//                                    }
-//                                }
-//                            }, 500);
-//                        }
-//                        else{
-//                            if (jangjo[0]==0) {
-//                                jangjo[0]++;
-//                                btn_c_l.setImageResource(R.drawable.keys_c);
-//                                sp.play(Scale.do0_5,1,1,1,0,1.0f);
-//                            }
-//                            else if(jangjo[0]==1) {
-//                                jangjo[0]++;
-//                                btn_c_l.setImageResource(R.drawable.keyf_c);
-//                                sp.play(Scale.do0_5,1,1,1,0,1.0f);
-//                            }
-//                            else {
-//                                jangjo[0] = 0;
-//                                btn_c_l.setImageResource(R.drawable.key_c);
-//                                sp.play(Scale.do0_0,1,1,1,0,1.0f);
-//                            }
-//                        }
-//                        break;
-//                }
-//                return false;
-//            }
-//        });
+        btn_c_l.setOnTouchListener(new View.OnTouchListener() {
+            public boolean onTouch(View v, MotionEvent event) {
+                switch (event.getAction()) {
+                    case MotionEvent.ACTION_DOWN:
+                    case DragEvent.ACTION_DRAG_ENTERED:
+                        if(!changemod){
+                            if(!btn_vive.isChecked()){
+                                vibrator.vibrate(30);
+                                btn_c_l.startAnimation(anim_Twist);
+                            }
+                            if (jangjo[0]==0){
+                                sp.play(Scale.do0_0,1,1,1,0,1.0f);
+                                btn_c_l.setImageResource(R.drawable.keyc_c);
+                            }
+                            else if(jangjo[0]==1){
+                                sp.play(Scale.do0_5,1,1,1,0,1.0f);
+                                btn_c_l.setImageResource(R.drawable.keycs_c);
+                            }
+                            else{
+                                sp.play(Scale.do0_5,1,1,1,0,1.0f);
+                                btn_c_l.setImageResource(R.drawable.keycf_c);
+                            }
+
+                            new Handler().postDelayed(new Runnable()
+                            {
+                                @Override
+                                public void run()
+                                {
+                                    //여기에 딜레이 후 시작할 작업들을 입력
+                                    if (jangjo[0]==0){
+                                        btn_c_l.setImageResource(R.drawable.key_c);
+                                    }
+                                    else if(jangjo[0]==1){
+                                        btn_c_l.setImageResource(R.drawable.keys_c);
+                                    }
+                                    else{
+                                        btn_c_l.setImageResource(R.drawable.keyf_c);
+                                    }
+                                }
+                            }, 500);
+                        }
+                        else{
+                            if (jangjo[0]==0) {
+                                jangjo[0]++;
+                                btn_c_l.setImageResource(R.drawable.keys_c);
+                                sp.play(Scale.do0_5,1,1,1,0,1.0f);
+                            }
+                            else if(jangjo[0]==1) {
+                                jangjo[0]++;
+                                btn_c_l.setImageResource(R.drawable.keyf_c);
+                                sp.play(Scale.do0_5,1,1,1,0,1.0f);
+                            }
+                            else {
+                                jangjo[0] = 0;
+                                btn_c_l.setImageResource(R.drawable.key_c);
+                                sp.play(Scale.do0_0,1,1,1,0,1.0f);
+                            }
+                        }
+                        break;
+                }
+                return false;
+            }
+        });
         btn_d_l.setOnTouchListener(new View.OnTouchListener() {
             public boolean onTouch(View v, MotionEvent event) {
                 switch (event.getAction()) {

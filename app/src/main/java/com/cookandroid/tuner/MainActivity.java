@@ -774,7 +774,6 @@ public class MainActivity extends AppCompatActivity{
         btn_help.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //팝업창 액티비티로 연결
                 startActivity(new Intent(getApplicationContext(),help_popup.class));
             }
         });
