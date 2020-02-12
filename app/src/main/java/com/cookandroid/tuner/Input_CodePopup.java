@@ -148,6 +148,15 @@ public class Input_CodePopup extends AppCompatActivity implements BillingProcess
                         Boolean checked = true;
                         editor.putBoolean("codecheck", checked);
                         editor.commit();
+
+                        SharedPreferences cc = getSharedPreferences("check", MODE_PRIVATE);
+
+
+
+                        Toast.makeText(Input_CodePopup.this, "연주 모드", Toast.LENGTH_SHORT).show();
+                        startActivity(new Intent(getApplicationContext(), play_mode.class));
+                        overridePendingTransition(R.anim.anim_slide_down, R.anim.anim_slide_up);
+
                         finish();
                     }
                 }
