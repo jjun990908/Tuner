@@ -1,9 +1,11 @@
 package com.cookandroid.tuner;
 
+import android.annotation.SuppressLint;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -97,6 +99,7 @@ public class Input_CodePopup extends AppCompatActivity implements BillingProcess
 
 
 
+    @SuppressLint("ClickableViewAccessibility")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -175,11 +178,21 @@ public class Input_CodePopup extends AppCompatActivity implements BillingProcess
 
 
         //닫기버튼 클릭함수
-        btn_close.setOnClickListener(new View.OnClickListener() {
+        btn_close.setOnTouchListener(new View.OnTouchListener() {
             @Override
-            public void onClick(View view) {
-                finish();
+            public boolean onTouch(View view, MotionEvent motionEvent) {
+                switch (motionEvent.getAction()){
+                    case MotionEvent.ACTION_DOWN:
+                        finish();
+                }
+                return false;
             }
         });
+//        btn_close.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                finish();
+//            }
+//        });
     }
 }
