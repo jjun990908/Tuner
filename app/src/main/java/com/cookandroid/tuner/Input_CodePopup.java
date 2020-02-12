@@ -103,63 +103,53 @@ public class Input_CodePopup extends AppCompatActivity implements BillingProcess
         setContentView(R.layout.input_code_popup);
         bp = new BillingProcessor(this,"MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAiCjoveQ2+WNj5QElXLUDsUAz5edl+bVJjZ62p3Ig1u2J/nfN6nPE4Cwp4cEIOue7ClVRRQM3sObXHnO+1nUYEbPXnCpNTdx0+Yll6A1eqKJFI6LaSArtKZj7kHj7fIBZkzeJB8yqpe6N+kVI2igQ4ZkK2SwVWjBPBi6+SmHvPIluZ4LmGudVvJeRQ8dooe0y6To6x8HLcaqJPluKvAWYC8vNDXFhKwBdEtfbQJbsUN/k2TI4uReH2gXi1vHKnIHZ3hQz1GL+/CAluNmEzRP5CHOiwCdxVz9MYCk0iDRIuo06o88sFPSJrInW0hSulZsQENdiWpnKhaq5IZdaZTtdxwIDAQAB",this);
         bp.initialize();
-        btn_confirmcode = findViewById(R.id.btn_confirmcode);
-        btn_confirmcode.setOnClickListener(new View.OnClickListener(){
+
+        btn_confirm = findViewById(R.id.btn_confirm);
+        btn_confirm.setOnClickListener(new View.OnClickListener(){
             @Override
-            public void onClick(View view){
-                EditText code = (EditText)findViewById(R.id.editText_inputcode);
+            public void onClick(View view) {
+                EditText code = (EditText) findViewById(R.id.editText_inputcode);
                 text_Explanation2 = findViewById(R.id.text_Explanation2);
                 String codetext = code.getText().toString();
-                if (codetext.length() == 0 ) {         //공백일 때 처리할 내용
+                if (codetext.length() == 0) {         //공백일 때 처리할 내용
                     text_Explanation2.setText("코드를 입력해 주세요");
                     codenumbercheck = false;
                     codeenglishcheck = false;
-                }
-                else if(codetext.length() !=7 ){
+                } else if (codetext.length() != 7) {
                     text_Explanation2.setText("올바르지 않은 코드입니다");
                     codenumbercheck = false;
                     codeenglishcheck = false;
-                }
-                else {                                                //공백이 아닐 때 처리할 내용
-                    if((codetext.charAt(0)== 87 && codetext.charAt(1)== 75) || (codetext.charAt(0)== 119 && codetext.charAt(1)== 107) || (codetext.charAt(0)==112 && codetext.charAt(1)==109) || (codetext.charAt(0)==80&&codetext.charAt(1)==77)){
+                } else {                                                //공백이 아닐 때 처리할 내용
+                    if ((codetext.charAt(0) == 87 && codetext.charAt(1) == 75) || (codetext.charAt(0) == 119 && codetext.charAt(1) == 107) || (codetext.charAt(0) == 112 && codetext.charAt(1) == 109) || (codetext.charAt(0) == 80 && codetext.charAt(1) == 77)) {
                         codeenglishcheck = true;
-                    }
-                    else{
+                    } else {
                         text_Explanation2.setText("올바르지 않은 코드입니다");
                         codeenglishcheck = false;
                     }
 
                     int count = 0;
-                    for(int i = 2; i<7; i++ ) {
-                        if (codetext.charAt(i) >= 48 && codetext.charAt(i) <= 57 && codeenglishcheck ==true) {
+                    for (int i = 2; i < 7; i++) {
+                        if (codetext.charAt(i) >= 48 && codetext.charAt(i) <= 57 && codeenglishcheck == true) {
                             count++;
                         }
                     }
-                     if (count !=5){
-                         text_Explanation2.setText("올바르지 않은 코드입니다");
-                         count = 0;
-                     }
-                     else {
-                         text_Explanation2.setText("올바른 코드입니다");
-                         codenumbercheck = true;
-                         count = 0;
-                     }
-                }
-            }
-        });
-
-        btn_confirm = findViewById(R.id.btn_confirm);
-        btn_confirm.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View view){
-                if(codeenglishcheck == true && codenumbercheck ==true){
-                    SharedPreferences sharedPreferences = getSharedPreferences("check", MODE_PRIVATE);
-                    Toast.makeText(Input_CodePopup.this, "연주모드를 사용하실 수 있습니다.", Toast.LENGTH_SHORT).show();
-                    SharedPreferences.Editor editor = sharedPreferences.edit();
-                    Boolean checked = true;
-                    editor.putBoolean("codecheck", checked);
-                    editor.commit();
-                    finish();
+                    if (count != 5) {
+                        text_Explanation2.setText("올바르지 않은 코드입니다");
+                        count = 0;
+                    } else {
+                        text_Explanation2.setText("올바른 코드입니다");
+                        codenumbercheck = true;
+                        count = 0;
+                    }
+                    if (codeenglishcheck == true && codenumbercheck == true) {
+                        SharedPreferences sharedPreferences = getSharedPreferences("check", MODE_PRIVATE);
+                        Toast.makeText(Input_CodePopup.this, "연주모드를 사용하실 수 있습니다.", Toast.LENGTH_SHORT).show();
+                        SharedPreferences.Editor editor = sharedPreferences.edit();
+                        Boolean checked = true;
+                        editor.putBoolean("codecheck", checked);
+                        editor.commit();
+                        finish();
+                    }
                 }
             }
 
