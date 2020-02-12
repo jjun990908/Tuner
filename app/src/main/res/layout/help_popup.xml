@@ -12,7 +12,7 @@
         android:layout_width="30dp"
         android:layout_height="30dp"
         android:layout_marginTop="8dp"
-        android:layout_marginRight="8dp"
+        android:layout_marginEnd="16dp"
         android:background="@drawable/code_cancel"
         android:backgroundTint="@color/white"
         app:layout_constraintEnd_toEndOf="parent"

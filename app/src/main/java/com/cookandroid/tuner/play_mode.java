@@ -21,7 +21,10 @@ import android.widget.ToggleButton;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import static android.view.DragEvent.ACTION_DRAG_ENDED;
 import static android.view.DragEvent.ACTION_DRAG_ENTERED;
+import static android.view.DragEvent.ACTION_DRAG_EXITED;
+import static android.view.DragEvent.ACTION_DRAG_LOCATION;
 import static android.view.DragEvent.ACTION_DRAG_STARTED;
 import static android.view.DragEvent.ACTION_DROP;
 public class play_mode extends AppCompatActivity {
@@ -86,6 +89,9 @@ public class play_mode extends AppCompatActivity {
                     public boolean onDrag(View view, DragEvent dragEvent) {
                         switch (dragEvent.getAction()) {
                             case ACTION_DRAG_ENTERED:
+                            case ACTION_DRAG_LOCATION:
+                            case ACTION_DRAG_EXITED:
+                            case ACTION_DRAG_ENDED:
                             case ACTION_DRAG_STARTED:
                                 if(!changemod){
                                     if(!btn_vive.isChecked()){
