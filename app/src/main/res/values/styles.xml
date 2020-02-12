@@ -13,7 +13,7 @@
     <style name="SplashTheme" parent="Theme.AppCompat.NoActionBar">
         <item name="android:windowBackground">@drawable/splash_background</item>
         <item name="android:windowFullscreen">true</item>
-        <item name="android:navigationBarColor">@color/white</item>
+        <item name="android:navigationBarColor">@color/no</item>
     </style>
 
     <style name="popupTheme" parent="Theme.AppCompat.DayNight.Dialog">
