@@ -58,7 +58,7 @@ public class Input_Code_Popup extends AppCompatActivity implements BillingProces
         // 구매 성공시 호출되는 메소드이다. 구매 성공 이후 수행해야 되는 작업을 수행하면 된다.
         // 예시는 구매 성공 다이얼로그를 실행하는 것이다.
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setMessage("구매 성공 하였습니다. 코드 'WK18602를 입력해주세요")
+        builder.setMessage("구매 성공 하였습니다. 코드 'PM18602'를 입력해주세요")
                 .setCancelable(false)
                 .setPositiveButton("확인", new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int id) {
@@ -121,7 +121,7 @@ public class Input_Code_Popup extends AppCompatActivity implements BillingProces
                     codeenglishcheck = false;
                 }
                 else {                                                //공백이 아닐 때 처리할 내용
-                    if((codetext.charAt(0)== 87 && codetext.charAt(1)== 75) || (codetext.charAt(0)== 119 && codetext.charAt(1)== 107)){
+                    if((codetext.charAt(0)== 87 && codetext.charAt(1)== 75) || (codetext.charAt(0)== 119 && codetext.charAt(1)== 107) || (codetext.charAt(0)==112 && codetext.charAt(1)==109) || (codetext.charAt(0)==80&&codetext.charAt(1)==77)){
                         codeenglishcheck = true;
                     }
                     else{
