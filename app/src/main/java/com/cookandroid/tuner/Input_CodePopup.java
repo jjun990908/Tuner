@@ -18,7 +18,7 @@ import com.anjlab.android.iab.v3.Constants;
 import com.anjlab.android.iab.v3.SkuDetails;
 import com.anjlab.android.iab.v3.TransactionDetails;
 
-public class Input_Code_Popup extends AppCompatActivity implements BillingProcessor.IBillingHandler {
+public class Input_CodePopup extends AppCompatActivity implements BillingProcessor.IBillingHandler {
     TextView txt_codeview, text_Explanation2;
     Button btn_close,btn_confirmcode, btn_confirm, btn_buycode;
     boolean codenumbercheck =false , codeenglishcheck =false;
@@ -154,7 +154,7 @@ public class Input_Code_Popup extends AppCompatActivity implements BillingProces
             public void onClick(View view){
                 if(codeenglishcheck == true && codenumbercheck ==true){
                     SharedPreferences sharedPreferences = getSharedPreferences("check", MODE_PRIVATE);
-                    Toast.makeText(Input_Code_Popup.this, "연주모드를 사용하실 수 있습니다.", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(Input_CodePopup.this, "연주모드를 사용하실 수 있습니다.", Toast.LENGTH_SHORT).show();
                     SharedPreferences.Editor editor = sharedPreferences.edit();
                     Boolean checked = true;
                     editor.putBoolean("codecheck", checked);
@@ -168,7 +168,7 @@ public class Input_Code_Popup extends AppCompatActivity implements BillingProces
         btn_buycode.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                    bp.purchase(Input_Code_Popup.this,"buycode");
+                    bp.purchase(Input_CodePopup.this,"buycode");
             }
         });
 

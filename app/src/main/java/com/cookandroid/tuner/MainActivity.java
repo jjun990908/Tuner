@@ -21,7 +21,6 @@ import android.view.View;
 import android.view.WindowManager;
 import android.view.animation.Animation;
 import android.view.animation.RotateAnimation;
-import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -33,7 +32,6 @@ import androidx.core.app.ActivityCompat;
 import com.cookandroid.tuner.fftpack.RealDoubleFFT;
 
 import static com.cookandroid.tuner.FFTfunc.MaxInFFTArray;
-import static com.cookandroid.tuner.FFTfunc.Similar;
 
 
 public class MainActivity extends AppCompatActivity{
@@ -805,7 +803,7 @@ public class MainActivity extends AppCompatActivity{
                     overridePendingTransition(R.anim.anim_slide_down, R.anim.anim_slide_up);
                 }
                 else{
-                    startActivity(new Intent(getApplicationContext(),Input_Code_Popup.class));
+                    startActivity(new Intent(getApplicationContext(), Input_CodePopup.class));
                 }
             }
         });
