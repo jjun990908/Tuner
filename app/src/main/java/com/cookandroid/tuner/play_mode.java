@@ -132,7 +132,7 @@ public class play_mode extends AppCompatActivity {
                                     else if(jangjo[0]==1) {
                                         jangjo[0]++;
                                         btn_c_l.setImageResource(R.drawable.keyf_c);
-                                        sp.play(Scale.do0_5,1,1,1,0,1.0f);
+                                        sp.play(Scale.si00_0,1,1,1,0,1.0f);
                                     }
                                     else {
                                         jangjo[0] = 0;
