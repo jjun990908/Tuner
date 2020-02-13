@@ -39,7 +39,7 @@
 
         <activity android:name=".Input_CodePopup"
             android:theme="@style/popupTheme"
-            android:screenOrientation="landscape"/>
+            android:screenOrientation="unspecified"/>
     </application>
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
     <uses-permission android:name="android.permission.RECORD_AUDIO"/>
