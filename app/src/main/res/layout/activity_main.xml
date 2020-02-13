@@ -319,7 +319,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
-    <!-- 도움말 버튼 -->
+    <!-- 구매 버튼 -->
     <ImageButton
         android:id="@+id/btn_link"
         android:layout_width="40dp"
