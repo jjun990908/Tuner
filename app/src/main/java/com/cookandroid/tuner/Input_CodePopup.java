@@ -167,12 +167,12 @@ public class Input_CodePopup extends AppCompatActivity implements BillingProcess
 
         });
         btn_buycode = findViewById(R.id.btn_buycode);
-        btn_buycode.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                    bp.purchase(Input_CodePopup.this,"buycode");
-            }
-        });
+       // btn_buycode.setOnClickListener(new View.OnClickListener() {
+           // @Override
+           // public void onClick(View v) {
+                  //  bp.purchase(Input_CodePopup.this,"buycode");
+          //  }
+      //  });
 
         btn_close = (Button)findViewById(R.id.btn_close);
 
