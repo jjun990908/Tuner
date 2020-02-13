@@ -247,11 +247,8 @@
         app:layout_constraintRight_toLeftOf="@+id/btn_b_h"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
     <!-- 진동 on/off 버튼 -->
-
-    <!-- 도움말 버튼 -->
-
-    <!-- 연주 모드 버튼 -->
     <ToggleButton
         android:id="@+id/btn_vive"
         android:layout_width="40dp"
@@ -264,6 +261,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/switch_mode" />
 
+    <!-- 연주 모드 버튼 -->
     <ImageButton
         android:id="@+id/switch_mode"
         android:layout_width="40dp"
@@ -276,6 +274,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
+    <!-- 조율 버튼 -->
     <ImageButton
         android:id="@+id/btn_sharp"
         android:layout_width="40dp"

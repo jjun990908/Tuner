@@ -219,8 +219,6 @@ public class MainActivity extends AppCompatActivity{
 
         btn_help = (ImageButton)findViewById(R.id.btn_help);
         btn_link = (ImageButton)findViewById(R.id.btn_link);
-        sharpText = (TextView)findViewById(R.id.sharp);
-        flatText = (TextView)findViewById(R.id.flat);
         btn_switch = (ImageButton)findViewById(R.id.switch_mode);
         sound_label = (ImageView)findViewById(R.id.sound_label);
         sound_label_cover = (ImageView)findViewById(R.id.sound_label_cover);
