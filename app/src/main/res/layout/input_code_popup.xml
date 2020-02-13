@@ -26,7 +26,6 @@
         android:layout_height="30dp"
         android:background="@color/no"
         android:ems="10"
-        android:fontFamily="@font/font3"
         android:hint="   코드입력"
         android:inputType="textPersonName"
         android:textSize="13dp"
