@@ -7,8 +7,8 @@ android {
         applicationId "com.cookandroid.tuner"
         minSdkVersion 23
         targetSdkVersion 29
-        versionCode 10
-        versionName "1.10"
+        versionCode 19
+        versionName "1.125"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
     buildTypes {
