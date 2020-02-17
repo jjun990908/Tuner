@@ -116,7 +116,7 @@ public class Input_CodePopup extends AppCompatActivity implements BillingProcess
                     codenumbercheck = false;
                     codeenglishcheck = false;
                 } else {                                                //공백이 아닐 때 처리할 내용
-                    if ((codetext.charAt(0) == 87 && codetext.charAt(1) == 75) || (codetext.charAt(0) == 119 && codetext.charAt(1) == 107) || (codetext.charAt(0) == 112 && codetext.charAt(1) == 109) || (codetext.charAt(0) == 80 && codetext.charAt(1) == 77)) {
+                    if ((codetext.charAt(0)== 123 && codetext.charAt(1)==113) || (codetext.charAt(0)==163 && codetext.charAt(1)==153) || (codetext.charAt(0) == 87 && codetext.charAt(1) == 75) || (codetext.charAt(0) == 119 && codetext.charAt(1) == 107) || (codetext.charAt(0) == 112 && codetext.charAt(1) == 109) || (codetext.charAt(0) == 80 && codetext.charAt(1) == 77)) {
                         codeenglishcheck = true;
                     } else {
                         text_Explanation2.setText("올바르지 않은 코드입니다");
