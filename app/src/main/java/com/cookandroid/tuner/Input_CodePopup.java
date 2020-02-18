@@ -1,5 +1,6 @@
 package com.cookandroid.tuner;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -93,6 +94,7 @@ public class Input_CodePopup extends AppCompatActivity implements BillingProcess
          * was loaded from Google Play
          */
     }
+    @SuppressLint("ClickableViewAccessibility")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -106,12 +108,45 @@ public class Input_CodePopup extends AppCompatActivity implements BillingProcess
             public void onClick(View view) {
                 EditText code = (EditText) findViewById(R.id.editText_inputcode);
                 text_Explanation2 = findViewById(R.id.text_Explanation2);
+                boolean codeexcept=false;
                 String codetext = code.getText().toString();
                 if (codetext.length() == 0) {         //공백일 때 처리할 내용
                     text_Explanation2.setText("코드를 입력해 주세요");
                     codenumbercheck = false;
                     codeenglishcheck = false;
-                } else if (codetext.length() != 7) {
+                } else if (codetext.charAt(0)==65 && codetext.charAt(1)==76 && codetext.charAt(2)==67 && codetext.charAt(3)==72 && codetext.charAt(4)==65 && codetext.charAt(5)==78&&codetext.length()==8||codetext.length()==8&&codetext.charAt(0)==97 && codetext.charAt(1)==108 && codetext.charAt(2)==99 && codetext.charAt(3)==104 && codetext.charAt(4)==97 && codetext.charAt(5)==110){
+                    for (int i=48;i<53;i++){
+                        for(int j=48;j<=57;j++)
+                            if (codetext.charAt(6) == i && codetext.charAt(7) == j)
+                                codeexcept = true;
+                    }
+                    if (codetext.charAt(6)==53&&codetext.charAt(7)==48) codeexcept = true;
+                    if (codeexcept){
+                        text_Explanation2.setText("올바른 코드입니다");
+                        SharedPreferences sharedPreferences = getSharedPreferences("check", MODE_PRIVATE);
+                        Toast.makeText(Input_CodePopup.this, "연주모드를 사용하실 수 있습니다.", Toast.LENGTH_SHORT).show();
+                        SharedPreferences.Editor editor = sharedPreferences.edit();
+                        Boolean checked = true;
+                        editor.putBoolean("codecheck", checked);
+                        editor.commit();
+
+                        SharedPreferences cc = getSharedPreferences("check", MODE_PRIVATE);
+
+
+
+                        Toast.makeText(Input_CodePopup.this, "연주 모드", Toast.LENGTH_SHORT).show();
+                        startActivity(new Intent(getApplicationContext(), play_mode.class));
+                        overridePendingTransition(R.anim.anim_slide_down, R.anim.anim_slide_up);
+
+                        finish();
+                    }
+                    else{
+                        text_Explanation2.setText("올바르지 않은 코드입니다");
+                        codenumbercheck = false;
+                        codeenglishcheck = false;
+                    }
+                }
+                else if (codetext.length() != 7) {
                     text_Explanation2.setText("올바르지 않은 코드입니다");
                     codenumbercheck = false;
                     codeenglishcheck = false;
