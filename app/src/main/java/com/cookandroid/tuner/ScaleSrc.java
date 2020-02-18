@@ -28,7 +28,7 @@ public class ScaleSrc {
     ScaleSrc(Context context) {
         this.sp = new SoundPool(5,         // 최대 음악파일의 개수
                 AudioManager.STREAM_MUSIC, // 스트림 타입
-                5);        // 음질 - 기본값:0
+                0);        // 음질 - 기본값:0
 
         // 각각의 재생하고자하는 음악을 미리 준비한다
 

@@ -2,6 +2,7 @@ package com.cookandroid.tuner;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
+import android.content.pm.ModuleInfo;
 import android.graphics.Color;
 import android.graphics.Rect;
 import android.media.SoundPool;
@@ -26,9 +27,10 @@ public class play_mode extends AppCompatActivity {
 
     ImageButton btn_c_l,btn_d_l,btn_e_l,btn_f_l,btn_g_l,btn_a_l,btn_b_l,btn_c_h,btn_d_h,btn_e_h,btn_f_h,btn_g_h,btn_a_h,btn_b_h,btn_c_hh,btn_d_hh,btn_e_hh;
     ImageButton btn_switch, btn_sharp;
-    ToggleButton btn_vive;
+    ImageButton btn_vive;
     ConstraintLayout CL;
     boolean changemod = false;
+    boolean vive = true;
     boolean[] same = {false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false};
     int[] jangjo ={0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0};
 
@@ -78,7 +80,7 @@ public class play_mode extends AppCompatActivity {
         btn_switch = (ImageButton)findViewById(R.id.switch_mode);
         btn_sharp = (ImageButton)findViewById(R.id.btn_sharp);
 
-        btn_vive = (ToggleButton) findViewById(R.id.btn_vive);
+        btn_vive = (ImageButton) findViewById(R.id.btn_vive);
         CL = (ConstraintLayout)findViewById(R.id.CL);
 
 
@@ -119,7 +121,7 @@ public class play_mode extends AppCompatActivity {
                         if (chktouch[0].contains((int)event.getX(), (int)event.getY())) {
                             if (!same[0]){
                                 if(!changemod){
-                                    if(!btn_vive.isChecked()){
+                                    if(vive){
                                         vibrator.vibrate(30);
                                         btn_c_l.startAnimation(anim_Twist);
                                     }
@@ -178,7 +180,7 @@ public class play_mode extends AppCompatActivity {
                         else if (chktouch[1].contains((int)event.getX(), (int)event.getY())) {
                             if (!same[1]){
                                 if(!changemod){
-                                    if(!btn_vive.isChecked()){
+                                    if(vive){
                                         vibrator.vibrate(30);
                                         btn_d_l.startAnimation(anim_Twist);
                                     }
@@ -236,7 +238,7 @@ public class play_mode extends AppCompatActivity {
                         else if (chktouch[2].contains((int)event.getX(), (int)event.getY())) {
                             if (!same[2]) {
                                 if (!changemod) {
-                                    if (!btn_vive.isChecked()) {
+                                    if (vive) {
                                         vibrator.vibrate(30);
                                         btn_e_l.startAnimation(anim_Twist);
                                     }
@@ -286,7 +288,7 @@ public class play_mode extends AppCompatActivity {
                         else if (chktouch[3].contains((int)event.getX(), (int)event.getY())){
                             if (!same[3]) {
                                 if (!changemod) {
-                                    if (!btn_vive.isChecked()) {
+                                    if (vive) {
                                         vibrator.vibrate(30);
                                         btn_f_l.startAnimation(anim_Twist);
                                     }
@@ -334,7 +336,7 @@ public class play_mode extends AppCompatActivity {
                         else if (chktouch[4].contains((int)event.getX(), (int)event.getY())){
                             if (!same[4]) {
                                 if (!changemod) {
-                                    if (!btn_vive.isChecked()) {
+                                    if (vive) {
                                         vibrator.vibrate(30);
                                         btn_g_l.startAnimation(anim_Twist);
                                     }
@@ -383,7 +385,7 @@ public class play_mode extends AppCompatActivity {
                         else if (chktouch[5].contains((int)event.getX(), (int)event.getY())){
                             if (!same[5]) {
                                 if (!changemod) {
-                                    if (!btn_vive.isChecked()) {
+                                    if (vive) {
                                         vibrator.vibrate(30);
                                         btn_a_l.startAnimation(anim_Twist);
                                     }
@@ -433,7 +435,7 @@ public class play_mode extends AppCompatActivity {
                         else if (chktouch[6].contains((int)event.getX(), (int)event.getY())){
                             if (!same[6]) {
                                 if (!changemod) {
-                                    if (!btn_vive.isChecked()) {
+                                    if (vive) {
                                         vibrator.vibrate(30);
                                         btn_b_l.startAnimation(anim_Twist);
                                     }
@@ -483,7 +485,7 @@ public class play_mode extends AppCompatActivity {
                         else if (chktouch[7].contains((int)event.getX(), (int)event.getY())){
                             if (!same[7]) {
                                 if (!changemod) {
-                                    if (!btn_vive.isChecked()) {
+                                    if (vive) {
                                         vibrator.vibrate(30);
                                         btn_c_h.startAnimation(anim_Twist);
                                     }
@@ -533,7 +535,7 @@ public class play_mode extends AppCompatActivity {
                         else if (chktouch[8].contains((int)event.getX(), (int)event.getY())){
                             if (!same[8]) {
                                 if (!changemod) {
-                                    if (!btn_vive.isChecked()) {
+                                    if (vive) {
                                         vibrator.vibrate(30);
                                         btn_d_h.startAnimation(anim_Twist);
                                     }
@@ -583,7 +585,7 @@ public class play_mode extends AppCompatActivity {
                         else if (chktouch[9].contains((int)event.getX(), (int)event.getY())){
                             if (!same[9]) {
                                 if (!changemod) {
-                                    if (!btn_vive.isChecked()) {
+                                    if (vive) {
                                         vibrator.vibrate(30);
                                         btn_e_h.startAnimation(anim_Twist);
                                     }
@@ -633,7 +635,7 @@ public class play_mode extends AppCompatActivity {
                         else if (chktouch[10].contains((int)event.getX(), (int)event.getY())){
                             if (!same[10]) {
                                 if (!changemod) {
-                                    if (!btn_vive.isChecked()) {
+                                    if (vive) {
                                         vibrator.vibrate(30);
                                         btn_f_h.startAnimation(anim_Twist);
                                     }
@@ -683,7 +685,7 @@ public class play_mode extends AppCompatActivity {
                         else if (chktouch[11].contains((int)event.getX(), (int)event.getY())){
                             if (!same[11]) {
                                 if (!changemod) {
-                                    if (!btn_vive.isChecked()) {
+                                    if (vive) {
                                         vibrator.vibrate(30);
                                         btn_g_h.startAnimation(anim_Twist);
                                     }
@@ -733,7 +735,7 @@ public class play_mode extends AppCompatActivity {
                         else if (chktouch[12].contains((int)event.getX(), (int)event.getY())){
                             if (!same[12]) {
                                 if (!changemod) {
-                                    if (!btn_vive.isChecked()) {
+                                    if (vive) {
                                         vibrator.vibrate(30);
                                         btn_a_h.startAnimation(anim_Twist);
                                     }
@@ -784,7 +786,7 @@ public class play_mode extends AppCompatActivity {
                         else if (chktouch[13].contains((int)event.getX(), (int)event.getY())){
                             if (!same[13]) {
                                 if (!changemod) {
-                                    if (!btn_vive.isChecked()) {
+                                    if (vive) {
                                         vibrator.vibrate(30);
                                         btn_b_h.startAnimation(anim_Twist);
                                     }
@@ -834,7 +836,7 @@ public class play_mode extends AppCompatActivity {
                         else if (chktouch[14].contains((int)event.getX(), (int)event.getY())){
                             if (!same[14]) {
                                 if (!changemod) {
-                                    if (!btn_vive.isChecked()) {
+                                    if (vive) {
                                         vibrator.vibrate(30);
                                         btn_c_hh.startAnimation(anim_Twist);
                                     }
@@ -884,7 +886,7 @@ public class play_mode extends AppCompatActivity {
                         else if (chktouch[15].contains((int)event.getX(), (int)event.getY())){
                             if (!same[15]) {
                                 if (!changemod) {
-                                    if (!btn_vive.isChecked()) {
+                                    if (vive) {
                                         vibrator.vibrate(30);
                                         btn_d_hh.startAnimation(anim_Twist);
                                     }
@@ -934,7 +936,7 @@ public class play_mode extends AppCompatActivity {
                         else if (chktouch[16].contains((int)event.getX(), (int)event.getY())){
                             if (!same[16]) {
                                 if (!changemod) {
-                                    if (!btn_vive.isChecked()) {
+                                    if (vive) {
                                         vibrator.vibrate(30);
                                         btn_e_hh.startAnimation(anim_Twist);
                                     }
@@ -996,7 +998,7 @@ public class play_mode extends AppCompatActivity {
 //                    case MotionEvent.ACTION_MOVE:
 //                        if (chktouch[0].contains((int)event.getX(), (int)event.getY())) {
 //                            if(!changemod){
-//                                if(!btn_vive.isChecked()){
+//                                if(vive){
 //                                    vibrator.vibrate(30);
 //                                    btn_c_l.startAnimation(anim_Twist);
 //                                }
@@ -1051,7 +1053,7 @@ public class play_mode extends AppCompatActivity {
 //                        }
 //                        else if (chktouch[1].contains((int)event.getX(), (int)event.getY())){
 //                            if(!changemod){
-//                                if(!btn_vive.isChecked()){
+//                                if(vive){
 //                                    vibrator.vibrate(30);
 //                                    btn_d_l.startAnimation(anim_Twist);
 //                                }
@@ -1114,7 +1116,7 @@ public class play_mode extends AppCompatActivity {
                 switch (event.getAction()) {
                     case MotionEvent.ACTION_DOWN:
                         if(!changemod){
-                            if(!btn_vive.isChecked()){
+                            if(vive){
                                 vibrator.vibrate(30);
                                 btn_c_l.startAnimation(anim_Twist);
                             }
@@ -1176,7 +1178,7 @@ public class play_mode extends AppCompatActivity {
                     case DragEvent.ACTION_DRAG_ENTERED:
                     case MotionEvent.ACTION_DOWN:
                         if(!changemod){
-                            if(!btn_vive.isChecked()){
+                            if(vive){
                                 vibrator.vibrate(30);
                                 btn_d_l.startAnimation(anim_Twist);
                             }
@@ -1238,7 +1240,7 @@ public class play_mode extends AppCompatActivity {
                     case MotionEvent.ACTION_DOWN:
                     case DragEvent.ACTION_DRAG_ENTERED:
                         if(!changemod){
-                            if(!btn_vive.isChecked()){
+                            if(vive){
                                 vibrator.vibrate(30);
                                 btn_e_l.startAnimation(anim_Twist);
                             }
@@ -1300,7 +1302,7 @@ public class play_mode extends AppCompatActivity {
                     case MotionEvent.ACTION_DOWN:
                     case DragEvent.ACTION_DRAG_ENTERED:
                         if(!changemod){
-                            if(!btn_vive.isChecked()){
+                            if(vive){
                                 vibrator.vibrate(30);
                                 btn_f_l.startAnimation(anim_Twist);
                             }
@@ -1361,7 +1363,7 @@ public class play_mode extends AppCompatActivity {
                     case MotionEvent.ACTION_DOWN:
                     case DragEvent.ACTION_DRAG_ENTERED:
                         if(!changemod){
-                            if(!btn_vive.isChecked()){
+                            if(vive){
                                 vibrator.vibrate(30);
                                 btn_g_l.startAnimation(anim_Twist);
                             }
@@ -1423,7 +1425,7 @@ public class play_mode extends AppCompatActivity {
                     case MotionEvent.ACTION_DOWN:
                     case DragEvent.ACTION_DRAG_ENTERED:
                         if(!changemod){
-                            if(!btn_vive.isChecked()){
+                            if(vive){
                                 vibrator.vibrate(30);
                                 btn_a_l.startAnimation(anim_Twist);
                             }
@@ -1486,7 +1488,7 @@ public class play_mode extends AppCompatActivity {
                     case MotionEvent.ACTION_DOWN:
                     case DragEvent.ACTION_DRAG_ENTERED:
                         if(!changemod){
-                            if(!btn_vive.isChecked()){
+                            if(vive){
                                 vibrator.vibrate(30);
                                 btn_b_l.startAnimation(anim_Twist);
                             }
@@ -1549,7 +1551,7 @@ public class play_mode extends AppCompatActivity {
                     case MotionEvent.ACTION_DOWN:
                     case DragEvent.ACTION_DRAG_ENTERED:
                         if(!changemod){
-                            if(!btn_vive.isChecked()){
+                            if(vive){
                                 vibrator.vibrate(30);
                                 btn_c_h.startAnimation(anim_Twist);
                             }
@@ -1612,7 +1614,7 @@ public class play_mode extends AppCompatActivity {
                     case MotionEvent.ACTION_DOWN:
                     case DragEvent.ACTION_DRAG_ENTERED:
                         if(!changemod){
-                            if(!btn_vive.isChecked()){
+                            if(vive){
                                 vibrator.vibrate(30);
                                 btn_d_h.startAnimation(anim_Twist);
                             }
@@ -1675,7 +1677,7 @@ public class play_mode extends AppCompatActivity {
                     case MotionEvent.ACTION_DOWN:
                     case DragEvent.ACTION_DRAG_ENTERED:
                         if(!changemod){
-                            if(!btn_vive.isChecked()){
+                            if(vive){
                                 vibrator.vibrate(30);
                                 btn_e_h.startAnimation(anim_Twist);
                             }
@@ -1738,7 +1740,7 @@ public class play_mode extends AppCompatActivity {
                     case MotionEvent.ACTION_DOWN:
                     case DragEvent.ACTION_DRAG_ENTERED:
                         if(!changemod){
-                            if(!btn_vive.isChecked()){
+                            if(vive){
                                 vibrator.vibrate(30);
                                 btn_f_h.startAnimation(anim_Twist);
                             }
@@ -1802,7 +1804,7 @@ public class play_mode extends AppCompatActivity {
                     case MotionEvent.ACTION_DOWN:
                     case DragEvent.ACTION_DRAG_ENTERED:
                         if(!changemod){
-                            if(!btn_vive.isChecked()){
+                            if(vive){
                                 vibrator.vibrate(30);
                                 btn_g_h.startAnimation(anim_Twist);
                             }
@@ -1865,7 +1867,7 @@ public class play_mode extends AppCompatActivity {
                     case MotionEvent.ACTION_DOWN:
                     case DragEvent.ACTION_DRAG_ENTERED:
                         if(!changemod){
-                            if(!btn_vive.isChecked()){
+                            if(vive){
                                 vibrator.vibrate(30);
                                 btn_a_h.startAnimation(anim_Twist);
                             }
@@ -1930,7 +1932,7 @@ public class play_mode extends AppCompatActivity {
                     case DragEvent.ACTION_DRAG_ENTERED:
                     case MotionEvent.ACTION_DOWN:
                         if(!changemod){
-                            if(!btn_vive.isChecked()){
+                            if(vive){
                                 vibrator.vibrate(30);
                                 btn_b_h.startAnimation(anim_Twist);
                             }
@@ -1994,7 +1996,7 @@ public class play_mode extends AppCompatActivity {
                     case MotionEvent.ACTION_DOWN:
                     case DragEvent.ACTION_DRAG_ENTERED:
                         if(!changemod){
-                            if(!btn_vive.isChecked()){
+                            if(vive){
                                 vibrator.vibrate(30);
                                 btn_c_hh.startAnimation(anim_Twist);
                             }
@@ -2058,7 +2060,7 @@ public class play_mode extends AppCompatActivity {
                     case MotionEvent.ACTION_DOWN:
                     case DragEvent.ACTION_DRAG_ENTERED:
                         if(!changemod){
-                            if(!btn_vive.isChecked()){
+                            if(vive){
                                 vibrator.vibrate(30);
                                 btn_d_hh.startAnimation(anim_Twist);
                             }
@@ -2122,7 +2124,7 @@ public class play_mode extends AppCompatActivity {
                     case MotionEvent.ACTION_DOWN:
                     case DragEvent.ACTION_DRAG_ENTERED:
                         if(!changemod){
-                            if(!btn_vive.isChecked()){
+                            if(vive){
                                 vibrator.vibrate(30);
                                 btn_e_hh.startAnimation(anim_Twist);
                             }
@@ -2181,47 +2183,54 @@ public class play_mode extends AppCompatActivity {
         });
 
         //진동모드 전환
-        btn_vive.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+        btn_vive.setOnTouchListener(new View.OnTouchListener() {
             @Override
-            public void onCheckedChanged(CompoundButton compoundButton, boolean ischecked) {
-                if (ischecked){
-                    btn_vive.setBackgroundResource(R.drawable.butoon_vi_off);
-                    Toast.makeText(getApplicationContext(),"진동 OFF",Toast.LENGTH_SHORT).show();
+            public boolean onTouch(View view, MotionEvent motionEvent) {
+                if (motionEvent.getAction() == MotionEvent.ACTION_DOWN){
+                    if (vive) {
+                        btn_vive.setBackgroundResource(R.drawable.butoon_vi_off);
+                        Toast.makeText(getApplicationContext(), "진동 OFF", Toast.LENGTH_SHORT).show();
+                        vive = false;
+                    }
+                    else {
+                        btn_vive.setBackgroundResource(R.drawable.butoon_vi_on);
+                        Toast.makeText(getApplicationContext(),"진동 ON",Toast.LENGTH_SHORT).show();
+                        vive = true;
+                    }
                 }
-                else{
-                    btn_vive.setBackgroundResource(R.drawable.butoon_vi_on);
-                    Toast.makeText(getApplicationContext(),"진동 ON",Toast.LENGTH_SHORT).show();
-                }
+                return false;
             }
         });
         //튜닝모드 전환
-        btn_switch.setOnClickListener(new View.OnClickListener() {
+        btn_switch.setOnTouchListener(new View.OnTouchListener() {
             @Override
-            public void onClick(View view) {
-
-                if(System.currentTimeMillis() - LOADING_TIME < 1000){ return; }
-
-                Toast.makeText(play_mode.this, "튜닝모드", Toast.LENGTH_SHORT).show();
-                finish();
-                overridePendingTransition(R.anim.anim_slide_down,R.anim.anim_slide_up);
-
+            public boolean onTouch(View view, MotionEvent event) {
+                if (event.getAction() == MotionEvent.ACTION_DOWN){
+                    Toast.makeText(play_mode.this, "튜닝모드", Toast.LENGTH_SHORT).show();
+                    finish();
+                    overridePendingTransition(R.anim.anim_slide_down,R.anim.anim_slide_up);
+                }
+                return false;
             }
         });
 
         //샾 플랫 전환 버튼
-        btn_sharp.setOnClickListener(new View.OnClickListener() {
+        btn_sharp.setOnTouchListener(new View.OnTouchListener() {
             @Override
-            public void onClick(View view) {
-                if (!changemod){
-                    changemod = true;
-                    Toast.makeText(play_mode.this, "반음 설정", Toast.LENGTH_SHORT).show();
-                    btn_sharp.setImageResource(R.drawable.button_sharp_push);
+            public boolean onTouch(View view, MotionEvent event) {
+                if (event.getAction() == MotionEvent.ACTION_DOWN){
+                    if (!changemod){
+                        changemod = true;
+                        Toast.makeText(play_mode.this, "반음 설정", Toast.LENGTH_SHORT).show();
+                        btn_sharp.setImageResource(R.drawable.button_sharp_push);
+                    }
+                    else {
+                        changemod = false;
+                        Toast.makeText(play_mode.this, "연주 모드", Toast.LENGTH_SHORT).show();
+                        btn_sharp.setImageResource(R.drawable.button_sharp);
+                    }
                 }
-                else {
-                    changemod = false;
-                    Toast.makeText(play_mode.this, "연주 모드", Toast.LENGTH_SHORT).show();
-                    btn_sharp.setImageResource(R.drawable.button_sharp);
-                }
+                return false;
             }
         });
     }

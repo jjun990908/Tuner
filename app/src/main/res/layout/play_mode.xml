@@ -250,7 +250,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <!-- 진동 on/off 버튼 -->
-    <ToggleButton
+    <ImageButton
         android:id="@+id/btn_vive"
         android:layout_width="40dp"
         android:layout_height="40dp"
