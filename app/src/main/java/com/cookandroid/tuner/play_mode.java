@@ -2242,9 +2242,16 @@ public class play_mode extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
+        if(changemod){
 
-        Toast.makeText(play_mode.this, "튜닝 모드", Toast.LENGTH_SHORT).show();
-        finish();
-        overridePendingTransition(R.anim.anim_slide_down,R.anim.anim_slide_up);
+            changemod = false;
+            Toast.makeText(play_mode.this, "연주 모드", Toast.LENGTH_SHORT).show();
+            btn_sharp.setImageResource(R.drawable.button_sharp);
+        }
+        else {
+            Toast.makeText(play_mode.this, "튜닝 모드", Toast.LENGTH_SHORT).show();
+            finish();
+            overridePendingTransition(R.anim.anim_slide_down, R.anim.anim_slide_up);
+        }
     }
 }
