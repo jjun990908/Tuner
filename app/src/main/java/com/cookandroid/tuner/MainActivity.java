@@ -32,10 +32,9 @@ import androidx.core.app.ActivityCompat;
 import com.cookandroid.tuner.fftpack.*;
 import static com.cookandroid.tuner.FFTfunc.*;
 
-
 public class MainActivity extends AppCompatActivity{
 
-    ////////// FFT initialize ////////////////////
+    ////////// FFT initialize /////////////////////////////////   //
     // 1. 성능 설정 변수 (수정 가능, 삭제 불가)
     int frequency = 4400; // 가청 주파수 설정 (참고: 가청 주파수는 frequency 의 절반)
     int blockSize = 2048; // 정밀도(속도와 관련) 설정 (참고: 반드시 2의 배수)
@@ -66,7 +65,7 @@ public class MainActivity extends AppCompatActivity{
     double correction = 30;                                        // 각도 보정 값 (대체로 15~40이 적당)
 
     static boolean focus = true;
-    /////////////////////////////////////////////
+    ////////////////////////////////////////////////////////////   //
 
 
     ImageButton btn_c_l,btn_d_l,btn_e_l,btn_f_l,btn_g_l,btn_a_l,btn_b_l,btn_c_h,btn_d_h,btn_e_h,btn_f_h,btn_g_h,btn_a_h,btn_b_h,btn_c_hh,btn_d_hh,btn_e_hh,btn_link;
@@ -154,7 +153,7 @@ public class MainActivity extends AppCompatActivity{
         before = i;
     }
 
-    public void anime_rotate2(float i ){
+    public void anime_rotate2(float i){
         if(correct_cnt>=2){
             sound_label_cover.setVisibility(View.INVISIBLE);
             sound_label_correct.setVisibility(View.VISIBLE);
@@ -169,7 +168,7 @@ public class MainActivity extends AppCompatActivity{
         super.onCreate(savedInstanceState);
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
 
-         LOADING_TIME = System.currentTimeMillis();
+        LOADING_TIME = System.currentTimeMillis();
 
         getWindow().setNavigationBarColor(Color.BLACK);
 
