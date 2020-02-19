@@ -29,9 +29,8 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 
-import com.cookandroid.tuner.fftpack.RealDoubleFFT;
-
-import static com.cookandroid.tuner.FFTfunc.MaxInFFTArray;
+import com.cookandroid.tuner.fftpack.*;
+import static com.cookandroid.tuner.FFTfunc.*;
 
 
 public class MainActivity extends AppCompatActivity{
@@ -51,8 +50,6 @@ public class MainActivity extends AppCompatActivity{
     // 3. 화면에 표시하기 위해, 따로 만든 변수들 (수정 가능, 삭제 가능)
     boolean started = true;
     boolean wikicode = true;
-    boolean codeenglishcheck = false;
-    boolean codenumbercheck = false;
 
     boolean DEBUG_MODE = false;                                    // 화면에 순차적으로 들어오는 4개의 Hz 값을 띄워주는 모드
 
@@ -68,6 +65,7 @@ public class MainActivity extends AppCompatActivity{
 
     double correction = 30;                                        // 각도 보정 값 (대체로 15~40이 적당)
 
+    static boolean focus = true;
     /////////////////////////////////////////////
 
 
@@ -848,6 +846,8 @@ public class MainActivity extends AppCompatActivity{
 
                 audioRecord.startRecording();
                 while (started) {
+
+
                     int bufferReadResult = audioRecord.read(buffer, 0, blockSize); //blockSize = 256
                     //Log.i("bufferReadResult", Integer.toString(bufferReadResult));
 
@@ -856,6 +856,7 @@ public class MainActivity extends AppCompatActivity{
                     }
                     transformer.ft(toTransform);
                     publishProgress(toTransform);
+
                 }
                 audioRecord.stop();
             } catch (Throwable t) {
@@ -875,6 +876,8 @@ public class MainActivity extends AppCompatActivity{
 
         @Override
         protected void onProgressUpdate(double[]... toTransform) {
+            if (!focus){    return ;    } // 메인액티비티가 아니면 Array 생성을 끔
+
             float InputAudioHz = MaxInFFTArray(toTransform[0], sensitivity) * frequency / (2 * blockSize);
             DebugHz(InputAudioHz, DEBUG_MODE);
             if (InputAudioHz > 234) { ROTATE(InputAudioHz); }
