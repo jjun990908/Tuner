@@ -2,7 +2,6 @@ package com.cookandroid.tuner;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
-import android.content.pm.ModuleInfo;
 import android.graphics.Color;
 import android.graphics.Rect;
 import android.media.SoundPool;
@@ -15,10 +14,8 @@ import android.view.View;
 import android.view.WindowManager;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
-import android.widget.CompoundButton;
 import android.widget.ImageButton;
 import android.widget.Toast;
-import android.widget.ToggleButton;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
@@ -980,7 +977,7 @@ public class play_mode extends AppCompatActivity {
                                     }
                                 }
                                 set_false();
-                                same[16] = false;
+                                same[16] = true;
                             }
                         }
 
