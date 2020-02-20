@@ -20,18 +20,30 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
 
+import java.util.ArrayList;
+
 public class play_mode extends AppCompatActivity {
 
     ImageButton btn_c_l,btn_d_l,btn_e_l,btn_f_l,btn_g_l,btn_a_l,btn_b_l,btn_c_h,btn_d_h,btn_e_h,btn_f_h,btn_g_h,btn_a_h,btn_b_h,btn_c_hh,btn_d_hh,btn_e_hh;
     ImageButton btn_switch, btn_sharp;
     ImageButton btn_vive;
-    ConstraintLayout CL;
+    ConstraintF CL;
     boolean changemod = false;
+    PianoView pianoView;
     boolean vive = true;
     boolean[] same = {false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false};
     int[] jangjo ={0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0};
 
     long LOADING_TIME = System.currentTimeMillis();
+
+
+    @Override
+    public boolean dispatchTouchEvent(MotionEvent event) {
+
+        // Setup onTouchEvent for detecting type of touch gesture
+        // Sensey.getInstance().setupDispatchTouchEvent(event);
+        return super.dispatchTouchEvent(event);
+    }
 
     @Override
     public void finish(){
@@ -78,7 +90,7 @@ public class play_mode extends AppCompatActivity {
         btn_sharp = (ImageButton)findViewById(R.id.btn_sharp);
 
         btn_vive = (ImageButton) findViewById(R.id.btn_vive);
-        CL = (ConstraintLayout)findViewById(R.id.CL);
+        CL = findViewById(R.id.CL);
 
 
 
@@ -2230,6 +2242,24 @@ public class play_mode extends AppCompatActivity {
                 return false;
             }
         });
+
+        ArrayList<ImageButton> Keys = new ArrayList<>();
+        for(ImageButton k: (new ImageButton[]{btn_c_l,btn_d_l,btn_e_l,btn_f_l,btn_g_l,btn_a_l,btn_b_l,btn_c_h,btn_d_h,btn_e_h,btn_f_h,
+                btn_g_h,btn_a_h,btn_b_h,btn_c_hh,btn_d_hh,btn_e_hh})){
+            Keys.add(k);
+        }
+
+        ArrayList<ImageButton> Other = new ArrayList<>();
+        for(ImageButton k: (new ImageButton[]{btn_sharp, btn_switch, btn_vive})){
+            Other.add(k);
+        }
+//
+
+        pianoView = new PianoView(CL, play_mode.this);
+        pianoView.setKeys(Keys, true);
+        pianoView.setKeys(Other, false);
+
+
     }
 
 

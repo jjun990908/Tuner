@@ -107,26 +107,14 @@ public class PianoView {
                         k.isPlaying = false;
                     }
                 }
-                String str = "";
 
-                for(int i = 0; i<17; i++){
-                    if(Keys.get(i).Down){
-                        str+=Keys.get(i).view.getId();
-                    }
-
-                }
-                System.out.println(str);
                 return true;
             }
 
         });
 
     }
-
-    private void KeyDown(Key key){
-        sp.play(Scale.do0_0,1,1,1,0,1.0f);
-        key.view.setImageResource(R.drawable.keyc_c);
-    }
+    
 
     private Key KeyForCoordinate(float x, float y){
         for(Key k : Keys){
@@ -141,7 +129,6 @@ public class PianoView {
 
         for(Key k : Other){
             if(k.contains(x, y)){
-                System.out.println("SSE");
                 return k;
             }
         }
