@@ -980,7 +980,7 @@ public class play_mode extends AppCompatActivity {
                                     }
                                 }
                                 set_false();
-                                same[16] = false;
+                                same[16] = true;
                             }
                         }
 
