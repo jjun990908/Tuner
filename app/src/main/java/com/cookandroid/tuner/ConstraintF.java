@@ -4,10 +4,8 @@ import android.content.Context;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.widget.ImageButton;
-import android.widget.ToggleButton;
 
 import androidx.constraintlayout.widget.ConstraintLayout;
-import androidx.core.view.MotionEventCompat;
 
 public class ConstraintF extends ConstraintLayout {
     ImageButton VIBE, TUNE, EXIT;
