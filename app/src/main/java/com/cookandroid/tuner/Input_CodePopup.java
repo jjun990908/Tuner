@@ -1,6 +1,7 @@
 package com.cookandroid.tuner;
 
 import android.annotation.SuppressLint;
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -29,6 +30,8 @@ public class Input_CodePopup extends AppCompatActivity {
     private final String TAG = getClass().getSimpleName();
     // api version 상수
     private static final int IAP_API_VERSION = 5;
+    private static final int LOGIN_REQUEST_CODE = 1001;
+    private static final int PURCHASE_REQUEST_CODE = 2001;
     TextView txt_codeview, text_Explanation2;
     Button btn_close, btn_confirmcode, btn_confirm, btn_buycode;
     boolean codenumbercheck = false, codeenglishcheck = false;
@@ -221,6 +224,8 @@ public class Input_CodePopup extends AppCompatActivity {
     // 2-5 실제 실행하는 메소드
     public void goBuy(){
         loadAllProducts();
+
+        buyProduct(AppConstant.WIKIWIKI_INAPP_3000,IapEnum.ProductType.IN_APP);
     }
     private void loadAllProducts() {
         ArrayList<String> inapp = new ArrayList<>();
@@ -303,7 +308,7 @@ public class Input_CodePopup extends AppCompatActivity {
             Log.e(TAG, "launchPurchaseFlowAsync onError, 원스토어 서비스앱의 업데이트가 필요합니다");
         }
     };
-    // 2-6 isValidPayload 매소드(럭키에 구현된거 가져옴)
+    // 2-6 line 257에 쓰이는 isValidPayload 매소드(럭키에 구현된거 가져옴)
     private boolean isValidPayload(String payload) {
         SharedPreferences sp = getPreferences(MODE_PRIVATE);
         String savedPayload = sp.getString(AppConstant.KEY_PAYLOAD, "");
@@ -313,7 +318,70 @@ public class Input_CodePopup extends AppCompatActivity {
 
         return savedPayload.equals(payload);
     }
+    // 2-6 리스너가 사용되는 메소드(호출은 goBuy에서 함)
+    private void buyProduct(final String productId, final IapEnum.ProductType productType) {
+        Log.d(TAG, "buyProduct() - productId:" + productId + " productType: " + productType.getType());
 
+        if (mPurchaseClient == null) {
+            Log.d(TAG, "PurchaseClient is not initialized");
+            return;
+        }
+
+        /*
+         * TODO: AppSecurity.generatePayload() 는 예제일 뿐, 각 개발사의 규칙에 맞는 payload를 생성하여야 한다.
+         *
+         * 구매요청을 위한 Developer payload를 생성합니다.
+         * Developer Payload 는 상품의 구매 요청 시에 개발자가 임의로 지정 할 수 있는 문자열입니다.
+         * 이 Payload 값은 결제 완료 이후에 응답 값에 다시 전달 받게 되며 결제 요청 시의 값과 차이가 있다면 구매 요청에 변조가 있다고 판단 하면 됩니다.
+         * Payload 검증을 통해 Freedom 과 같은 변조 된 요청을 차단 할 수 있으며, Payload 의 발급 및 검증 프로세스를 자체 서버를 통해 이루어 지도록합니다.
+         */
+        String devPayload = AppSecurity.generatePayload();
+
+        // 구매 후 dev payload를 검증하기 위하여 프리퍼런스에 임시로 저장합니다.
+        savePayloadString(devPayload);
+        //럭키꺼
+        //showProgress(this);
+
+        /*
+         * PurchaseClient의 launchPurchaseFlowAsync API를 이용하여 구매요청을 진행합니다.
+         * 상품명을 공백("")으로 요청할 경우 개발자센터에 등록된 상품명을 결제화면에 노출됩니다. 구매시 지정할 경우 해당 문자열이 결제화면에 노출됩니다.
+         */
+        if (mPurchaseClient.launchPurchaseFlowAsync(IAP_API_VERSION, this, PURCHASE_REQUEST_CODE, productId, "",
+                productType.getType(), devPayload, "", false, mPurchaseFlowListener) == false) {
+            // listener is null
+        }
+    }
+    // payload 저장하는 메소드
+    private void savePayloadString(String payload) {
+        SharedPreferences.Editor spe = getPreferences(MODE_PRIVATE).edit();
+        spe.putString(AppConstant.KEY_PAYLOAD, payload);
+        spe.commit();
+    }
+
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        Log.e(TAG, "onActivityResult resultCode " + resultCode);
+
+        switch (requestCode) {
+            case PURCHASE_REQUEST_CODE:
+                /*
+                 * launchPurchaseFlowAsync API 호출 시 전달받은 intent 데이터를 handlePurchaseData를 통하여 응답값을 파싱합니다.
+                 * 파싱 이후 응답 결과를 launchPurchaseFlowAsync 호출 시 넘겨준 PurchaseFlowListener 를 통하여 전달합니다.
+                 */
+                if (resultCode == Activity.RESULT_OK) {
+                    if (mPurchaseClient.handlePurchaseData(data) == false) {
+                        Log.e(TAG, "onActivityResult handlePurchaseData false ");
+                        // listener is null
+                    }
+                } else {
+                    Log.e(TAG, "onActivityResult user canceled");
+                    // user canceled , do nothing..
+                }
+                break;
+            default:
+        }
+    }
 
     protected void onDestroy() {
         super.onDestroy();
