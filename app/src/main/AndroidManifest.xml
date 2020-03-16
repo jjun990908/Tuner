@@ -40,6 +40,10 @@
         <activity android:name=".Input_CodePopup"
             android:theme="@style/popupTheme"
             android:screenOrientation="unspecified"/>
+        <meta-data
+            android:name="iap:api_version"
+            android:value="5">
+        </meta-data>
     </application>
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
     <uses-permission android:name="android.permission.RECORD_AUDIO"/>

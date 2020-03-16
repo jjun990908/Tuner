@@ -1,2 +1,2 @@
-include ':app', ':android-inapp-billing-v3-master', ':material-dialogs-master'
+include ':app', ':android-inapp-billing-v3-master', ':material-dialogs-master', ':iap_plugin_v17.02.00_20181012'
 rootProject.name='Tuner'
