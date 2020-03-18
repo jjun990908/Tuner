@@ -2,6 +2,7 @@ package com.cookandroid.tuner;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -36,6 +37,14 @@ public class Input_CodePopup extends AppCompatActivity {
     Button btn_close, btn_confirmcode, btn_confirm, btn_buycode;
     boolean codenumbercheck = false, codeenglishcheck = false, buycheck = false;
     Context mContext;
+    private ProgressDialog progressDialog;
+    String product5000 = "wikiwiki_inapp"; // 구매요청 상품ID
+    String productName = ""; // "" 일때는 개발자센터에 등록된 상품명 노출
+    String productType = IapEnum.ProductType.IN_APP.getType(); // "inapp"
+    String devPayload = AppSecurity.generatePayload();
+    String gameUserId = ""; // 디폴트 ""
+    boolean promotionApplicable = false;
+
 
 
 
@@ -47,8 +56,6 @@ public class Input_CodePopup extends AppCompatActivity {
 
         // 원스토어 서비스로 인앱결제를 위한 서비스 바인딩을 요청합니다.
         mPurchaseClient.connect(mServiceConnectionListener);
-
-
         setContentView(R.layout.input_code_popup);
         btn_confirm = findViewById(R.id.btn_confirm);
         btn_confirm.setOnClickListener(new View.OnClickListener() {
@@ -113,6 +120,7 @@ public class Input_CodePopup extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 goBuy();
+                Log.d(TAG, "goBuy함수 끝났어요~");
             }
         });
 
@@ -190,8 +198,10 @@ public class Input_CodePopup extends AppCompatActivity {
             return;
         }
         // 럭키꺼임
-        // showProgress(this);
+        //showProgress(this);
         mPurchaseClient.isBillingSupportedAsync(IAP_API_VERSION, mBillingSupportedListener);
+        mPurchaseClient.queryPurchasesAsync(IAP_API_VERSION, productType, mQueryPurchaseListener);
+        Log.d(TAG, "여기도 들리나요? 2-4");
     }
     // 2-5 리스너
     PurchaseClient.QueryProductsListener mQueryProductsListener = new PurchaseClient.QueryProductsListener() {
@@ -222,10 +232,13 @@ public class Input_CodePopup extends AppCompatActivity {
     };
     // 2-5 실제 실행하는 메소드
     public void goBuy(){
+        Log.d(TAG, "두번째");
         loadAllProducts();
+        Log.d(TAG, "4번째");
         buyProduct(AppConstant.WIKIWIKI_INAPP_3000,IapEnum.ProductType.IN_APP);
     }
     private void loadAllProducts() {
+        Log.d(TAG, "세번째");
         ArrayList<String> inapp = new ArrayList<>();
         inapp.add(AppConstant.WIKIWIKI_INAPP_3000);
         loadProducts(IapEnum.ProductType.IN_APP, inapp);
@@ -263,6 +276,7 @@ public class Input_CodePopup extends AppCompatActivity {
             // isValidPurchase 메서드 이름을 verifyPurchase 로 변경했음. *LuckyActivity.java line58 참고
             boolean validPurchase = AppSecurity.verifyPurchase(purchaseData.getPurchaseData(), purchaseData.getSignature());
             if (validPurchase) {
+                Log.e(TAG, "여기까지 올까요?");
                 if (AppConstant.WIKIWIKI_INAPP_3000.equals(purchaseData.getProductId())) {
                     consumeItem(purchaseData);
                 }
@@ -271,13 +285,14 @@ public class Input_CodePopup extends AppCompatActivity {
                     return;
                 }
             }
+
         @Override
         public void onError(IapResult result) {
             Log.e(TAG, "launchPurchaseFlowAsync onError, " + result.toString());
         }
         @Override
         public void onErrorRemoteException() {
-            Log.e(TAG, "launchPurchaseFlowAsync onError, 원스토어 서비스와 연결을 할 수 없습니다");
+            Log.e(TAG, "launchPurchaseFlowAsync onError, 원스토어 서비스와 연결을 할 수 없습니다 여기인가용?");
         }
 
         @Override
@@ -303,7 +318,7 @@ public class Input_CodePopup extends AppCompatActivity {
     // 2-6 리스너가 사용되는 메소드(호출은 goBuy에서 함)
     private void buyProduct(final String productId, final IapEnum.ProductType productType) {
         Log.d(TAG, "buyProduct() - productId:" + productId + " productType: " + productType.getType());
-
+        Log.d(TAG, "5번째");
         if (mPurchaseClient == null) {
             Log.d(TAG, "PurchaseClient is not initialized");
             return;
@@ -330,8 +345,9 @@ public class Input_CodePopup extends AppCompatActivity {
          */
         if (mPurchaseClient.launchPurchaseFlowAsync(IAP_API_VERSION, this, PURCHASE_REQUEST_CODE, productId, "",
                 productType.getType(), devPayload, "", false, mPurchaseFlowListener) == false) {
-            // listener is null
+            Log.e(TAG, "요기 들려요~");// listener is null
         }
+        Log.e(TAG, "요기 실행끝?");
     }
     // payload 저장하는 메소드
     private void savePayloadString(String payload) {
@@ -344,22 +360,6 @@ public class Input_CodePopup extends AppCompatActivity {
         @Override
         public void onSuccess(PurchaseData purchaseData) {
             Log.d(TAG, "consumeAsync onSuccess, " + purchaseData.toString());
-
-            SharedPreferences sharedPreferences = getSharedPreferences("check", MODE_PRIVATE);
-            Toast.makeText(Input_CodePopup.this, "연주모드를 사용하실 수 있습니다.", Toast.LENGTH_SHORT).show();
-            SharedPreferences.Editor editor = sharedPreferences.edit();
-            Boolean checked = true;
-            editor.putBoolean("codecheck", checked);
-            editor.commit();
-
-            SharedPreferences cc = getSharedPreferences("check", MODE_PRIVATE);
-            // Activity 전환
-            Toast.makeText(Input_CodePopup.this, "연주 모드", Toast.LENGTH_SHORT).show();
-            startActivity(new Intent(getApplicationContext(), play_mode.class));
-            overridePendingTransition(R.anim.anim_slide_down, R.anim.anim_slide_up);
-
-            finish();// 상품소비 성공, 이후 시나리오는 각 개발사의 구매완료 시나리오를 진행합니다.
-
         }
 
         @Override
@@ -384,30 +384,7 @@ public class Input_CodePopup extends AppCompatActivity {
     };
 
 
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        Log.e(TAG, "onActivityResult resultCode " + resultCode);
 
-        switch (requestCode) {
-            case PURCHASE_REQUEST_CODE:
-                /*
-                 * launchPurchaseFlowAsync API 호출 시 전달받은 intent 데이터를 handlePurchaseData를 통하여 응답값을 파싱합니다.
-                 * 파싱 이후 응답 결과를 launchPurchaseFlowAsync 호출 시 넘겨준 PurchaseFlowListener 를 통하여 전달합니다.
-                 */
-                if (resultCode == Activity.RESULT_OK) {
-                    if (mPurchaseClient.handlePurchaseData(data) == false) {
-                        Log.e(TAG, "onActivityResult handlePurchaseData false ");
-                        // listener is null
-                    }
-
-                } else {
-                    Log.e(TAG, "onActivityResult user canceled");
-                    // user canceled , do nothing..
-                }
-                break;
-            default:
-        }
-    }
     // 0318
     private void consumeItem(final PurchaseData purchaseData) {
         Log.e(TAG, "consumeItem() :: getProductId - " + purchaseData.getProductId() + " getPurchaseId -" + purchaseData.getPurchaseId());
@@ -422,6 +399,7 @@ public class Input_CodePopup extends AppCompatActivity {
     PurchaseClient.QueryPurchaseListener mQueryPurchaseListener = new PurchaseClient.QueryPurchaseListener() {
         @Override
         public void onSuccess(List<PurchaseData> purchaseDataList, String productType) {
+
             Log.d(TAG, "queryPurchasesAsync onSuccess, " + purchaseDataList.toString());
             if (IapEnum.ProductType.IN_APP.getType().equalsIgnoreCase(productType)) {
                 onLoadPurchaseInApp(purchaseDataList);
@@ -449,7 +427,9 @@ public class Input_CodePopup extends AppCompatActivity {
         public void onError(IapResult result) {
             Log.e(TAG, "queryPurchasesAsync onError, " + result.toString());
         }
+
     };
+
     // 0318
     private void onLoadPurchaseInApp(List<PurchaseData> purchaseDataList) {
         Log.i(TAG, "onLoadPurchaseInApp() :: purchaseDataList - " + purchaseDataList.toString());
@@ -458,10 +438,110 @@ public class Input_CodePopup extends AppCompatActivity {
             boolean result = AppSecurity.verifyPurchase(purchase.getPurchaseData(), purchase.getSignature());
 
             if (result) {
-                consumeItem(purchase);
+                SharedPreferences sharedPreferences = getSharedPreferences("check", MODE_PRIVATE);
+                Toast.makeText(Input_CodePopup.this, "연주모드를 사용하실 수 있습니다.", Toast.LENGTH_SHORT).show();
+                SharedPreferences.Editor editor = sharedPreferences.edit();
+                Boolean checked = true;
+                editor.putBoolean("codecheck", checked);
+                editor.commit();
+
+                SharedPreferences cc = getSharedPreferences("check", MODE_PRIVATE);
+
+
+                Toast.makeText(Input_CodePopup.this, "연주 모드", Toast.LENGTH_SHORT).show();
+                startActivity(new Intent(getApplicationContext(), play_mode.class));
+                overridePendingTransition(R.anim.anim_slide_down, R.anim.anim_slide_up);
+
+                finish();
             }
         }
     }
+    public void showProgress(final Context context) {
+        runOnUiThread(new Runnable() {
+            @Override
+            public void run() {
+                if (progressDialog != null && progressDialog.isShowing()) {
+                    return;
+                } else {
+                    progressDialog = new ProgressDialog(context);
+                    progressDialog.setMessage("Server connection...");
+                    progressDialog.show();
+                }
+            }
+        });
+
+    }
+    PurchaseClient.LoginFlowListener mLoginFlowListener = new PurchaseClient.LoginFlowListener() {
+        @Override
+        public void onSuccess() {
+            Log.d(TAG, "launchLoginFlowAsync onSuccess");
+            // 개발사에서는 로그인 성공시에 대한 이후 시나리오를 지정하여야 합니다.
+        }
+
+        @Override
+        public void onError(IapResult result) {
+            Log.e(TAG, "launchLoginFlowAsync onError, " + result.toString());
+        }
+
+        @Override
+        public void onErrorRemoteException() {
+            Log.e(TAG, "launchLoginFlowAsync onError, 원스토어 서비스와 연결을 할 수 없습니다1");
+        }
+
+        @Override
+        public void onErrorSecurityException() {
+            Log.e(TAG, "launchLoginFlowAsync onError, 비정상 앱에서 결제가 요청되었습니다");
+        }
+
+        @Override
+        public void onErrorNeedUpdateException() {
+            Log.e(TAG, "launchLoginFlowAsync onError, 원스토어 서비스앱의 업데이트가 필요합니다");
+        }
+
+    };
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        Log.e(TAG, "onActivityResult resultCode " + resultCode);
+
+        switch (requestCode) {
+            case LOGIN_REQUEST_CODE:
+
+                /*
+                 * launchLoginFlowAsync API 호출 시 전달받은 intent 데이터를 handleLoginData를 통하여 응답값을 파싱합니다.
+                 * 파싱 이후 응답 결과를 launchLoginFlowAsync 호출 시 넘겨준 LoginFlowListener 를 통하여 전달합니다.
+                 */
+
+                if (resultCode == Activity.RESULT_OK) {
+                    if (mPurchaseClient.handleLoginData(data) == false) {
+                        Log.e(TAG, "onActivityResult handleLoginData false1 ");
+                        // listener is null
+                    }
+                } else {
+                    Log.e(TAG, "onActivityResult user canceled");
+
+                    // user canceled , do nothing..
+                }
+                break;
+            case PURCHASE_REQUEST_CODE:
+                /*
+                 * launchPurchaseFlowAsync API 호출 시 전달받은 intent 데이터를 handlePurchaseData를 통하여 응답값을 파싱합니다.
+                 * 파싱 이후 응답 결과를 launchPurchaseFlowAsync 호출 시 넘겨준 PurchaseFlowListener 를 통하여 전달합니다.
+                 */
+                if (resultCode == Activity.RESULT_OK) {
+                    if (mPurchaseClient.handlePurchaseData(data) == false) {
+                        Log.e(TAG, "onActivityResult handlePurchaseData false2 여기로 온다는건가?");
+                        // listener is null
+                    }
+
+                } else {
+                    Log.e(TAG, "onActivityResult user canceled");
+                    // user canceled , do nothing..
+                }
+                break;
+            default:
+        }
+    }
+
 
     protected void onDestroy() {
         super.onDestroy();
