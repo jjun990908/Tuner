@@ -15,7 +15,7 @@ public class AppConstant {
 
     // 소모성 상품코드 - 5000원권 아이템
     // 소문자 대문자 issue (상수라서 대문자로 해놓음)
-    public static final String WIKIWIKI_INAPP_3000 = "w3000";
+    public static final String WIKIWIKI_INAPP_3000 = "wikiwiki_inapp";
 //
 //    // 소모성 상품코드 - 10,000원권 아이템
 //    public static final String PRODUCT_INAPP_10000 = "p10000";

@@ -17,6 +17,12 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
+    externalNativeBuild {
+        ndkBuild {
+            path file('src/main/jni/Android.mk')
+        }
+    }
+
 }
 
 dependencies {
@@ -27,5 +33,5 @@ dependencies {
     androidTestImplementation 'androidx.test.ext:junit:1.1.0'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.1.1'
     implementation project(path: ':material-dialogs-master')
-    implementation project(path: ':iap_plugin_v17.02.00_20181012')
+    implementation project(path: ':iap_plugin_v17.02.00_201810121')
 }

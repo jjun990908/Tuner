@@ -34,7 +34,7 @@ public class Input_CodePopup extends AppCompatActivity {
     private static final int PURCHASE_REQUEST_CODE = 2001;
     TextView txt_codeview, text_Explanation2;
     Button btn_close, btn_confirmcode, btn_confirm, btn_buycode;
-    boolean codenumbercheck = false, codeenglishcheck = false;
+    boolean codenumbercheck = false, codeenglishcheck = false, buycheck = false;
     Context mContext;
 
 
@@ -113,7 +113,6 @@ public class Input_CodePopup extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 goBuy();
-
             }
         });
 
@@ -224,7 +223,6 @@ public class Input_CodePopup extends AppCompatActivity {
     // 2-5 실제 실행하는 메소드
     public void goBuy(){
         loadAllProducts();
-
         buyProduct(AppConstant.WIKIWIKI_INAPP_3000,IapEnum.ProductType.IN_APP);
     }
     private void loadAllProducts() {
@@ -265,30 +263,14 @@ public class Input_CodePopup extends AppCompatActivity {
             // isValidPurchase 메서드 이름을 verifyPurchase 로 변경했음. *LuckyActivity.java line58 참고
             boolean validPurchase = AppSecurity.verifyPurchase(purchaseData.getPurchaseData(), purchaseData.getSignature());
             if (validPurchase) {
-                if (AppConstant.WIKIWIKI_INAPP_3000.equals(purchaseData.getProductId())) {{
-                    // MainActivity.java의 SharedPreferences cc 객체에 true 전달
-                    SharedPreferences sharedPreferences = getSharedPreferences("check", MODE_PRIVATE);
-                    Toast.makeText(Input_CodePopup.this, "연주모드를 사용하실 수 있습니다.", Toast.LENGTH_SHORT).show();
-                    SharedPreferences.Editor editor = sharedPreferences.edit();
-                    Boolean checked = true;
-                    editor.putBoolean("codecheck", checked);
-                    editor.commit();
-
-                    SharedPreferences cc = getSharedPreferences("check", MODE_PRIVATE);
-
-                    // Activity 전환
-                    Toast.makeText(Input_CodePopup.this, "연주 모드", Toast.LENGTH_SHORT).show();
-                    startActivity(new Intent(getApplicationContext(), play_mode.class));
-                    overridePendingTransition(R.anim.anim_slide_down, R.anim.anim_slide_up);
-
-                    finish();
+                if (AppConstant.WIKIWIKI_INAPP_3000.equals(purchaseData.getProductId())) {
+                    consumeItem(purchaseData);
                 }
-                } else {
+            } else {
                     Log.d(TAG, "launchPurchaseFlowAsync onSuccess, Signature is not valid.");
                     return;
                 }
             }
-        }
         @Override
         public void onError(IapResult result) {
             Log.e(TAG, "launchPurchaseFlowAsync onError, " + result.toString());
@@ -358,6 +340,49 @@ public class Input_CodePopup extends AppCompatActivity {
         spe.commit();
     }
 
+    PurchaseClient.ConsumeListener mConsumeListener = new PurchaseClient.ConsumeListener() {
+        @Override
+        public void onSuccess(PurchaseData purchaseData) {
+            Log.d(TAG, "consumeAsync onSuccess, " + purchaseData.toString());
+
+            SharedPreferences sharedPreferences = getSharedPreferences("check", MODE_PRIVATE);
+            Toast.makeText(Input_CodePopup.this, "연주모드를 사용하실 수 있습니다.", Toast.LENGTH_SHORT).show();
+            SharedPreferences.Editor editor = sharedPreferences.edit();
+            Boolean checked = true;
+            editor.putBoolean("codecheck", checked);
+            editor.commit();
+
+            SharedPreferences cc = getSharedPreferences("check", MODE_PRIVATE);
+            // Activity 전환
+            Toast.makeText(Input_CodePopup.this, "연주 모드", Toast.LENGTH_SHORT).show();
+            startActivity(new Intent(getApplicationContext(), play_mode.class));
+            overridePendingTransition(R.anim.anim_slide_down, R.anim.anim_slide_up);
+
+            finish();// 상품소비 성공, 이후 시나리오는 각 개발사의 구매완료 시나리오를 진행합니다.
+
+        }
+
+        @Override
+        public void onErrorRemoteException() {
+            Log.e(TAG, "consumeAsync onError, 원스토어 서비스와 연결을 할 수 없습니다");
+        }
+
+        @Override
+        public void onErrorSecurityException() {
+            Log.e(TAG, "consumeAsync onError, 비정상 앱에서 결제가 요청되었습니다");
+        }
+
+        @Override
+        public void onErrorNeedUpdateException() {
+            Log.e(TAG, "consumeAsync onError, 원스토어 서비스앱의 업데이트가 필요합니다");
+        }
+
+        @Override
+        public void onError(IapResult result) {
+            Log.e(TAG, "consumeAsync onError, " + result.toString());
+        }
+    };
+
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
@@ -374,12 +399,67 @@ public class Input_CodePopup extends AppCompatActivity {
                         Log.e(TAG, "onActivityResult handlePurchaseData false ");
                         // listener is null
                     }
+
                 } else {
                     Log.e(TAG, "onActivityResult user canceled");
                     // user canceled , do nothing..
                 }
                 break;
             default:
+        }
+    }
+    // 0318
+    private void consumeItem(final PurchaseData purchaseData) {
+        Log.e(TAG, "consumeItem() :: getProductId - " + purchaseData.getProductId() + " getPurchaseId -" + purchaseData.getPurchaseId());
+
+        if (mPurchaseClient == null) {
+            Log.d(TAG, "PurchaseClient is not initialized");
+            return;
+        }
+        mPurchaseClient.consumeAsync(IAP_API_VERSION, purchaseData, mConsumeListener);
+    }// 상품소비 성공, 이후 시나리오는 각 개발사의 구매완료 시나리오를 진행합니다.
+    // 0318
+    PurchaseClient.QueryPurchaseListener mQueryPurchaseListener = new PurchaseClient.QueryPurchaseListener() {
+        @Override
+        public void onSuccess(List<PurchaseData> purchaseDataList, String productType) {
+            Log.d(TAG, "queryPurchasesAsync onSuccess, " + purchaseDataList.toString());
+            if (IapEnum.ProductType.IN_APP.getType().equalsIgnoreCase(productType)) {
+                onLoadPurchaseInApp(purchaseDataList);
+                // 구매내역조회에서 받아온 관리형상품(inapp)의 경우 Signature 검증을 진행하고, 성공할 경우 상품소비를 진행합니다.
+            } else if (IapEnum.ProductType.AUTO.getType().equalsIgnoreCase(productType)) {
+                // 구매내역조회에서 받아온 월정액상품(auto)의 경우 Signature 검증을 진행하고, 각 개발사 앱 처리에 따라 이후 시나리오를 진행합니다.
+            }
+        }
+        @Override
+        public void onErrorRemoteException() {
+            Log.e(TAG, "queryPurchasesAsync onError, 원스토어 서비스와 연결을 할 수 없습니다");
+        }
+
+        @Override
+        public void onErrorSecurityException() {
+            Log.e(TAG, "queryPurchasesAsync onError, 비정상 앱에서 결제가 요청되었습니다");
+        }
+
+        @Override
+        public void onErrorNeedUpdateException() {
+            Log.e(TAG, "queryPurchasesAsync onError, 원스토어 서비스앱의 업데이트가 필요합니다");
+        }
+
+        @Override
+        public void onError(IapResult result) {
+            Log.e(TAG, "queryPurchasesAsync onError, " + result.toString());
+        }
+    };
+    // 0318
+    private void onLoadPurchaseInApp(List<PurchaseData> purchaseDataList) {
+        Log.i(TAG, "onLoadPurchaseInApp() :: purchaseDataList - " + purchaseDataList.toString());
+
+        for (PurchaseData purchase : purchaseDataList) {
+            boolean result = AppSecurity.verifyPurchase(purchase.getPurchaseData(), purchase.getSignature());
+
+            if (result) {
+                consumeItem(purchase);
+            }
         }
     }
 

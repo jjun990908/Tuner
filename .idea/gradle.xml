@@ -10,9 +10,9 @@
         <option name="modules">
           <set>
             <option value="$PROJECT_DIR$" />
-            <option value="$PROJECT_DIR$/android-inapp-billing-v3-master" />
             <option value="$PROJECT_DIR$/app" />
-            <option value="$PROJECT_DIR$/iap_plugin_v17.02.00_20181012" />
+            <option value="$PROJECT_DIR$/iap_plugin_v17.02.00_201810121" />
+            <option value="$PROJECT_DIR$/iap_plugin_v17.02.00_201810122" />
             <option value="$PROJECT_DIR$/material-dialogs-master" />
           </set>
         </option>
